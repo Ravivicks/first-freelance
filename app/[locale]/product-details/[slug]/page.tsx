@@ -21,11 +21,16 @@ const ProductDetails = () => {
       <div className="h-[250px] relative mb-10">
         <Image src="/images/b1.png" alt="banner" fill />
       </div>
-      <div className="flex gap-3 flex-wrap">
+      <div className="flex gap-3 flex-wrap mb-16">
         {products?.map((product, index) => (
-          <Link href={`/${locale}/products/${product._id}`} key={index}>
-            <ProductCard product={product} />
-          </Link>
+          <div
+            className="flex-none w-full sm:w-1/2 md:w-1/3 lg:w-1/6 flex-grow"
+            key={index}
+          >
+            <Link href={`/${locale}/products/${product._id}`} key={index}>
+              <ProductCard product={product} />
+            </Link>
+          </div>
         ))}
       </div>
     </div>

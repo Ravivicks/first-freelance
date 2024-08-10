@@ -29,7 +29,10 @@ const FeaturedPartner = () => {
       </h1>
       <div className=" flex gap-3 flex-wrap p-3">
         {partnerList.map((item, index) => (
-          <Card className="rounded-xl hover:shadow-lg flex-grow" key={index}>
+          <Card
+            className="rounded-xl hover:shadow-lg w-1/6 flex-grow"
+            key={index}
+          >
             <CardContent className="flex flex-col items-center justify-center mt-3 ">
               <div>
                 <Image

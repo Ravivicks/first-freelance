@@ -11,7 +11,7 @@ type Props = {
 
 const FeaturedProductCard = ({ product }: Props) => {
   return (
-    <Card className="group relative w-[297px] border rounded-xl mb-10 p-3 overflow-hidden transition-shadow duration-300 hover:shadow-lg flex-grow">
+    <Card className="group relative w-1/6 border rounded-xl mb-10 p-3 overflow-hidden transition-shadow duration-300 hover:shadow-lg flex-grow">
       <CardContent className="w-full transition-opacity duration-300 group-hover:opacity-50">
         <div className="relative mb-3 h-[220px]">
           <Image

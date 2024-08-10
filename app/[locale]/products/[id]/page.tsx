@@ -46,20 +46,23 @@ const ProductDetailsById = () => {
         <SingleProductDetails product={product} />
       </div>
       <div className="mt-10 flex justify-between gap-10">
-        <div className="min-w-max">
+        <div className="w-fit">
           <div className="flex justify-between items-center">
             <h1 className="text-2xl font-bold">Similar Product</h1>
-            <p>Feedback | See all</p>
+            <p className="text-sm text-gray-500">Feedback | See all</p>
           </div>
-          <div className="flex flex-wrap gap-3 mt-5">
+          <div className="flex flex-wrap gap-4 mt-5">
             {products?.slice(0, 3).map((product, index) => (
-              <div className="w-[266px]" key={index}>
-                <ProductCard product={product} />
+              <div
+                className="flex-none w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex-grow"
+                key={index}
+              >
+                <ProductCard product={product} isButton />
               </div>
             ))}
           </div>
         </div>
-        <div>
+        <div className="w-fit">
           <ProductShiping />
         </div>
       </div>
