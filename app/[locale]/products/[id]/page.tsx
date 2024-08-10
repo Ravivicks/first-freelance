@@ -52,8 +52,8 @@ const ProductDetailsById = () => {
             <p>Feedback | See all</p>
           </div>
           <div className="flex flex-wrap gap-3 mt-5">
-            {products?.slice(0, 3).map((product) => (
-              <div className="w-[266px]">
+            {products?.slice(0, 3).map((product, index) => (
+              <div className="w-[266px]" key={index}>
                 <ProductCard product={product} />
               </div>
             ))}
