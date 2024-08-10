@@ -1,7 +1,6 @@
 import React from "react";
-import { Card, CardContent, CardFooter } from "./ui/card";
+import { Card } from "./ui/card";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
 
 const navItems = [
   {
@@ -18,7 +17,7 @@ const navItems = [
   },
   {
     title: "Signaling Device",
-    image: "https://m.media-amazon.com/images/I/11X4Y2pwolL.jpg",
+    image: "https://m.media-amazon.com/images/I/51uCtjrs-kL._SX425_.jpg",
     url: "/offers",
   },
   {
@@ -31,27 +30,28 @@ const navItems = [
 const FeaturedCategory = () => {
   return (
     <Card className="mb-16">
-      <h1 className="text-3xl font-bold mb-5 bg-gradient-to-r from-slate-100 to-green-200 py-4 px-4">
+      <h1 className="text-3xl font-bold mb-5 bg-gradient-to-r from-slate-100 to-green-200 py-4 px-4 text-center">
         Featured Category
       </h1>
-      <div className=" flex gap-3 flex-wrap p-3">
+      <div className="flex gap-3 flex-wrap p-3">
         {navItems.map((item, index) => (
-          <Card className="rounded-xl hover:shadow-lg flex-grow" key={index}>
-            <CardContent className="flex flex-row-reverse items-center justify-center">
+          <a
+            href={item.url}
+            className="rounded-xl flex justify-evenly items-center w-1/6 hover:shadow-lg border p-4 transition-shadow flex-grow"
+            key={index}
+          >
+            <div className="relative">
               <Image
                 src={item.image}
-                alt="p-1"
-                width={150}
-                height={200}
-                className="object-fit"
+                alt={item.title}
+                width={100}
+                height={100}
               />
-              <div>
-                <h1 className="font-extrabold text-2xl w-[150px] z-0">
-                  {item.title}
-                </h1>
-              </div>
-            </CardContent>
-          </Card>
+            </div>
+            <h1 className="text-xl font-bold text-center w-1/2">
+              {item.title}
+            </h1>
+          </a>
         ))}
       </div>
     </Card>

@@ -1,9 +1,13 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Input } from "@/components/ui/input";
 import MobileNav from "./MobileNav";
 import { useMountedState } from "react-use";
+import { User2Icon } from "lucide-react";
+import { UserButton, useUser } from "@clerk/nextjs";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 const navIcons = [
   { src: "/assets/icons/bag.svg", alt: "bag" },
@@ -11,6 +15,7 @@ const navIcons = [
 ];
 
 const Navbar = () => {
+  const { user } = useUser();
   return (
     <header className="w-full">
       <nav className=" py-8 flex justify-between items-center">
@@ -56,6 +61,18 @@ const Navbar = () => {
               className="object-contain"
             />
           ))}
+          {user ? (
+            <div className="flex gap-2 items-center justify-center">
+              <UserButton />
+              <p className="capitalize">
+                {user && `${user?.firstName} ${user?.lastName}`}
+              </p>
+            </div>
+          ) : (
+            <Link href={user ? "/" : "/sign-in"}>
+              <User2Icon className="size-5" />
+            </Link>
+          )}
         </div>
       </nav>
     </header>

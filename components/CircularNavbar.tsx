@@ -16,7 +16,7 @@ const navItems = [
   { title: "Light Dimmer", image: "/nav/dimmer.svg", url: "/offers" },
   { title: "USB Charger", image: "/nav/usb-charger-wire.svg", url: "/offers" },
   { title: "Wiser", image: "/nav/wiser.svg", url: "/offers" },
-  { title: "Night Foot Lamp", image: "/nav/lamp.svg", url: "/offers" },
+  // { title: "Night Foot Lamp", image: "/nav/lamp.svg", url: "/offers" },
   //   { title: "Telephone Outlet", image: "/nav/offer.svg", url: "/offers" },
   //   { title: "Switches Bundle", image: "/nav/offer.svg", url: "/offers" },
 ];
