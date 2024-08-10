@@ -79,11 +79,13 @@ export function ProductViewCarousal({ imageArr, image }: IProps) {
         <div className="py-2 flex items-center">
           <div className="flex flex-wrap flex-col justify-center">
             {displayedThumbnails?.map((img, index) => (
-              <img
+              <Image
                 key={index}
                 src={img}
+                width={100}
+                height={100}
                 alt={`Thumbnail ${index + 1}`}
-                className={`w-16 h-16 mr-2 rounded cursor-pointer mx-3 border p-2 ${
+                className={`w-16 h-16 mr-2 rounded cursor-pointer mx-3 my-1 border p-2 ${
                   current === index + 1 ? "border-2 border-blue-500" : ""
                 }`}
                 onClick={() => {

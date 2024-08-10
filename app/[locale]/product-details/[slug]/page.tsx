@@ -22,8 +22,8 @@ const ProductDetails = () => {
         <Image src="/images/b1.png" alt="banner" fill />
       </div>
       <div className="flex gap-3 flex-wrap">
-        {products?.map((product) => (
-          <Link href={`/${locale}/products/${product._id}`} key={product._id}>
+        {products?.map((product, index) => (
+          <Link href={`/${locale}/products/${product._id}`} key={index}>
             <ProductCard product={product} />
           </Link>
         ))}
