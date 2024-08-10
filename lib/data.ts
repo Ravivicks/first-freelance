@@ -5,7 +5,7 @@ export const menuItems = [
     subMenu: [
       {
         title: "Push Button and Pilot Light",
-        url: "/",
+        url: "/product-details/push-button-and-pilot-light",
       },
       {
         title: "Miniature Relays",

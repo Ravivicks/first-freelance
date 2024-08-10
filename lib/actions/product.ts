@@ -33,3 +33,47 @@ export async function getAllProducts(): Promise<IProduct[] | any> {
     throw new Error("Failed to fetch products");
   }
 }
+
+export async function getProductById(
+  productId: string
+): Promise<IProduct | null> {
+  try {
+    await connectToDB();
+
+    // Use lean() to get a plain JavaScript object
+    const product = await Product.findOne({ _id: productId }).lean();
+
+    if (!product) return null;
+
+    // Ensure all fields match the IProduct interface
+    const transformedProduct: IProduct = {
+      _id: product._id.toString(),
+      url: product.url,
+      currency: product.currency,
+      image: product.image,
+      title: product.title,
+      discount: product.discount,
+      currentPrice: product.currentPrice,
+      originalPrice: product.originalPrice,
+      priceHistory: product.priceHistory || [], // Handle potential undefined
+      productInformationTech: product.productInformationTech || [],
+      productInformationAdditional: product.productInformationAdditional || [],
+      sliderImages: product.sliderImages || [],
+      highestPrice: 0,
+      lowestPrice: 0,
+      averagePrice: 0,
+      discountRate: 0,
+      description: "",
+      productDescription: "",
+      category: "",
+      reviewsCount: 0,
+      stars: 0,
+      isOutOfStock: false,
+    };
+
+    return transformedProduct;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}

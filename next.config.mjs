@@ -7,6 +7,7 @@ const nextConfig = {
       "images.unsplash.com",
       "m.media-amazon.com",
       "download.schneider-electric.com",
+      "i.ebayimg.com",
     ],
   },
   experimental: {

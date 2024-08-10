@@ -1,19 +1,42 @@
 import React from "react";
 import { Button } from "./ui/button";
+import Image from "next/image";
+import { Star } from "lucide-react";
+import StarRating from "./StarRating";
+import { IProduct } from "@/types";
 
-const SingleProductDetails = () => {
+interface IProps {
+  product?: IProduct;
+}
+
+const SingleProductDetails = ({ product }: IProps) => {
   return (
     <div className="max-w-lg">
-      <h1 className="text-2xl my-2">
-        Schneider Electric Plastic 2 Pole 25A, 30Ma Residual Current Circuit
-        Breaker, Standard Size (White), Small (xID)
-      </h1>
-      <p className="font-bold my-2">4.2 Star</p>
+      <div className="flex justify-between my-4">
+        <Image
+          src="/images/logo.svg"
+          alt="company-logo"
+          width={50}
+          height={20}
+        />
+        <p className="text-muted-foreground text-sm">Product code</p>
+      </div>
+      <h1 className="text-2xl my-2">{product?.title}</h1>
+      <div className=" my-2 flex gap-4 text-muted-foreground text-xs items-center justify-start">
+        <StarRating size={4} rating={product?.stars || 0} />
+        42 Reviews
+      </div>
       <p className="font-bold">
-        $<span className="font-bold text-2xl">2800</span>
+        {product?.currency}
+        <span className="font-bold text-2xl">{product?.currentPrice}</span>
       </p>
       <p className="font-semibold text-xs">
-        M.R.P.: <span className="line-through">$5.9</span>(63% off)
+        M.R.P.:{" "}
+        <span className="line-through">
+          {product?.currency}
+          {product?.originalPrice}
+        </span>
+        (63% off)
       </p>
       <p className="text-xs font-semibold text-muted-foreground my-4">
         Get it by Friday 9 August.
@@ -48,5 +71,4 @@ const SingleProductDetails = () => {
     </div>
   );
 };
-
 export default SingleProductDetails;

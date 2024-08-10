@@ -13,7 +13,7 @@ const navIcons = [
 const Navbar = () => {
   return (
     <header className="w-full">
-      <nav className="md:mx-16 mx-5 py-8 flex justify-between items-center">
+      <nav className=" py-8 flex justify-between items-center">
         <div className="block sm:hidden">
           <MobileNav />
         </div>

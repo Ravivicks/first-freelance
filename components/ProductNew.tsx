@@ -20,7 +20,7 @@ const imageArr = [
 
 export function ProductNew() {
   return (
-    <div className="my-16">
+    <div className="mt-6 mr-10">
       <Carousel
         opts={{
           align: "start",
@@ -32,7 +32,7 @@ export function ProductNew() {
           {imageArr.map((item, index) => (
             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/4">
               <div className="p-1">
-                <Card>
+                <Card className="flex flex-col items-center rounded-xl">
                   <CardContent className="flex items-center aspect-auto justify-center">
                     <Image
                       src={item}
@@ -42,8 +42,8 @@ export function ProductNew() {
                       className="object-fill"
                     />
                   </CardContent>
-                  <CardFooter className="mt-3">
-                    <p className="text-2xl">
+                  <CardFooter className="mt-3 ">
+                    <p className="text-2xl self-center">
                       <span className="font-extrabold">Easy</span> Altivar 310
                     </p>
                   </CardFooter>
