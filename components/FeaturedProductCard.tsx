@@ -1,15 +1,27 @@
+"use client";
 import { IProduct } from "@/types";
 import Image from "next/image";
 import React from "react";
 import { Button } from "./ui/button";
 import { formatNumber } from "@/lib/utils";
 import { Card, CardContent } from "./ui/card";
+import { useCartStore } from "@/stores/useCartStore";
+import { useEnquiry } from "@/hooks/use-enquire-open";
+import useFromStore from "@/hooks/useFromStore";
+import { useCartDetails } from "@/hooks/use-cart-details";
 
 type Props = {
-  product?: IProduct;
+  product: IProduct;
 };
 
 const FeaturedProductCard = ({ product }: Props) => {
+  const addToCart = useCartStore((state) => state.addToCart);
+  const { onOpen } = useEnquiry();
+  const { onOpen: cartOpen } = useCartDetails();
+  const cart = useFromStore(useCartStore, (state) => state.cart);
+
+  const isInCart = cart?.some((item) => item._id === product._id);
+
   return (
     <Card className="group relative w-1/6 border rounded-xl mb-10 p-3 overflow-hidden transition-shadow duration-300 hover:shadow-lg flex-grow">
       <CardContent className="w-full transition-opacity duration-300 group-hover:opacity-50">
@@ -42,11 +54,19 @@ const FeaturedProductCard = ({ product }: Props) => {
       {/* Buttons that appear in the middle on hover */}
       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <div className="flex gap-2">
-          <Button variant="outline" className="rounded-full w-full">
-            Enquire Now
+          <Button
+            variant="outline"
+            className="rounded-full flex-grow"
+            onClick={isInCart ? cartOpen : () => addToCart(product)}
+          >
+            {isInCart ? "Go to cart" : "Add to cart"}
           </Button>
-          <Button variant="destructive" className="rounded-full w-full">
-            Buy Now
+          <Button
+            variant="destructive"
+            className="rounded-full flex-grow"
+            onClick={() => onOpen(product._id)}
+          >
+            Enquire Now
           </Button>
         </div>
       </div>

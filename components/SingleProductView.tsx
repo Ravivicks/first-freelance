@@ -14,6 +14,7 @@ import SingleProductDetails from "./SingleProductDetails";
 import { useGetProducts } from "@/features/products/use-get-products";
 import { useParams } from "next/navigation";
 import { Badge } from "./ui/badge";
+import { IProduct } from "@/types";
 
 const imageArr = [
   "https://m.media-amazon.com/images/I/411oqw+ekUL._AC_CR0%2C0%2C0%2C0_SX615_SY462_.jpg",
@@ -63,7 +64,7 @@ export default function SingleProductView() {
           <CarouselPrevious />
           <CarouselNext />
         </Carousel>
-        <SingleProductDetails product={products?.[0]} />
+        <SingleProductDetails product={products?.[0] as IProduct} />
       </div>
     </>
   );

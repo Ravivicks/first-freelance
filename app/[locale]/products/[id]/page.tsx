@@ -43,7 +43,7 @@ const ProductDetailsById = () => {
           imageArr={product?.sliderImages || []}
           image={product?.image}
         />
-        <SingleProductDetails product={product} />
+        <SingleProductDetails product={product as IProduct} />
       </div>
       <div className="mt-10 flex justify-between gap-10">
         <div className="w-fit">
@@ -68,7 +68,7 @@ const ProductDetailsById = () => {
       </div>
       <h1 className="text-2xl font-bold">Mostly Visited Products</h1>
       <ProductNew />
-      <Tabs defaultValue="product" className="mt-10">
+      <Tabs defaultValue="review" className="mt-10">
         <TabsList className="bg-inherit">
           <TabsTrigger value="product" className="text-2xl font-bold">
             Product Details

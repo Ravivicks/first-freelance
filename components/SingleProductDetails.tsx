@@ -1,17 +1,34 @@
 import React from "react";
 import { Button } from "./ui/button";
 import Image from "next/image";
-import { Star } from "lucide-react";
 import StarRating from "./StarRating";
 import { IProduct } from "@/types";
+import { useCartStore } from "@/stores/useCartStore";
+import { useEnquiry } from "@/hooks/use-enquire-open";
+import { useCartDetails } from "@/hooks/use-cart-details";
+import useFromStore from "@/hooks/useFromStore";
 
 interface IProps {
-  product?: IProduct;
+  product: IProduct;
 }
 
 const SingleProductDetails = ({ product }: IProps) => {
+  const addToCart = useCartStore((state) => state.addToCart);
+  const { onOpen } = useEnquiry();
+  const { onOpen: cartOpen } = useCartDetails();
+  const cart = useFromStore(useCartStore, (state) => state.cart);
+
+  const isInCart = cart?.some((item) => item._id === product._id);
+
+  const onBuyNow = (product: IProduct) => {
+    if (!isInCart) {
+      addToCart(product);
+    }
+
+    cartOpen();
+  };
   return (
-    <div className="max-w-lg">
+    <div className="max-w-md">
       <div className="flex justify-between my-4">
         <Image
           src="/images/logo.svg"
@@ -60,14 +77,36 @@ const SingleProductDetails = ({ product }: IProps) => {
           circular and low-CO2 products.
         </li>
       </ul>
-      <div className="flex justify-between flex-col md:flex-row gap-10 my-10">
-        <Button variant="outline" className="rounded-full w-full">
-          Enquire Now
-        </Button>
-        <Button variant="destructive" className="rounded-full w-full">
+      <div className="flex justify-between flex-col md:flex-row gap-2 my-10">
+        <Button
+          variant="destructive"
+          className="rounded-full flex-grow"
+          onClick={() => onBuyNow(product)}
+        >
           Buy Now
         </Button>
+        <Button
+          variant="outline"
+          className="rounded-full flex-grow"
+          onClick={isInCart ? cartOpen : () => addToCart(product)}
+        >
+          {isInCart ? "Go to cart" : "Add to cart"}
+        </Button>
+        <Button
+          variant="destructive"
+          className="rounded-full flex-grow"
+          onClick={() => onOpen(product._id)}
+        >
+          Enquire Now
+        </Button>
       </div>
+      {/* <Button
+        variant="destructive"
+        className="rounded-full"
+        onClick={() => onBuyNow(product)}
+      >
+        Buy Now
+      </Button> */}
     </div>
   );
 };

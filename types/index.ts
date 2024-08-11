@@ -57,3 +57,13 @@ export type UserProps = {
   Age: number;
   City: string;
 };
+
+export type EnquireProps = {
+  email: string;
+  mobile: string;
+  productName: string;
+  productId: string;
+  productPrice: number;
+  enquiryDescription: string;
+  quantity: number;
+};

@@ -1,16 +1,15 @@
 "use client";
-import React from "react";
-import { Card, CardContent } from "./ui/card";
-import Image from "next/image";
-import { useGetProducts } from "@/features/products/use-get-products";
-import { useParams } from "next/navigation";
-import Link from "next/link";
-import ProductCard from "./ProductCard";
+import React, { useEffect } from "react";
+import { Card } from "./ui/card";
 import FeaturedProductCard from "./FeaturedProductCard";
+import { useProductsStore } from "@/stores/useProductStore";
 
 const FeaturedProduct = () => {
-  const { data: products, isLoading } = useGetProducts();
-  const { locale } = useParams();
+  const { products, isLoading, error, fetchData } = useProductsStore();
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   if (isLoading) {
     return <div>Loading</div>;

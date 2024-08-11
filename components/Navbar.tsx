@@ -4,10 +4,12 @@ import Link from "next/link";
 import React from "react";
 import { Input } from "@/components/ui/input";
 import MobileNav from "./MobileNav";
-import { useMountedState } from "react-use";
 import { User2Icon } from "lucide-react";
 import { UserButton, useUser } from "@clerk/nextjs";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import useFromStore from "@/hooks/useFromStore";
+import { useCartStore } from "@/stores/useCartStore";
+import { Badge } from "./ui/badge";
+import { useCartDetails } from "@/hooks/use-cart-details";
 
 const navIcons = [
   { src: "/assets/icons/bag.svg", alt: "bag" },
@@ -16,6 +18,9 @@ const navIcons = [
 
 const Navbar = () => {
   const { user } = useUser();
+  const cart = useFromStore(useCartStore, (state) => state.cart);
+  const { onOpen } = useCartDetails();
+
   return (
     <header className="w-full">
       <nav className=" py-8 flex justify-between items-center">
@@ -51,16 +56,26 @@ const Navbar = () => {
             height={28}
             className="object-contain md:hidden"
           />
-          {navIcons.map((icon) => (
+          <div className="relative" onClick={onOpen}>
             <Image
-              key={icon.alt}
-              src={icon.src}
-              alt={icon.alt}
+              src="/assets/icons/bag.svg"
+              alt="cart"
               width={28}
               height={28}
               className="object-contain"
             />
-          ))}
+            <Badge className="bg-destructive rounded-full absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2">
+              {cart?.length}
+            </Badge>
+          </div>
+
+          <Image
+            src="/assets/icons/black-heart.svg"
+            alt="heart"
+            width={28}
+            height={28}
+            className="object-contain"
+          />
           {user ? (
             <div className="flex gap-2 items-center justify-center">
               <UserButton />

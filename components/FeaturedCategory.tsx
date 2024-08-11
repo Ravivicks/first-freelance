@@ -30,7 +30,7 @@ const navItems = [
 const FeaturedCategory = () => {
   return (
     <Card className="mb-16">
-      <h1 className="text-3xl font-bold mb-5 bg-gradient-to-r from-slate-100 to-green-200 py-4 px-4 text-center">
+      <h1 className="text-3xl font-bold mb-5 bg-gradient-to-r from-slate-100 to-green-200 py-4 px-4">
         Featured Category
       </h1>
       <div className="flex gap-3 flex-wrap p-3">
