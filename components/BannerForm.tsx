@@ -23,12 +23,7 @@ type Props = {
   disabled?: boolean;
 };
 
-export const BannerForm = ({
-  id,
-  onSubmit,
-  defaultValues,
-  disabled,
-}: Props) => {
+export const BannerForm = ({ onSubmit, defaultValues, disabled }: Props) => {
   const form = useForm<FormValues>({
     resolver: zodResolver(formBannerSchema),
     defaultValues: defaultValues,
@@ -88,7 +83,7 @@ export const BannerForm = ({
           disabled={disabled}
           variant="destructive"
         >
-          {`${id} ? Submitting...... : Submit your request`}
+          {disabled ? "Submitting......" : "Submit"}
         </Button>
       </form>
     </Form>

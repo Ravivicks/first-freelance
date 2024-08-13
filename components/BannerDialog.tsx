@@ -29,7 +29,7 @@ const BannerDialog = () => {
       <DialogContent>
         <div>
           <DialogHeader>
-            <DialogTitle>Please Confirm Your Details</DialogTitle>
+            <DialogTitle>Partner Banner Form</DialogTitle>
           </DialogHeader>
 
           <BannerForm
