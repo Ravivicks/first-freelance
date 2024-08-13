@@ -83,13 +83,12 @@ export const BannerForm = ({
             );
           }}
         />
-
         <Button
           className="w-full rounded-xl"
           disabled={disabled}
           variant="destructive"
         >
-          {id ? "Submitting......" : "Submit your request"}
+          {`${id} ? Submitting...... : Submit your request`}
         </Button>
       </form>
     </Form>
