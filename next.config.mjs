@@ -8,6 +8,7 @@ const nextConfig = {
       "m.media-amazon.com",
       "download.schneider-electric.com",
       "i.ebayimg.com",
+      "www.tsisolutions.us",
     ],
   },
   experimental: {

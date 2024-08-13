@@ -60,7 +60,7 @@ const ProductCard = ({ product, isButton }: Props) => {
           </h1>
           <div className="my-2 flex gap-1 text-muted-foreground items-center">
             <p className="text-xs font-semibold">{product?.stars}</p>
-            <StarRating size={3} rating={product?.stars || 0} />
+            <StarRating size={4} rating={product?.stars || 0} />
           </div>
           <p className="font-semibold text-lg mb-2">
             {product?.currency}

@@ -1,6 +1,8 @@
+"use client";
 import React from "react";
 import { Card, CardContent } from "./ui/card";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const partnerList = [
   {
@@ -8,7 +10,7 @@ const partnerList = [
     image: "/featured/partner/siemens.png",
   },
   {
-    title: "Schneider",
+    title: "Schneider Electric",
     image: "/featured/partner/schneider.jpg",
   },
   {
@@ -16,12 +18,13 @@ const partnerList = [
     image: "/featured/partner/siemens.png",
   },
   {
-    title: "Schneider",
+    title: "Schneider Electric",
     image: "/featured/partner/schneider.jpg",
   },
 ];
 
 const FeaturedPartner = () => {
+  const router = useRouter();
   return (
     <Card className="mb-16">
       <h1 className="text-3xl font-bold mb-5 bg-gradient-to-r from-slate-100 to-green-200 py-4 px-4">
@@ -32,6 +35,9 @@ const FeaturedPartner = () => {
           <Card
             className="rounded-xl hover:shadow-lg w-1/6 flex-grow"
             key={index}
+            onClick={() => {
+              router.push(`/partner-product-details/${item.title}`);
+            }}
           >
             <CardContent className="flex flex-col items-center justify-center mt-3 ">
               <div>

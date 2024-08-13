@@ -15,8 +15,10 @@ export type IProduct = {
   url: string;
   currency: string;
   image: string;
+  pdfFile: string;
   title: string;
   discount: string;
+  brand: string;
   currentPrice: number;
   originalPrice: number;
   priceHistory: PriceHistoryItem[] | [];
@@ -52,10 +54,21 @@ export type EmailProductInfo = {
   url: string;
 };
 
-export type UserProps = {
-  Name: string;
-  Age: number;
-  City: string;
+export type ProductProps = {
+  References: string;
+  "Image Link-": string;
+  "360 Image Link": string | 0;
+  "Short Description": string;
+  "Medium description": string;
+  "Long Description": string;
+  "Product Line Helios Code": string;
+  "Product Line Name": string;
+  Brand: string;
+  EAN13: string;
+  GTIN: string;
+  keywords: string | 0;
+  LP: number;
+  PDP: string;
 };
 
 export type EnquireProps = {
@@ -66,4 +79,9 @@ export type EnquireProps = {
   productPrice: number;
   enquiryDescription: string;
   quantity: number;
+};
+
+export type IPartnerBanner = {
+  image: string;
+  brand: string;
 };

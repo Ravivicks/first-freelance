@@ -1,34 +1,59 @@
 "use server";
 
-import { EnquireProps, IProduct } from "@/types";
+import { EnquireProps, IPartnerBanner, IProduct } from "@/types";
 import Product from "../models/product.model";
 import { connectToDB } from "../mongoose";
 import Enquiry from "../models/enquiry.model";
+import PartnerBanner from "../models/banner.model";
 
-// import { connectToDB } from "../mongodb";
+const CHUNK_SIZE = 500; // Adjust based on performance testing
 
 export async function createBulkProducts(products: IProduct[]) {
   try {
-    // await connectToDB();
-    const result = await Product.insertMany(products);
-    // Call revalidatePath if it's a custom function to revalidate static paths in your app
-    // If it's not needed, you can remove this line
-    // revalidatePath('/');
-    return result;
+    await connectToDB();
+
+    // Process in chunks
+    for (let i = 0; i < products.length; i += CHUNK_SIZE) {
+      const chunk = products.slice(i, i + CHUNK_SIZE);
+
+      // Insert chunk
+      const result = await Product.insertMany(
+        chunk.map((product) => product, { ordered: false })
+      );
+      if (!result) {
+        return { error: "faild" };
+      }
+    }
+
+    return { result: "All products created successfully" };
   } catch (error) {
-    console.error("Error creating bulk users:", error);
+    console.error("Error creating bulk products:", error);
   }
 }
 
-export async function getAllProducts(): Promise<IProduct[] | any> {
+export async function getAllProducts(
+  page: number = 1,
+  pageSize: number = 20,
+  brand?: string
+): Promise<IProduct[] | any> {
   try {
     await connectToDB();
-    // Use lean() to get plain JavaScript objects
-    const products = await Product.find().lean();
-    // return products.map((product) => ({
-    //   ...product,
-    //   _id: product._id.toString(), // Convert ObjectId to string
-    // }));
+
+    // Create a filter object
+    const filter: any = {};
+    if (brand) {
+      filter.brand = brand;
+    }
+
+    // Calculate the number of documents to skip
+    const skip = (page - 1) * pageSize;
+
+    // Fetch products with brand filtering and pagination
+    const products = await Product.find(filter)
+      .skip(skip)
+      .limit(pageSize)
+      .lean();
+
     return JSON.parse(JSON.stringify(products));
   } catch (error) {
     console.error(error);
@@ -45,6 +70,31 @@ export async function getProductById(
     // Use lean() to get a plain JavaScript object
     const product = await Product.findOne({ _id: productId });
     return JSON.parse(JSON.stringify(product));
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
+
+export async function createNewPartnerBanner(banner: IPartnerBanner) {
+  try {
+    await connectToDB();
+    const result = await PartnerBanner.create(banner);
+    return JSON.parse(JSON.stringify(result));
+  } catch (error) {
+    console.error("Error creating Banner:", error);
+  }
+}
+
+export async function getBannerByBrand(
+  brand: string
+): Promise<IPartnerBanner | null> {
+  try {
+    await connectToDB();
+
+    // Use lean() to get a plain JavaScript object
+    const banner = await PartnerBanner.findOne({ brand: brand });
+    return JSON.parse(JSON.stringify(banner));
   } catch (error) {
     console.log(error);
     return null;

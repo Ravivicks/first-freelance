@@ -1,31 +1,5 @@
-import { PriceHistoryItem, ProductInfoItem, User } from "@/types";
-import mongoose, { Document, Model, Schema } from "mongoose";
-
-interface IProduct extends Document {
-  _id?: string;
-  url: string;
-  currency: string;
-  image: string;
-  title: string;
-  discount: string;
-  currentPrice: number;
-  originalPrice: number;
-  priceHistory: PriceHistoryItem[] | [];
-  productInformationTech?: ProductInfoItem[] | [];
-  productInformationAdditional?: ProductInfoItem[] | [];
-  highestPrice: number;
-  lowestPrice: number;
-  averagePrice: number;
-  discountRate: number;
-  description: string;
-  productDescription: string;
-  category: string;
-  reviewsCount: number;
-  stars: number;
-  isOutOfStock: Boolean;
-  users?: User[];
-  sliderImages?: string[] | [];
-}
+import { IProduct } from "@/types";
+import mongoose, { Model, Schema } from "mongoose";
 
 const productSchema: Schema = new Schema(
   {
@@ -37,17 +11,20 @@ const productSchema: Schema = new Schema(
     discount: { type: String, required: true },
     currentPrice: { type: Number, required: true },
     originalPrice: { type: Number, required: true },
+    brand: { type: String, required: true },
     priceHistory: [
       {
         price: { type: Number, required: true },
         date: { type: Date, default: Date.now },
       },
     ],
+    pdfFile: { type: String },
     lowestPrice: { type: Number },
     highestPrice: { type: Number },
     averagePrice: { type: Number },
     discountRate: { type: Number },
     description: { type: String },
+    category: { type: String },
     productDescription: { type: String },
     productInformationTech: [
       {
