@@ -5,7 +5,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import * as XLSX from "xlsx";
-
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -142,7 +141,7 @@ export default function ProductTable() {
                 <FormItem className="hidden">
                   <FormLabel>Username</FormLabel>
                   <FormControl>
-                    <Input placeholder="shadcn" {...field} />
+                    <Input placeholder="username" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -210,12 +209,10 @@ export default function ProductTable() {
                   </thead>
                 </table>
                 <li className="mt-2">
-                  The xlsx file should have some mandate column :{" "}
+                  The xlsx file should have some mandate column :
                 </li>
                 <ul className="font-semibold text-xs text-muted-foreground list-disc ml-5">
-                  <li>
-                    Product image (column name in excel is "Image Link-"){" "}
-                  </li>
+                  <li>Product image (column name in excel is "Image Link-")</li>
                   <li>
                     Product title (column name in excel is "Medium description")
                   </li>
