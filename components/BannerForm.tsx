@@ -76,8 +76,8 @@ export const BannerForm = ({
                   />
                 </FormControl>
                 <FormDescription className="text-xs">
-                  Brand Name like "Schneider Electric" as per you xlsx file
-                  brand column
+                  {`Brand Name like "Schneider Electric" as per you xlsx file
+                  brand column`}
                 </FormDescription>
               </FormItem>
             );

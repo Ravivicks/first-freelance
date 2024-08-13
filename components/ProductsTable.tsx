@@ -212,9 +212,9 @@ export default function ProductTable() {
                   The xlsx file should have some mandate column :
                 </li>
                 <ul className="font-semibold text-xs text-muted-foreground list-disc ml-5">
-                  <li>Product image (column name in excel is "Image Link-")</li>
+                  <li>{`Product image (column name in excel is "Image Link-")`}</li>
                   <li>
-                    Product title (column name in excel is "Medium description")
+                    {`Product title (column name in excel is "Medium description")`}
                   </li>
                   <li>Product Currency</li>
                   <li>Product Reference</li>
