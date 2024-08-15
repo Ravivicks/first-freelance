@@ -55,8 +55,8 @@ export default function Component() {
               </li>
               <li>
                 <strong>Response Time:</strong> In case of any Refunds approved
-                by the PROSAFE AUTOMATION, it’ll take 1-2 days for the refund to
-                be processed to the end customer.
+                by the PROSAFE AUTOMATION, it'll take 1-2 days for the refund to
+                be processed to the end customer.
               </li>
             </ul>
           </div>
