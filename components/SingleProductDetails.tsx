@@ -24,7 +24,7 @@ const SingleProductDetails = ({ product }: IProps) => {
   const charLimit = 250;
 
   // Check if the description exceeds the character limit.
-  const isLongDescription = product.description.length > charLimit;
+  const isLongDescription = product?.description?.length > charLimit;
 
   const isInCart = cart?.some((item) => item?._id === product?._id);
 
@@ -69,8 +69,8 @@ const SingleProductDetails = ({ product }: IProps) => {
       <p className="text-sm font-semibold mb-2">Product Description</p>
       <p className="text-xs text-muted-foreground">
         {showMore || !isLongDescription
-          ? product.description
-          : `${product.description.slice(0, charLimit)}...`}
+          ? product?.description
+          : `${product?.description?.slice(0, charLimit)}...`}
       </p>
       {isLongDescription && (
         <Button
