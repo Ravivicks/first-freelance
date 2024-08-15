@@ -70,6 +70,7 @@ const ProductCarousal = () => {
                 width={150}
                 alt="best-1"
                 className="object-fill"
+                unoptimized
               />
               <div>
                 <Badge variant="destructive">Best Choice</Badge>
