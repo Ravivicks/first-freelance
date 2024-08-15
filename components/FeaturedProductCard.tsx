@@ -31,6 +31,7 @@ const FeaturedProductCard = ({ product }: Props) => {
             alt="p-1"
             fill
             className="object-fill p-3"
+            unoptimized
           />
         </div>
         <div>
