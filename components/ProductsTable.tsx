@@ -79,7 +79,7 @@ export default function ProductTable() {
 
         const sameProduct = json.map((product) => ({
           url: product.References,
-          currency: "$",
+          currency: "₹",
           image: product["Image Link-"] || "/images/no-product.jpg",
           pdfFile: product.PDP,
           title: product["Medium description"] || "No title found in xlsx",

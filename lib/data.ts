@@ -132,4 +132,30 @@ export const menuItems = [
       },
     ],
   },
+  {
+    title: "About Company",
+    url: "/",
+    subMenu: [
+      {
+        title: "About us",
+        url: "/about-us",
+      },
+      {
+        title: "Contact Us",
+        url: "/contact-us",
+      },
+      {
+        title: "Term & Conditions",
+        url: "/termandcondition",
+      },
+      {
+        title: "Privacy Policy",
+        url: "/privacy-policy",
+      },
+      {
+        title: "Cancellation/Refund Policies",
+        url: "/cancellationandrefund",
+      },
+    ],
+  },
 ];

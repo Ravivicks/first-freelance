@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Button } from "./ui/button";
 import Image from "next/image";
@@ -13,12 +14,19 @@ interface IProps {
 }
 
 const SingleProductDetails = ({ product }: IProps) => {
+  const [showMore, setShowMore] = React.useState(false);
   const addToCart = useCartStore((state) => state.addToCart);
   const { onOpen } = useEnquiry();
   const { onOpen: cartOpen } = useCartDetails();
   const cart = useFromStore(useCartStore, (state) => state.cart);
 
-  const isInCart = cart?.some((item) => item._id === product._id);
+  // Set a character limit for two lines (adjust this based on your design).
+  const charLimit = 250;
+
+  // Check if the description exceeds the character limit.
+  const isLongDescription = product.description.length > charLimit;
+
+  const isInCart = cart?.some((item) => item?._id === product?._id);
 
   const onBuyNow = (product: IProduct) => {
     if (!isInCart) {
@@ -53,30 +61,26 @@ const SingleProductDetails = ({ product }: IProps) => {
           {product?.currency}
           {product?.originalPrice}
         </span>
-        (63% off)
+        ({product?.discount} off)
       </p>
       <p className="text-xs font-semibold text-muted-foreground my-4">
         Get it by Friday 9 August.
       </p>
-      <p className="text-muted-foreground text-xs mb-5">
-        Ships from and sold by Ascentrek Solutions.
+      <p className="text-sm font-semibold mb-2">Product Description</p>
+      <p className="text-xs text-muted-foreground">
+        {showMore || !isLongDescription
+          ? product.description
+          : `${product.description.slice(0, charLimit)}...`}
       </p>
-      <ul className="list-disc text-xs text-muted-foreground">
-        <li>White Color Plastic body material</li>
-        <li>
-          Miniature Circuit Breaker protect against Short Circuit and Overloads
-          and keeps your property safe. This product is compatible for lighting
-          loads,Such as bulb, heater etc
-        </li>
-        <li>DIN Rail Mounted W 72mm x H 85mm x D 77.5mm</li>
-        <li>
-          Green Premium Product - Green PremiumTM label is Schneider Electric’s
-          commitment to delivering products with best-in-class environmental
-          performance. Green Premium promises compliance with the latest
-          regulations, transparency on environmental impacts, as well as
-          circular and low-CO2 products.
-        </li>
-      </ul>
+      {isLongDescription && (
+        <Button
+          className="text-xs text-destructive"
+          variant="link"
+          onClick={() => setShowMore(!showMore)}
+        >
+          {showMore ? "Show less" : "Show more"}
+        </Button>
+      )}
       <div className="flex justify-between flex-col md:flex-row gap-2 my-10">
         <Button
           variant="destructive"

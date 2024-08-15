@@ -18,6 +18,7 @@ const PartnerProductDetails = () => {
   useEffect(() => {
     fetchData(currentPage, 20, decodedBrand);
   }, [currentPage, slug]);
+
   const { data, isLoading: bannerLoading } = useGetBanner(
     decodedBrand as string
   );

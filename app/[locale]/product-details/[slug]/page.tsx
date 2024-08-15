@@ -82,7 +82,7 @@ const ProductDetails = () => {
       <div className="flex gap-3 flex-wrap mb-16">
         {products?.map((product, index) => (
           <div
-            className="flex-none w-full sm:w-1/2 md:w-1/3 lg:w-1/6 flex-grow"
+            className="flex-none w-full sm:w-1/2 md:w-1/3 lg:w-1/6 flex-grow h-auto"
             key={index}
           >
             <ProductCard product={product} />
@@ -91,7 +91,11 @@ const ProductDetails = () => {
       </div>
       {/* Sentinel Element */}
       <div ref={sentinelRef} style={{ height: "20px" }} />
-      {isLoadingMore && <div>Loading more products...</div>}
+      {isLoadingMore && (
+        <div className="text-center font-semibold">
+          Loading more products...
+        </div>
+      )}
     </div>
   );
 };

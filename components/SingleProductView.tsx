@@ -15,6 +15,7 @@ import { useGetProducts } from "@/features/products/use-get-products";
 import { useParams } from "next/navigation";
 import { Badge } from "./ui/badge";
 import { IProduct } from "@/types";
+import { useProductsStore } from "@/stores/useProductStore";
 
 const imageArr = [
   "https://m.media-amazon.com/images/I/411oqw+ekUL._AC_CR0%2C0%2C0%2C0_SX615_SY462_.jpg",
@@ -24,12 +25,13 @@ const imageArr = [
 ];
 
 export default function SingleProductView() {
-  const { data: products, isLoading } = useGetProducts();
-  const { locale } = useParams();
+  const { products, isLoading, error, fetchData } = useProductsStore();
 
-  if (isLoading) {
-    return <div>Loading</div>;
-  }
+  React.useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
+  const sliderImages = products?.[0]?.sliderImages || [];
   return (
     <>
       <div className="flex justify-start relative w-[200px] h-[150px]">
@@ -41,29 +43,48 @@ export default function SingleProductView() {
         />
       </div>
       <div className="flex flex-col md:flex-row justify-center items-center -mt-20 mb-16">
-        <Carousel className="w-full max-w-md mr-[200px]" orientation="single">
-          <CarouselContent>
-            {products?.[0].sliderImages?.map((item, index) => (
-              <CarouselItem key={index}>
-                <div className="">
-                  <Card className=" border-none">
-                    <CardContent className="flex aspect-square items-center justify-center relative">
-                      <Image
-                        src={item}
-                        alt={`slide-${index}`}
-                        width={400}
-                        height={100}
-                        className="object-fill"
-                      />
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
+        {products && sliderImages.length > 1 ? (
+          sliderImages.map((item, index) => (
+            <Carousel
+              className="w-full max-w-md mr-[200px]"
+              orientation="single"
+            >
+              <CarouselContent>
+                <CarouselItem key={index}>
+                  <div className="">
+                    <Card className=" border-none">
+                      <CardContent className="flex aspect-square items-center justify-center relative">
+                        <Image
+                          src={item}
+                          alt={`slide-${index}`}
+                          width={400}
+                          height={100}
+                          className="object-fill"
+                        />
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          ))
+        ) : (
+          <div className="w-full max-w-md mr-[200px]">
+            <Card className=" border-none">
+              <CardContent className="flex aspect-square items-center justify-center relative">
+                <Image
+                  src={products[0]?.image || ""}
+                  alt={`slide-1`}
+                  width={400}
+                  height={100}
+                  className="object-fill"
+                />
+              </CardContent>
+            </Card>
+          </div>
+        )}
         <SingleProductDetails product={products?.[0] as IProduct} />
       </div>
     </>

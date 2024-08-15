@@ -62,7 +62,7 @@ const ProductDetailsById = () => {
             ))}
           </div>
         </div>
-        <div className="w-fit">
+        <div className="max-w-md">
           <ProductShiping />
         </div>
       </div>

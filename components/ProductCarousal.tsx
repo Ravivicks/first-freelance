@@ -1,11 +1,12 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Card, CardContent, CardFooter } from "./ui/card";
+import { Card, CardContent } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { formatNumber } from "@/lib/utils";
+import { useProductsStore } from "@/stores/useProductStore";
 
 const imageArr = [
   "https://download.schneider-electric.com/files?p_Doc_Ref=PF142100&p_File_Type=rendition_369_jpg&default_image=DefaultProductImage.png",
@@ -35,6 +36,12 @@ const responsive = {
 };
 
 const ProductCarousal = () => {
+  const { products, isLoading, error, fetchData } = useProductsStore();
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
   return (
     <Carousel
       swipeable={false}
@@ -53,12 +60,12 @@ const ProductCarousal = () => {
       centerMode
       className="mb-16 p-1 shadow-lg rounded-xl border"
     >
-      {imageArr.map((image, index) => (
+      {products.slice(0, 10).map((product, index) => (
         <Card className="border-none" key={index}>
           <CardContent className="relative">
             <div className="flex justify-center gap-2 items-center">
               <Image
-                src={image}
+                src={product.image}
                 height={200}
                 width={150}
                 alt="best-1"
@@ -66,9 +73,12 @@ const ProductCarousal = () => {
               />
               <div>
                 <Badge variant="destructive">Best Choice</Badge>
-                <p className="font-bold">Product name</p>
-                <p className="font-semibold text-muted-foreground">
-                  ${formatNumber(1234.0)}
+                <p className="font-bold text-xs line-clamp-2 overflow-hidden my-1">
+                  {product.title}
+                </p>
+                <p className="font-semibold text-muted-foreground text-sm">
+                  {product.currency}
+                  {formatNumber(product.currentPrice)}
                 </p>
               </div>
             </div>
