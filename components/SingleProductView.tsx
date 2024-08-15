@@ -11,18 +11,8 @@ import {
 } from "@/components/ui/carousel";
 import Image from "next/image";
 import SingleProductDetails from "./SingleProductDetails";
-import { useGetProducts } from "@/features/products/use-get-products";
-import { useParams } from "next/navigation";
-import { Badge } from "./ui/badge";
 import { IProduct } from "@/types";
 import { useProductsStore } from "@/stores/useProductStore";
-
-const imageArr = [
-  "https://m.media-amazon.com/images/I/411oqw+ekUL._AC_CR0%2C0%2C0%2C0_SX615_SY462_.jpg",
-  "https://m.media-amazon.com/images/I/41ytv-cPWeL._AC_CR0%2C0%2C0%2C0_SX615_SY462_.jpg",
-  "https://m.media-amazon.com/images/I/41IKv9Q4qWL._AC_CR0%2C0%2C0%2C0_SX615_SY462_.jpg",
-  "https://m.media-amazon.com/images/I/41TCmS+ig7L._AC_CR0%2C0%2C0%2C0_SX615_SY462_.jpg",
-];
 
 export default function SingleProductView() {
   const { products, isLoading, error, fetchData } = useProductsStore();
@@ -48,9 +38,10 @@ export default function SingleProductView() {
             <Carousel
               className="w-full max-w-md mr-[200px]"
               orientation="single"
+              key={index}
             >
               <CarouselContent>
-                <CarouselItem key={index}>
+                <CarouselItem>
                   <div className="">
                     <Card className=" border-none">
                       <CardContent className="flex aspect-square items-center justify-center relative">
