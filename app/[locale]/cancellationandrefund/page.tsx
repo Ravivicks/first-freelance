@@ -19,20 +19,21 @@ export default function Component() {
               Cancellation and Refund Policy
             </h1>
             <p className="mt-4 text-muted-foreground">
-              PROSAFE AUTOMATION believes in helping its customers as far as
+              {`PROSAFE AUTOMATION believes in helping its customers as far as
               possible, and has therefore a liberal cancellation policy. Under
-              this policy:
+              this policy:`}
             </p>
           </div>
           <div className="space-y-4">
             <h2 className="text-xl font-bold">Cancellations and Refunds</h2>
             <ul className="space-y-2 text-muted-foreground">
               <li>
-                <strong>Timeframe:</strong> Cancellations will be considered
+                <strong>Timeframe:</strong>
+                {`Cancellations will be considered
                 only if the request is made within same day of placing the
                 order. However, the cancellation request may not be entertained
                 if the orders have been communicated to the vendors/merchants
-                and they have initiated the process of shipping them.
+                and they have initiated the process of shipping them.`}
               </li>
             </ul>
           </div>
@@ -42,7 +43,8 @@ export default function Component() {
             </h2>
             <ul className="space-y-2 text-muted-foreground">
               <li>
-                <strong>Process:</strong> In case of receipt of damaged or
+                <strong>Process:</strong>{" "}
+                {`In case of receipt of damaged or
                 defective items please report the same to our Customer Service
                 team. The request will, however, be entertained once the
                 merchant has checked and determined the same at his own end.
@@ -51,22 +53,22 @@ export default function Component() {
                 shown on the site or as per your expectations, you must bring it
                 to the notice of our customer service within same day of
                 receiving the product. The Customer Service Team after looking
-                into your complaint will take an appropriate decision.
+                into your complaint will take an appropriate decision.`}
               </li>
               <li>
                 <strong>Response Time:</strong> In case of any Refunds approved
-                by the PROSAFE AUTOMATION, it'll take 1-2 days for the refund to
-                be processed to the end customer.
+                {` by the PROSAFE AUTOMATION, it'll take 1-2 days for the refund to
+                be processed to the end customer.`}
               </li>
             </ul>
           </div>
           <div className="space-y-4">
             <h2 className="text-xl font-bold">Customer Support</h2>
             <p className="text-muted-foreground">
-              If you have any questions or concerns about our cancellation and
+              {`If you have any questions or concerns about our cancellation and
               refund policy, please don't hesitate to reach out to our customer
               support team. We are here to assist you and ensure your shopping
-              experience is a positive one.
+              experience is a positive one.`}
             </p>
             <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
               <Link

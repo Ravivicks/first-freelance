@@ -14,17 +14,17 @@ export default function Component() {
       <main className="container mx-auto max-w-5xl py-12 px-4 md:px-6">
         <section className="mb-8">
           <p className="mb-4">
-            For the purpose of these Terms and Conditions, The term "we", "us",
+            {`For the purpose of these Terms and Conditions, The term "we", "us",
             "our" used anywhere on this page shall mean PROSAFE AUTOMATION,
             whose registered/operational office is B-1/13, RAGHU NAGAR, PANKHA
             ROAD, Near JANAK CINEMA,, New Delhi-110045 South West Delhi DELHI
             110045 . "you", “your”, "user", “visitor” shall mean any natural or
             legal person who is visiting our website and/or agreed to purchase
-            from us.
+            from us.`}
           </p>
           <h2 className="font-semibold text-lg my-4">
-            Your use of the website and/or purchase from us are governed by
-            following Terms and Conditions:
+            {`Your use of the website and/or purchase from us are governed by
+            following Terms and Conditions:`}
           </h2>
           <ul className="list-decimal mb-4 space-y-4">
             <li>
@@ -41,11 +41,11 @@ export default function Component() {
               to the fullest extent permitted by law.
             </li>
             <li>
-              Your use of any information or materials on our website and/or
+              {`Your use of any information or materials on our website and/or
               product pages is entirely at your own risk, for which we shall not
               be liable. It shall be your own responsibility to ensure that any
               products, services or information available through our website
-              and/or product pages meet your specific requirements.
+              and/or product pages meet your specific requirements.`}
             </li>
             <li>
               Our website contains material which is owned by or licensed to us.
@@ -69,8 +69,8 @@ export default function Component() {
               further information.
             </li>
             <li>
-              You may not create a link to our website from another website or
-              document without PROSAFE AUTOMATION’s prior written consent.
+              {`You may not create a link to our website from another website or
+              document without PROSAFE AUTOMATION's prior written consent.`}
             </li>
             <li>
               Any dispute arising out of use of our website and/or purchase with
@@ -81,7 +81,7 @@ export default function Component() {
               or damage arising directly or indirectly out of the decline of
               authorization for any Transaction, on Account of the Cardholder
               having exceeded the preset limit mutually agreed by us with our
-              acquiring bank from time to time
+              acquiring bank from time to time
             </li>
           </ul>
         </section>

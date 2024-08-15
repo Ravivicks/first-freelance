@@ -25,10 +25,10 @@ export default function Component() {
                   Powering Industrial Automation
                 </h1>
                 <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                  PROSAFE AUTOMATION is a leading provider of cutting-edge
+                  {`PROSAFE AUTOMATION is a leading provider of cutting-edge
                   industrial automation solutions. Our mission is to empower
                   businesses with the tools and expertise they need to
-                  streamline their operations and drive innovation.
+                  streamline their operations and drive innovation.`}
                 </p>
               </div>
               <div className="flex flex-col items-start space-y-4">
@@ -36,12 +36,12 @@ export default function Component() {
                   About Us
                 </div>
                 <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                  Founded in 1985, PROSAFE AUTOMATION has been at the forefront
+                  {`Founded in 1985, PROSAFE AUTOMATION has been at the forefront
                   of the industrial automation industry, providing cutting-edge
                   solutions to businesses across a wide range of sectors. Our
                   team of experts is dedicated to helping our clients achieve
                   their goals through innovative technology and unparalleled
-                  customer service.
+                  customer service.`}
                 </p>
                 <div className="space-x-4">
                   <Link
@@ -74,12 +74,12 @@ export default function Component() {
                   Mastering Industrial Automation
                 </h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  With over 35 years of experience in the industrial automation
+                  {` With over 35 years of experience in the industrial automation
                   industry, PROSAFE AUTOMATION has developed a deep
                   understanding of the challenges and opportunities facing our
                   clients. Our team of experts is dedicated to providing
                   cutting-edge solutions that help businesses streamline their
-                  operations, increase efficiency, and drive innovation.
+                  operations, increase efficiency, and drive innovation.`}
                 </p>
               </div>
             </div>
