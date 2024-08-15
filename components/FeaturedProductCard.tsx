@@ -27,7 +27,7 @@ const FeaturedProductCard = ({ product }: Props) => {
       <CardContent className="w-full transition-opacity duration-300 group-hover:opacity-50">
         <div className="relative mb-3 h-[220px]">
           <Image
-            src={product?.image || ""}
+            src={product?.image}
             alt="p-1"
             fill
             className="object-fill p-3"
