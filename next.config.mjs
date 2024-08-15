@@ -3,12 +3,32 @@ import createNextIntlPlugin from "next-intl/plugin";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [
-      "images.unsplash.com",
-      "m.media-amazon.com",
-      "download.schneider-electric.com",
-      "i.ebayimg.com",
-      "www.tsisolutions.us",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "m.media-amazon.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "download.schneider-electric.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "i.ebayimg.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "www.tsisolutions.us",
+        pathname: "/**",
+      },
     ],
   },
   experimental: {
