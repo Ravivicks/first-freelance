@@ -62,8 +62,8 @@ const ProductCarousal = () => {
       className="mb-16 p-1 shadow-lg rounded-xl border"
     >
       {products.slice(0, 10).map((product, index) => (
-        <Link href={`/products/${product._id}`}>
-          <Card className="border-none" key={index}>
+        <Link href={`/products/${product._id}`} key={index}>
+          <Card className="border-none">
             <CardContent className="relative">
               <div className="flex justify-center gap-2 items-center">
                 <Image
