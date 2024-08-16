@@ -46,6 +46,7 @@ const FeaturedCategory = () => {
                 alt={item.title}
                 width={100}
                 height={100}
+                unoptimized
               />
             </div>
             <h1 className="text-xl font-bold text-center w-1/2">

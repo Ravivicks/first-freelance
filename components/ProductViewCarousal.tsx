@@ -69,6 +69,7 @@ export function ProductViewCarousal({ imageArr, image }: IProps) {
                       width={350}
                       height={120}
                       className="object-fit"
+                      unoptimized
                     />
                   </div>
                 </div>
@@ -84,6 +85,7 @@ export function ProductViewCarousal({ imageArr, image }: IProps) {
                 src={img}
                 width={100}
                 height={100}
+                unoptimized
                 alt={`Thumbnail ${index + 1}`}
                 className={`w-16 h-16 mr-2 rounded cursor-pointer mx-3 my-1 border p-2 ${
                   current === index + 1 ? "border-2 border-blue-500" : ""
