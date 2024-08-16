@@ -33,7 +33,7 @@ const FeaturedPartner = () => {
       <div className=" flex gap-3 flex-wrap p-3">
         {partnerList.map((item, index) => (
           <Card
-            className="rounded-xl hover:shadow-lg w-1/6 flex-grow"
+            className="rounded-xl hover:shadow-lg w-1/6 flex-grow cursor-pointer"
             key={index}
             onClick={() => {
               router.push(`/partner-product-details/${item.title}`);

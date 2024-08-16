@@ -35,7 +35,7 @@ const ProductCard = ({ product, isButton }: Props) => {
   };
 
   return (
-    <div className="flex flex-col border rounded-xl p-5 h-full bg-white overflow-hidden shadow-lg transition-shadow duration-300 hover:shadow-xl relative">
+    <div className="max-w-sm flex flex-col border rounded-xl p-5 h-full bg-white overflow-hidden shadow-lg transition-shadow duration-300 hover:shadow-xl relative">
       <div className="group relative mb-5 h-[220px] w-full">
         <Image
           src={product?.image || ""}

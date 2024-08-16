@@ -8,6 +8,7 @@ import { useCartStore } from "@/stores/useCartStore";
 import { useEnquiry } from "@/hooks/use-enquire-open";
 import { useCartDetails } from "@/hooks/use-cart-details";
 import useFromStore from "@/hooks/useFromStore";
+import { formatNumber } from "@/lib/utils";
 
 interface IProps {
   product: IProduct;
@@ -53,13 +54,15 @@ const SingleProductDetails = ({ product }: IProps) => {
       </div>
       <p className="font-bold">
         {product?.currency}
-        <span className="font-bold text-2xl">{product?.currentPrice}</span>
+        <span className="font-bold text-2xl">
+          {formatNumber(product?.currentPrice)}
+        </span>
       </p>
       <p className="font-semibold text-xs">
         M.R.P.:{" "}
         <span className="line-through">
           {product?.currency}
-          {product?.originalPrice}
+          {formatNumber(product?.originalPrice)}
         </span>
         ({product?.discount} off)
       </p>

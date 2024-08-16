@@ -7,6 +7,7 @@ import { Card, CardContent } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { formatNumber } from "@/lib/utils";
 import { useProductsStore } from "@/stores/useProductStore";
+import Link from "next/link";
 
 const imageArr = [
   "https://download.schneider-electric.com/files?p_Doc_Ref=PF142100&p_File_Type=rendition_369_jpg&default_image=DefaultProductImage.png",
@@ -61,30 +62,32 @@ const ProductCarousal = () => {
       className="mb-16 p-1 shadow-lg rounded-xl border"
     >
       {products.slice(0, 10).map((product, index) => (
-        <Card className="border-none" key={index}>
-          <CardContent className="relative">
-            <div className="flex justify-center gap-2 items-center">
-              <Image
-                src={product.image}
-                height={200}
-                width={150}
-                alt="best-1"
-                className="object-fill"
-                unoptimized
-              />
-              <div>
-                <Badge variant="destructive">Best Choice</Badge>
-                <p className="font-bold text-xs line-clamp-2 overflow-hidden my-1">
-                  {product.title}
-                </p>
-                <p className="font-semibold text-muted-foreground text-sm">
-                  {product.currency}
-                  {formatNumber(product.currentPrice)}
-                </p>
+        <Link href={`/products/${product._id}`}>
+          <Card className="border-none" key={index}>
+            <CardContent className="relative">
+              <div className="flex justify-center gap-2 items-center">
+                <Image
+                  src={product.image}
+                  height={200}
+                  width={150}
+                  alt="best-1"
+                  className="object-fill"
+                  unoptimized
+                />
+                <div>
+                  <Badge variant="destructive">Best Choice</Badge>
+                  <p className="font-bold text-xs line-clamp-2 overflow-hidden my-1">
+                    {product.title}
+                  </p>
+                  <p className="font-semibold text-muted-foreground text-sm">
+                    {product.currency}
+                    {formatNumber(product.currentPrice)}
+                  </p>
+                </div>
               </div>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </Link>
       ))}
     </Carousel>
   );

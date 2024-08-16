@@ -48,6 +48,7 @@ export function ProductViewCarousal({ imageArr, image }: IProps) {
               width={400}
               height={300}
               className="object-fill"
+              unoptimized
             />
           </CardContent>
         </Card>
