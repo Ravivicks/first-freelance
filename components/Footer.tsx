@@ -15,10 +15,9 @@ const Footer = () => {
             <div key={item.title}>
               <h1 className="text-lg font-bold mb-3 ">{item.title}</h1>
               {item.subMenu.map((submenu) => (
-                <p>
+                <p key={submenu.title}>
                   <Link
                     href={`${submenu.url}`}
-                    key={submenu.title}
                     className="text-muted-foreground my-1 text-md"
                   >
                     {submenu.title}
