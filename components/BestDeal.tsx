@@ -17,19 +17,28 @@ const BestDeal = () => {
   if (isLoading) {
     return <div>Loading</div>;
   }
+
   return (
     <Card className="mb-16">
       <CardHeader className="bg-gradient-to-r from-slate-100 to-destructive/10">
-        <div className="flex justify-between w-full">
-          <CardTitle className="text-3xl">Top Selling Products</CardTitle>
-          <Button variant="destructive">
-            View All <ChevronRight className="size-5 ml-1" />
+        <div className="flex justify-between w-full items-center">
+          <CardTitle className="text-2xl md:text-3xl">
+            Top Selling Products
+          </CardTitle>
+          <Button
+            variant="destructive"
+            className="mt-3 sm:mt-0 hidden md:block"
+          >
+            View All <ChevronRight className="ml-1 size-5" />
+          </Button>
+          <Button variant="destructive" className="rounded-full md:hidden">
+            <ChevronRight className="size-4" />
           </Button>
         </div>
       </CardHeader>
-      <CardContent className="flex flex-col gap-4 md:flex-row w-full mt-5">
-        <div className=" flex gap-3 flex-wrap px-3">
-          {products?.slice(0, 5).map((product) => (
+      <CardContent className="flex flex-col gap-4 mt-5">
+        <div className="flex flex-wrap justify-center md:justify-start gap-3 px-3">
+          {products?.slice(0, 4).map((product) => (
             <FeaturedProductCard product={product} key={product._id} />
           ))}
         </div>

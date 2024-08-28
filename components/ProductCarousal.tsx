@@ -16,9 +16,9 @@ const imageArr = [
   "https://download.schneider-electric.com/files?p_Doc_Ref=PF142100&p_File_Type=rendition_369_jpg&default_image=DefaultProductImage.png",
   "https://download.schneider-electric.com/files?p_Doc_Ref=2253_main&p_File_Type=rendition_369_jpg&default_image=DefaultProductImage.png",
 ];
+
 const responsive = {
   superLargeDesktop: {
-    // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 3000 },
     items: 5,
   },
@@ -36,42 +36,46 @@ const responsive = {
   },
 };
 
-const ProductCarousal = () => {
-  const { products, isLoading, error, fetchData } = useProductsStore();
+const ProductCarousel = () => {
+  const { products, isLoading, fetchData } = useProductsStore();
 
   useEffect(() => {
     fetchData();
   }, [fetchData]);
 
+  if (isLoading) {
+    return <div className="text-center p-4">Loading...</div>;
+  }
+
   return (
     <Carousel
       swipeable={false}
       draggable={false}
-      keyBoardControl={true}
+      keyBoardControl
       showDots={false}
       arrows={false}
       autoPlay
-      autoPlaySpeed={1000}
+      autoPlaySpeed={3000}
       infinite
       slidesToSlide={1}
       containerClass="carousel-container"
       dotListClass="custom-dot-list-style"
-      itemClass="carousel-item-padding-40-px"
+      itemClass="carousel-item-padding-20-px"
       responsive={responsive}
       centerMode
       className="mb-16 p-1 shadow-lg rounded-xl border"
     >
-      {products.slice(0, 10).map((product, index) => (
-        <Link href={`/products/${product._id}`} key={index}>
-          <Card className="border-none">
+      {products.slice(0, 10).map((product) => (
+        <Link href={`/products/${product._id}`} key={product._id}>
+          <Card className="border-none hover:shadow-lg transition-shadow duration-300">
             <CardContent className="relative">
-              <div className="flex justify-center gap-2 items-center">
+              <div className="flex flex-col md:flex-row justify-center gap-2 items-center">
                 <Image
                   src={product.image}
                   height={200}
                   width={150}
-                  alt="best-1"
-                  className="object-fill"
+                  alt={`Image of ${product.title}`}
+                  className="object-cover"
                   unoptimized
                 />
                 <div>
@@ -93,4 +97,4 @@ const ProductCarousal = () => {
   );
 };
 
-export default ProductCarousal;
+export default ProductCarousel;

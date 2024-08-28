@@ -26,7 +26,7 @@ export default async function LocaleLayout({
     <ClerkProvider>
       <html lang={locale}>
         <body className={inter.className}>
-          <main className="max-w-10xl mx-16">
+          <main className="max-w-10xl mx-6 md:mx-16">
             <NextIntlClientProvider messages={messages}>
               <QueryProvider>
                 <SheetProvider />

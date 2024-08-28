@@ -36,55 +36,57 @@ const SingleProductDetails = ({ product }: IProps) => {
 
     cartOpen();
   };
+
   return (
-    <div className="max-w-md">
-      <div className="flex justify-between my-4">
+    <div className="p-4 md:p-6 max-w-full md:max-w-md mx-auto">
+      <div className="flex justify-between items-start md:items-center my-4">
         <Image
           src="/images/logo.svg"
           alt="company-logo"
           width={50}
           height={20}
+          className="flex-shrink-0"
         />
-        <p className="text-muted-foreground text-sm">Product code</p>
+        <p className="text-muted-foreground text-xs md:text-sm">Product code</p>
       </div>
-      <h1 className="text-2xl my-2">{product?.title}</h1>
-      <div className=" my-2 flex gap-4 text-muted-foreground text-xs items-center justify-start">
+      <h1 className="text-xl md:text-2xl my-2">{product?.title}</h1>
+      <div className="my-2 flex gap-2 md:gap-4 text-muted-foreground text-xs md:text-sm items-center">
         <StarRating size={4} rating={product?.stars || 0} />
-        42 Reviews
+        <span>42 Reviews</span>
       </div>
-      <p className="font-bold">
+      <p className="font-bold text-xl md:text-2xl">
         {product?.currency}
-        <span className="font-bold text-2xl">
+        <span className="font-bold text-xl md:text-2xl">
           {formatNumber(product?.currentPrice)}
         </span>
       </p>
-      <p className="font-semibold text-xs">
+      <p className="font-semibold text-xs md:text-sm">
         M.R.P.:{" "}
         <span className="line-through">
           {product?.currency}
           {formatNumber(product?.originalPrice)}
-        </span>
+        </span>{" "}
         ({product?.discount} off)
       </p>
-      <p className="text-xs font-semibold text-muted-foreground my-4">
+      <p className="text-xs md:text-sm font-semibold text-muted-foreground my-4">
         Get it by Friday 9 August.
       </p>
       <p className="text-sm font-semibold mb-2">Product Description</p>
-      <p className="text-xs text-muted-foreground">
+      <p className="text-xs md:text-sm text-muted-foreground">
         {showMore || !isLongDescription
           ? product?.description
           : `${product?.description?.slice(0, charLimit)}...`}
       </p>
       {isLongDescription && (
         <Button
-          className="text-xs text-destructive"
+          className="text-xs text-destructive mt-2"
           variant="link"
           onClick={() => setShowMore(!showMore)}
         >
           {showMore ? "Show less" : "Show more"}
         </Button>
       )}
-      <div className="flex justify-between flex-col md:flex-row gap-2 my-10">
+      <div className="flex flex-col md:flex-row gap-2 my-6">
         <Button
           variant="destructive"
           className="rounded-full flex-grow"
@@ -107,14 +109,8 @@ const SingleProductDetails = ({ product }: IProps) => {
           Enquire Now
         </Button>
       </div>
-      {/* <Button
-        variant="destructive"
-        className="rounded-full"
-        onClick={() => onBuyNow(product)}
-      >
-        Buy Now
-      </Button> */}
     </div>
   );
 };
+
 export default SingleProductDetails;

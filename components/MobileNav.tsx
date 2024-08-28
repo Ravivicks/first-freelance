@@ -11,6 +11,7 @@ import { LucideChevronDown, Menu } from "lucide-react";
 import { menuItems } from "@/lib/data";
 import { Card, CardContent } from "./ui/card";
 import { useUser } from "@clerk/nextjs";
+import Link from "next/link";
 
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,7 +43,7 @@ const MobileNav = () => {
                   <Card className="border-none my-6">
                     {route.subMenu.map((subMenu) => (
                       <CardContent key={subMenu.title}>
-                        <p className="">{subMenu.title}</p>
+                        <Link href={subMenu.url}>{subMenu.title}</Link>
                       </CardContent>
                     ))}
                   </Card>

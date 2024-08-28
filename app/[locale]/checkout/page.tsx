@@ -4,7 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { MapPin, ShoppingBag, Plus, Check, Trash2Icon } from "lucide-react";
 import { useAddressOpen } from "@/hooks/use-address-open";
-import { calculateTotalWithGSTAndShipping, cn } from "@/lib/utils";
+import {
+  calculateTotalWithGSTAndShipping,
+  cn,
+  formatNumber,
+} from "@/lib/utils";
 import useFromStore from "@/hooks/useFromStore";
 import { useCartStore } from "@/stores/useCartStore";
 import Image from "next/image";
@@ -204,23 +208,23 @@ export default function Component() {
               <div className="space-y-2">
                 <div className="flex justify-between">
                   <span>Price</span>
-                  <span>₹{total.toFixed(2)}</span>
+                  <span>₹{formatNumber(total)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>GST</span>
-                  <span>₹ {gstAmount.toFixed(2)}</span>
+                  <span>₹ {formatNumber(gstAmount)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Delivery charges</span>
-                  <span>₹ {shippingAmount.toFixed(2)}</span>
+                  <span>₹ {formatNumber(shippingAmount)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Discount price</span>
-                  <span>₹{discountAmount.toFixed(2)}</span>
+                  <span>₹{formatNumber(discountAmount)}</span>
                 </div>
                 <div className="flex justify-between font-bold text-lg">
                   <span>Total Amount</span>
-                  <span>₹ {totalWithGSTAndShipping.toFixed(2)}</span>
+                  <span>₹ {formatNumber(totalWithGSTAndShipping)}</span>
                 </div>
                 <p className="text-xs text-gray-500">(Incl. of all taxes)</p>
               </div>
@@ -229,7 +233,7 @@ export default function Component() {
                   Your total Savings amount on this order
                 </p>
                 <p className="text-lg font-bold text-green-00">
-                  ₹ {discountAmount.toFixed(2)}
+                  ₹ {formatNumber(discountAmount)}
                 </p>
               </div>
               <Button className="w-full mt-4" variant="destructive">

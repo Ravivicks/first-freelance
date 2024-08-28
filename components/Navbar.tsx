@@ -11,10 +11,7 @@ import { useCartStore } from "@/stores/useCartStore";
 import { Badge } from "./ui/badge";
 import { useCartDetails } from "@/hooks/use-cart-details";
 
-const navIcons = [
-  { src: "/assets/icons/bag.svg", alt: "bag" },
-  { src: "/assets/icons/black-heart.svg", alt: "heart" },
-];
+const navIcons = [{ src: "/assets/icons/bag.svg", alt: "bag" }];
 
 const Navbar = () => {
   const { user } = useUser();
@@ -69,13 +66,6 @@ const Navbar = () => {
             </Badge>
           </div>
 
-          <Image
-            src="/assets/icons/black-heart.svg"
-            alt="heart"
-            width={28}
-            height={28}
-            className="object-contain"
-          />
           {user ? (
             <div className="flex gap-2 items-center justify-center">
               <UserButton />

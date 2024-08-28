@@ -1,6 +1,5 @@
 import { PercentIcon } from "lucide-react";
 import React from "react";
-import { Card } from "./ui/card";
 import Image from "next/image";
 import {
   HoverCard,
@@ -10,11 +9,7 @@ import {
 
 const navItems = [
   { title: "Siemens PLC", image: "/product-category/1.png", url: "/offers" },
-  {
-    title: "Siemens Drive",
-    image: "/product-category/2.png",
-    url: "/offers",
-  },
+  { title: "Siemens Drive", image: "/product-category/2.png", url: "/offers" },
   { title: "Siemens HMI", image: "/product-category/3.png", url: "/offers" },
   {
     title: "Siemens Power Supply",
@@ -41,32 +36,37 @@ const navItems = [
     image: "/product-category/8.png",
     url: "/offers",
   },
-  // { title: "Night Foot Lamp", image: "/nav/lamp.svg", url: "/offers" },
-  //   { title: "Telephone Outlet", image: "/nav/offer.svg", url: "/offers" },
-  //   { title: "Switches Bundle", image: "/nav/offer.svg", url: "/offers" },
+  {
+    title: "Other Automation Products",
+    image: "/product-category/9.png",
+    url: "/offers",
+  },
+  // {
+  //   title: "Automation Consultancy",
+  //   image: "/product-category/10.png",
+  //   url: "/offers",
+  // },
 ];
 
 const CircularNavbar = () => {
   return (
-    <div className="flex justify-center gap-16 items-center my-5 rounded-md py-5 bg-gradient-to-r from-slate-100 to-destructive/10 shadow-sm border">
+    <div className="flex flex-wrap justify-center gap-4 md:gap-8 items-center my-5 rounded-md py-5 bg-gradient-to-r from-slate-100 to-destructive/10 shadow-sm border">
       {navItems.map((item, index) => (
         <HoverCard key={index}>
           <HoverCardTrigger>
-            <div key={index}>
-              <div className="flex flex-col items-center gap-2 justify-center ">
-                <div className="bg-white p-1 rounded-md border-2 shadow-xl">
-                  <Image
-                    src={item.image}
-                    alt={`nav - ${index}`}
-                    width={80}
-                    height={60}
-                    className="text-green-500 "
-                  />
-                </div>
-                <p className="font-bold text-sm text-center truncate max-w-[120px]">
-                  {item.title}
-                </p>
+            <div className="flex flex-col items-center gap-2 justify-center">
+              <div className="bg-white p-2 rounded-md border-2 shadow-xl">
+                <Image
+                  src={item.image}
+                  alt={`nav - ${index}`}
+                  width={80}
+                  height={60}
+                  className="object-cover"
+                />
               </div>
+              <p className="font-bold text-xs md:text-sm text-center truncate max-w-[80px] md:max-w-[120px]">
+                {item.title}
+              </p>
             </div>
           </HoverCardTrigger>
           <HoverCardContent>
@@ -74,8 +74,8 @@ const CircularNavbar = () => {
               src={item.image}
               alt={`nav - ${index}`}
               width={300}
-              height={60}
-              className="text-green-500 border p-3"
+              height={180}
+              className="object-cover border p-3"
             />
             <p className="font-bold text-sm text-center bg-green-100 p-3 border">
               {item.title}

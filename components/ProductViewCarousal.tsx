@@ -40,46 +40,44 @@ export function ProductViewCarousal({ imageArr, image }: IProps) {
   return (
     <>
       {imageArr?.length < 1 && (
-        <Card className="rounded-xl border-none w-auto h-full">
+        <Card className="rounded-xl border-none w-full h-full">
           <CardContent className="flex items-center justify-center p-6">
             <Image
               src={image || ""}
               alt={`Single-image`}
               width={400}
               height={300}
-              className="object-fill"
+              className="object-cover"
               unoptimized
             />
           </CardContent>
         </Card>
       )}
-      <div className="flex flex-row-reverse gap-5">
-        <Carousel
-          setApi={setApi}
-          className="w-full self-center"
-          orientation="single"
-        >
-          <CarouselContent>
-            {imageArr?.map((img, index) => (
-              <CarouselItem key={index}>
-                <div className="rounded-xl border-none bg-gray-100">
-                  <div className="flex items-center justify-center relative">
-                    <Image
-                      src={img}
-                      alt={`Slide ${index + 1}`}
-                      width={350}
-                      height={120}
-                      className="object-fit"
-                      unoptimized
-                    />
+      <div className="flex flex-col-reverse lg:flex-row gap-4 lg:gap-8">
+        <div className="w-full lg:w-2/3">
+          <Carousel setApi={setApi} className="w-full" orientation="single">
+            <CarouselContent>
+              {imageArr?.map((img, index) => (
+                <CarouselItem key={index}>
+                  <div className="rounded-xl border-none bg-gray-100">
+                    <div className="flex items-center justify-center relative">
+                      <Image
+                        src={img}
+                        alt={`Slide ${index + 1}`}
+                        width={600}
+                        height={400}
+                        className="object-cover"
+                        unoptimized
+                      />
+                    </div>
                   </div>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
-        <div className="py-2 flex items-center">
-          <div className="flex flex-wrap flex-col justify-center">
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </div>
+        <div className="w-full lg:w-1/3 flex flex-col items-center lg:items-start">
+          <div className="flex flex-wrap justify-center lg:justify-start gap-2">
             {displayedThumbnails?.map((img, index) => (
               <Image
                 key={index}
@@ -88,7 +86,7 @@ export function ProductViewCarousal({ imageArr, image }: IProps) {
                 height={100}
                 unoptimized
                 alt={`Thumbnail ${index + 1}`}
-                className={`w-16 h-16 mr-2 rounded cursor-pointer mx-3 my-1 border p-2 ${
+                className={`w-20 h-20 rounded cursor-pointer border p-1 ${
                   current === index + 1 ? "border-2 border-blue-500" : ""
                 }`}
                 onClick={() => {
@@ -102,7 +100,7 @@ export function ProductViewCarousal({ imageArr, image }: IProps) {
             {imageArr?.length > 4 && !isExpanded ? (
               <button
                 onClick={handleToggleExpand}
-                className="w-16 h-16 mr-2 rounded cursor-pointer mx-3 border p-2"
+                className="w-20 h-20 rounded border p-1 flex items-center justify-center"
               >
                 {`+${imageArr?.length - 4} More`}
               </button>

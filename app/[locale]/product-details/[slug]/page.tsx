@@ -21,6 +21,9 @@ import {
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import CheckBoxList from "@/components/CheckBoxList";
+import { Button } from "@/components/ui/button";
+import { Filter, FilterIcon } from "lucide-react";
+import { useFilterOpen } from "@/hooks/use-filter-open";
 
 const conditionList = [
   { value: "any-condition", label: "Any Condition" },
@@ -80,6 +83,7 @@ const PartnerProductDetails = () => {
     string[]
   >([]);
 
+  const { onOpen } = useFilterOpen();
   useEffect(() => {
     const initializeTabsAndFetchData = async () => {
       try {
@@ -147,8 +151,8 @@ const PartnerProductDetails = () => {
       <div className="h-[250px] relative mb-10">
         <Image src={"/images/b1.png"} alt="banner" fill />
       </div>
-      <div className="flex gap-4">
-        <div className="w-[200px] pr-5">
+      <div className="flex flex-col md:flex-row gap-4">
+        <div className="pr-5 hidden md:block">
           <h1 className="font-bold text-lg">Filter By</h1>
           <Separator className="my-2" />
           <CheckBoxList data={brands} title="Brands" searchParam="brand" />
@@ -182,7 +186,7 @@ const PartnerProductDetails = () => {
                     </TabsTrigger>
                   ))}
                 </TabsList>
-                <div>
+                <div className="hidden md:block">
                   <MultiSelect
                     options={conditionList}
                     onValueChange={setSelectedCondition}
@@ -192,7 +196,7 @@ const PartnerProductDetails = () => {
                     maxCount={3}
                   />
                 </div>
-                <div>
+                <div className="hidden md:block">
                   <MultiSelect
                     options={deliveryOptionsList}
                     onValueChange={setSelectedDeliveryOption}
@@ -203,7 +207,10 @@ const PartnerProductDetails = () => {
                   />
                 </div>
               </div>
-              <div>
+              <Button onClick={onOpen} className="block md:hidden">
+                <Filter />
+              </Button>
+              <div className="hidden md:block">
                 <Select>
                   <SelectTrigger className="w-[180px]">
                     <SelectValue placeholder="Sort by" />

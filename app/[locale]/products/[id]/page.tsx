@@ -12,9 +12,8 @@ import ProductDetails from "@/components/ProductDetails";
 import Reviews from "@/components/Reviews";
 import { IProduct } from "@/types";
 import ProductShiping from "@/components/ProductShiping";
-import { useGetProducts } from "@/features/products/use-get-products";
-import ProductCard from "@/components/ProductCard";
 import { useProductsStore } from "@/stores/useProductStore";
+import ProductCard from "@/components/ProductCard";
 
 const ProductDetailsById = () => {
   const { id } = useParams();
@@ -35,10 +34,11 @@ const ProductDetailsById = () => {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div className="text-center">Loading...</div>;
   }
+
   return (
-    <div className="mx-16">
+    <div className="mx-4 md:mx-8 lg:mx-16">
       <Button
         variant="link"
         onClick={handleGoBack}
@@ -47,23 +47,25 @@ const ProductDetailsById = () => {
         <ChevronLeft className="mr-2 h-4 w-4" /> Back to result
       </Button>
 
-      <div className="flex justify-center gap-24  my-5">
+      <div className="flex flex-col lg:flex-row gap-8 my-5">
         <ProductViewCarousal
           imageArr={product?.sliderImages || []}
           image={product?.image}
         />
         <SingleProductDetails product={product as IProduct} />
       </div>
-      <div className="mt-10 flex justify-between gap-10">
-        <div className="w-fit">
-          <div className="flex justify-between items-center">
-            <h1 className="text-2xl font-bold">Similar Product</h1>
-            <p className="text-sm text-gray-500">Feedback | See all</p>
+      <div className="mt-10 flex flex-col lg:flex-row gap-8 lg:gap-16">
+        <div className="w-full lg:w-2/3">
+          <div className="flex justify-between items-center mb-5">
+            <h1 className="text-xl md:text-2xl font-bold">Similar Products</h1>
+            <p className="text-sm text-gray-500 cursor-pointer">
+              Feedback | See all
+            </p>
           </div>
-          <div className="flex flex-wrap gap-4 mt-5">
+          <div className="flex flex-wrap gap-4">
             {products?.slice(0, 3).map((product, index) => (
               <div
-                className="flex-none w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex-grow"
+                className="flex-none w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
                 key={index}
               >
                 <ProductCard product={product} isButton />
@@ -71,21 +73,26 @@ const ProductDetailsById = () => {
             ))}
           </div>
         </div>
-        <div className="max-w-md">
+        <div className="w-full lg:w-1/3">
           <ProductShiping />
         </div>
       </div>
-      <h1 className="text-2xl font-bold">Mostly Visited Products</h1>
+      <h1 className="text-xl md:text-2xl font-bold mt-10">
+        Mostly Visited Products
+      </h1>
       <ProductNew />
       <Tabs defaultValue="review" className="mt-10">
         <TabsList className="bg-inherit">
-          <TabsTrigger value="product" className="text-2xl font-bold">
+          <TabsTrigger value="product" className="text-lg md:text-xl font-bold">
             Product Details
           </TabsTrigger>
-          <TabsTrigger value="review" className="text-2xl font-bold">
+          <TabsTrigger value="review" className="text-lg md:text-xl font-bold">
             Reviews
           </TabsTrigger>
-          <TabsTrigger value="discussion" className="text-2xl font-bold">
+          <TabsTrigger
+            value="discussion"
+            className="text-lg md:text-xl font-bold"
+          >
             Discussion
           </TabsTrigger>
         </TabsList>

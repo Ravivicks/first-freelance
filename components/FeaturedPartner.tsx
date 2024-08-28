@@ -25,32 +25,33 @@ const partnerList = [
 
 const FeaturedPartner = () => {
   const router = useRouter();
+
   return (
     <Card className="mb-16">
-      <h1 className="text-3xl font-bold mb-5 bg-gradient-to-r from-slate-100 to-destructive/10 py-4 px-4">
+      <h1 className="text-2xl md:text-3xl font-bold mb-5 bg-gradient-to-r from-slate-100 to-destructive/10 py-4 px-4">
         Featured Partners
       </h1>
-      <div className=" flex gap-3 flex-wrap p-3">
+      <div className="flex gap-3 flex-wrap justify-center p-3">
         {partnerList.map((item, index) => (
           <Card
-            className="rounded-xl hover:shadow-lg w-1/6 flex-grow cursor-pointer"
+            className="rounded-xl hover:shadow-lg w-full sm:w-5/12 md:w-1/4 lg:w-1/6 flex-grow cursor-pointer"
             key={index}
             onClick={() => {
               router.push(`/partner-product-details/${item.title}`);
             }}
           >
-            <CardContent className="flex flex-col items-center justify-center mt-3 ">
-              <div>
+            <CardContent className="flex flex-col items-center justify-center mt-3">
+              <div className="w-full flex justify-center">
                 <Image
                   src={item.image}
-                  alt="p-1"
+                  alt={item.title}
                   width={300}
                   height={200}
-                  className="object-fit"
+                  className="object-contain"
                 />
               </div>
               <div className="border-t-2 w-full mt-7">
-                <h1 className="font-extrabold text-2xl text-center mt-3">
+                <h1 className="font-extrabold text-xl md:text-2xl text-center mt-3">
                   {item.title}
                 </h1>
               </div>

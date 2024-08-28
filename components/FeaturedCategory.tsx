@@ -33,14 +33,14 @@ const FeaturedCategory = () => {
       <h1 className="text-3xl font-bold mb-5 bg-gradient-to-r from-slate-100 to-destructive/10 py-4 px-4">
         Featured Category
       </h1>
-      <div className="flex gap-3 flex-wrap p-3">
+      <div className="flex flex-wrap gap-3 p-3">
         {navItems.map((item, index) => (
           <a
             href={item.url}
-            className="rounded-xl flex justify-evenly items-center w-1/6 hover:shadow-lg border p-4 transition-shadow flex-grow"
+            className="rounded-xl flex flex-col flex-grow sm:flex-row justify-evenly items-center w-full sm:w-1/2 lg:w-1/5 hover:shadow-lg border p-4 transition-shadow"
             key={index}
           >
-            <div className="relative">
+            <div className="relative mb-4 sm:mb-0">
               <Image
                 src={item.image}
                 alt={item.title}
@@ -49,7 +49,7 @@ const FeaturedCategory = () => {
                 unoptimized
               />
             </div>
-            <h1 className="text-xl font-bold text-center w-1/2">
+            <h1 className="text-xl font-bold text-center sm:w-1/2">
               {item.title}
             </h1>
           </a>
