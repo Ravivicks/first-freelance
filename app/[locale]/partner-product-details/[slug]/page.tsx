@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ProductCard from "@/components/ProductCard";
 import { useParams } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -12,24 +12,65 @@ const PartnerProductDetails = () => {
 
   const decodedBrand = slug ? decodeURIComponent(slug as string) : undefined;
 
-  const { products, isLoading, error, fetchData, currentPage, setPage } =
-    useProductsStore();
+  const {
+    products,
+    isLoading,
+    error,
+    fetchData,
+    currentPage,
+    setPage,
+    totalPages,
+  } = useProductsStore();
+
+  const sentinelRef = useRef<HTMLDivElement>(null);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
 
   useEffect(() => {
-    fetchData(currentPage, 20, decodedBrand);
+    fetchData(currentPage, 20, { brand: decodedBrand });
   }, [currentPage, slug]);
 
   const { data, isLoading: bannerLoading } = useGetBanner(
     decodedBrand as string
   );
 
-  const loadMore = () => {
-    setPage(currentPage + 1);
+  const loadMore = async () => {
+    if (isLoadingMore || currentPage >= totalPages) return;
+
+    setIsLoadingMore(true);
+
+    try {
+      await fetchData(currentPage + 1, 20, { brand: decodedBrand });
+      setPage(currentPage + 1);
+    } catch (err) {
+      console.error("Failed to load more products:", err);
+    } finally {
+      setIsLoadingMore(false);
+    }
   };
 
-  if (isLoading && bannerLoading) {
-    return <div>Loading</div>;
-  }
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !isLoadingMore && !isLoading) {
+          loadMore();
+        }
+      },
+      {
+        rootMargin: "100px",
+        threshold: 0.1, // Adjusted to trigger earlier
+      }
+    );
+
+    if (sentinelRef.current) {
+      observer.observe(sentinelRef.current);
+    }
+
+    return () => {
+      if (sentinelRef.current) {
+        observer.unobserve(sentinelRef.current);
+      }
+    };
+  }, [isLoadingMore, isLoading]);
 
   return (
     <div>
@@ -47,6 +88,13 @@ const PartnerProductDetails = () => {
           </div>
         ))}
       </div>
+      {/* Sentinel Element */}
+      <div ref={sentinelRef} style={{ height: "20px" }} />
+      {isLoadingMore && (
+        <div className="text-center font-semibold">
+          Loading more products...
+        </div>
+      )}
     </div>
   );
 };

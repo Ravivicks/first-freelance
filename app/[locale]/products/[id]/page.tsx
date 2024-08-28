@@ -14,12 +14,21 @@ import { IProduct } from "@/types";
 import ProductShiping from "@/components/ProductShiping";
 import { useGetProducts } from "@/features/products/use-get-products";
 import ProductCard from "@/components/ProductCard";
+import { useProductsStore } from "@/stores/useProductStore";
 
 const ProductDetailsById = () => {
   const { id } = useParams();
   const router = useRouter();
   const { data: product, isLoading } = useGetProduct(id.toString());
-  const { data: products, isLoading: isProductLoading } = useGetProducts();
+  const {
+    products,
+    isLoading: isProductLoading,
+    error,
+    fetchData,
+    currentPage,
+    setPage,
+    totalPages,
+  } = useProductsStore();
 
   const handleGoBack = () => {
     router.back(); // This will take the user back to the previous page

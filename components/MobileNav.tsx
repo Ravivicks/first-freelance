@@ -10,9 +10,11 @@ import {
 import { LucideChevronDown, Menu } from "lucide-react";
 import { menuItems } from "@/lib/data";
 import { Card, CardContent } from "./ui/card";
+import { useUser } from "@clerk/nextjs";
 
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { user } = useUser();
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>

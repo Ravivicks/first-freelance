@@ -10,6 +10,8 @@ export const enquirySchema = new Schema<EnquireProps>(
     productPrice: { type: Number, required: true },
     enquiryDescription: { type: String },
     quantity: { type: Number },
+    status: { type: String },
+    reason: { type: String },
   },
   { timestamps: true }
 );

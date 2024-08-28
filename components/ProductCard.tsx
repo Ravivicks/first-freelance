@@ -77,7 +77,7 @@ const ProductCard = ({ product, isButton }: Props) => {
         </div>
       </Link>
       {!isButton && (
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-wrap">
           <Button
             variant="outline"
             className="rounded-full flex-grow"

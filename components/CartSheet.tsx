@@ -13,8 +13,10 @@ import { useCartStore } from "@/stores/useCartStore";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { DeleteIcon, Trash2Icon } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const CartSheet = () => {
+  const router = useRouter();
   const { isOpen, onClose } = useCartDetails();
   const cart = useFromStore(useCartStore, (state) => state.cart);
   const removeFromCart = useCartStore((state) => state.removeFromCart);
@@ -77,7 +79,14 @@ const CartSheet = () => {
               ${total.toFixed(2)}
             </p>
           </div>
-          <Button variant="destructive" className="w-full rounded-full mt-10">
+          <Button
+            variant="destructive"
+            className="w-full rounded-full mt-10"
+            onClick={() => {
+              router.push("/checkout");
+              onClose();
+            }}
+          >
             Checkout
           </Button>
         </div>

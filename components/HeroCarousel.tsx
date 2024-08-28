@@ -10,10 +10,10 @@ import Image from "next/image";
 
 const HeroCarousel = () => {
   return (
-    <div className="relative w-full">
+    <div className="relative w-full rounded-full">
       <Carousel className="relative rounded-xl">
         <CarouselContent className="rounded-xl">
-          <CarouselItem className="relative h-[400px] w-full rounded-xl">
+          <CarouselItem className="relative h-[300px] w-full rounded-xl">
             {" "}
             {/* Adjust the height ratio as needed */}
             <Image
@@ -23,7 +23,7 @@ const HeroCarousel = () => {
               className="object-fit"
             />
           </CarouselItem>
-          <CarouselItem className="relative h-[400px] w-full">
+          <CarouselItem className="relative h-[300px] w-full">
             <Image
               src="https://m.media-amazon.com/images/S/al-eu-726f4d26-7fdb/ff6f1927-0439-4968-bb1f-4ba0f3888e4e._CR0%2C0%2C1500%2C750_SX750_SY375_.jpg"
               alt="c-2"
@@ -31,7 +31,7 @@ const HeroCarousel = () => {
               className="object-fit"
             />
           </CarouselItem>
-          <CarouselItem className="relative h-[400px] w-full">
+          <CarouselItem className="relative h-[300px] w-full">
             <Image
               src="https://m.media-amazon.com/images/S/al-eu-726f4d26-7fdb/ff6f1927-0439-4968-bb1f-4ba0f3888e4e._CR0%2C0%2C1500%2C750_SX750_SY375_.jpg"
               alt="c-3"

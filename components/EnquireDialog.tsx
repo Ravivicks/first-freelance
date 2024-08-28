@@ -78,6 +78,8 @@ const EnquireDialog = () => {
                   productPrice: product?.lowestPrice || 0,
                   enquiryDescription: "",
                   quantity: 1,
+                  status: "pending",
+                  reason: "",
                 }}
               />
             </div>

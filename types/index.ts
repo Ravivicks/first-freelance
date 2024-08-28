@@ -29,6 +29,7 @@ export type IProduct = {
   averagePrice: number;
   discountRate: number;
   description: string;
+  type: string;
   productDescription: string;
   category: string;
   reviewsCount: number;
@@ -79,9 +80,31 @@ export type EnquireProps = {
   productPrice: number;
   enquiryDescription: string;
   quantity: number;
+  status: string;
+  reason: string;
 };
 
 export type IPartnerBanner = {
   image: string;
   brand: string;
+};
+
+export type IUser = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+};
+
+export type IAddress = {
+  _id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  address: string;
+  country: string;
+  city: string;
+  state: string;
+  phone: string;
+  zipcode: string;
 };

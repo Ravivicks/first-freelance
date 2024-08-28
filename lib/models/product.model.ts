@@ -12,6 +12,7 @@ const productSchema: Schema = new Schema(
     currentPrice: { type: Number, required: true },
     originalPrice: { type: Number, required: true },
     brand: { type: String, required: true },
+    type: { type: String },
     priceHistory: [
       {
         price: { type: Number, required: true },

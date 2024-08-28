@@ -11,9 +11,11 @@ import { menuItems } from "@/lib/data";
 import { LucideChevronDown } from "lucide-react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
+import { useUser } from "@clerk/nextjs";
 
 const MenuBarNew = () => {
   const { locale } = useParams();
+  const { user } = useUser();
   const router = useRouter();
 
   const handleClick = (url: string) => {

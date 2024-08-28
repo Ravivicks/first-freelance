@@ -1,5 +1,6 @@
 // import { convertCurrency } from "@/lib/actions/convertCurrency";
 // import { formatCurrency } from "@/lib/utils";
+import BestDeal from "@/components/BestDeal";
 import CategoryWise from "@/components/CategoryWise";
 import CircularNavbar from "@/components/CircularNavbar";
 import FeaturedCategory from "@/components/FeaturedCategory";
@@ -26,6 +27,7 @@ export default async function Index() {
     <div>
       <CircularNavbar />
       <Hero />
+      <BestDeal />
       <ProductCarousal />
       <FeaturedCategory />
       <SingleProductView />

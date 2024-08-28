@@ -23,7 +23,7 @@ const Navbar = () => {
 
   return (
     <header className="w-full">
-      <nav className=" py-8 flex justify-between items-center">
+      <nav className=" py-6 flex justify-between items-center px-4">
         <div className="block sm:hidden">
           <MobileNav />
         </div>
@@ -43,7 +43,7 @@ const Navbar = () => {
             className="-mr-7 z-0 hidden md:block"
           />
           <Input
-            className="w-[700px] rounded-xl border-none bg-gray-200 pl-8 hidden md:block"
+            className="w-[700px] rounded-xl bg-gray-100 border-none pl-8 hidden md:block"
             placeholder="Search"
           />
         </div>

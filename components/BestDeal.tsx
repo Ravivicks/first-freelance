@@ -1,39 +1,38 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
-
-const imageArr = [
-  "https://m.media-amazon.com/images/I/51fcujFTvsL._SX385_.jpg",
-  "https://m.media-amazon.com/images/I/91f4RIeIIgL._AC_UL320_.jpg",
-  "https://m.media-amazon.com/images/I/51lYzaJPZBL._SX300_SY300_QL70_FMwebp_.jpg",
-  "https://m.media-amazon.com/images/I/51SlvF4pTyL._SY300_SX300_QL70_FMwebp_.jpg",
-];
+import { Button } from "./ui/button";
+import FeaturedProductCard from "./FeaturedProductCard";
+import { useProductsStore } from "@/stores/useProductStore";
 
 const BestDeal = () => {
+  const { products, isLoading, error, fetchData } = useProductsStore();
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
+  if (isLoading) {
+    return <div>Loading</div>;
+  }
   return (
-    <Card>
-      <CardHeader className="bg-gray-100">
+    <Card className="mb-16">
+      <CardHeader className="bg-gradient-to-r from-slate-100 to-destructive/10">
         <div className="flex justify-between w-full">
-          <CardTitle>Best Deal in PLC</CardTitle>
-          <div className="bg-gray-500 rounded-full p-3 hover:bg-gray-200 cursor-pointer">
-            <ChevronRight />
-          </div>
+          <CardTitle className="text-3xl">Top Selling Products</CardTitle>
+          <Button variant="destructive">
+            View All <ChevronRight className="size-5 ml-1" />
+          </Button>
         </div>
       </CardHeader>
-      <CardContent className="flex flex-col gap-4 md:flex-row w-full">
-        {imageArr.map((item, index) => (
-          <Card className="p-4 w-fit my-4 rounded-xl" key={index}>
-            <CardContent className="relative h-[250px] w-[250px]">
-              <Image
-                src={item}
-                fill
-                alt={`plc-${index}`}
-                className="object-fit"
-              />
-            </CardContent>
-          </Card>
-        ))}
+      <CardContent className="flex flex-col gap-4 md:flex-row w-full mt-5">
+        <div className=" flex gap-3 flex-wrap px-3">
+          {products?.slice(0, 5).map((product) => (
+            <FeaturedProductCard product={product} key={product._id} />
+          ))}
+        </div>
       </CardContent>
     </Card>
   );

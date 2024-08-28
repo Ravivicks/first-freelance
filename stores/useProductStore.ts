@@ -7,14 +7,20 @@ interface State {
   isLoading: boolean;
   error: any;
   currentPage: number;
+  totalPages: number;
+  totalCount: number;
   brandFilter?: string;
+  brands: { label: string; value: string }[];
+  types: { label: string; value: string }[];
+  categories: { label: string; value: string }[];
+  typeFilter?: string; // Add typeFilter to the state
 }
 
 interface Actions {
   fetchData: (
     page?: number,
     pageSize?: number,
-    brand?: string
+    filters?: Record<string, any> // Add type parameter to fetchData
   ) => Promise<void>;
   setPage: (page: number) => void;
 }
@@ -24,7 +30,13 @@ const INITIAL_STATE: State = {
   isLoading: false,
   error: null,
   currentPage: 1,
+  totalPages: 0,
+  totalCount: 0,
+  brands: [],
+  types: [],
+  categories: [],
   brandFilter: undefined,
+  typeFilter: undefined, // Initialize typeFilter
 };
 
 export const useProductsStore = create<State & Actions>((set) => ({
@@ -32,22 +44,40 @@ export const useProductsStore = create<State & Actions>((set) => ({
   isLoading: INITIAL_STATE.isLoading,
   error: INITIAL_STATE.error,
   currentPage: INITIAL_STATE.currentPage,
+  totalPages: INITIAL_STATE.totalPages,
   brandFilter: INITIAL_STATE.brandFilter,
-  fetchData: async (page = 1, pageSize = 20, brand) => {
+  typeFilter: INITIAL_STATE.typeFilter,
+  totalCount: INITIAL_STATE.totalCount,
+  brands: INITIAL_STATE.brands,
+  types: INITIAL_STATE.types,
+  categories: INITIAL_STATE.categories,
+
+  fetchData: async (page = 1, pageSize = 20, filters = {}) => {
     try {
       set({ isLoading: true, error: null });
-      const response = await getAllProducts(page, pageSize, brand);
+
+      // Fetch products and totalCount from the API with dynamic filters
+      const { products, totalCount, brands, types, categories } =
+        await getAllProducts(page, pageSize, filters);
+
+      // Calculate total pages
+      const totalPages = Math.ceil(totalCount / pageSize);
+
       set((state) => ({
-        products: page === 1 ? response : [...state.products, ...response],
+        products: page === 1 ? products : [...state.products, ...products],
         isLoading: false,
+        totalPages,
+        totalCount,
+        brands,
+        types,
+        categories,
       }));
     } catch (error) {
       set({ error, isLoading: false });
     }
   },
+
   setPage: (page: number) => {
-    set((state) => ({
-      currentPage: page,
-    }));
+    set({ currentPage: page });
   },
 }));

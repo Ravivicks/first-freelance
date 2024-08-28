@@ -32,32 +32,92 @@ export async function createBulkProducts(products: IProduct[]) {
 }
 
 export async function getAllProducts(
-  page: number = 1,
-  pageSize: number = 20,
-  brand?: string
-): Promise<IProduct[] | any> {
+  page: number,
+  pageSize: number,
+  filters: Record<string, any> = {} // Accepts any key-value pairs
+): Promise<{
+  products: IProduct[];
+  totalCount: number;
+  brands: { label: string; value: string }[];
+  types: { label: string; value: string }[];
+  categories: { label: string; value: string }[];
+}> {
   try {
     await connectToDB();
 
     // Create a filter object
     const filter: any = {};
-    if (brand) {
-      filter.brand = brand;
-    }
 
-    // Calculate the number of documents to skip
+    Object.keys(filters).forEach((key) => {
+      if (filters[key]) {
+        // Check if the key is 'brand' and it's a comma-separated string
+        if (key === "brand" && typeof filters[key] === "string") {
+          // Split the string by commas and use it as an array in the filter
+          filter[key] = { $in: filters[key].split(",") };
+        } else {
+          filter[key] = filters[key];
+        }
+      }
+    });
+
     const skip = (page - 1) * pageSize;
 
-    // Fetch products with brand filtering and pagination
+    // Fetch the total count of products that match the filter
+    const totalCount = await Product.countDocuments(filter);
+
+    // Fetch products with filtering and pagination
     const products = await Product.find(filter)
       .skip(skip)
       .limit(pageSize)
       .lean();
 
-    return JSON.parse(JSON.stringify(products));
+    // Fetch the list of distinct brand names in the entire database (ignoring the filter)
+    const distinctBrands = await Product.distinct("brand");
+
+    // Format the brands into the desired { label: "brand", value: "brand" } structure
+    const brands = distinctBrands.map((brand) => ({
+      label: brand,
+      value: brand,
+    }));
+    // Fetch the list of distinct type names in the entire database (ignoring the filter)
+    const distinctTypes = await Product.distinct("type");
+
+    // Format the brands into the desired { label: "type", value: "type" } structure
+    const types = distinctTypes.map((type) => ({
+      label: type,
+      value: type,
+    }));
+    // Fetch the list of distinct category names in the entire database (ignoring the filter)
+    const distinctCategories = await Product.distinct("category");
+
+    // Format the brands into the desired { label: "category", value: "category" } structure
+    const categories = distinctCategories.map((category) => ({
+      label: category,
+      value: category,
+    }));
+
+    return {
+      products: JSON.parse(JSON.stringify(products)),
+      totalCount,
+      brands,
+      types,
+      categories,
+    };
   } catch (error) {
-    console.error(error);
+    console.error("Failed to fetch products:", error);
     throw new Error("Failed to fetch products");
+  }
+}
+
+export async function getAllProductso() {
+  try {
+    connectToDB();
+
+    const products = await Product.find();
+
+    return products;
+  } catch (error) {
+    console.log(error);
   }
 }
 

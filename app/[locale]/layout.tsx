@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import { ClerkProvider } from "@clerk/nextjs";
 import SheetProvider from "@/providers/sheet-provider";
 import { Toaster } from "@/components/ui/sonner";
+import TopNav from "@/components/TopNav";
 
 const inter = Poppins({ subsets: ["latin"], weight: ["100", "300"] });
 export default async function LocaleLayout({
@@ -30,6 +31,7 @@ export default async function LocaleLayout({
               <QueryProvider>
                 <SheetProvider />
                 <Toaster position="top-right" />
+                <TopNav />
                 <Navbar />
                 <div className="hidden md:block">
                   <MenuBarNew />
