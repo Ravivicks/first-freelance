@@ -11,7 +11,7 @@ const TopNav = () => {
       <div className="flex justify-between items-center">
         <Button variant="link" className="text-white font-semibold text-xs">
           <Image
-            src="/warranty.webp"
+            src="/images/warranty.webp"
             alt="12th"
             height={30}
             width={22}
