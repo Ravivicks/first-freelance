@@ -50,7 +50,7 @@ const CircularNavbar = () => {
   return (
     <div className="flex justify-center gap-16 items-center my-5 rounded-md py-5 bg-gradient-to-r from-slate-100 to-destructive/10 shadow-sm border">
       {navItems.map((item, index) => (
-        <HoverCard>
+        <HoverCard key={index}>
           <HoverCardTrigger>
             <div key={index}>
               <div className="flex flex-col items-center gap-2 justify-center ">
