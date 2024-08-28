@@ -69,8 +69,11 @@ const Navbar = () => {
           {user ? (
             <div className="flex gap-2 items-center justify-center">
               <UserButton />
-              <p className="capitalize">
+              <p className="capitalize hidden md:block">
                 {user && `${user?.firstName} ${user?.lastName}`}
+              </p>
+              <p className="capitalize md:hidden">
+                {user && `${user?.firstName}`}
               </p>
             </div>
           ) : (

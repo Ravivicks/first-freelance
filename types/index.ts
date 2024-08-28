@@ -83,6 +83,16 @@ export type EnquireProps = {
   status: string;
   reason: string;
 };
+export type PriceRequestProps = {
+  email: string;
+  mobile: string;
+  productName: string;
+  productId: string;
+  priceDescription: string;
+  quantity: number;
+  status: string;
+  reason: string;
+};
 
 export type IPartnerBanner = {
   image: string;

@@ -27,7 +27,7 @@ const BestDeal = () => {
           </CardTitle>
           <Button
             variant="destructive"
-            className="mt-3 sm:mt-0 hidden md:block"
+            className="mt-3 sm:mt-0 hidden md:flex rounded-full"
           >
             View All <ChevronRight className="ml-1 size-5" />
           </Button>

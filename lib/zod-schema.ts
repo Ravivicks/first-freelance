@@ -13,6 +13,16 @@ export const formSchema = z.object({
   status: z.string(),
   reason: z.string(),
 });
+export const requestPriceFormSchema = z.object({
+  email: z.string().email(),
+  mobile: z.string(),
+  productName: z.string(),
+  productId: z.string(),
+  priceDescription: z.string(),
+  quantity: z.number(),
+  status: z.string(),
+  reason: z.string(),
+});
 export const formBannerSchema = z.object({
   image: z.string(),
   brand: z.string(),
