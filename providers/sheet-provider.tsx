@@ -1,6 +1,5 @@
 "use client";
 import AddressDialog from "@/components/AddressDialog";
-import AddressSheet from "@/components/AddressSheet";
 import BannerDialog from "@/components/BannerDialog";
 import CartSheet from "@/components/CartSheet";
 import EnquireDialog from "@/components/EnquireDialog";
@@ -17,7 +16,6 @@ const SheetProvider = () => {
       <CartSheet />
       <EnquireDialog />
       <BannerDialog />
-      {/* <AddressSheet /> */}
       <AddressDialog />
     </>
   );
