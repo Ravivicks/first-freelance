@@ -159,8 +159,11 @@ export default function Component() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  {data?.items.map((item) => (
-                    <div className="flex justify-between items-center">
+                  {data?.items.map((item, index) => (
+                    <div
+                      key={index}
+                      className="flex justify-between items-center"
+                    >
                       <div className="flex items-center space-x-4">
                         <div>
                           <p className="font-semibold text-sm">{item.name}</p>
