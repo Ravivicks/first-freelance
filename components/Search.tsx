@@ -6,6 +6,7 @@ import { SearchIcon, Loader2 } from "lucide-react";
 import { IProduct } from "@/types";
 import { useProductsStore } from "@/stores/useProductStore";
 import Link from "next/link";
+import { useSearchOpen } from "@/hooks/use-search-open";
 
 export default function SearchComponent() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -15,6 +16,7 @@ export default function SearchComponent() {
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const suggestionRefs = useRef<(HTMLLIElement | null)[]>([]);
+  const { onClose } = useSearchOpen();
 
   const {
     products,
@@ -118,9 +120,13 @@ export default function SearchComponent() {
       </div>
       {showSuggestions && suggestions.length > 0 && (
         <div className="absolute z-10 w-full bg-background border border-input rounded-md shadow-md mt-1">
-          <ul className="max-h-[60vh] overflow-y-auto">
+          <ul className="md:max-h-[60vh] max-h-[33vh] overflow-y-auto">
             {suggestions.map((product, index) => (
-              <Link href={`/products/${product._id}`} key={product._id}>
+              <Link
+                href={`/products/${product._id}`}
+                key={product._id}
+                onClick={onClose}
+              >
                 <li
                   className={`px-4 py-2 cursor-pointer ${
                     index === selectedIndex

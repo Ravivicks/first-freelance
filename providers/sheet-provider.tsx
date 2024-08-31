@@ -6,6 +6,7 @@ import CheckoutDialog from "@/components/CheckoutDialog";
 import EnquireDialog from "@/components/EnquireDialog";
 import FilterDialog from "@/components/FilterDialog";
 import RequestPriceDialog from "@/components/RequestPriceDialog";
+import SearchDialog from "@/components/SearchDialog";
 import { useMountedState } from "react-use";
 
 const SheetProvider = () => {
@@ -23,6 +24,7 @@ const SheetProvider = () => {
       <FilterDialog />
       <RequestPriceDialog />
       <CheckoutDialog />
+      <SearchDialog />
     </>
   );
 };

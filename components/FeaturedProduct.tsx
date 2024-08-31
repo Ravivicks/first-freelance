@@ -11,8 +11,6 @@ const FeaturedProduct = () => {
     fetchData();
   }, [fetchData]);
 
-  console.log(products);
-
   if (isLoading) {
     return <div>Loading...</div>;
   }
