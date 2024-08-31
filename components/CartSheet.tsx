@@ -14,6 +14,7 @@ import Image from "next/image";
 import { Button } from "./ui/button";
 import { DeleteIcon, Trash2Icon } from "lucide-react";
 import { useRouter } from "next/navigation";
+import EmptyCart from "./EmptyCart";
 
 const CartSheet = () => {
   const router = useRouter();
@@ -33,63 +34,75 @@ const CartSheet = () => {
       <SheetContent className="space-y-4">
         <SheetHeader>
           <SheetTitle>Your Cart</SheetTitle>
-          <SheetDescription className="flex gap-2 bg-destructive/5 p-3 rounded-full font-semibold text-destructive mt-10">
-            <Image
-              src="/assets/icons/bag.svg"
-              alt="bag"
-              width={20}
-              height={10}
-            />{" "}
-            You Have {cart?.length} Items in your cart!
-          </SheetDescription>
+          {cart && cart?.length > 0 && (
+            <SheetDescription className="flex gap-2 bg-destructive/5 p-3 rounded-full font-semibold text-destructive mt-10">
+              <Image
+                src="/assets/icons/bag.svg"
+                alt="bag"
+                width={20}
+                height={10}
+              />{" "}
+              You Have {cart?.length} Items in your cart!
+            </SheetDescription>
+          )}
         </SheetHeader>
-        <div>
-          {cart?.map((cartItem, index) => (
-            <div key={index}>
-              <div className="flex justify-between my-3">
-                <div className="flex items-center gap-2">
-                  <Image
-                    src={cartItem.image}
-                    alt={`item - ${index}`}
-                    height={50}
-                    width={50}
-                    className="rounded-xl"
-                  />
-                  <div className="flex flex-col gap-1">
-                    <p className="font-semibold text-xs">{cartItem.title}</p>
-                    <p className="font-semibold text-xs text-muted-foreground">
-                      {cartItem.currency}
-                      {cartItem.lowestPrice}
-                    </p>
+        {cart && cart?.length > 0 ? (
+          <div>
+            <div>
+              {cart?.map((cartItem, index) => (
+                <div key={index}>
+                  <div className="flex justify-between my-3">
+                    <div className="flex items-center gap-2">
+                      <Image
+                        src={cartItem.image}
+                        alt={`item - ${index}`}
+                        height={50}
+                        width={50}
+                        className="rounded-xl"
+                      />
+                      <div className="flex flex-col gap-1">
+                        <p className="font-semibold text-xs">
+                          {cartItem.title}
+                        </p>
+                        <p className="font-semibold text-xs text-muted-foreground">
+                          {cartItem.currency}
+                          {cartItem.lowestPrice}
+                        </p>
+                      </div>
+                    </div>
+                    <Button
+                      variant="ghost"
+                      onClick={() => removeFromCart(cartItem)}
+                      className="rounded-full"
+                    >
+                      <Trash2Icon className="size-4" />
+                    </Button>
                   </div>
                 </div>
-                <Button
-                  variant="ghost"
-                  onClick={() => removeFromCart(cartItem)}
-                  className="rounded-full"
-                >
-                  <Trash2Icon className="size-4" />
-                </Button>
+              ))}
+              <div className="flex justify-between mt-16">
+                <p className="text-black text-sm font-semibold">Subtotal</p>
+                <p className="text-sm font-semibold text-muted-foreground">
+                  ${total.toFixed(2)}
+                </p>
               </div>
+              <Button
+                variant="destructive"
+                className="w-full rounded-full mt-10"
+                onClick={() => {
+                  router.push("/checkout");
+                  onClose();
+                }}
+              >
+                Checkout
+              </Button>
             </div>
-          ))}
-          <div className="flex justify-between mt-16">
-            <p className="text-black text-sm font-semibold">Subtotal</p>
-            <p className="text-sm font-semibold text-muted-foreground">
-              ${total.toFixed(2)}
-            </p>
           </div>
-          <Button
-            variant="destructive"
-            className="w-full rounded-full mt-10"
-            onClick={() => {
-              router.push("/checkout");
-              onClose();
-            }}
-          >
-            Checkout
-          </Button>
-        </div>
+        ) : (
+          <div className="relative top-24">
+            <EmptyCart />
+          </div>
+        )}
       </SheetContent>
     </Sheet>
   );

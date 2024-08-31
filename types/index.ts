@@ -33,6 +33,7 @@ export type IProduct = {
   productDescription: string;
   category: string;
   reviewsCount: number;
+  quantity: number;
   stars: number;
   isOutOfStock: Boolean;
   users?: User[];
@@ -118,3 +119,27 @@ export type IAddress = {
   phone: string;
   zipcode: string;
 };
+
+export interface PaymentDetails {
+  method: string; // e.g., 'credit_card', 'paypal'
+  status: string; // e.g., 'pending', 'completed', 'failed'
+  transactionId?: string;
+}
+
+export interface OrderItem {
+  productId: string;
+  name: string;
+  quantity: number;
+  price: number;
+  total: number;
+}
+
+export interface CheckoutData {
+  userId: string;
+  items: OrderItem[];
+  totalAmount: number;
+  paymentDetails: PaymentDetails;
+  shippingAddress: IAddress;
+  billingAddress: IAddress;
+  status: string;
+}

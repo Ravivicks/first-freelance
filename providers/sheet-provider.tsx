@@ -2,6 +2,7 @@
 import AddressDialog from "@/components/AddressDialog";
 import BannerDialog from "@/components/BannerDialog";
 import CartSheet from "@/components/CartSheet";
+import CheckoutDialog from "@/components/CheckoutDialog";
 import EnquireDialog from "@/components/EnquireDialog";
 import FilterDialog from "@/components/FilterDialog";
 import RequestPriceDialog from "@/components/RequestPriceDialog";
@@ -21,6 +22,7 @@ const SheetProvider = () => {
       <AddressDialog />
       <FilterDialog />
       <RequestPriceDialog />
+      <CheckoutDialog />
     </>
   );
 };

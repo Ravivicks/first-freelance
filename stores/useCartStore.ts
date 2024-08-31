@@ -10,8 +10,10 @@ interface State {
 }
 
 interface Actions {
-  addToCart: (Item: IProduct) => void;
-  removeFromCart: (Item: IProduct) => void;
+  addToCart: (item: IProduct) => void;
+  removeFromCart: (item: IProduct) => void;
+  increaseQuantity: (itemId: string) => void;
+  decreaseQuantity: (itemId: string) => void;
 }
 
 const INITIAL_STATE: State = {
@@ -23,9 +25,7 @@ const INITIAL_STATE: State = {
 export const useCartStore = create(
   persist<State & Actions>(
     (set, get) => ({
-      cart: INITIAL_STATE.cart,
-      totalItems: INITIAL_STATE.totalItems,
-      totalPrice: INITIAL_STATE.totalPrice,
+      ...INITIAL_STATE,
       addToCart: (product: IProduct) => {
         const cart = get().cart;
         const cartItem = cart.find((item) => item._id === product._id);
@@ -33,7 +33,7 @@ export const useCartStore = create(
         if (cartItem) {
           const updatedCart = cart.map((item) =>
             item._id === product._id
-              ? { ...item, quantity: (item.lowestPrice as number) + 1 }
+              ? { ...item, quantity: item.quantity! + 1 }
               : item
           );
           set((state) => ({
@@ -43,37 +43,67 @@ export const useCartStore = create(
           }));
         } else {
           const updatedCart = [...cart, { ...product, quantity: 1 }];
-
           set((state) => ({
             cart: updatedCart,
             totalItems: state.totalItems + 1,
             totalPrice: state.totalPrice + product.lowestPrice,
           }));
         }
-        console.log("Adding to cart", product);
         toast.success("Item added to cart");
       },
       removeFromCart: (product: IProduct) => {
-        set((state) => ({
-          cart: state.cart.filter((item) => item._id !== product._id),
-          totalItems: state.totalItems - 1,
-          totalPrice: state.totalPrice - product.lowestPrice,
-        }));
+        const cart = get().cart;
+        const cartItem = cart.find((item) => item._id === product._id);
+
+        if (cartItem) {
+          const updatedCart = cart.filter((item) => item._id !== product._id);
+          set((state) => ({
+            cart: updatedCart,
+            totalItems: state.totalItems - cartItem.quantity!,
+            totalPrice:
+              state.totalPrice - cartItem.quantity! * product.lowestPrice,
+          }));
+        }
+      },
+      increaseQuantity: (itemId: string) => {
+        const cart = get().cart;
+        const cartItem = cart.find((item) => item._id === itemId);
+
+        if (cartItem) {
+          const updatedCart = cart.map((item) =>
+            item._id === itemId
+              ? { ...item, quantity: item.quantity! + 1 }
+              : item
+          );
+          set((state) => ({
+            cart: updatedCart,
+            totalItems: state.totalItems + 1,
+            totalPrice: state.totalPrice + cartItem.lowestPrice,
+          }));
+        }
+      },
+      decreaseQuantity: (itemId: string) => {
+        const cart = get().cart;
+        const cartItem = cart.find((item) => item._id === itemId);
+
+        if (cartItem && cartItem.quantity! > 1) {
+          const updatedCart = cart.map((item) =>
+            item._id === itemId
+              ? { ...item, quantity: item.quantity! - 1 }
+              : item
+          );
+          set((state) => ({
+            cart: updatedCart,
+            totalItems: state.totalItems - 1,
+            totalPrice: state.totalPrice - cartItem.lowestPrice,
+          }));
+        } else if (cartItem && cartItem.quantity === 1) {
+          get().removeFromCart(cartItem);
+        }
       },
     }),
     {
       name: "cart-storage",
-      // getStorage: () => sessionStorage, (optional) by default the 'localStorage' is used
-      // version: 1, // State version number,
-      // migrate: (persistedState: unknown, version: number) => {
-      // 	if (version === 0) {
-      // 		// if the stored value is in version 0, we rename the field to the new name
-      // 		persistedState.totalProducts = persistedState.totalItems
-      // 		delete persistedState.totalItems
-      // 	}
-
-      // 	return persistedState as State & Actions
-      // },
     }
   )
 );
