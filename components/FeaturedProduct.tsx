@@ -11,6 +11,8 @@ const FeaturedProduct = () => {
     fetchData();
   }, [fetchData]);
 
+  console.log(products);
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -21,9 +23,11 @@ const FeaturedProduct = () => {
         Featured Product
       </h1>
       <div className="flex gap-3 flex-wrap justify-center px-3">
-        {products?.map((product) => (
-          <FeaturedProductCard product={product} key={product._id} />
-        ))}
+        {products
+          ?.filter((item) => item.brand === "Schneider Electric")
+          .map((product) => (
+            <FeaturedProductCard product={product} key={product._id} />
+          ))}
       </div>
     </Card>
   );

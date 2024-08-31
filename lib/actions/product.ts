@@ -48,6 +48,10 @@ export async function getAllProducts(
     // Create a filter object
     const filter: any = {};
 
+    if (filters.query) {
+      filter.brand = { $regex: filters.query, $options: "i" };
+    }
+
     Object.keys(filters).forEach((key) => {
       if (filters[key]) {
         // Check if the key is 'brand' and it's a comma-separated string

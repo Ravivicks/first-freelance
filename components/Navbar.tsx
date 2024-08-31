@@ -10,6 +10,7 @@ import useFromStore from "@/hooks/useFromStore";
 import { useCartStore } from "@/stores/useCartStore";
 import { Badge } from "./ui/badge";
 import { useCartDetails } from "@/hooks/use-cart-details";
+import SearchComponent from "./Search";
 
 const navIcons = [{ src: "/assets/icons/bag.svg", alt: "bag" }];
 
@@ -31,8 +32,8 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="flex justify-center items-center">
-          <Image
+        <SearchComponent />
+        {/* <Image
             src="/assets/icons/search.svg"
             alt="search"
             width={20}
@@ -42,8 +43,7 @@ const Navbar = () => {
           <Input
             className="w-[700px] rounded-xl bg-gray-100 border-none pl-8 hidden md:block"
             placeholder="Search"
-          />
-        </div>
+          /> */}
 
         <div className="flex items-center gap-5">
           <Image

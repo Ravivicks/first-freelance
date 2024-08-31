@@ -65,34 +65,37 @@ const ProductCarousel = () => {
       centerMode
       className="mb-16 p-1 shadow-lg rounded-xl border"
     >
-      {products.slice(0, 10).map((product) => (
-        <Link href={`/products/${product._id}`} key={product._id}>
-          <Card className="border-none hover:shadow-lg transition-shadow duration-300">
-            <CardContent className="relative">
-              <div className="flex flex-col md:flex-row justify-center gap-2 items-center">
-                <Image
-                  src={product.image}
-                  height={200}
-                  width={150}
-                  alt={`Image of ${product.title}`}
-                  className="object-cover"
-                  unoptimized
-                />
-                <div>
-                  <Badge variant="destructive">Best Choice</Badge>
-                  <p className="font-bold text-xs line-clamp-2 overflow-hidden my-1">
-                    {product.title}
-                  </p>
-                  <p className="font-semibold text-muted-foreground text-sm">
-                    {product.currency}
-                    {formatNumber(product.currentPrice)}
-                  </p>
+      {products
+        .filter((item) => item.brand === "Telemecanique")
+        .slice(0, 10)
+        .map((product) => (
+          <Link href={`/products/${product._id}`} key={product._id}>
+            <Card className="border-none hover:shadow-lg transition-shadow duration-300">
+              <CardContent className="relative">
+                <div className="flex flex-col md:flex-row justify-center gap-2 items-center">
+                  <Image
+                    src={product.image}
+                    height={200}
+                    width={150}
+                    alt={`Image of ${product.title}`}
+                    className="object-cover"
+                    unoptimized
+                  />
+                  <div>
+                    <Badge variant="destructive">Best Choice</Badge>
+                    <p className="font-bold text-xs line-clamp-2 overflow-hidden my-1">
+                      {product.title}
+                    </p>
+                    <p className="font-semibold text-muted-foreground text-sm">
+                      {product.currency}
+                      {formatNumber(product.currentPrice)}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
-        </Link>
-      ))}
+              </CardContent>
+            </Card>
+          </Link>
+        ))}
     </Carousel>
   );
 };

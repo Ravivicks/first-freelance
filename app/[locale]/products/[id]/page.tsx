@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useGetProduct } from "@/features/products/use-single-product";
 import { ChevronLeft } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
-import React from "react";
+import React, { useEffect } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ProductDetails from "@/components/ProductDetails";
 import Reviews from "@/components/Reviews";
@@ -14,6 +14,7 @@ import { IProduct } from "@/types";
 import ProductShiping from "@/components/ProductShiping";
 import { useProductsStore } from "@/stores/useProductStore";
 import ProductCard from "@/components/ProductCard";
+import { date } from "zod";
 
 const ProductDetailsById = () => {
   const { id } = useParams();
@@ -28,6 +29,10 @@ const ProductDetailsById = () => {
     setPage,
     totalPages,
   } = useProductsStore();
+
+  useEffect(() => {
+    fetchData(1, 20, { query: product?.brand });
+  }, [fetchData, isLoading]);
 
   const handleGoBack = () => {
     router.back(); // This will take the user back to the previous page
@@ -65,7 +70,7 @@ const ProductDetailsById = () => {
           <div className="flex flex-wrap gap-4">
             {products?.slice(0, 3).map((product, index) => (
               <div
-                className="flex-none w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
+                className="flex-none flex-grow w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
                 key={index}
               >
                 <ProductCard product={product} isButton />
@@ -73,7 +78,7 @@ const ProductDetailsById = () => {
             ))}
           </div>
         </div>
-        <div className="w-full lg:w-1/3">
+        <div className="w-full lg:w-1/2">
           <ProductShiping />
         </div>
       </div>

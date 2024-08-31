@@ -53,8 +53,8 @@ export function ProductViewCarousal({ imageArr, image }: IProps) {
           </CardContent>
         </Card>
       )}
-      <div className="flex flex-col-reverse lg:flex-row gap-4 lg:gap-8">
-        <div className="w-full lg:w-2/3">
+      <div className="flex flex-col lg:flex-row-reverse gap-4 lg:w-1/2 justify-center items-center">
+        <div className="w-full">
           <Carousel setApi={setApi} className="w-full" orientation="single">
             <CarouselContent>
               {imageArr?.map((img, index) => (
@@ -76,8 +76,8 @@ export function ProductViewCarousal({ imageArr, image }: IProps) {
             </CarouselContent>
           </Carousel>
         </div>
-        <div className="w-full lg:w-1/3 flex flex-col items-center lg:items-start">
-          <div className="flex flex-wrap justify-center lg:justify-start gap-2">
+        <div className="w-full lg:w-1/6 flex flex-col items-center lg:items-start">
+          <div className="flex flex-row lg:flex-col flex-wrap justify-center lg:justify-start gap-2">
             {displayedThumbnails?.map((img, index) => (
               <Image
                 key={index}
