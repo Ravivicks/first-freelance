@@ -26,13 +26,6 @@ export default function SearchComponent() {
     setPage,
   } = useProductsStore();
 
-  // Fetch initial data
-  useEffect(() => {
-    if (searchTerm.length === 0) {
-      fetchData(1, 20);
-    }
-  }, [fetchData, searchTerm]);
-
   // Load more products
   const loadMore = async () => {
     if (isLoadingMore || currentPage >= totalPages) return;
@@ -51,10 +44,10 @@ export default function SearchComponent() {
     }
   };
 
-  // Handle input changes and trigger search
+  // Handle input changes and trigger search when input length >= 3
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
-      if (searchTerm.length > 0) {
+      if (searchTerm.length >= 3) {
         fetchData(1, 20, { query: searchTerm });
         setShowSuggestions(true);
         setSelectedIndex(-1);
@@ -93,7 +86,6 @@ export default function SearchComponent() {
   const selectSuggestion = (product: IProduct) => {
     setSearchTerm(product.title);
     setShowSuggestions(false);
-    // No need to manually handle the navigation since Link will handle it
   };
 
   useEffect(() => {
@@ -103,7 +95,7 @@ export default function SearchComponent() {
   }, [selectedIndex]);
 
   return (
-    <div className="relative w-full max-w-xl mx-auto hidden md:block">
+    <div className="relative w-full max-w-xl mx-auto">
       <div className="relative">
         <Button
           size="icon"
