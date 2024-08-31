@@ -18,7 +18,7 @@ export default function EmptyCart() {
       <CardContent className="flex flex-col items-center space-y-4">
         <ShoppingCart className="w-24 h-24 text-muted-foreground" />
         <p className="text-center text-muted-foreground">
-          Looks like you haven't added anything to your cart yet.
+          {`Looks like you haven't added anything to your cart yet.`}
         </p>
       </CardContent>
       <CardFooter className="flex justify-center">
