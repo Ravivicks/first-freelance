@@ -33,7 +33,7 @@ const Navbar = () => {
             <p>Logo</p>
           </Link>
         </div>
-        <div className="hidden md:block">
+        <div className="hidden w-full md:block">
           <SearchComponent />
         </div>
 
