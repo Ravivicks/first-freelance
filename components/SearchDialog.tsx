@@ -16,14 +16,14 @@ const SearchDialog = () => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="overflow-auto max-w-full h-[55%] md:max-w-lg lg:max-w-2xl xl:max-w-3xl">
+      <DialogContent className="overflow-auto max-w-full h-[550px] md:max-w-lg lg:max-w-2xl xl:max-w-3xl">
         <DialogHeader className="h-fit">
           <DialogTitle>Search Product Here</DialogTitle>
           <DialogDescription>
             Search product by Brand and title.
           </DialogDescription>
         </DialogHeader>
-        <div className="flex flex-col fixed top-20 w-full pl-6 pr-8">
+        <div className="flex flex-col fixed top-24 w-full px-4">
           <SearchComponent />
         </div>
       </DialogContent>
