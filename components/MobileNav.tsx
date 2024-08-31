@@ -43,7 +43,12 @@ const MobileNav = () => {
                   <Card className="border-none my-6">
                     {route.subMenu.map((subMenu) => (
                       <CardContent key={subMenu.title}>
-                        <Link href={subMenu.url}>{subMenu.title}</Link>
+                        <Link
+                          href={subMenu.url}
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {subMenu.title}
+                        </Link>
                       </CardContent>
                     ))}
                   </Card>
