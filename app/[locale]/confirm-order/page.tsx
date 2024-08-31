@@ -116,8 +116,8 @@ export default function Component() {
               Thank you for your purchase!
             </h1>
             <p className="text-gray-600 mb-6">
-              We'll email you an order confirmation with details and tracking
-              info.
+              {`We'll email you an order confirmation with details and tracking
+              info.`}
             </p>
             <div className="mb-6">
               <h2 className="text-sm font-semibold mb-2">Order #2023 </h2>
@@ -193,7 +193,7 @@ export default function Component() {
               </CardContent>
             </Card>
             <div className="mt-4 p-4 bg-green-50 rounded-lg text-green-700 font-medium text-center">
-              You saved $20.00 on this order!
+              {`You saved ₹20.00 on this order!`}
             </div>
           </div>
         </div>
