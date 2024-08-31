@@ -14,7 +14,7 @@ import { IProduct } from "@/types";
 import ProductShiping from "@/components/ProductShiping";
 import { useProductsStore } from "@/stores/useProductStore";
 import ProductCard from "@/components/ProductCard";
-import { date } from "zod";
+import Loader from "@/components/Loader";
 
 const ProductDetailsById = () => {
   const { id } = useParams();
@@ -23,11 +23,7 @@ const ProductDetailsById = () => {
   const {
     products,
     isLoading: isProductLoading,
-    error,
     fetchData,
-    currentPage,
-    setPage,
-    totalPages,
   } = useProductsStore();
 
   useEffect(() => {
@@ -60,24 +56,30 @@ const ProductDetailsById = () => {
         <SingleProductDetails product={product as IProduct} />
       </div>
       <div className="mt-10 flex flex-col lg:flex-row gap-8 lg:gap-16">
-        <div className="w-full lg:w-2/3">
-          <div className="flex justify-between items-center mb-5">
-            <h1 className="text-xl md:text-2xl font-bold">Similar Products</h1>
-            <p className="text-sm text-gray-500 cursor-pointer">
-              Feedback | See all
-            </p>
+        {isProductLoading ? (
+          <Loader />
+        ) : (
+          <div className="w-full lg:w-2/3">
+            <div className="flex justify-between items-center mb-5">
+              <h1 className="text-xl md:text-2xl font-bold">
+                Similar Products
+              </h1>
+              <p className="text-sm text-gray-500 cursor-pointer">
+                Feedback | See all
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-4">
+              {products?.slice(0, 3).map((product, index) => (
+                <div
+                  className="flex-none flex-grow w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
+                  key={index}
+                >
+                  <ProductCard product={product} isButton />
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="flex flex-wrap gap-4">
-            {products?.slice(0, 3).map((product, index) => (
-              <div
-                className="flex-none flex-grow w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
-                key={index}
-              >
-                <ProductCard product={product} isButton />
-              </div>
-            ))}
-          </div>
-        </div>
+        )}
         <div className="w-full lg:w-1/2">
           <ProductShiping />
         </div>

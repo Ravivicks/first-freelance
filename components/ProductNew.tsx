@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
@@ -9,16 +10,14 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
-
-const imageArr = [
-  "https://download.schneider-electric.com/files?p_Doc_Ref=PF142100&p_File_Type=rendition_369_jpg&default_image=DefaultProductImage.png",
-  "https://download.schneider-electric.com/files?p_Doc_Ref=ATV320_RP19026B&p_File_Type=rendition_369_jpg&default_image=DefaultProductImage.png",
-  "https://download.schneider-electric.com/files?p_Doc_Ref=63441_main&p_File_Type=rendition_369_jpg&default_image=DefaultProductImage.png",
-  "https://download.schneider-electric.com/files?p_Doc_Ref=PF142100&p_File_Type=rendition_369_jpg&default_image=DefaultProductImage.png",
-  "https://download.schneider-electric.com/files?p_Doc_Ref=2253_main&p_File_Type=rendition_369_jpg&default_image=DefaultProductImage.png",
-];
+import { useProductsStore } from "@/stores/useProductStore";
 
 export function ProductNew() {
+  const { products, fetchData } = useProductsStore();
+
+  React.useEffect(() => {
+    fetchData(1, 20);
+  }, [fetchData]);
   return (
     <div className="mt-6 mr-10">
       <Carousel
@@ -29,23 +28,22 @@ export function ProductNew() {
         orientation="single"
       >
         <CarouselContent>
-          {imageArr.map((item, index) => (
+          {products.slice(0, 10).map((item, index) => (
             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/4">
               <div className="p-1">
                 <Card className="flex flex-col items-center rounded-xl">
-                  <CardContent className="flex items-center aspect-auto justify-center">
+                  <CardContent className="flex items-center justify-center">
                     <Image
-                      src={item}
+                      src={item.image}
                       alt={`slide-${index}`}
                       width={200}
                       height={100}
-                      className="object-fill"
+                      // className="object-fill"
+                      unoptimized
                     />
                   </CardContent>
                   <CardFooter className="mt-3 ">
-                    <p className="text-2xl self-center">
-                      <span className="font-extrabold">Easy</span> Altivar 310
-                    </p>
+                    <p className="text-2xl self-center">{item.brand}</p>
                   </CardFooter>
                 </Card>
               </div>

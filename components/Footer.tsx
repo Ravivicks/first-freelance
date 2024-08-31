@@ -68,7 +68,7 @@ const Footer = () => {
         <div className="flex-1">
           <h1 className="text-lg font-bold mb-3">Payment Method</h1>
           <Image
-            src="/pio.png"
+            src="/payment.jpg"
             alt="Payment methods"
             width={250}
             height={200}

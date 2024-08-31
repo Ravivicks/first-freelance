@@ -97,7 +97,7 @@ export default function SearchComponent() {
   }, [selectedIndex]);
 
   return (
-    <div className="relative w-full max-w-xl mx-auto">
+    <div className="relative w-full mx-auto">
       <div className="relative">
         <Button
           size="icon"
