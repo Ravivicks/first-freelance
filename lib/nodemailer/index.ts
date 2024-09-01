@@ -22,9 +22,9 @@ export async function generateEmailBody(
   const THRESHOLD_PERCENTAGE = 40;
   // Shorten the product title
   const shortenedTitle =
-    product.productName.length > 20
-      ? `${product.productName.substring(0, 20)}...`
-      : product.productName;
+    (product.productName ?? "Product").length > 20
+      ? `${product.productName?.substring(0, 20)}...`
+      : product.productName ?? "Product";
 
   let subject = "";
   let body = "";
