@@ -5,9 +5,17 @@ export const enquirySchema = new Schema<EnquireProps>(
   {
     email: { type: String, required: true },
     mobile: { type: String, required: true },
-    productId: { type: String, required: true },
-    productName: { type: String, required: true },
-    productPrice: { type: Number, required: true },
+    productId: { type: String },
+    productName: { type: String },
+    productPrice: { type: Number },
+    cartProduct: [
+      {
+        quantity: { type: Number },
+        productId: { type: String },
+        productName: { type: String },
+        productPrice: { type: Number },
+      },
+    ],
     enquiryDescription: { type: String },
     quantity: { type: Number },
     status: { type: String },

@@ -10,9 +10,21 @@ export const formSchema = z.object({
   productPrice: z.number(),
   enquiryDescription: z.string(),
   quantity: z.number(),
-  status: z.string(),
-  reason: z.string(),
+  status: z.enum(["pending", "approved", "rejected"]),
+  reason: z.string().optional(),
+  cartProduct: z
+    .array(
+      z.object({
+        productName: z.string(),
+        productId: z.string(),
+        productPrice: z.number(),
+        quantity: z.number(),
+      })
+    )
+    .optional()
+    .default([]), // Ensuring it's an empty array if not provided
 });
+
 export const requestPriceFormSchema = z.object({
   email: z.string().email(),
   mobile: z.string(),

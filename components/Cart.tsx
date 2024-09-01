@@ -32,28 +32,37 @@ const Cart = () => {
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Button
+                  {/* <Button
                     variant="ghost"
                     onClick={() => decreaseQuantity(cartItem._id)}
                     className="rounded-full"
-                  >
-                    <MinusIcon className="size-4" />
-                  </Button>
+                  > */}
+                  <MinusIcon
+                    className="size-5 bg-destructive p-0.5 text-white rounded-full cursor-pointer"
+                    onClick={() => decreaseQuantity(cartItem._id)}
+                  />
+                  {/* </Button> */}
                   <span>{cartItem.quantity}</span>
-                  <Button
+                  {/* <Button
                     variant="ghost"
                     onClick={() => increaseQuantity(cartItem._id)}
                     className="rounded-full"
-                  >
-                    <PlusIcon className="size-4" />
-                  </Button>
-                  <Button
-                    variant="ghost"
+                  > */}
+                  <PlusIcon
+                    className="size-5 bg-destructive p-0.5 text-white rounded-full cursor-pointer"
+                    onClick={() => increaseQuantity(cartItem._id)}
+                  />
+                  {/* </Button> */}
+                  {/* <Button
+                    variant="outline"
                     onClick={() => removeFromCart(cartItem)}
                     className="rounded-full"
-                  >
-                    <Trash2Icon className="size-4" />
-                  </Button>
+                  > */}
+                  <Trash2Icon
+                    className="size-4 cursor-pointer hover:text-red-800 ml-4"
+                    onClick={() => removeFromCart(cartItem)}
+                  />
+                  {/* </Button> */}
                 </div>
               </div>
             </div>

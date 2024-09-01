@@ -16,6 +16,8 @@ import { formSchema } from "@/lib/zod-schema";
 import { useGetProduct } from "@/features/products/use-single-product";
 import { useUser } from "@clerk/nextjs";
 import Image from "next/image";
+import Cart from "./Cart";
+import { useCartStore } from "@/stores/useCartStore";
 
 type FormValues = z.input<typeof formSchema>;
 
@@ -23,7 +25,11 @@ const EnquireDialog = () => {
   const { isOpen, onClose, id } = useEnquiry();
   const mutation = useCreateEnquiry();
   const { user } = useUser();
-  const { data: product, isLoading } = useGetProduct(id || "");
+  const { data: product, isLoading } = useGetProduct(
+    id === "cart" ? "" : id || ""
+  );
+  const { cart, increaseQuantity, decreaseQuantity, removeFromCart } =
+    useCartStore();
 
   const onSubmit = (values: FormValues) => {
     mutation.mutate(values, {
@@ -51,21 +57,25 @@ const EnquireDialog = () => {
               <DialogTitle>Please Confirm Your Details</DialogTitle>
             </DialogHeader>
             {/* <div className="flex justify-between w-full space-x-4"> */}
-            <div className="flex gap-2 items-center my-5">
-              <Image
-                src={product?.image || ""}
-                alt={product?.title || ""}
-                width={50}
-                height={100}
-              />
-              <div className="flex gap-1 flex-col">
-                <p className="text-xs font-semibold">{product?.title}</p>
-                <p className="text-xs text-muted-foreground font-semibold">
-                  {product?.currency}
-                  {product?.currentPrice}
-                </p>
+            {id !== "cart" ? (
+              <div className="flex gap-2 items-center my-5">
+                <Image
+                  src={product?.image || ""}
+                  alt={product?.title || ""}
+                  width={50}
+                  height={100}
+                />
+                <div className="flex gap-1 flex-col">
+                  <p className="text-xs font-semibold">{product?.title}</p>
+                  <p className="text-xs text-muted-foreground font-semibold">
+                    {product?.currency}
+                    {product?.currentPrice}
+                  </p>
+                </div>
               </div>
-            </div>
+            ) : (
+              <Cart />
+            )}
             <div>
               <EnquiryForm
                 onSubmit={onSubmit}
@@ -80,6 +90,14 @@ const EnquireDialog = () => {
                   quantity: 1,
                   status: "pending",
                   reason: "",
+                  ...(id === "cart" && {
+                    cartProduct: cart.map((item) => ({
+                      quantity: item.quantity,
+                      productId: item._id,
+                      productName: item.title,
+                      productPrice: item.currentPrice,
+                    })),
+                  }),
                 }}
               />
             </div>

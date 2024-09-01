@@ -76,14 +76,21 @@ export type ProductProps = {
 export type EnquireProps = {
   email: string;
   mobile: string;
-  productName: string;
-  productId: string;
-  productPrice: number;
+  productName?: string;
+  productId?: string;
+  productPrice?: number;
   enquiryDescription: string;
-  quantity: number;
-  status: string;
-  reason: string;
+  quantity?: number;
+  status: "pending" | "approved" | "rejected";
+  reason?: string;
+  cartProduct?: {
+    productName: string;
+    productId: string;
+    productPrice: number;
+    quantity: number;
+  }[];
 };
+
 export type PriceRequestProps = {
   email: string;
   mobile: string;

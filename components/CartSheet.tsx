@@ -15,10 +15,12 @@ import { Button } from "./ui/button";
 import { DeleteIcon, Trash2Icon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import EmptyCart from "./EmptyCart";
+import { useEnquiry } from "@/hooks/use-enquire-open";
 
 const CartSheet = () => {
   const router = useRouter();
   const { isOpen, onClose } = useCartDetails();
+  const { onOpen } = useEnquiry();
   const cart = useFromStore(useCartStore, (state) => state.cart);
   const removeFromCart = useCartStore((state) => state.removeFromCart);
   let total = 0;
@@ -95,6 +97,16 @@ const CartSheet = () => {
                 }}
               >
                 Checkout
+              </Button>
+              <Button
+                variant="outline"
+                className="w-full rounded-full mt-2"
+                onClick={() => {
+                  onOpen("cart");
+                  onClose();
+                }}
+              >
+                Request For Quotation
               </Button>
             </div>
           </div>
