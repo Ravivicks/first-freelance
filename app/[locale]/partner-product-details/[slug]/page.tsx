@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { useProductsStore } from "@/stores/useProductStore";
 import { useGetBanner } from "@/features/products/use-get-banner";
+import Loader from "@/components/Loader";
 
 const PartnerProductDetails = () => {
   const { slug } = useParams();
@@ -24,23 +25,27 @@ const PartnerProductDetails = () => {
 
   const sentinelRef = useRef<HTMLDivElement>(null);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const key = "details-product";
 
   useEffect(() => {
-    fetchData(currentPage, 20, { brand: decodedBrand });
-  }, [currentPage, slug]);
+    // Fetch initial data only on slug change or first render
+    fetchData(key, 1, 20, { brand: decodedBrand });
+    setPage(key, 1); // Reset page to 1 when slug changes
+  }, [slug]);
 
   const { data, isLoading: bannerLoading } = useGetBanner(
     decodedBrand as string
   );
 
   const loadMore = async () => {
-    if (isLoadingMore || currentPage >= totalPages) return;
+    const current = currentPage[key] ?? 1;
+    if (isLoadingMore || current >= totalPages) return;
 
     setIsLoadingMore(true);
 
     try {
-      await fetchData(currentPage + 1, 20, { brand: decodedBrand });
-      setPage(currentPage + 1);
+      await fetchData(key, current + 1, 20, { brand: decodedBrand });
+      setPage(key, current + 1);
     } catch (err) {
       console.error("Failed to load more products:", err);
     } finally {
@@ -70,16 +75,22 @@ const PartnerProductDetails = () => {
         observer.unobserve(sentinelRef.current);
       }
     };
-  }, [isLoadingMore, isLoading]);
+  }, [isLoadingMore]);
+
+  const productList = products[key] || [];
 
   return (
     <div>
       <Breadcrumbs slug={decodedBrand} />
-      <div className="h-[250px] relative mb-10">
-        <Image src={data?.image || "/images/b1.png"} alt="banner" fill />
-      </div>
+      {bannerLoading ? (
+        <Loader />
+      ) : (
+        <div className="h-[250px] relative mb-10">
+          <Image src={data?.image || "/images/b1.png"} alt="banner" fill />
+        </div>
+      )}
       <div className="flex gap-3 flex-wrap mb-16">
-        {products?.map((product, index) => (
+        {productList?.map((product, index) => (
           <div
             className="flex-none w-full sm:w-1/2 md:w-1/3 lg:w-1/6 flex-grow"
             key={index}

@@ -90,7 +90,7 @@ const ProductCard = ({ product, isButton }: Props) => {
             className="rounded-full flex-grow"
             onClick={() => onOpen(product._id)}
           >
-            Enquire Now
+            Request Quotation
           </Button>
         </div>
       )}

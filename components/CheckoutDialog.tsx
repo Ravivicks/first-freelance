@@ -18,14 +18,20 @@ import { useGetAddress } from "@/features/address/use-get-address";
 import { useCreateCheckout } from "@/features/checkout/use-create-checkout";
 import { CheckoutData, IAddress, OrderItem, PaymentDetails } from "@/types";
 import { useRouter } from "next/navigation";
+import Cart from "./Cart";
 
 const CheckoutDialog = () => {
   const router = useRouter();
   const { isOpen, onClose, id } = useCheckoutOpen();
   const { data, isLoading } = useGetAddress(id as string);
 
-  const { cart, increaseQuantity, decreaseQuantity, removeFromCart } =
-    useCartStore();
+  const {
+    cart,
+    increaseQuantity,
+    decreaseQuantity,
+    removeFromCart,
+    clearCart,
+  } = useCartStore();
 
   let total = 0;
 
@@ -80,7 +86,8 @@ const CheckoutDialog = () => {
     mutation.mutate(values, {
       onSuccess: () => {
         onClose();
-        router.push("/confirm-order");
+        clearCart();
+        router.replace("/confirm-order");
       },
     });
   };
@@ -105,66 +112,7 @@ const CheckoutDialog = () => {
               <Card>
                 <CardContent className="p-6">
                   <h1 className="font-bold text-lg">Item Details</h1>
-                  {cart.length > 0 ? (
-                    cart?.map((cartItem, index) => (
-                      <div key={index}>
-                        <div className="flex justify-between my-3">
-                          <div className="flex items-center gap-2">
-                            <Image
-                              src={cartItem.image}
-                              alt={`item - ${index}`}
-                              height={50}
-                              width={50}
-                              className="rounded-xl"
-                            />
-                            <div className="flex flex-col gap-1">
-                              <p className="font-semibold text-xs">
-                                {cartItem.title}
-                              </p>
-                              <p className="font-semibold text-xs text-muted-foreground">
-                                {cartItem.currency}
-                                {cartItem.lowestPrice}
-                              </p>
-                            </div>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <Button
-                              variant="ghost"
-                              onClick={() => decreaseQuantity(cartItem._id)}
-                              className="rounded-full"
-                            >
-                              <MinusIcon className="size-4" />
-                            </Button>
-                            <span>{cartItem.quantity}</span>
-                            <Button
-                              variant="ghost"
-                              onClick={() => increaseQuantity(cartItem._id)}
-                              className="rounded-full"
-                            >
-                              <PlusIcon className="size-4" />
-                            </Button>
-                            <Button
-                              variant="ghost"
-                              onClick={() => removeFromCart(cartItem)}
-                              className="rounded-full"
-                            >
-                              <Trash2Icon className="size-4" />
-                            </Button>
-                          </div>
-                        </div>
-                      </div>
-                    ))
-                  ) : (
-                    <div className="flex flex-col items-center justify-center h-full min-w-[350px]">
-                      <Image
-                        src="/box-empty.svg"
-                        alt="empty-cart"
-                        width={100}
-                        height={100}
-                      />
-                      <p>No item in your cart</p>
-                    </div>
-                  )}
+                  <Cart />
                 </CardContent>
               </Card>
             </div>
@@ -235,7 +183,7 @@ const CheckoutDialog = () => {
               className="w-full my-3"
               variant="destructive"
               onClick={onHandlePayment}
-              disabled={mutation.isPending}
+              disabled={mutation.isPending || cart.length === 0}
             >
               Proceed to payment
             </Button>

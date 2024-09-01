@@ -15,10 +15,12 @@ import { useAddressOpen } from "@/hooks/use-address-open";
 import { useGetAddress } from "@/features/address/use-get-address";
 import { Loader2 } from "lucide-react";
 import { useCreateAddress } from "@/features/address/use-create-address";
+import { useUser } from "@clerk/nextjs";
 
 type FormValues = z.input<typeof formAddressSchema>;
 
 const AddressDialog = () => {
+  const { user } = useUser();
   const { isOpen, onClose, id } = useAddressOpen();
   const mutation = useCreateAddress();
   const { data, isLoading } = useGetAddress(id ?? ""); // Ensure `id` is not undefined
@@ -55,7 +57,7 @@ const AddressDialog = () => {
         state: "",
         country: "",
         zipcode: "",
-        email: "",
+        email: user?.emailAddresses[0].emailAddress || "",
         phone: "",
       };
 

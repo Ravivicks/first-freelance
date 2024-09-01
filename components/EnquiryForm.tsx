@@ -36,8 +36,6 @@ export const EnquiryForm = ({
     defaultValues: defaultValues,
   });
   const handleSubmit = (values: FormValues) => {
-    console.log(values);
-
     onSubmit(values);
   };
 

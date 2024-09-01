@@ -11,13 +11,21 @@ import {
 } from "@/components/ui/carousel";
 import Image from "next/image";
 import { useProductsStore } from "@/stores/useProductStore";
+import { IProduct } from "@/types";
 
-export function ProductNew() {
+interface IProductNew {
+  product: IProduct;
+}
+
+export function ProductNew({ product }: IProductNew) {
   const { products, fetchData } = useProductsStore();
+  const key = "product-new";
 
   React.useEffect(() => {
-    fetchData(1, 20);
-  }, [fetchData]);
+    fetchData(key, 1, 20, { brand: product.brand });
+  }, [fetchData, key]);
+
+  const productList = products[key] || [];
   return (
     <div className="mt-6 mr-10">
       <Carousel
@@ -28,7 +36,7 @@ export function ProductNew() {
         orientation="single"
       >
         <CarouselContent>
-          {products.slice(0, 10).map((item, index) => (
+          {productList.slice(0, 10).map((item, index) => (
             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/4">
               <div className="p-1">
                 <Card className="flex flex-col items-center rounded-xl">

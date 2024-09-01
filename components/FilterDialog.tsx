@@ -14,19 +14,7 @@ import { useProductsStore } from "@/stores/useProductStore";
 import { useFilterOpen } from "@/hooks/use-filter-open";
 
 const FilterDialog = () => {
-  const {
-    products,
-    isLoading,
-    error,
-    fetchData,
-    currentPage,
-    setPage,
-    totalPages,
-    totalCount,
-    brands,
-    types,
-    categories,
-  } = useProductsStore();
+  const { isLoading, brands, categories } = useProductsStore();
   const { isOpen, onClose } = useFilterOpen();
 
   return (

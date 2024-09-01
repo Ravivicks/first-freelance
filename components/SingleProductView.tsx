@@ -15,16 +15,17 @@ import { useProductsStore } from "@/stores/useProductStore";
 
 export default function SingleProductView() {
   const { products, isLoading, error, fetchData } = useProductsStore();
+  const key = "single"; // Or any relevant key
 
   React.useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+    fetchData(key, 1, 1, { type: "best-deal" });
+  }, [fetchData, key]);
 
-  const sliderImages = products?.[0]?.sliderImages || [];
+  const product = products[key]?.[0];
+  const sliderImages = product?.sliderImages || [];
 
   return (
     <>
-      {/* Adjusted container for the image with responsive sizing */}
       <div className="flex justify-start relative w-[150px] h-[150px] md:w-[200px] md:h-[200px]">
         <Image
           src="/featured/best.jpg"
@@ -33,8 +34,8 @@ export default function SingleProductView() {
           className="object-cover rotate-90"
         />
       </div>
-      <div className="flex flex-col md:flex-row justify-center items-center md:items-start -mt-10 md:-mt-32  mb-16">
-        {products && sliderImages.length > 1 ? (
+      <div className="flex flex-col md:flex-row justify-center items-center md:items-start -mt-10 md:-mt-32 mb-16">
+        {product && sliderImages.length > 1 ? (
           <Carousel
             className="w-full max-w-xs md:max-w-md md:mr-8"
             orientation="single"
@@ -64,7 +65,7 @@ export default function SingleProductView() {
             <Card className="border-none">
               <CardContent className="flex aspect-square items-center justify-evenly relative">
                 <Image
-                  src={products[0]?.image || ""}
+                  src={product?.image || ""}
                   alt={`slide-1`}
                   width={400}
                   height={400}
@@ -74,8 +75,7 @@ export default function SingleProductView() {
             </Card>
           </div>
         )}
-        {/* Ensure the SingleProductDetails component is responsive */}
-        <SingleProductDetails product={products?.[0] as IProduct} />
+        <SingleProductDetails product={product as IProduct} />
       </div>
     </>
   );

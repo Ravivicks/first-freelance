@@ -14,6 +14,7 @@ interface Actions {
   removeFromCart: (item: IProduct) => void;
   increaseQuantity: (itemId: string) => void;
   decreaseQuantity: (itemId: string) => void;
+  clearCart: () => void; // Added clearCart action
 }
 
 const INITIAL_STATE: State = {
@@ -101,6 +102,14 @@ export const useCartStore = create(
           get().removeFromCart(cartItem);
         }
       },
+      clearCart: () => {
+        set(() => ({
+          cart: [],
+          totalItems: 0,
+          totalPrice: 0,
+        }));
+        toast.success("Cart cleared");
+      }, // Implemented clearCart action
     }),
     {
       name: "cart-storage",

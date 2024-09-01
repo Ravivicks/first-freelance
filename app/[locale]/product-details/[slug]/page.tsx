@@ -1,15 +1,14 @@
 "use client";
-import Image from "next/image";
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import ProductCard from "@/components/ProductCard";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import {
   useParams,
   usePathname,
   useRouter,
   useSearchParams,
 } from "next/navigation";
-import Breadcrumbs from "@/components/Breadcrumbs";
-import { useProductsStore } from "@/stores/useProductStore";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { MultiSelect } from "@/components/MultiSelect";
 import {
@@ -24,6 +23,7 @@ import CheckBoxList from "@/components/CheckBoxList";
 import { Button } from "@/components/ui/button";
 import { Filter, FilterIcon } from "lucide-react";
 import { useFilterOpen } from "@/hooks/use-filter-open";
+import { useProductsStore } from "@/stores/useProductStore";
 
 const conditionList = [
   { value: "any-condition", label: "Any Condition" },
@@ -32,8 +32,8 @@ const conditionList = [
   { value: "not-specified", label: "Not Specified" },
 ];
 const deliveryOptionsList = [
-  { value: "free-international", label: "free-international" },
-  { value: "local-pickup", label: "local-pickup" },
+  { value: "free-international", label: "Free International" },
+  { value: "local-pickup", label: "Local Pickup" },
 ];
 
 const PartnerProductDetails = () => {
@@ -42,13 +42,11 @@ const PartnerProductDetails = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  // Get a new searchParams string by merging the current
-  // searchParams with a provided key/value pair
+  // Function to create a query string with new parameters
   const createQueryString = useCallback(
     (name: string, value: string) => {
       const params = new URLSearchParams(searchParams.toString());
       params.set(name, value);
-
       return params.toString();
     },
     [searchParams]
@@ -57,7 +55,6 @@ const PartnerProductDetails = () => {
   const type = searchParams.get("type");
   const brand = searchParams.get("brand");
   const category = searchParams.get("category");
-
   const decodedBrand = slug ? decodeURIComponent(slug as string) : undefined;
 
   const {
@@ -82,36 +79,31 @@ const PartnerProductDetails = () => {
   const [selectedDeliveryOption, setSelectedDeliveryOption] = useState<
     string[]
   >([]);
-
   const { onOpen } = useFilterOpen();
+  const key = "partner-product-details";
+
   useEffect(() => {
     const initializeTabsAndFetchData = async () => {
       try {
-        await fetchData(1, 20, {
-          type: type,
-          brand: brand,
-          category: category,
-        });
+        await fetchData(key, 1, 20, { type, brand, category });
         setInitialFetchCompleted(true);
       } catch (error) {
         console.error("Error fetching data and initializing tabs:", error);
       }
     };
     initializeTabsAndFetchData();
-  }, [type, brand, category, fetchData, initialFetchCompleted]);
+  }, [type, brand, category, fetchData, key]);
 
   const loadMore = async () => {
-    if (isLoadingMore || currentPage >= totalPages) return;
+    const current = currentPage[key] ?? 1; // Access the page number correctly
+
+    if (isLoadingMore || current >= totalPages) return;
 
     setIsLoadingMore(true);
 
     try {
-      await fetchData(currentPage + 1, 20, {
-        type: type,
-        brand: brand,
-        category: category,
-      });
-      setPage(currentPage + 1);
+      await fetchData(key, current + 1, 20, { type, brand, category });
+      setPage(key, current + 1); // Pass both key and page number
     } catch (err) {
       console.error("Failed to load more products:", err);
     } finally {
@@ -120,18 +112,15 @@ const PartnerProductDetails = () => {
   };
 
   useEffect(() => {
-    if (!initialFetchCompleted) return; // Ensure loadMore only triggers after initial fetch
+    if (!initialFetchCompleted) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && !isLoadingMore && !isLoading) {
-          loadMore(); // Only call loadMore if the entry is intersecting
+          loadMore();
         }
       },
-      {
-        rootMargin: "100px",
-        threshold: 0.1,
-      }
+      { rootMargin: "100px", threshold: 0.1 }
     );
 
     if (sentinelRef.current) {
@@ -143,7 +132,9 @@ const PartnerProductDetails = () => {
         observer.unobserve(sentinelRef.current);
       }
     };
-  }, [isLoadingMore, isLoading]); // Add dependencies to control when the observer should act
+  }, [isLoadingMore, isLoading, initialFetchCompleted, loadMore]);
+
+  const productList = products[key] || [];
 
   return (
     <div>
@@ -231,7 +222,7 @@ const PartnerProductDetails = () => {
             {types.map((type) => (
               <TabsContent key={type.value} value={type.value}>
                 <div className="flex gap-3 flex-wrap mb-16">
-                  {products
+                  {productList
                     .filter((product) => product.type === type.value)
                     .map((product, index) => (
                       <div
@@ -241,7 +232,7 @@ const PartnerProductDetails = () => {
                         <ProductCard product={product} />
                       </div>
                     ))}
-                  {products.filter((product) => product.type === type.value)
+                  {productList.filter((product) => product.type === type.value)
                     .length === 0 && (
                     <div className="text-center font-semibold">
                       No data available

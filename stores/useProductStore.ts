@@ -3,40 +3,41 @@ import { IProduct } from "@/types";
 import { create } from "zustand";
 
 interface State {
-  products: IProduct[];
+  products: Record<string, IProduct[]>; // Manage multiple product lists by key
   isLoading: boolean;
   error: any;
-  currentPage: number;
-  totalPages: number;
-  totalCount: number;
+  currentPage: Record<string, number>; // Track current page for each key
+  totalPages: number; // Single value for totalPages
+  totalCount: number; // Single value for totalCount
   brandFilter?: string;
+  typeFilter?: string;
   brands: { label: string; value: string }[];
   types: { label: string; value: string }[];
   categories: { label: string; value: string }[];
-  typeFilter?: string; // Add typeFilter to the state
 }
 
 interface Actions {
   fetchData: (
+    key: string, // Add key to fetchData
     page?: number,
     pageSize?: number,
-    filters?: Record<string, any> // Add type parameter to fetchData
+    filters?: Record<string, any>
   ) => Promise<void>;
-  setPage: (page: number) => void;
+  setPage: (key: string, page: number) => void;
 }
 
 const INITIAL_STATE: State = {
-  products: [],
+  products: {},
   isLoading: false,
   error: null,
-  currentPage: 1,
+  currentPage: {},
   totalPages: 0,
   totalCount: 0,
   brands: [],
   types: [],
   categories: [],
   brandFilter: undefined,
-  typeFilter: undefined, // Initialize typeFilter
+  typeFilter: undefined,
 };
 
 export const useProductsStore = create<State & Actions>((set) => ({
@@ -45,14 +46,14 @@ export const useProductsStore = create<State & Actions>((set) => ({
   error: INITIAL_STATE.error,
   currentPage: INITIAL_STATE.currentPage,
   totalPages: INITIAL_STATE.totalPages,
+  totalCount: INITIAL_STATE.totalCount,
   brandFilter: INITIAL_STATE.brandFilter,
   typeFilter: INITIAL_STATE.typeFilter,
-  totalCount: INITIAL_STATE.totalCount,
   brands: INITIAL_STATE.brands,
   types: INITIAL_STATE.types,
   categories: INITIAL_STATE.categories,
 
-  fetchData: async (page = 1, pageSize = 20, filters = {}) => {
+  fetchData: async (key, page = 1, pageSize = 20, filters = {}) => {
     try {
       set({ isLoading: true, error: null });
 
@@ -64,10 +65,20 @@ export const useProductsStore = create<State & Actions>((set) => ({
       const totalPages = Math.ceil(totalCount / pageSize);
 
       set((state) => ({
-        products: page === 1 ? products : [...state.products, ...products],
+        products: {
+          ...state.products,
+          [key]:
+            page === 1
+              ? products
+              : [...(state.products[key] || []), ...products],
+        },
         isLoading: false,
-        totalPages,
-        totalCount,
+        currentPage: {
+          ...state.currentPage,
+          [key]: page,
+        },
+        totalPages, // Single value for totalPages
+        totalCount, // Single value for totalCount
         brands,
         types,
         categories,
@@ -77,7 +88,12 @@ export const useProductsStore = create<State & Actions>((set) => ({
     }
   },
 
-  setPage: (page: number) => {
-    set({ currentPage: page });
+  setPage: (key, page) => {
+    set((state) => ({
+      currentPage: {
+        ...state.currentPage,
+        [key]: page,
+      },
+    }));
   },
 }));

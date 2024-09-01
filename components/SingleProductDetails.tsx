@@ -106,7 +106,7 @@ const SingleProductDetails = ({ product }: IProps) => {
           className="rounded-full flex-grow"
           onClick={() => onOpen(product._id)}
         >
-          Enquire Now
+          Request Quotation
         </Button>
       </div>
     </div>

@@ -4,41 +4,57 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SearchIcon, Loader2 } from "lucide-react";
 import { IProduct } from "@/types";
-import { useProductsStore } from "@/stores/useProductStore";
 import Link from "next/link";
 import { useSearchOpen } from "@/hooks/use-search-open";
+import { getAllProducts } from "@/lib/actions/product";
 
 export default function SearchComponent() {
   const [searchTerm, setSearchTerm] = useState("");
   const [suggestions, setSuggestions] = useState<IProduct[]>([]);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const inputRef = useRef<HTMLInputElement>(null);
   const suggestionRefs = useRef<(HTMLLIElement | null)[]>([]);
   const { onClose } = useSearchOpen();
 
-  const {
-    products,
-    isLoading,
-    error,
-    fetchData,
-    currentPage,
-    totalPages,
-    setPage,
-  } = useProductsStore();
+  // Load products based on search term and pagination
+  const fetchData = async (
+    page: number,
+    pageSize: number,
+    filters: Record<string, any>
+  ) => {
+    setIsLoading(true);
+    try {
+      const { products, totalCount } = await getAllProducts(
+        page,
+        pageSize,
+        filters
+      );
+      setSuggestions((prev) =>
+        page === 1 ? products : [...prev, ...products]
+      );
+      setTotalPages(Math.ceil(totalCount / pageSize));
+      setShowSuggestions(true);
+      setSelectedIndex(-1);
+    } catch (error) {
+      console.error("Failed to fetch products:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   // Load more products
   const loadMore = async () => {
     if (isLoadingMore || currentPage >= totalPages) return;
 
     setIsLoadingMore(true);
-
     try {
-      await fetchData(currentPage + 1, 20, {
-        query: searchTerm,
-      });
-      setPage(currentPage + 1);
+      await fetchData(currentPage + 1, 20, { query: searchTerm });
+      setCurrentPage(currentPage + 1);
     } catch (err) {
       console.error("Failed to load more products:", err);
     } finally {
@@ -51,8 +67,6 @@ export default function SearchComponent() {
     const delayDebounceFn = setTimeout(() => {
       if (searchTerm.length >= 3) {
         fetchData(1, 20, { query: searchTerm });
-        setShowSuggestions(true);
-        setSelectedIndex(-1);
       } else {
         setSuggestions([]);
         setShowSuggestions(false);
@@ -60,12 +74,7 @@ export default function SearchComponent() {
     }, 300);
 
     return () => clearTimeout(delayDebounceFn);
-  }, [searchTerm, fetchData]);
-
-  // Update suggestions when products change
-  useEffect(() => {
-    setSuggestions(products);
-  }, [products]);
+  }, [searchTerm]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
@@ -180,11 +189,6 @@ export default function SearchComponent() {
       {isLoading && !isLoadingMore && (
         <div className="absolute inset-0 flex items-center justify-center bg-background/50">
           <Loader2 className="h-8 w-8 animate-spin" />
-        </div>
-      )}
-      {error && (
-        <div className="mt-2 text-sm text-destructive">
-          Error loading products: {error}
         </div>
       )}
     </div>

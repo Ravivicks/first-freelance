@@ -25,10 +25,13 @@ const ProductDetailsById = () => {
     isLoading: isProductLoading,
     fetchData,
   } = useProductsStore();
+  const key = "product-by-id";
 
   useEffect(() => {
-    fetchData(1, 20, { query: product?.brand });
-  }, [fetchData, isLoading]);
+    if (product?.brand) {
+      fetchData(key, 1, 20, { query: product.brand });
+    }
+  }, [fetchData, product?.brand, key]);
 
   const handleGoBack = () => {
     router.back(); // This will take the user back to the previous page
@@ -37,6 +40,10 @@ const ProductDetailsById = () => {
   if (isLoading) {
     return <div className="text-center">Loading...</div>;
   }
+  const productList = products[key] || [];
+  const filteredProducts = productList?.filter(
+    (p) => p.brand === product?.brand
+  );
 
   return (
     <div className="mx-4 md:mx-8 lg:mx-16">
@@ -69,7 +76,7 @@ const ProductDetailsById = () => {
               </p>
             </div>
             <div className="flex flex-wrap gap-4">
-              {products?.slice(0, 3).map((product, index) => (
+              {filteredProducts?.slice(0, 3).map((product, index) => (
                 <div
                   className="flex-none flex-grow w-full sm:w-1/2 md:w-1/3 lg:w-1/4"
                   key={index}
@@ -87,7 +94,7 @@ const ProductDetailsById = () => {
       <h1 className="text-xl md:text-2xl font-bold mt-10">
         Mostly Visited Products
       </h1>
-      <ProductNew />
+      <ProductNew product={product as IProduct} />
       <Tabs defaultValue="review" className="mt-10">
         <TabsList className="bg-inherit">
           <TabsTrigger value="product" className="text-lg md:text-xl font-bold">

@@ -111,7 +111,7 @@ const FeaturedProductCard = ({ product }: Props) => {
               onOpen(product._id);
             }}
           >
-            Enquire Now
+            Request Quotation
           </Button>
 
           <Link href={`/products/${product._id}`} className="w-full">

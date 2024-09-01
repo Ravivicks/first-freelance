@@ -6,10 +6,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { useCartDetails } from "@/hooks/use-cart-details";
 import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
 
 export default function EmptyCart() {
+  const { onClose } = useCartDetails();
   return (
     <Card className="w-full max-w-md mx-auto">
       <CardHeader className="text-center">
@@ -22,7 +24,7 @@ export default function EmptyCart() {
         </p>
       </CardContent>
       <CardFooter className="flex justify-center">
-        <Button asChild variant="destructive">
+        <Button asChild variant="destructive" onClick={onClose}>
           <Link href="/">Continue Shopping</Link>
         </Button>
       </CardFooter>
