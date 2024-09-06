@@ -32,6 +32,7 @@ const HeroCarousel = () => {
                 alt="c-1"
                 fill
                 className="object-fit"
+                unoptimized
               />
             </CarouselItem>
           ))}

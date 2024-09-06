@@ -46,6 +46,7 @@ const FeaturedProductCard = ({ product }: Props) => {
             alt={product?.title}
             fill
             className="object-fill p-3"
+            unoptimized
           />
         </div>
 
