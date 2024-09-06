@@ -1,5 +1,4 @@
-import { getAllProducts, getAllProductso } from "@/lib/actions/product";
-import { client } from "@/lib/hono";
+import { getAllProductso } from "@/lib/actions/product";
 import { IProduct } from "@/types";
 import { useQuery } from "@tanstack/react-query";
 
