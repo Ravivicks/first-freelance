@@ -40,18 +40,18 @@ export function ProductViewCarousal({ imageArr, image }: IProps) {
   return (
     <>
       {imageArr?.length < 1 && (
-        <Card className="rounded-xl border-none w-full h-full">
-          <CardContent className="flex items-center justify-center p-6">
+        <div className="rounded-xl border-none bg-destructive/5 px-4">
+          <div className="flex items-center justify-center">
             <Image
               src={image || ""}
               alt={`Single-image`}
-              width={400}
+              width={600}
               height={300}
-              className="object-cover"
+              className="object-fit"
               unoptimized
             />
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       )}
       <div className="flex flex-col lg:flex-row-reverse gap-4 lg:w-1/2 justify-center items-center">
         <div className="w-full">

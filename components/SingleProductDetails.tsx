@@ -56,8 +56,8 @@ const SingleProductDetails = ({ product }: IProps) => {
   };
 
   return (
-    <div className="p-4 md:p-6 max-w-full md:max-w-md mx-auto">
-      <div className="flex justify-between items-start md:items-center my-4">
+    <div className=" w-full">
+      <div className="flex justify-between items-start md:items-center mb-4">
         <Image
           src={
             product?.brand === "Siemens"
@@ -105,7 +105,7 @@ const SingleProductDetails = ({ product }: IProps) => {
             className="h-8 w-12"
             id="quantity"
             placeholder="Enter required quantity"
-            value={qty}
+            defaultValue={product?.minQuantity?.toString() || "1"}
             onChange={handleQuantityChange}
             inputMode="numeric"
             pattern="[0-9]*"

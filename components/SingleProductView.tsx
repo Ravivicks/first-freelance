@@ -31,7 +31,7 @@ export default function SingleProductView() {
           src="/featured/best.jpg"
           alt="best"
           fill
-          className="object-cover rotate-90"
+          className="object-cover md:rotate-90"
         />
       </div>
       <div className="flex flex-col md:flex-row justify-center items-center md:items-start -mt-10 md:-mt-32 mb-16">

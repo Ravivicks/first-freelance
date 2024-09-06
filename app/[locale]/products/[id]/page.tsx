@@ -55,12 +55,16 @@ const ProductDetailsById = () => {
         <ChevronLeft className="mr-2 h-4 w-4" /> Back to result
       </Button>
 
-      <div className="flex flex-col lg:flex-row gap-8 my-5">
-        <ProductViewCarousal
-          imageArr={product?.sliderImages || []}
-          image={product?.image}
-        />
-        <SingleProductDetails product={product as IProduct} />
+      <div className="flex items-center flex-col md:flex-row justify-between gap-8 my-8">
+        <div className="w-full lg:w-2/3 flex-grow">
+          <ProductViewCarousal
+            imageArr={product?.sliderImages || []}
+            image={product?.image}
+          />
+        </div>
+        <div className="ml-10 w-full md:w-1/2">
+          <SingleProductDetails product={product as IProduct} />
+        </div>
       </div>
       <div className="mt-10 flex flex-col lg:flex-row gap-8 lg:gap-16">
         {isProductLoading ? (
