@@ -51,6 +51,7 @@ export default function SingleProductView() {
                         width={300}
                         height={200}
                         className="object-cover rounded-xl"
+                        unoptimized
                       />
                     </CardContent>
                   </Card>
@@ -70,6 +71,7 @@ export default function SingleProductView() {
                   width={400}
                   height={400}
                   className="object-cover md:ml-32"
+                  unoptimized
                 />
               </CardContent>
             </Card>
