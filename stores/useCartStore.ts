@@ -14,7 +14,7 @@ interface Actions {
   removeFromCart: (item: IProduct) => void;
   increaseQuantity: (itemId: string) => void;
   decreaseQuantity: (itemId: string) => void;
-  clearCart: () => void; // Added clearCart action
+  clearCart: () => void;
 }
 
 const INITIAL_STATE: State = {
@@ -30,11 +30,12 @@ export const useCartStore = create(
       addToCart: (product: IProduct) => {
         const cart = get().cart;
         const cartItem = cart.find((item) => item._id === product._id);
+        const minQuantity = product.minQuantity || 1; // Ensure minimum quantity is respected
 
         if (cartItem) {
           const updatedCart = cart.map((item) =>
             item._id === product._id
-              ? { ...item, quantity: item.quantity! + 1 }
+              ? { ...item, quantity: Math.max(item.quantity! + 1, minQuantity) }
               : item
           );
           set((state) => ({
@@ -43,11 +44,11 @@ export const useCartStore = create(
             totalPrice: state.totalPrice + product.lowestPrice,
           }));
         } else {
-          const updatedCart = [...cart, { ...product, quantity: 1 }];
+          const updatedCart = [...cart, { ...product, quantity: minQuantity }];
           set((state) => ({
             cart: updatedCart,
-            totalItems: state.totalItems + 1,
-            totalPrice: state.totalPrice + product.lowestPrice,
+            totalItems: state.totalItems + minQuantity,
+            totalPrice: state.totalPrice + product.lowestPrice * minQuantity,
           }));
         }
         toast.success("Item added to cart");
@@ -86,20 +87,34 @@ export const useCartStore = create(
       decreaseQuantity: (itemId: string) => {
         const cart = get().cart;
         const cartItem = cart.find((item) => item._id === itemId);
+        const minQuantity = cartItem?.minQuantity || 1; // Respect minQuantity
 
-        if (cartItem && cartItem.quantity! > 1) {
-          const updatedCart = cart.map((item) =>
-            item._id === itemId
-              ? { ...item, quantity: item.quantity! - 1 }
-              : item
-          );
-          set((state) => ({
-            cart: updatedCart,
-            totalItems: state.totalItems - 1,
-            totalPrice: state.totalPrice - cartItem.lowestPrice,
-          }));
-        } else if (cartItem && cartItem.quantity === 1) {
-          get().removeFromCart(cartItem);
+        if (cartItem) {
+          if (cartItem.quantity! > minQuantity) {
+            // Decrease quantity if it's greater than minQuantity
+            const updatedCart = cart.map((item) =>
+              item._id === itemId
+                ? {
+                    ...item,
+                    quantity: Math.max(item.quantity! - 1, minQuantity),
+                  }
+                : item
+            );
+            set((state) => ({
+              cart: updatedCart,
+              totalItems: state.totalItems - 1,
+              totalPrice: state.totalPrice - cartItem.lowestPrice,
+            }));
+          } else if (cartItem.quantity === minQuantity && minQuantity > 1) {
+            // If quantity is at minQuantity and minQuantity > 1, show toast
+            toast.info(
+              `Cannot reduce below the minimum quantity of ${minQuantity}`
+            );
+          } else if (cartItem.quantity === 1 && minQuantity === 1) {
+            // If quantity is 1 and minQuantity is 1, remove the item from the cart
+            get().removeFromCart(cartItem);
+            toast.success("Item removed from cart");
+          }
         }
       },
       clearCart: () => {
@@ -109,7 +124,7 @@ export const useCartStore = create(
           totalPrice: 0,
         }));
         toast.success("Cart cleared");
-      }, // Implemented clearCart action
+      },
     }),
     {
       name: "cart-storage",

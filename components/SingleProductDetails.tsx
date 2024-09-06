@@ -9,6 +9,8 @@ import { useEnquiry } from "@/hooks/use-enquire-open";
 import { useCartDetails } from "@/hooks/use-cart-details";
 import useFromStore from "@/hooks/useFromStore";
 import { formatNumber } from "@/lib/utils";
+import { Input } from "./ui/input";
+import { Label } from "./ui/label";
 
 interface IProps {
   product: IProduct;
@@ -16,24 +18,40 @@ interface IProps {
 
 const SingleProductDetails = ({ product }: IProps) => {
   const [showMore, setShowMore] = React.useState(false);
+  const [qty, setQty] = React.useState<string>(
+    product?.minQuantity?.toString() || "1"
+  );
+  const [error, setError] = React.useState<string | null>(null);
   const addToCart = useCartStore((state) => state.addToCart);
   const { onOpen } = useEnquiry();
   const { onOpen: cartOpen } = useCartDetails();
   const cart = useFromStore(useCartStore, (state) => state.cart);
 
-  // Set a character limit for two lines (adjust this based on your design).
   const charLimit = 250;
-
-  // Check if the description exceeds the character limit.
   const isLongDescription = product?.description?.length > charLimit;
-
   const isInCart = cart?.some((item) => item?._id === product?._id);
+
+  const minQuantity = product?.minQuantity || 1;
+
+  const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (!isNaN(Number(value))) {
+      const numericQty = Number(value);
+
+      // Check if the entered quantity is less than the minQuantity
+      if (numericQty < minQuantity) {
+        setError(`Minimum order quantity is ${minQuantity}`);
+      } else {
+        setError(null);
+      }
+      setQty(value);
+    }
+  };
 
   const onBuyNow = (product: IProduct) => {
     if (!isInCart) {
       addToCart(product);
     }
-
     cartOpen();
   };
 
@@ -68,14 +86,40 @@ const SingleProductDetails = ({ product }: IProps) => {
           {formatNumber(product?.currentPrice)}
         </span>
       </p>
+
       <p className="font-semibold text-xs md:text-sm">
         M.R.P.:{" "}
         <span className="line-through">
           {product?.currency}
           {formatNumber(product?.originalPrice)}
-        </span>{" "}
-        ({product?.discount} off)
+        </span>
+        {product?.discount !== "0" && `(${product?.discount} off)`}
       </p>
+      <div className="flex gap-5 items-center mt-3">
+        <div className="flex items-center gap-2">
+          <Label htmlFor="quantity" className="font-semibold">
+            QTY:{" "}
+          </Label>
+          <Input
+            type="text"
+            className="h-8 w-12"
+            id="quantity"
+            placeholder="Enter required quantity"
+            value={qty}
+            onChange={handleQuantityChange}
+            inputMode="numeric"
+            pattern="[0-9]*"
+          />
+        </div>
+        {product?.quantity && (
+          <p className="text-muted-foreground text-sm">
+            {product?.quantity} Available
+          </p>
+        )}
+      </div>
+
+      {error && <p className="text-red-500 text-xs mt-2">{error}</p>}
+
       <p className="text-xs md:text-sm font-semibold text-muted-foreground my-4">
         Get it by Friday 9 August.
       </p>
@@ -99,6 +143,7 @@ const SingleProductDetails = ({ product }: IProps) => {
           variant="destructive"
           className="rounded-full flex-grow"
           onClick={() => onBuyNow(product)}
+          disabled={!!error} // Disable button if there's an error
         >
           Buy Now
         </Button>
@@ -106,6 +151,7 @@ const SingleProductDetails = ({ product }: IProps) => {
           variant="outline"
           className="rounded-full flex-grow"
           onClick={isInCart ? cartOpen : () => addToCart(product)}
+          disabled={!!error} // Disable button if there's an error
         >
           {isInCart ? "Go to cart" : "Add to cart"}
         </Button>
@@ -113,6 +159,7 @@ const SingleProductDetails = ({ product }: IProps) => {
           variant="destructive"
           className="rounded-full flex-grow"
           onClick={() => onOpen(product._id)}
+          disabled={!!error} // Disable button if there's an error
         >
           Request Quotation
         </Button>

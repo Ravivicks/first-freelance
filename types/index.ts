@@ -35,6 +35,7 @@ export type IProduct = {
   category: string;
   reviewsCount: number;
   quantity: number;
+  minQuantity: number;
   stars: number;
   isOutOfStock: Boolean;
   users?: User[];

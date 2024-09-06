@@ -1,5 +1,11 @@
 "use client";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import Image from "next/image";
 import ProductCard from "@/components/ProductCard";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -114,6 +120,9 @@ const PartnerProductDetails = () => {
   useEffect(() => {
     if (!initialFetchCompleted) return;
 
+    // Check if the productList has more than 20 items
+    if (productList.length <= 18) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && !isLoadingMore && !isLoading) {
@@ -135,6 +144,10 @@ const PartnerProductDetails = () => {
   }, [isLoadingMore, isLoading, initialFetchCompleted, loadMore]);
 
   const productList = products[key] || [];
+
+  const filteredProducts = useMemo(() => {
+    return productList.filter((product) => product.type === activeTab);
+  }, [products, key, activeTab]);
 
   return (
     <div>
@@ -222,18 +235,15 @@ const PartnerProductDetails = () => {
             {types.map((type) => (
               <TabsContent key={type.value} value={type.value}>
                 <div className="flex gap-3 flex-wrap mb-16">
-                  {productList
-                    .filter((product) => product.type === type.value)
-                    .map((product, index) => (
-                      <div
-                        className="flex-none w-full sm:w-1/2 md:w-1/3 lg:w-1/5 flex-grow h-auto"
-                        key={index}
-                      >
-                        <ProductCard product={product} />
-                      </div>
-                    ))}
-                  {productList.filter((product) => product.type === type.value)
-                    .length === 0 && (
+                  {filteredProducts.map((product, index) => (
+                    <div
+                      className="flex-none w-full sm:w-1/2 md:w-1/3 lg:w-1/5 flex-grow h-auto"
+                      key={index}
+                    >
+                      <ProductCard product={product} />
+                    </div>
+                  ))}
+                  {filteredProducts.length === 0 && (
                     <div className="text-center font-semibold">
                       No data available
                     </div>

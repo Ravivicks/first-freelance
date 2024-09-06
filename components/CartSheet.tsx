@@ -12,7 +12,7 @@ import useFromStore from "@/hooks/useFromStore";
 import { useCartStore } from "@/stores/useCartStore";
 import Image from "next/image";
 import { Button } from "./ui/button";
-import { DeleteIcon, Trash2Icon } from "lucide-react";
+import { DeleteIcon, MinusIcon, PlusIcon, Trash2Icon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import EmptyCart from "./EmptyCart";
 import { useEnquiry } from "@/hooks/use-enquire-open";
@@ -21,12 +21,12 @@ const CartSheet = () => {
   const router = useRouter();
   const { isOpen, onClose } = useCartDetails();
   const { onOpen } = useEnquiry();
-  const cart = useFromStore(useCartStore, (state) => state.cart);
-  const removeFromCart = useCartStore((state) => state.removeFromCart);
+  const { cart, increaseQuantity, decreaseQuantity, removeFromCart } =
+    useCartStore();
   let total = 0;
   if (cart) {
     total = cart.reduce(
-      (acc, product) => acc + product.lowestPrice * (cart.length as number),
+      (acc, product) => acc + product.lowestPrice * (product.quantity || 1),
       0
     );
   }
@@ -72,13 +72,39 @@ const CartSheet = () => {
                         </p>
                       </div>
                     </div>
-                    <Button
-                      variant="ghost"
-                      onClick={() => removeFromCart(cartItem)}
-                      className="rounded-full"
-                    >
-                      <Trash2Icon className="size-4" />
-                    </Button>
+                    <div className="flex items-center gap-2">
+                      {/* <Button
+                    variant="ghost"
+                    onClick={() => decreaseQuantity(cartItem._id)}
+                    className="rounded-full"
+                  > */}
+                      <MinusIcon
+                        className="size-5 bg-destructive p-0.5 text-white rounded-full cursor-pointer"
+                        onClick={() => decreaseQuantity(cartItem._id)}
+                      />
+                      {/* </Button> */}
+                      <span>{cartItem.quantity}</span>
+                      {/* <Button
+                    variant="ghost"
+                    onClick={() => increaseQuantity(cartItem._id)}
+                    className="rounded-full"
+                  > */}
+                      <PlusIcon
+                        className="size-5 bg-destructive p-0.5 text-white rounded-full cursor-pointer"
+                        onClick={() => increaseQuantity(cartItem._id)}
+                      />
+                      {/* </Button> */}
+                      {/* <Button
+                    variant="outline"
+                    onClick={() => removeFromCart(cartItem)}
+                    className="rounded-full"
+                  > */}
+                      <Trash2Icon
+                        className="size-4 cursor-pointer hover:text-red-800 ml-4"
+                        onClick={() => removeFromCart(cartItem)}
+                      />
+                      {/* </Button> */}
+                    </div>
                   </div>
                 </div>
               ))}
