@@ -49,7 +49,11 @@ export async function getAllProducts(
     const filter: any = {};
 
     if (filters.query) {
-      filter.brand = { $regex: filters.query, $options: "i" };
+      // Add title and brand filtering using regular expressions
+      filter.$or = [
+        { title: { $regex: filters.query, $options: "i" } }, // case-insensitive search for title
+        { brand: { $regex: filters.query, $options: "i" } }, // case-insensitive search for brand
+      ];
     }
 
     Object.keys(filters).forEach((key) => {

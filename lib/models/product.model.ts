@@ -26,6 +26,7 @@ const productSchema: Schema = new Schema(
     discountRate: { type: Number },
     description: { type: String },
     category: { type: String },
+    machineCode: { type: String },
     productDescription: { type: String },
     productInformationTech: [
       {

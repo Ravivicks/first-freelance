@@ -37,7 +37,7 @@ export default function SingleProductView() {
       <div className="flex flex-col md:flex-row justify-center items-center md:items-start -mt-10 md:-mt-32 mb-16">
         {product && sliderImages.length > 1 ? (
           <Carousel
-            className="w-full max-w-xs md:max-w-md md:mr-8"
+            className="w-full max-w-xs md:max-w-sm md:ml-52 mt-10"
             orientation="single"
           >
             <CarouselContent>
@@ -48,9 +48,9 @@ export default function SingleProductView() {
                       <Image
                         src={item}
                         alt={`slide-${index}`}
-                        width={400}
-                        height={400}
-                        className="object-cover"
+                        width={300}
+                        height={200}
+                        className="object-cover rounded-xl"
                       />
                     </CardContent>
                   </Card>

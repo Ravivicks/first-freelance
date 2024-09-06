@@ -41,13 +41,21 @@ const SingleProductDetails = ({ product }: IProps) => {
     <div className="p-4 md:p-6 max-w-full md:max-w-md mx-auto">
       <div className="flex justify-between items-start md:items-center my-4">
         <Image
-          src="/images/logo.svg"
+          src={
+            product?.brand === "Siemens"
+              ? "/featured/partner/siemens.png"
+              : product?.brand === "Schneider Electric"
+              ? "/featured/partner/download.png"
+              : "/images/logo.svg"
+          }
           alt="company-logo"
-          width={50}
+          width={100}
           height={20}
           className="flex-shrink-0"
         />
-        <p className="text-muted-foreground text-xs md:text-sm">Product code</p>
+        <p className="text-muted-foreground font-semibold text-xs md:text-sm">
+          {product?.machineCode}
+        </p>
       </div>
       <h1 className="text-xl md:text-2xl my-2">{product?.title}</h1>
       <div className="my-2 flex gap-2 md:gap-4 text-muted-foreground text-xs md:text-sm items-center">

@@ -1,11 +1,17 @@
+"use client";
 import React from "react";
 import { Button } from "./ui/button";
 import Image from "next/image";
 import { Headset, Phone } from "lucide-react";
 import Link from "next/link";
 import CountryDropdown from "./CountryDropdown";
+import { useGetContacts } from "@/features/contact/use-get-contacts";
 
 const TopNav = () => {
+  const { data, isLoading } = useGetContacts();
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="bg-black rounded-b-md text-xs py-2 px-4">
       <div className="flex flex-col md:flex-row justify-between items-center gap-2 md:gap-4">
@@ -53,7 +59,7 @@ const TopNav = () => {
             href="mailto:sales@prosafeautomation.com"
             className="font-semibold text-orange-100 text-xs"
           >
-            sales@prosafeautomation.com
+            {data?.[0]?.email}
           </Link>
         </div>
 
@@ -64,7 +70,7 @@ const TopNav = () => {
             className="font-extrabold text-white text-xs flex items-center"
           >
             <Phone className="mr-2" size={16} />
-            +91-9560796132
+            {data?.[0]?.phone}
           </Button>
         </div>
 

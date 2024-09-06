@@ -29,6 +29,7 @@ export type IProduct = {
   averagePrice: number;
   discountRate: number;
   description: string;
+  machineCode: string;
   type: string;
   productDescription: string;
   category: string;
@@ -150,3 +151,19 @@ export interface CheckoutData {
   billingAddress: IAddress;
   status: string;
 }
+
+export type IPartnerBannerFile = {
+  imageId: any;
+  _id: string;
+  title: string;
+  image: File; // Use File type to represent the uploaded file
+};
+
+export type IContact = {
+  _id: string;
+  company: string;
+  address: string;
+  phone: string;
+  workingHours: string;
+  email: string;
+};

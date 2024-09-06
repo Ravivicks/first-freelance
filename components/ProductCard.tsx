@@ -4,13 +4,14 @@ import Image from "next/image";
 import React from "react";
 import StarRating from "./StarRating";
 import { Button } from "./ui/button";
-import { formatNumber } from "@/lib/utils";
+import { cn, formatNumber } from "@/lib/utils";
 import { useCartStore } from "@/stores/useCartStore";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useEnquiry } from "@/hooks/use-enquire-open";
 import useFromStore from "@/hooks/useFromStore";
 import { useCartDetails } from "@/hooks/use-cart-details";
+import { usePriceRequest } from "@/hooks/use-price-request-open";
 
 type Props = {
   product: IProduct;
@@ -20,6 +21,7 @@ type Props = {
 const ProductCard = ({ product, isButton }: Props) => {
   const addToCart = useCartStore((state) => state.addToCart);
   const { locale } = useParams();
+  const { onOpen: priceOpen } = usePriceRequest();
   const { onOpen } = useEnquiry();
   const { onOpen: cartOpen } = useCartDetails();
   const cart = useFromStore(useCartStore, (state) => state.cart);
@@ -41,18 +43,24 @@ const ProductCard = ({ product, isButton }: Props) => {
           src={product?.image || ""}
           alt={product?.title || "Product image"}
           fill
-          className="object-cover rounded-lg transition-opacity duration-300 group-hover:opacity-50"
+          className={cn(
+            product.lowestPrice !== 0
+              ? "object-cover rounded-lg transition-opacity duration-300 group-hover:opacity-50"
+              : "w-full"
+          )}
           unoptimized
         />
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <Button
-            variant="destructive"
-            className="rounded-full"
-            onClick={() => onBuyNow(product)}
-          >
-            Buy Now
-          </Button>
-        </div>
+        {product.lowestPrice !== 0 && (
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <Button
+              variant="destructive"
+              className="rounded-full"
+              onClick={() => onBuyNow(product)}
+            >
+              Buy Now
+            </Button>
+          </div>
+        )}
       </div>
       <Link href={`/${locale}/products/${product._id}`}>
         <div className="flex flex-col flex-grow">
@@ -67,17 +75,19 @@ const ProductCard = ({ product, isButton }: Props) => {
             {product?.currency}
             {formatNumber(product?.lowestPrice)}
           </p>
-          <p className="text-xs text-muted-foreground font-semibold mb-5">
+          <p className="text-xs text-muted-foreground font-semibold">
             M. R. P. :
             <span className="line-through">
-              {product?.currency} {formatNumber(product?.highestPrice)}
-            </span>{" "}
-            (15% Off)
+              {product.lowestPrice !== 0
+                ? `${product?.currency} ${formatNumber(product?.highestPrice)}`
+                : " Price not available"}
+            </span>
+            {product.lowestPrice !== 0 && product.discount}
           </p>
         </div>
       </Link>
-      {!isButton && (
-        <div className="flex gap-2 flex-wrap">
+      {!isButton && product.lowestPrice !== 0 ? (
+        <div className="flex gap-2 flex-wrap mt-3">
           <Button
             variant="outline"
             className="rounded-full flex-grow"
@@ -93,6 +103,17 @@ const ProductCard = ({ product, isButton }: Props) => {
             Request Quotation
           </Button>
         </div>
+      ) : (
+        <Button
+          variant="destructive"
+          className="rounded-full w-full mt-5"
+          onClick={(e) => {
+            e.stopPropagation(); // Prevents click event from bubbling to the card
+            priceOpen(product._id);
+          }}
+        >
+          Request For Price
+        </Button>
       )}
     </div>
   );

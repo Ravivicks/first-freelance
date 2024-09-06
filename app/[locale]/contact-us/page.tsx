@@ -1,9 +1,15 @@
+"use client";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { useGetContacts } from "@/features/contact/use-get-contacts";
 
 export default function Component() {
+  const { data, isLoading } = useGetContacts();
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="w-full">
       <section className="w-full py-12 md:py-20 lg:py-24 bg-[url('/images/bg-con.jpg?height=200&width=1600')] h-[300px] bg-cover bg-center my-4 rounded-2xl">
@@ -65,24 +71,23 @@ export default function Component() {
               <div className="flex items-start gap-4">
                 <LocateIcon className="mt-1 h-6 w-6 text-primary" />
                 <div>
-                  <p className="font-medium">PROSAFE AUTOMATION.</p>
-                  <p className="text-muted-foreground">
-                    B-1/13, RAGHU NAGAR, PANKHA ROAD, Near JANAK CINEMA, South
-                    West Delhi-110045
-                  </p>
+                  <p className="font-medium">{data?.[0]?.company}.</p>
+                  <p className="text-muted-foreground">{data?.[0]?.address}</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <PhoneIcon className="mt-1 h-6 w-6 text-primary" />
                 <div>
-                  <p className="font-medium">+91-9560796132 </p>
-                  <p className="text-muted-foreground">Mon-Sat, 9am-8pm</p>
+                  <p className="font-medium">{data?.[0]?.phone}</p>
+                  <p className="text-muted-foreground">
+                    {data?.[0]?.workingHours}
+                  </p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <MailIcon className="mt-1 h-6 w-6 text-primary" />
                 <div>
-                  <p className="font-medium">sales@prosafeautomation.com</p>
+                  <p className="font-medium">{data?.[0]?.email}</p>
                   <p className="text-muted-foreground">
                     We&apos;ll get back to you as soon as possible.
                   </p>

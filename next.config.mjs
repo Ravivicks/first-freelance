@@ -29,6 +29,16 @@ const nextConfig = {
         hostname: "www.tsisolutions.us",
         pathname: "/**",
       },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "drive.google.com",
+        pathname: "/**",
+      },
     ],
   },
   experimental: {

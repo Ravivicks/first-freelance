@@ -39,20 +39,13 @@ const FeaturedProductCard = ({ product }: Props) => {
       className="group relative w-full sm:w-[45%] md:w-[30%] lg:w-[22%] border rounded-xl mb-10 p-3 overflow-hidden transition-shadow duration-300 hover:shadow-lg flex-grow"
       onClick={handleCardClick}
     >
-      <CardContent
-        className={cn(
-          product.lowestPrice === 0
-            ? "w-full"
-            : "w-full transition-opacity duration-300 group-hover:opacity-50"
-        )}
-      >
+      <CardContent className="w-full transition-opacity duration-300 group-hover:opacity-50">
         <div className="relative mb-3 h-[220px]">
           <Image
             src={product?.image}
             alt={product?.title}
             fill
             className="object-fill p-3"
-            unoptimized
           />
         </div>
 
@@ -60,38 +53,28 @@ const FeaturedProductCard = ({ product }: Props) => {
           <h1 className="text-sm font-semibold line-clamp-2 overflow-hidden">
             {product?.title}
           </h1>
-          {product.lowestPrice !== 0 && (
-            <p className="font-semibold mt-3">
-              {product?.currency}
-              {formatNumber(product?.lowestPrice)}
-            </p>
-          )}
-          {product.highestPrice !== 0 && (
-            <p className="text-xs text-muted-foreground font-semibold">
-              M. R. P. :
-              <span className="line-through">
-                {product?.currency} {formatNumber(product?.highestPrice)}
-              </span>{" "}
-              (15% Off)
-            </p>
-          )}
-          {product?.lowestPrice === 0 && (
-            <Button
-              variant="destructive"
-              className="rounded-full w-full mt-5"
-              onClick={(e) => {
-                e.stopPropagation(); // Prevents click event from bubbling to the card
-                priceOpen(product._id);
-              }}
-            >
-              Request For Price
-            </Button>
-          )}
+
+          <p className="font-semibold mt-3">
+            {product?.currency}
+            {product.lowestPrice !== 0
+              ? formatNumber(product?.lowestPrice)
+              : " 00.00"}
+          </p>
+
+          <p className="text-xs text-muted-foreground font-semibold">
+            M. R. P. :
+            <span className="line-through">
+              {product.lowestPrice !== 0
+                ? `${product?.currency} ${formatNumber(product?.highestPrice)}`
+                : " Price not available"}
+            </span>
+            {product.lowestPrice !== 0 && product.discount}
+          </p>
         </div>
       </CardContent>
 
       {/* Buttons that appear in the middle on hover */}
-      {product.lowestPrice !== 0 && (
+      {product.lowestPrice !== 0 ? (
         <div className=" absolute inset-0  items-center mx-5 hidden md:flex flex-col gap-2 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <Button
             variant="outline"
@@ -119,6 +102,19 @@ const FeaturedProductCard = ({ product }: Props) => {
               Product Details
             </Button>
           </Link>
+        </div>
+      ) : (
+        <div className="absolute inset-0 items-center mx-5 hidden md:flex flex-col gap-2 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <Button
+            variant="destructive"
+            className="rounded-full w-full mt-5"
+            onClick={(e) => {
+              e.stopPropagation(); // Prevents click event from bubbling to the card
+              priceOpen(product._id);
+            }}
+          >
+            Request For Price
+          </Button>
         </div>
       )}
     </Card>
