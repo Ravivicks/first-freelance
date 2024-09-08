@@ -1,15 +1,21 @@
 "use client";
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { Button, buttonVariants } from "@/components/ui/button";
-import { calculateTotalWithGSTAndShipping, cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { calculateTotalWithGSTAndShipping } from "@/lib/utils";
 import { useUser } from "@clerk/nextjs";
-import Razorpay from "razorpay";
 import { useCheckoutOpen } from "@/hooks/use-checkout-open";
 import { useGetAddress } from "@/features/address/use-get-address";
 import { useCartStore } from "@/stores/useCartStore";
 import { useCreateCheckout } from "@/features/checkout/use-create-checkout";
 import { CheckoutData, IAddress, OrderItem } from "@/types";
+
+// Extend the global window object to include Razorpay
+declare global {
+  interface Window {
+    Razorpay: any;
+  }
+}
 
 interface IProps {
   amount: number;
@@ -19,7 +25,7 @@ const PaymentButton = ({ amount }: IProps) => {
   const { user } = useUser();
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-  const { isOpen, onClose, id } = useCheckoutOpen();
+  const { onClose, id } = useCheckoutOpen();
   const { data: address } = useGetAddress(id as string);
   const { cart, clearCart } = useCartStore();
 
@@ -31,8 +37,7 @@ const PaymentButton = ({ amount }: IProps) => {
     );
   }
 
-  const { gstAmount, shippingAmount, totalWithGSTAndShipping, discountAmount } =
-    calculateTotalWithGSTAndShipping(total);
+  const { totalWithGSTAndShipping } = calculateTotalWithGSTAndShipping(total);
 
   const mutation = useCreateCheckout();
   const orderItems: OrderItem[] = cart?.map((product) => ({
@@ -55,6 +60,17 @@ const PaymentButton = ({ amount }: IProps) => {
     email: "",
     phone: "",
   };
+
+  useEffect(() => {
+    const loadRazorpayScript = () => {
+      const script = document.createElement("script");
+      script.src = "https://checkout.razorpay.com/v1/checkout.js";
+      script.async = true;
+      document.body.appendChild(script);
+    };
+
+    loadRazorpayScript();
+  }, []);
 
   const makePayment = async () => {
     setIsLoading(true);
@@ -110,7 +126,7 @@ const PaymentButton = ({ amount }: IProps) => {
 
         if (res?.error === false) {
           // redirect to success page
-          router.push(`/confirm-order?order=${order.id}`);
+          router.replace(`/confirm-order?order=${order.id}`);
           clearCart();
         }
       },
@@ -122,13 +138,18 @@ const PaymentButton = ({ amount }: IProps) => {
       },
     };
 
-    const paymentObject = new window.Razorpay(options);
-    paymentObject.open();
+    if (window.Razorpay) {
+      const paymentObject = new window.Razorpay(options);
+      paymentObject.open();
 
-    paymentObject.on("payment.failed", function (response: any) {
-      alert("Payment failed. Please try again.");
+      paymentObject.on("payment.failed", function () {
+        alert("Payment failed. Please try again.");
+        setIsLoading(false);
+      });
+    } else {
+      console.error("Razorpay SDK failed to load.");
       setIsLoading(false);
-    });
+    }
   };
 
   return (
