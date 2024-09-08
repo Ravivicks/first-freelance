@@ -1,5 +1,12 @@
 import React from "react";
-import { QrCodeIcon } from "lucide-react";
+import {
+  Bot,
+  Building2,
+  HandCoins,
+  QrCodeIcon,
+  ShieldCheck,
+  Truck,
+} from "lucide-react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import Image from "next/image";
@@ -25,48 +32,55 @@ const Footer = () => {
       <div className="mx-6 my-6 flex flex-col md:flex-row gap-6">
         {/* About Us */}
         <div className="flex-1">
-          <h1 className="text-lg font-bold mb-3">About Us</h1>
-          <div className="text-sm">
-            <p className="font-bold">Monday - Friday</p>
-            <p className="text-muted-foreground">10:00 am to 7:00 pm</p>
-            <p className="font-bold text-sm mt-2">Saturday</p>
-            <p className="text-muted-foreground">10:00 am to 2:00 pm</p>
-            <p className="text-muted-foreground">Sunday closed</p>
-            <p className="font-bold text-sm mt-2">Company Holidays</p>
-            <p className="text-muted-foreground">
-              01, Apr 2024 until 05, Apr 2024
-            </p>
-            <p className="text-muted-foreground">
-              02, Aug 2024 until 10, Aug 2024
-            </p>
+          <h1 className="text-lg font-bold mb-3 flex gap-2">
+            <Building2 className="text-destructive" /> Company
+          </h1>
+          <div className="flex flex-col gap-2">
+            <p>Who We Are</p>
+            <p>Our Commitments</p>
+            <p>What We Stand For</p>
+            <p>Partner Brands</p>
+            <p>Careers & Opportunities</p>
           </div>
         </div>
 
         {/* Important Links */}
         <div className="flex-1">
-          <h1 className="text-lg font-bold mb-3">Important Links</h1>
-          <div className="flex flex-col gap-2 text-sm">
-            <p>Imprint</p>
-            <p>Term and Conditions</p>
-            <p>Contact</p>
-            <p>Data Protection</p>
-            <p>Cookie Configuration</p>
-            <p>Warranty Information</p>
-            <p>Siemens Mall</p>
+          <h1 className="text-lg font-bold mb-3 flex gap-2">
+            <Bot className="text-destructive" />
+            Customer Care
+          </h1>
+          <div className="flex flex-col gap-2">
+            <p>Help & Support</p>
+            <p>Order Status</p>
+            <p>Delivery Information</p>
+            <p>Return & Exchanges</p>
+            <p>Installation Assistance</p>
           </div>
         </div>
 
         {/* Information */}
         <div className="flex-1">
-          <h1 className="text-lg font-bold mb-3">Information</h1>
-          <p className="mb-3">Shipping Information</p>
-          <p className="mb-3">IBAN / BIC Calculator</p>
-          <QrCodeIcon className="text-gray-600" size={36} />
+          <h1 className="text-lg font-bold mb-3 flex gap-2">
+            {" "}
+            <ShieldCheck className="text-destructive" />
+            Trust
+          </h1>
+          <p className="mb-3">Product Guarantee</p>
+          <p className="mb-3">Safe & secure payments</p>
+          <p className="mb-3">Payment Options</p>
+          <p className="mb-3">Data Protection Policies</p>
+          <p className="mb-3">User Agreements</p>
+          <p className="mb-3">Privacy & Cookie Settings</p>
         </div>
 
         {/* Payment Method */}
         <div className="flex-1">
-          <h1 className="text-lg font-bold mb-3">Payment Method</h1>
+          <h1 className="text-lg font-bold mb-3 flex gap-2">
+            {" "}
+            <HandCoins className="text-destructive" />
+            Payment Method
+          </h1>
           <Image
             src="/payment.jpg"
             alt="Payment methods"
@@ -79,7 +93,10 @@ const Footer = () => {
 
         {/* Shipping Method */}
         <div className="flex-1">
-          <h1 className="text-lg font-bold mb-3">Shipping Method</h1>
+          <h1 className="text-lg font-bold mb-3 flex gap-2">
+            <Truck className="text-destructive" />
+            Shipping Method
+          </h1>
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-2">
               <Image

@@ -37,8 +37,12 @@ const BestDeal = () => {
       </CardHeader>
       <CardContent className="flex flex-col gap-4 mt-5">
         <div className="flex flex-wrap justify-center md:justify-start gap-3 px-3">
-          {productList?.slice(0, 4).map((product) => (
-            <FeaturedProductCard product={product} key={product._id} />
+          {productList?.slice(0, 6).map((product) => (
+            <FeaturedProductCard
+              product={product}
+              key={product._id}
+              isBestDeal
+            />
           ))}
         </div>
       </CardContent>

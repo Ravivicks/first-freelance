@@ -1,10 +1,24 @@
 export const menuItems = [
   {
-    title: "Industry",
+    title: "Best Sellers",
     url: "/industries",
     subMenu: [
       {
-        title: "Push Button and Pilot Light",
+        title: "Siemens",
+        url: "/product-details/push-button-and-pilot-light?type=all",
+      },
+      {
+        title: "Prosafe-automation",
+        url: "/",
+      },
+    ],
+  },
+  {
+    title: "Shop by category",
+    url: "/industries",
+    subMenu: [
+      {
+        title: "Power Supply",
         url: "/product-details/push-button-and-pilot-light?type=all",
       },
       {
@@ -38,95 +52,15 @@ export const menuItems = [
     ],
   },
   {
-    title: "Switchgears",
+    title: "Shop By Company",
     url: "/",
     subMenu: [
       {
-        title: "Contactors",
+        title: "Siemens",
         url: "/",
       },
       {
-        title: "Thermal Overload Relays",
-        url: "/",
-      },
-      {
-        title: "Miniature Circuit Breaker",
-        url: "/",
-      },
-      {
-        title: "Molded Case Circuit Breaker",
-        url: "/",
-      },
-      {
-        title: "Motor Circuit Breaker",
-        url: "/",
-      },
-      {
-        title: "Residual Current Circuit Breaker",
-        url: "/",
-      },
-    ],
-  },
-  {
-    title: "Range",
-    url: "/",
-    subMenu: [
-      {
-        title: "Acti9",
-        url: "/",
-      },
-      {
-        title: "TeSys",
-        url: "/",
-      },
-      {
-        title: "Easy9",
-        url: "/",
-      },
-      {
-        title: "Easypact",
-        url: "/",
-      },
-      {
-        title: "Harmony",
-        url: "/",
-      },
-      {
-        title: "Altivar",
-        url: "/",
-      },
-      {
-        title: "Modicon",
-        url: "/",
-      },
-    ],
-  },
-  {
-    title: "Switches & Sockets",
-    url: "/",
-    subMenu: [
-      {
-        title: "Livia",
-        url: "/",
-      },
-      {
-        title: "Opale",
-        url: "/",
-      },
-      {
-        title: "Zencelo",
-        url: "/",
-      },
-      {
-        title: "Unica Pure",
-        url: "/",
-      },
-      {
-        title: "AvatarOn",
-        url: "/",
-      },
-      {
-        title: "Modicon",
+        title: "schneider Electric",
         url: "/",
       },
     ],

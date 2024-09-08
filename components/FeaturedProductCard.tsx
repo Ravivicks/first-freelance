@@ -15,9 +15,10 @@ import { usePriceRequest } from "@/hooks/use-price-request-open";
 
 type Props = {
   product: IProduct;
+  isBestDeal?: boolean;
 };
 
-const FeaturedProductCard = ({ product }: Props) => {
+const FeaturedProductCard = ({ product, isBestDeal }: Props) => {
   const addToCart = useCartStore((state) => state.addToCart);
   const { onOpen } = useEnquiry();
   const { onOpen: priceOpen } = usePriceRequest();
@@ -36,11 +37,19 @@ const FeaturedProductCard = ({ product }: Props) => {
 
   return (
     <Card
-      className="group relative w-full sm:w-[45%] md:w-[30%] lg:w-[22%] border rounded-xl mb-10 p-3 overflow-hidden transition-shadow duration-300 hover:shadow-lg flex-grow"
+      className={cn(
+        "group relative w-full sm:w-[45%] md:w-[30%] border rounded-xl mb-10 p-3 overflow-hidden transition-shadow duration-300 hover:shadow-lg flex-grow",
+        isBestDeal ? "lg:w-[10%]" : "lg:w-[18%]"
+      )}
       onClick={handleCardClick}
     >
       <CardContent className="w-full transition-opacity duration-300 group-hover:opacity-50">
-        <div className="relative mb-3 h-[220px]">
+        <div
+          className={cn(
+            "relative mb-3",
+            isBestDeal ? "h-[130px]" : "h-[220px]"
+          )}
+        >
           <Image
             src={product?.image}
             alt={product?.title}

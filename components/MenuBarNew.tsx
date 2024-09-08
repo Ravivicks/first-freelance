@@ -25,30 +25,38 @@ const MenuBarNew = () => {
   return (
     <div>
       <Menubar>
-        <MenubarMenu>
-          <MenubarTrigger>
-            <Link href="/">Home</Link>
-          </MenubarTrigger>
-          <MenubarTrigger>Must buy products</MenubarTrigger>
-        </MenubarMenu>
-        {menuItems.map((item) => (
-          <MenubarMenu key={item.title}>
-            <MenubarTrigger>
-              {item.title}
-              <LucideChevronDown size={15} className="ml-2 mt-1" />
-            </MenubarTrigger>
-            <MenubarContent className="bg-white">
-              {item.subMenu.map((subMenu) => (
-                <MenubarItem
-                  key={subMenu.title}
-                  onClick={() => handleClick(subMenu.url)}
-                >
-                  {subMenu.title}
-                </MenubarItem>
-              ))}
-            </MenubarContent>
-          </MenubarMenu>
-        ))}
+        <div className="flex justify-between w-full">
+          <div className="flex">
+            {menuItems.map((item) => (
+              <MenubarMenu key={item.title}>
+                <MenubarTrigger>
+                  {item.title}
+                  <LucideChevronDown size={15} className="ml-2 mt-1" />
+                </MenubarTrigger>
+                <MenubarContent className="bg-white">
+                  {item.subMenu.map((subMenu) => (
+                    <MenubarItem
+                      key={subMenu.title}
+                      onClick={() => handleClick(subMenu.url)}
+                    >
+                      {subMenu.title}
+                    </MenubarItem>
+                  ))}
+                </MenubarContent>
+              </MenubarMenu>
+            ))}
+          </div>
+          <div className="flex">
+            {/* Additional Menubar Items at the End */}
+            <MenubarMenu>
+              <MenubarTrigger>
+                <Link href="/">Service Quote</Link>
+              </MenubarTrigger>
+              <MenubarTrigger>Entire Project Quote</MenubarTrigger>
+              <MenubarTrigger>Why 100s of customers trust us</MenubarTrigger>
+            </MenubarMenu>
+          </div>
+        </div>
       </Menubar>
     </div>
   );

@@ -130,8 +130,12 @@ export type IAddress = {
 };
 
 export interface PaymentDetails {
-  method: string; // e.g., 'credit_card', 'paypal'
-  status: string; // e.g., 'pending', 'completed', 'failed'
+  orderId: string;
+  paymentId: string;
+  signature: string;
+  createdAt: Date;
+  method?: string; // e.g., 'credit_card', 'paypal'
+  status?: string; // e.g., 'pending', 'completed', 'failed'
   transactionId?: string;
 }
 
@@ -167,4 +171,9 @@ export type IContact = {
   phone: string;
   workingHours: string;
   email: string;
+};
+
+export type IRazorOption = {
+  amount: number;
+  currency: string;
 };

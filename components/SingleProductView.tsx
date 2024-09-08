@@ -62,22 +62,24 @@ export default function SingleProductView() {
             <CarouselNext />
           </Carousel>
         ) : (
-          <div className="max-w-xs md:max-w-md">
-            <Card className="border-none">
-              <CardContent className="flex aspect-square items-center justify-evenly relative">
+          <div className="w-full lg:w-2/3 flex-grow">
+            <div className="rounded-xl border-none px-4">
+              <div className="flex items-center justify-center">
                 <Image
                   src={product?.image || ""}
                   alt={`slide-1`}
                   width={400}
                   height={400}
-                  className="object-cover md:ml-32"
+                  className="object-cover"
                   unoptimized
                 />
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
         )}
-        <SingleProductDetails product={product as IProduct} />
+        <div className="ml-10 w-full md:w-1/2 pr-6">
+          <SingleProductDetails product={product as IProduct} />
+        </div>
       </div>
     </>
   );

@@ -29,8 +29,17 @@ const Navbar = () => {
         </div>
         <div>
           <Link href="/" className="flex gap-2">
-            <Image src="/images/logo.svg" alt="logo" width={40} height={40} />
-            <p>Logo</p>
+            <div className="flex justify-center items-center">
+              <Image src="/logo.svg" alt="logo" width={100} height={100} />
+              <div>
+                <p className="text-destructive font-extrabold uppercase">
+                  Automation Ecom
+                </p>{" "}
+                <p className="text-muted-foreground uppercase font-extrabold">
+                  Global
+                </p>
+              </div>
+            </div>
           </Link>
         </div>
         <div className="hidden w-[50%] md:block">
@@ -46,6 +55,17 @@ const Navbar = () => {
             className="object-contain md:hidden"
             onClick={onSearchOpen}
           />
+          <div className="bg-black flex text-white gap-5 px-3 py-1 rounded-md">
+            <div className="flex flex-col text-xs">
+              <p className="font-extrabold text-destructive">My</p>
+              <p className="font-semibold">orders</p>
+            </div>
+            <div className="flex flex-col text-xs">
+              <p className="font-extrabold text-destructive">My</p>
+              <p className="font-semibold">Account</p>
+            </div>
+          </div>
+
           <div className="relative" onClick={onOpen}>
             <Image
               src="/assets/icons/bag.svg"
