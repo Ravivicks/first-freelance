@@ -7,7 +7,6 @@ import FeaturedCategory from "@/components/FeaturedCategory";
 import FeaturedPartner from "@/components/FeaturedPartner";
 import FeaturedProduct from "@/components/FeaturedProduct";
 import Hero from "@/components/Hero";
-import PaymentButton from "@/components/PaymentButton";
 import ProductCarousal from "@/components/ProductCarousal";
 import SingleProductView from "@/components/SingleProductView";
 
@@ -29,7 +28,6 @@ export default async function Index() {
       <CircularNavbar />
       <Hero />
       <BestDeal />
-      {/* <PaymentButton /> */}
       <ProductCarousal />
       <FeaturedCategory />
       <SingleProductView />
