@@ -27,9 +27,7 @@ const CheckoutDialog = () => {
 
   const {
     cart,
-    increaseQuantity,
-    decreaseQuantity,
-    removeFromCart,
+
     clearCart,
   } = useCartStore();
 

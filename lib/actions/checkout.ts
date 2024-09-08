@@ -6,22 +6,13 @@ import { connectToDB } from "../mongoose";
 import Razorpay from "razorpay";
 
 export async function checkout(
-  // checkoutData: Omit<CheckoutData, "createdAt" | "updatedAt">,
-  options: IRazorOption
+  checkoutData: Omit<CheckoutData, "createdAt" | "updatedAt">
 ) {
   try {
     await connectToDB();
-    const razorpay = new Razorpay({
-      key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!,
-      key_secret: process.env.NEXT_PUBLIC_RAZORPAY_KEY_SECRET!,
-    });
-    const order = await razorpay.orders.create(options);
-
     // Create the document using a plain object
-    // if (order) {
-    // initializeRazorpay();
-    // const result = await Checkout.create(checkoutData);
-    return JSON.parse(JSON.stringify(order));
+    const result = await Checkout.create(checkoutData);
+    return JSON.parse(JSON.stringify(result));
     // }
   } catch (error) {
     console.error("Error creating checkout:", error);

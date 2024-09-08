@@ -130,13 +130,9 @@ export type IAddress = {
 };
 
 export interface PaymentDetails {
-  orderId: string;
-  paymentId: string;
-  signature: string;
-  createdAt: Date;
-  method?: string; // e.g., 'credit_card', 'paypal'
-  status?: string; // e.g., 'pending', 'completed', 'failed'
-  transactionId?: string;
+  method: string; // e.g., 'credit_card', 'paypal'
+  status: string; // e.g., 'pending', 'completed', 'failed'
+  transactionId: string;
 }
 
 export interface OrderItem {
