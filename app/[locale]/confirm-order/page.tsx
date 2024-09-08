@@ -6,10 +6,14 @@ import { useGetOrder } from "@/features/checkout/use-get-order";
 import { formatNumber } from "@/lib/utils";
 import { useProductsStore } from "@/stores/useProductStore";
 import { CheckCircle, Package, Truck } from "lucide-react";
+import { useParams, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 export default function Component() {
-  const { data } = useGetOrder("66d1b7f706c667b9d384b0eb");
+  const param = useSearchParams();
+  const orderId = param.get("order");
+
+  const { data } = useGetOrder(orderId as string);
   const {
     products,
     isLoading: isProductLoading,
@@ -41,7 +45,9 @@ export default function Component() {
               info.`}
               </p>
               <div className="mb-6">
-                <h2 className="text-sm font-semibold mb-2">Order #2023 </h2>
+                <h2 className="text-sm font-semibold mb-2">
+                  Order-id: {data?.orderId}
+                </h2>
                 <p className="text-muted-foreground text-xs">
                   May 31, 2023 at 3:42 PM
                 </p>

@@ -27,7 +27,7 @@ export async function getOrderById(
     await connectToDB();
 
     // Use lean() to get a plain JavaScript object
-    const order = await Checkout.findOne({ _id: txnId });
+    const order = await Checkout.findOne({ orderId: txnId });
     return JSON.parse(JSON.stringify(order));
   } catch (error) {
     console.log(error);

@@ -151,6 +151,7 @@ export interface CheckoutData {
   shippingAddress: IAddress;
   billingAddress: IAddress;
   status: string;
+  orderId: string;
 }
 
 export type IPartnerBannerFile = {

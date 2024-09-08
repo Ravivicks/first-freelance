@@ -28,6 +28,7 @@ const CheckoutSchema: Schema<CheckoutData> = new Schema(
     shippingAddress: addressSchema,
     billingAddress: addressSchema,
     status: { type: String, default: "processing" },
+    orderId: { type: String, required: true },
   },
   { timestamps: true }
 );

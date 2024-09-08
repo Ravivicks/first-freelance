@@ -10,6 +10,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import SheetProvider from "@/providers/sheet-provider";
 import { Toaster } from "@/components/ui/sonner";
 import TopNav from "@/components/TopNav";
+import Script from "next/script";
 
 const inter = Poppins({ subsets: ["latin"], weight: ["100", "300"] });
 export default async function LocaleLayout({
@@ -43,6 +44,7 @@ export default async function LocaleLayout({
           </main>
         </body>
       </html>
+      <Script src="https://checkout.razorpay.com/v1/checkout.js" />
     </ClerkProvider>
   );
 }

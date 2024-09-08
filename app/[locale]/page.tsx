@@ -31,9 +31,8 @@ export default async function Index() {
       <ProductCarousal />
       <FeaturedCategory />
       <SingleProductView />
-
       <FeaturedPartner />
-      <CategoryWise title="Industry Automation  " />
+      <CategoryWise title="Industry Automation" />
       <FeaturedProduct />
     </div>
   );
