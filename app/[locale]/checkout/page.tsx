@@ -32,12 +32,11 @@ import Cart from "@/components/Cart";
 export default function Component() {
   const { user } = useUser();
   const [selectedAddress, setSelectedAddress] = useState<string | null>(null);
-  const emailId = user
-    ? user?.emailAddresses[0].emailAddress
-    : sessionStorage.getItem("email") || "";
+  const emailId = user ? user?.emailAddresses?.[0]?.emailAddress : "";
   const [addressData, setAddressData] = useState<IAddress>();
+  const userEmail = sessionStorage.getItem("email");
 
-  const { data, refetch } = useGetAddresses(emailId);
+  const { data, refetch } = useGetAddresses(emailId || (userEmail as string));
   const { data: address } = useGetAddress(selectedAddress as string);
 
   const handleAddressSelect = (id: string) => {
