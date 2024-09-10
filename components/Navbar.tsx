@@ -23,30 +23,36 @@ const Navbar = () => {
 
   return (
     <header className="w-full">
-      <nav className=" py-6 flex justify-between items-center px-4">
-        <div className="block sm:hidden">
-          <MobileNav />
-        </div>
+      <nav className=" py-6 flex justify-between  items-center md:px-4">
+        {/* <div className="flex justify-between items-center"> */}
         <div>
           <Link href="/" className="flex gap-2">
             <div className="flex justify-center items-center">
               <Image src="/logo.svg" alt="logo" width={100} height={100} />
               <div>
-                <p className="text-destructive font-extrabold uppercase">
+                <p className="text-black font-black uppercase">
                   Automation Ecom
                 </p>{" "}
-                <p className="text-muted-foreground uppercase font-extrabold">
+                <p className="text-[#98cfea] uppercase font-extrabold">
                   Global
                 </p>
               </div>
             </div>
           </Link>
+          {/* <p className="pl-8 mb-5 text-xs font-semibold underline md:hidden">
+              We Strive To Discipline Industry Spare Part Requirements.
+            </p> */}
         </div>
+        <div className="block sm:hidden">
+          <MobileNav />
+        </div>
+        {/* </div> */}
+
         <div className="hidden w-[50%] md:block">
           <SearchComponent />
         </div>
 
-        <div className="flex items-center gap-5">
+        <div className="items-center gap-5 hidden md:flex">
           <Image
             src="/assets/icons/search.svg"
             alt="search"
@@ -57,11 +63,11 @@ const Navbar = () => {
           />
           <div className="bg-black flex text-white gap-5 px-3 py-1 rounded-md">
             <div className="flex flex-col text-xs">
-              <p className="font-extrabold text-destructive">My</p>
+              <p className="font-extrabold text-[#98cfea]">My</p>
               <p className="font-semibold">orders</p>
             </div>
             <div className="flex flex-col text-xs">
-              <p className="font-extrabold text-destructive">My</p>
+              <p className="font-extrabold text-[#98cfea]">My</p>
               <p className="font-semibold">Account</p>
             </div>
           </div>

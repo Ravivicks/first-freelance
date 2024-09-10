@@ -14,12 +14,12 @@ const partnerList = [
     image: "/featured/partner/schneider.jpg",
   },
   {
-    title: "Siemens",
-    image: "/featured/partner/siemens.png",
+    title: "Prosafe Automation",
+    image: "/featured/partner/Prosafe.svg",
   },
   {
-    title: "Schneider Electric",
-    image: "/featured/partner/schneider.jpg",
+    title: "Deif Group",
+    image: "/featured/partner/deif.png",
   },
 ];
 
@@ -41,13 +41,12 @@ const FeaturedPartner = () => {
             }}
           >
             <CardContent className="flex flex-col items-center justify-center mt-3">
-              <div className="w-full flex justify-center">
+              <div className="flex justify-center relative h-[50px] w-[200px]">
                 <Image
                   src={item.image}
                   alt={item.title}
-                  width={300}
-                  height={200}
-                  className="object-contain"
+                  fill
+                  className="object-fill"
                 />
               </div>
               <div className="border-t-2 w-full mt-7">

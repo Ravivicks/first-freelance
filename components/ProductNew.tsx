@@ -40,13 +40,12 @@ export function ProductNew({ product }: IProductNew) {
             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/4">
               <div className="p-1">
                 <Card className="flex flex-col items-center rounded-xl">
-                  <CardContent className="flex items-center justify-center">
+                  <CardContent className="flex items-center justify-center relative h-[200px] w-[200px] my-5">
                     <Image
                       src={item.image}
                       alt={`slide-${index}`}
-                      width={200}
-                      height={100}
-                      // className="object-fill"
+                      fill
+                      className="rounded-md"
                       unoptimized
                     />
                   </CardContent>

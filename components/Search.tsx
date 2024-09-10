@@ -119,7 +119,7 @@ export default function SearchComponent() {
         </Button>
         <Input
           type="text"
-          placeholder="Search products..."
+          placeholder="Search products...(For Example : 6ES7288-1ST30-0AA0)"
           value={searchTerm}
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}

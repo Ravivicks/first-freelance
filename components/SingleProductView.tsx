@@ -28,7 +28,7 @@ export default function SingleProductView() {
     <>
       <div className="flex justify-start relative w-[150px] h-[150px] md:w-[200px] md:h-[200px]">
         <Image
-          src="/featured/best.jpg"
+          src="/featured/partner/best.png"
           alt="best"
           fill
           className="object-cover md:rotate-90"

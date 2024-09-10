@@ -2,10 +2,12 @@ import React from "react";
 import {
   Bot,
   Building2,
+  FacebookIcon,
   HandCoins,
   QrCodeIcon,
   ShieldCheck,
   Truck,
+  YoutubeIcon,
 } from "lucide-react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
@@ -132,29 +134,24 @@ const Footer = () => {
       {/* Footer Bottom */}
       <div className="p-3 bg-gray-50 rounded-t-sm border">
         <p className="text-xs">
-          © 2024 PROSAFE AUTOMATION. All Rights Reserved. PROSAFE AUTOMATION is
-          not an authorised distributor or representative of the manufacturers
-          featured on this website. SIEMENS, SIMATIC ®, SITOP ®, SIMADYN ®,
-          SINUMERIC ®, SIMOVERT® and others are registered trademarks of Siemens
-          Aktiengesellschaft, Berlin and Munich. All trademarks owned by the
-          respective companies. Subject to errors. Notice of liability: Despite
-          careful control of the content, we accept no liability for the content
-          of external links. The operators of the linked pages are solely
-          responsible for their content.
+          © 2024 AUTOMATION ECOM GLOBAL. All Rights Reserved. PROSAFE AUTOMATION
+          is not an authorised distributor or representative of the
+          manufacturers featured on this website. SIEMENS, SIMATIC ®, SITOP ®,
+          SIMADYN ®, SINUMERIC ®, SIMOVERT® and others are registered trademarks
+          of Siemens Aktiengesellschaft, Berlin and Munich. All trademarks owned
+          by the respective companies. Subject to errors. Notice of liability:
+          Despite careful control of the content, we accept no liability for the
+          content of external links. The operators of the linked pages are
+          solely responsible for their content.
         </p>
       </div>
 
       {/* Bottom Bar */}
       <div className="bg-black w-full py-3 flex flex-col md:flex-row justify-between px-3 text-white text-sm ">
         <p>Our offer is aimed exclusively at commercial customers</p>
-        <div className="flex gap-2 flex-col md:flex-row">
-          <p>Imprint</p>
-          <p>Term and Conditions</p>
-          <p>Contact</p>
-          <p>Data Protection</p>
-          <p>Cookie Configuration</p>
-          <p>Warranty Information</p>
-          <p>Siemens Mall</p>
+        <div className="flex gap-4 flex-col md:flex-row">
+          <YoutubeIcon />
+          <FacebookIcon />
         </div>
       </div>
     </footer>

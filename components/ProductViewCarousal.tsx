@@ -45,28 +45,28 @@ export function ProductViewCarousal({ imageArr, image }: IProps) {
             <Image
               src={image || ""}
               alt={`Single-image`}
-              width={600}
-              height={300}
+              width={400}
+              height={200}
               className="object-fit"
               unoptimized
             />
           </div>
         </div>
       )}
-      <div className="flex flex-col lg:flex-row-reverse gap-4 lg:w-1/2 justify-center items-center">
+      <div className="flex flex-col lg:flex-row-reverse gap-4 justify-center items-center">
         <div className="w-full">
           <Carousel setApi={setApi} className="w-full" orientation="single">
             <CarouselContent>
               {imageArr?.map((img, index) => (
                 <CarouselItem key={index}>
-                  <div className="rounded-xl border-none bg-gray-100">
+                  <div className="rounded-xl border-none bg-destructive/5">
                     <div className="flex items-center justify-center relative">
                       <Image
                         src={img}
                         alt={`Slide ${index + 1}`}
-                        width={600}
-                        height={400}
-                        className="object-cover"
+                        width={300}
+                        height={200}
+                        className="object-fit"
                         unoptimized
                       />
                     </div>

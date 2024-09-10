@@ -2,16 +2,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import {
-  MapPin,
-  ShoppingBag,
-  Plus,
-  Check,
-  Trash2Icon,
-  MinusIcon,
-  PlusIcon,
-  Edit2,
-} from "lucide-react";
+import { MapPin, ShoppingBag, Plus, Check, Edit2 } from "lucide-react";
 import { useAddressOpen } from "@/hooks/use-address-open";
 import {
   calculateTotalWithGSTAndShipping,
@@ -19,13 +10,10 @@ import {
   formatNumber,
 } from "@/lib/utils";
 import { useCartStore } from "@/stores/useCartStore";
-import Image from "next/image";
 import { useGetAddresses } from "@/features/address/use-get-addresses";
 import { IAddress } from "@/types";
 import { useGetAddress } from "@/features/address/use-get-address";
 import { useCheckoutOpen } from "@/hooks/use-checkout-open";
-import EmptyCart from "@/components/EmptyCart";
-import Link from "next/link";
 import { useUser } from "@clerk/nextjs";
 import Cart from "@/components/Cart";
 
@@ -58,9 +46,8 @@ export default function Component() {
   }, [address]);
 
   const { onOpen, isOpen } = useAddressOpen();
-  const { onOpen: onCheckoutOpen, isOpen: isCheckoutOpen } = useCheckoutOpen();
-  const { cart, increaseQuantity, decreaseQuantity, removeFromCart } =
-    useCartStore();
+  const { onOpen: onCheckoutOpen } = useCheckoutOpen();
+  const { cart } = useCartStore();
   let total = 0;
 
   if (cart) {
@@ -184,7 +171,9 @@ export default function Component() {
         <div>
           <Card>
             <CardContent className="p-6">
-              <h2 className="text-lg font-semibold mb-4">Order Details</h2>
+              <h2 className="text-lg font-semibold mb-4">
+                Payment & Shipping Details
+              </h2>
               <div className="space-y-2">
                 <div className="flex justify-between">
                   <span>Price</span>

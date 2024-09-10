@@ -1,29 +1,32 @@
 import React from "react";
 import { Card } from "./ui/card";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 const navItems = [
   {
-    title: "PLC Modicon",
-    image:
-      "https://download.schneider-electric.com/files?p_Doc_Ref=PF142100&p_File_Type=rendition_369_jpg&default_image=DefaultProductImage.png",
+    title: "PLC",
+    image: "/product-category/1.png",
     url: "/offers",
+    company: "/featured/partner/siemens.png",
   },
   {
-    title: "Industries Automation",
-    image:
-      "https://m.media-amazon.com/images/I/215JOkQ411L._SY445_SX342_QL70_FMwebp_.jpg",
+    title: "Drive",
+    image: "/product-category/2.png",
     url: "/offers",
+    company: "/featured/partner/siemens.png",
   },
   {
-    title: "Signaling Device",
-    image: "https://m.media-amazon.com/images/I/51uCtjrs-kL._SX425_.jpg",
+    title: "Generator Turbine Solar Hybrid Controller",
+    image: "/product-category/5.png",
     url: "/offers",
+    company: "/featured/partner/deif.png",
   },
   {
-    title: "Limit Switches & Sensors",
-    image: "https://m.media-amazon.com/images/I/61xnp+K0RJL._SX522_.jpg",
+    title: "HMI",
+    image: "/product-category/11.png",
     url: "/offers",
+    company: "/featured/partner/proface.png",
   },
 ];
 
@@ -40,18 +43,25 @@ const FeaturedCategory = () => {
             className="rounded-xl flex flex-col flex-grow sm:flex-row justify-evenly items-center w-full sm:w-1/2 lg:w-1/5 hover:shadow-lg border p-4 transition-shadow"
             key={index}
           >
-            <div className="relative mb-4 sm:mb-0">
-              <Image
-                src={item.image}
-                alt={item.title}
-                width={100}
-                height={100}
-                unoptimized
-              />
+            <div className="relative mb-4 sm:mb-0 w-[350px] h-[200px]">
+              <Image src={item.image} alt={item.title} fill unoptimized />
             </div>
-            <h1 className="text-xl font-bold text-center sm:w-1/2">
-              {item.title}
-            </h1>
+            <div className="flex flex-col items-center justify-between text-center gap-4 relative">
+              <div
+                className={cn(
+                  "relative mb-4 sm:mb-0 w-[150px]",
+                  item.title === "HMI" ||
+                    item.title === "Generator Turbine Solar Hybrid Controller"
+                    ? "h-[50px]"
+                    : "h-[30px]"
+                )}
+              >
+                <Image src={item.company} alt={item.title} fill unoptimized />
+              </div>
+              <h1 className="text-xl font-bold text-center sm:w-1/2">
+                {item.title}
+              </h1>
+            </div>
           </a>
         ))}
       </div>

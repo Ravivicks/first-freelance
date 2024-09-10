@@ -11,6 +11,7 @@ import SheetProvider from "@/providers/sheet-provider";
 import { Toaster } from "@/components/ui/sonner";
 import TopNav from "@/components/TopNav";
 import Script from "next/script";
+import MobileTopNav from "@/components/MobileTopNav";
 
 const inter = Poppins({ subsets: ["latin"], weight: ["100", "300"] });
 export default async function LocaleLayout({
@@ -32,8 +33,16 @@ export default async function LocaleLayout({
               <QueryProvider>
                 <SheetProvider />
                 <Toaster position="top-right" />
-                <TopNav />
+                <div className="hidden md:block">
+                  <TopNav />
+                </div>
+                <div className="blok md:hidden">
+                  <MobileTopNav />
+                </div>
                 <Navbar />
+                <p className="pl-8 -mt-8 mb-5 text-xs font-semibold underline hidden md:block">
+                  We Strive To Discipline Industry Spare Part Requirements.
+                </p>
                 <div className="hidden md:block">
                   <MenuBarNew />
                 </div>
