@@ -89,11 +89,8 @@ const MenuBarNew = () => {
               </MenubarTrigger>
               <MenubarContent>
                 {menuItems[0].subMenu.map((item, index) => (
-                  <Link href={item.url}>
-                    <MenubarItem
-                      key={index}
-                      className="text-center p-2 hover:bg-gray-200"
-                    >
+                  <Link href={item.url} key={index}>
+                    <MenubarItem className="text-center p-2 hover:bg-gray-200">
                       {item.title}
                     </MenubarItem>
                   </Link>
