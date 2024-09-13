@@ -43,10 +43,10 @@ export type IProduct = {
 };
 
 export type NotificationType =
-  | "WELCOME"
-  | "CHANGE_OF_STOCK"
-  | "LOWEST_PRICE"
-  | "THRESHOLD_MET";
+  | "NEW_USER"
+  | "ENQUIRY"
+  | "REQUEST_FOR_PRICE"
+  | "ORDER_CONFIRMATION";
 
 export type EmailContent = {
   subject: string;
@@ -173,4 +173,52 @@ export type IContact = {
 export type IRazorOption = {
   amount: number;
   currency: string;
+};
+
+export type ISubscriber = {
+  _id?: string;
+  email: string;
+  status: string;
+};
+
+export type IReview = {
+  productId: string; // Reference to the product being reviewed
+  userId: string; // Reference to the user who made the review
+  rating: number; // Rating given by the user, e.g., 1-5 stars
+  comment: string; // Review text
+  createdAt: Date; // Date when the review was created
+  updatedAt: Date; // Date when the review was last updated
+  replies: IReply[]; // Array of replies to the review
+};
+
+export interface ILike {
+  _id: string;
+  userId: string;
+  isLike: boolean;
+  isUnlike: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export type IComment = {
+  _id?: string;
+  productId: string; // Reference to the product being reviewed
+  userId: string;
+  comment: string;
+  rating: number;
+  firstName?: string;
+  lastName?: string;
+  userAvatar?: string;
+  replies?: IReply[];
+  createdAt?: string;
+  likes?: ILike[]; // Array of like actions
+  unlikes?: ILike[]; // Array of unlike actions
+};
+
+export type IReply = {
+  _id?: string;
+  userId: string;
+  comment: string;
+  firstName?: string;
+  lastName?: string;
 };

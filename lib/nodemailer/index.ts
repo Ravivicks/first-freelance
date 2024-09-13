@@ -5,76 +5,83 @@ import {
   EmailProductInfo,
   EnquireProps,
   NotificationType,
+  PriceRequestProps,
 } from "@/types";
 import nodemailer from "nodemailer";
 
 const Notification = {
-  WELCOME: "WELCOME",
-  CHANGE_OF_STOCK: "CHANGE_OF_STOCK",
-  LOWEST_PRICE: "LOWEST_PRICE",
-  THRESHOLD_MET: "THRESHOLD_MET",
+  NEW_USER: "NEW_USER",
+  ENQUIRY: "ENQUIRY",
+  REQUEST_FOR_PRICE: "REQUEST_FOR_PRICE",
+  ORDER_CONFIRMATION: "ORDER_CONFIRMATION",
 };
 
 export async function generateEmailBody(
-  product: EnquireProps,
-  type: NotificationType
+  type: NotificationType,
+  user?: { username: string; password: string },
+  product?: EnquireProps | PriceRequestProps
 ) {
-  const THRESHOLD_PERCENTAGE = 40;
-  // Shorten the product title
-  const shortenedTitle =
-    (product.productName ?? "Product").length > 20
-      ? `${product.productName?.substring(0, 20)}...`
-      : product.productName ?? "Product";
+  // Use the full product name
+  const productName = product?.productName ?? "Product";
 
-  let subject = "";
-  let body = "";
-
-  switch (type) {
-    case Notification.WELCOME:
-      subject = `Welcome to Price Tracking for ${shortenedTitle}`;
-      body = `
+  // Define subjects and bodies for each notification type
+  const subjectsAndBodies = {
+    [Notification.NEW_USER]: {
+      subject: `Welcome to Automation Ecom Global!`,
+      body: `
         <div>
-          <h2>Welcome to PriceWise 🚀</h2>
-          <p>You are now tracking ${product.productName}.</p>
-          <p>Here's an example of how you'll receive updates:</p>
-          <div style="border: 1px solid #ccc; padding: 10px; background-color: #f8f8f8;">
-            <h3>${product.productName} is back in stock!</h3>
-            <p>We're excited to let you know that ${product.productName} is now back in stock.</p>
-            </div>
-          <p>Stay tuned for more updates on ${product.productName} and other products you're tracking.</p>
+          <h2>Welcome to Automation Ecom Global 🚀</h2>
+          <p>We're excited to have you on board!</p>
+          <p>Here are your account details:</p>
+          <ul>
+            <li><strong>Username:</strong> ${user?.username}</li>
+            <li><strong>Password:</strong> ${user?.password}</li>
+          </ul>
+          <p>Please keep these details secure and use them to log in to your account.</p>
+          <p>If you have any questions, feel free to reach out to our support team.</p>
+          <p>Thank you for choosing Automation Ecom Global!</p>
         </div>
-      `;
-      break;
-
-    case Notification.CHANGE_OF_STOCK:
-      subject = `${shortenedTitle} is now back in stock!`;
-      body = `
+      `,
+    },
+    [Notification.ENQUIRY]: {
+      subject: `Enquiry Received for ${productName}`,
+      body: `
         <div>
-          <h4>Hey, ${product.productName} is now restocked! Grab yours before they run out again!</h4>
+          <h4>Thank you for your enquiry about ${productName}.</h4>
+          <p>Our team at Automation Ecom Global will get back to you with more information soon.</p>
         </div>
-      `;
-      break;
-
-    case Notification.LOWEST_PRICE:
-      subject = `Lowest Price Alert for ${shortenedTitle}`;
-      body = `
+      `,
+    },
+    [Notification.REQUEST_FOR_PRICE]: {
+      subject: `Price Request for ${productName} Submitted`,
+      body: `
         <div>
-          <h4>Hey, ${product.productName} has reached its lowest price ever!!</h4>
+          <h4>Thank you for requesting the price for ${productName}.</h4>
+          <p>We will notify you through Automation Ecom Global when there's a price drop or promotion available.</p>
         </div>
-      `;
-      break;
-
-    case Notification.THRESHOLD_MET:
-      subject = `Discount Alert for ${shortenedTitle}`;
-      body = `
+      `,
+    },
+    [Notification.ORDER_CONFIRMATION]: {
+      subject: `Order Confirmation for ${productName}`,
+      body: `
         <div>
-          <h4>Hey, ${product.productName} is now available at a discount more than ${THRESHOLD_PERCENTAGE}%!</h4>
+          <h4>Thank you for your order of ${productName}!</h4>
+          <p>Your order has been confirmed by Automation Ecom Global and is being processed.</p>
+          <p>We will notify you when your order is ready for shipping.</p>
         </div>
-      `;
-      break;
+      `,
+    },
+  };
 
-    default:
-      throw new Error("Invalid notification type.");
+  // Get the subject and body based on the notification type
+  const { subject, body } = subjectsAndBodies[type] || {
+    subject: "",
+    body: "",
+  };
+
+  // Throw an error if the type is invalid
+  if (!subject) {
+    throw new Error("Invalid notification type.");
   }
 
   return { subject, body };

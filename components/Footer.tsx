@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import {
   Bot,
   Building2,
@@ -12,8 +13,20 @@ import {
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import Image from "next/image";
+import { useCreateSubscriber } from "@/features/subscriber/use-add-subcriber";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const subscriberMutation = useCreateSubscriber();
+  const values = {
+    email: email,
+    status: "New",
+  };
+  const handleNewsletter = () => {
+    subscriberMutation.mutate(values, {
+      onSuccess: () => setEmail(""),
+    });
+  };
   return (
     <footer>
       {/* Newsletter Section */}
@@ -23,8 +36,15 @@ const Footer = () => {
           <Input
             className="w-full md:w-[300px]"
             placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
-          <Button variant="destructive" className="text-center">
+          <Button
+            variant="destructive"
+            className="text-center"
+            onClick={handleNewsletter}
+            disabled={subscriberMutation.isPending || !email}
+          >
             Subscribe
           </Button>
         </div>
@@ -89,7 +109,7 @@ const Footer = () => {
             width={250}
             height={200}
           />
-          <p className="my-3">Online Transfer</p>
+          <p className="my-3">Online Transfer / Wire Transfer</p>
           <p>RTGS / NEFT</p>
         </div>
 
@@ -118,15 +138,6 @@ const Footer = () => {
               />
               <p>DHL Express track</p>
             </div>
-            <div className="flex items-center gap-2">
-              <Image
-                src="/Versand_TNT.png"
-                alt="TNT"
-                width={100}
-                height={100}
-              />
-              <p>TNT Express track</p>
-            </div>
           </div>
         </div>
       </div>
@@ -144,15 +155,6 @@ const Footer = () => {
           content of external links. The operators of the linked pages are
           solely responsible for their content.
         </p>
-      </div>
-
-      {/* Bottom Bar */}
-      <div className="bg-black w-full py-3 flex flex-col md:flex-row justify-between px-3 text-white text-sm ">
-        <p>Our offer is aimed exclusively at commercial customers</p>
-        <div className="flex gap-4 flex-col md:flex-row">
-          <YoutubeIcon />
-          <FacebookIcon />
-        </div>
       </div>
     </footer>
   );

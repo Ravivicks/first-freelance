@@ -6,6 +6,7 @@ import { connectToDB } from "../mongoose";
 import { generateRandomPassword } from "../utils";
 import User from "../models/user.model";
 import axios from "axios";
+import { generateEmailBody, sendEmail } from "../nodemailer";
 
 export async function createNewAddress(user: IAddress) {
   try {
@@ -55,6 +56,15 @@ export async function createNewAddress(user: IAddress) {
             },
           }
         );
+        if (newClerkUser) {
+          const userData = {
+            username: user.email,
+            password: password,
+          };
+          const emailContent = await generateEmailBody("NEW_USER", userData);
+          const emailRes = await sendEmail(emailContent, [user.email]);
+          console.log(emailRes);
+        }
       } catch (clerkError: any) {
         console.error(
           "Error creating Clerk user:",

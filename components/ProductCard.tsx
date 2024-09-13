@@ -43,24 +43,18 @@ const ProductCard = ({ product, isButton }: Props) => {
           src={product?.image || ""}
           alt={product?.title || "Product image"}
           fill
-          className={cn(
-            product.lowestPrice !== 0
-              ? "object-cover rounded-lg transition-opacity duration-300 group-hover:opacity-50"
-              : "w-full"
-          )}
+          className="object-cover rounded-lg transition-opacity duration-300 group-hover:opacity-50"
           unoptimized
         />
-        {product.lowestPrice !== 0 && (
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <Button
-              variant="destructive"
-              className="rounded-full"
-              onClick={() => onBuyNow(product)}
-            >
-              Buy Now
-            </Button>
-          </div>
-        )}
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <Button
+            variant="destructive"
+            className="rounded-full"
+            onClick={() => onBuyNow(product)}
+          >
+            Buy Now
+          </Button>
+        </div>
       </div>
       <Link href={`/${locale}/products/${product._id}`}>
         <div className="flex flex-col flex-grow">
@@ -86,7 +80,7 @@ const ProductCard = ({ product, isButton }: Props) => {
           </p>
         </div>
       </Link>
-      {!isButton && product.lowestPrice !== 0 ? (
+      {!isButton && (
         <div className="flex gap-2 flex-wrap mt-3">
           <Button
             variant="outline"
@@ -95,25 +89,27 @@ const ProductCard = ({ product, isButton }: Props) => {
           >
             {isInCart ? "Go to cart" : "Add to cart"}
           </Button>
-          <Button
-            variant="destructive"
-            className="rounded-full flex-grow"
-            onClick={() => onOpen(product._id)}
-          >
-            Request Quotation
-          </Button>
+          {product?.lowestPrice !== 0 ? (
+            <Button
+              variant="destructive"
+              className="rounded-full flex-grow"
+              onClick={() => onOpen(product._id)}
+            >
+              Request Quotation
+            </Button>
+          ) : (
+            <Button
+              variant="destructive"
+              className="rounded-full w-full"
+              onClick={(e) => {
+                e.stopPropagation(); // Prevents click event from bubbling to the card
+                priceOpen(product._id);
+              }}
+            >
+              Request For Price
+            </Button>
+          )}
         </div>
-      ) : (
-        <Button
-          variant="destructive"
-          className="rounded-full w-full mt-5"
-          onClick={(e) => {
-            e.stopPropagation(); // Prevents click event from bubbling to the card
-            priceOpen(product._id);
-          }}
-        >
-          Request For Price
-        </Button>
       )}
     </div>
   );

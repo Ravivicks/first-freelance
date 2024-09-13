@@ -190,7 +190,7 @@ const PartnerProductDetails = () => {
                     </TabsTrigger>
                   ))}
                 </TabsList>
-                <div className="hidden md:block">
+                {/* <div className="hidden md:block">
                   <MultiSelect
                     options={conditionList}
                     onValueChange={setSelectedCondition}
@@ -209,12 +209,12 @@ const PartnerProductDetails = () => {
                     animation={2}
                     maxCount={3}
                   />
-                </div>
+                </div> */}
               </div>
               <Button onClick={onOpen} className="block md:hidden">
                 <Filter />
               </Button>
-              <div className="hidden md:block">
+              {/* <div className="hidden md:block">
                 <Select>
                   <SelectTrigger className="w-[180px]">
                     <SelectValue placeholder="Sort by" />
@@ -229,7 +229,7 @@ const PartnerProductDetails = () => {
                     </SelectItem>
                   </SelectContent>
                 </Select>
-              </div>
+              </div> */}
             </div>
 
             {types.map((type) => (

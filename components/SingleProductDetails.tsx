@@ -11,6 +11,7 @@ import useFromStore from "@/hooks/useFromStore";
 import { formatNumber } from "@/lib/utils";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
+import { usePriceRequest } from "@/hooks/use-price-request-open";
 
 interface IProps {
   product: IProduct;
@@ -26,6 +27,7 @@ const SingleProductDetails = ({ product }: IProps) => {
   const { onOpen } = useEnquiry();
   const { onOpen: cartOpen } = useCartDetails();
   const cart = useFromStore(useCartStore, (state) => state.cart);
+  const { onOpen: priceOpen } = usePriceRequest();
 
   const charLimit = 250;
   const isLongDescription = product?.description?.length > charLimit;
@@ -80,21 +82,29 @@ const SingleProductDetails = ({ product }: IProps) => {
         <StarRating size={4} rating={product?.stars || 0} />
         <span>42 Reviews</span>
       </div>
-      <p className="font-bold text-xl md:text-2xl">
-        {product?.currency}
-        <span className="font-bold text-xl md:text-2xl">
-          {formatNumber(product?.currentPrice)}
-        </span>
-      </p>
-
-      <p className="font-semibold text-xs md:text-sm">
-        M.R.P.:{" "}
-        <span className="line-through">
+      {product?.lowestPrice !== 0 ? (
+        <p className="font-bold text-xl md:text-2xl">
           {product?.currency}
-          {formatNumber(product?.originalPrice)}
-        </span>
-        {product?.discount !== "0" && `(${product?.discount} off)`}
-      </p>
+          <span className="font-bold text-xl md:text-2xl">
+            {formatNumber(product?.lowestPrice)}
+          </span>
+        </p>
+      ) : (
+        <p className="font-bold text-xl md:text-2xl">Price Not Avaliable</p>
+      )}
+
+      {product?.lowestPrice !== 0 ? (
+        <p className="font-semibold text-xs md:text-sm">
+          M.R.P.:{" "}
+          <span className="line-through">
+            {product?.currency}
+            {formatNumber(product?.originalPrice)}
+          </span>
+          {product?.discount !== "0" && `(${product?.discount} off)`}
+        </p>
+      ) : (
+        <p className="font-semibold text-xs md:text-sm">NA</p>
+      )}
       <div className="flex gap-5 items-center mt-3">
         <div className="flex items-center gap-2">
           <Label htmlFor="quantity" className="font-semibold">
@@ -138,6 +148,7 @@ const SingleProductDetails = ({ product }: IProps) => {
           {showMore ? "Show less" : "Show more"}
         </Button>
       )}
+
       <div className="flex flex-col md:flex-row gap-2 my-6">
         <Button
           variant="destructive"
@@ -155,14 +166,25 @@ const SingleProductDetails = ({ product }: IProps) => {
         >
           {isInCart ? "Go to cart" : "Add to cart"}
         </Button>
-        <Button
-          variant="destructive"
-          className="rounded-full flex-grow"
-          onClick={() => onOpen(product._id)}
-          disabled={!!error} // Disable button if there's an error
-        >
-          Request Quotation
-        </Button>
+        {product?.lowestPrice !== 0 ? (
+          <Button
+            variant="destructive"
+            className="rounded-full flex-grow"
+            onClick={() => onOpen(product._id)}
+            disabled={!!error} // Disable button if there's an error
+          >
+            Request Quotation
+          </Button>
+        ) : (
+          <Button
+            variant="destructive"
+            className="rounded-full flex-grow"
+            onClick={() => priceOpen(product._id)}
+            disabled={!!error} // Disable button if there's an error
+          >
+            Request For Price
+          </Button>
+        )}
       </div>
     </div>
   );

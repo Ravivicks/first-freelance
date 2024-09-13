@@ -8,14 +8,18 @@ export async function createNewPriceRequest(enquiry: PriceRequestProps) {
   try {
     await connectToDB();
     const result = await PriceRequest.create(enquiry);
-    // if (result) {
-    //   const emailContent = await generateEmailBody(enquiry, "WELCOME");
-    //   await sendEmail(emailContent, [
-    //     enquiry.email,
-    //     "anuragivinneta@gmail.com",
-    //     "rabbuips123@gmail.com",
-    //   ]);
-    // }
+    if (result) {
+      const emailContent = await generateEmailBody(
+        "REQUEST_FOR_PRICE",
+        undefined,
+        enquiry
+      );
+      await sendEmail(emailContent, [
+        enquiry.email,
+        // "anuragivinneta@gmail.com",
+        // "rabbuips123@gmail.com",
+      ]);
+    }
 
     return JSON.parse(JSON.stringify(result));
   } catch (error) {

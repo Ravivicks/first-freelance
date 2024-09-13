@@ -9,14 +9,6 @@ import { formatNumber } from "@/lib/utils";
 import { useProductsStore } from "@/stores/useProductStore";
 import Link from "next/link";
 
-const imageArr = [
-  "https://download.schneider-electric.com/files?p_Doc_Ref=PF142100&p_File_Type=rendition_369_jpg&default_image=DefaultProductImage.png",
-  "https://download.schneider-electric.com/files?p_Doc_Ref=ATV320_RP19026B&p_File_Type=rendition_369_jpg&default_image=DefaultProductImage.png",
-  "https://download.schneider-electric.com/files?p_Doc_Ref=63441_main&p_File_Type=rendition_369_jpg&default_image=DefaultProductImage.png",
-  "https://download.schneider-electric.com/files?p_Doc_Ref=PF142100&p_File_Type=rendition_369_jpg&default_image=DefaultProductImage.png",
-  "https://download.schneider-electric.com/files?p_Doc_Ref=2253_main&p_File_Type=rendition_369_jpg&default_image=DefaultProductImage.png",
-];
-
 const responsive = {
   superLargeDesktop: {
     breakpoint: { max: 4000, min: 3000 },
@@ -87,10 +79,16 @@ const ProductCarousel = () => {
                   <p className="font-bold text-xs line-clamp-2 overflow-hidden my-1">
                     {product.title}
                   </p>
-                  <p className="font-semibold text-muted-foreground text-sm">
-                    {product.currency}
-                    {formatNumber(product.currentPrice)}
-                  </p>
+                  {product.lowestPrice !== 0 ? (
+                    <p className="font-semibold text-muted-foreground text-sm">
+                      {product.currency}
+                      {formatNumber(product.lowestPrice)}
+                    </p>
+                  ) : (
+                    <p className="font-semibold text-muted-foreground text-sm">
+                      Price Not Avaliable
+                    </p>
+                  )}
                 </div>
               </div>
             </CardContent>

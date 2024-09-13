@@ -16,6 +16,7 @@ import { useGetAddress } from "@/features/address/use-get-address";
 import { useCheckoutOpen } from "@/hooks/use-checkout-open";
 import { useUser } from "@clerk/nextjs";
 import Cart from "@/components/Cart";
+import PaymentAndShipping from "@/components/PaymentAndShipping";
 
 export default function Component() {
   const { user } = useUser();
@@ -46,7 +47,7 @@ export default function Component() {
   }, [address]);
 
   const { onOpen, isOpen } = useAddressOpen();
-  const { onOpen: onCheckoutOpen } = useCheckoutOpen();
+
   const { cart } = useCartStore();
   let total = 0;
 
@@ -56,9 +57,6 @@ export default function Component() {
       0
     );
   }
-
-  const { gstAmount, shippingAmount, totalWithGSTAndShipping, discountAmount } =
-    calculateTotalWithGSTAndShipping(total);
 
   useEffect(() => {
     if (!isOpen) {
@@ -169,7 +167,11 @@ export default function Component() {
 
         {/* Order Details */}
         <div>
-          <Card>
+          <PaymentAndShipping
+            total={total}
+            addressData={addressData as IAddress}
+          />
+          {/* <Card>
             <CardContent className="p-6">
               <h2 className="text-lg font-semibold mb-4">
                 Payment & Shipping Details
@@ -214,7 +216,7 @@ export default function Component() {
                 CheckOut
               </Button>
             </CardContent>
-          </Card>
+          </Card> */}
         </div>
       </div>
     </div>

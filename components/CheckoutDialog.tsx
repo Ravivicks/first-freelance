@@ -19,7 +19,7 @@ import PaymentButton from "./PaymentButton";
 
 const CheckoutDialog = () => {
   const router = useRouter();
-  const { isOpen, onClose, id } = useCheckoutOpen();
+  const { isOpen, onClose, id, data } = useCheckoutOpen();
   const { data: address, isLoading } = useGetAddress(id as string);
   const { cart, clearCart } = useCartStore();
 
@@ -50,6 +50,22 @@ const CheckoutDialog = () => {
           </div>
         ) : (
           <div className="scrollable-form space-y-4 pt-4 px-2 max-h-[80vh] overflow-auto">
+            <div className="mb-3">
+              <Card>
+                <CardContent className="p-3 text-sm">
+                  <h1 className="font-bold text-lg mb-4">Payment Method</h1>
+                  <div className="flex">
+                    <p>
+                      Selected Payment Method :{" "}
+                      <span className="font-semibold">
+                        {" "}
+                        {data?.[0]?.paymentMethod}
+                      </span>
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
             <div className="mb-3">
               <Card>
                 <CardContent className="p-6">

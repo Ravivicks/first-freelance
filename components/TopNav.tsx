@@ -25,7 +25,7 @@ const TopNav = () => {
               src="/images/warranty.webp"
               alt="12 month warranty"
               height={30}
-              width={22}
+              width={30}
               className="mr-1"
             />
             12 month warranty

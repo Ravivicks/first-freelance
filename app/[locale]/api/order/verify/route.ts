@@ -4,6 +4,7 @@ import crypto from "crypto";
 import { v4 as uuid } from "uuid";
 import { connectToDB } from "@/lib/mongoose";
 import Checkout from "@/lib/models/checkout.model";
+import { generateEmailBody, sendEmail } from "@/lib/nodemailer";
 
 const instance = new Razorpay({
   key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!,
@@ -11,8 +12,13 @@ const instance = new Razorpay({
 });
 
 export async function POST(req: NextRequest, res: NextResponse) {
-  const { razorpayOrderId, razorpaySignature, razorpayPaymentId, email } =
-    await req.json();
+  const {
+    razorpayOrderId,
+    razorpaySignature,
+    razorpayPaymentId,
+    email,
+    products,
+  } = await req.json();
   const body = razorpayOrderId + "|" + razorpayPaymentId;
 
   const expectedSignature = crypto
@@ -50,10 +56,20 @@ export async function POST(req: NextRequest, res: NextResponse) {
       { message: "Order not found", error: true },
       { status: 404 }
     );
+  } else {
+    const emailContent = await generateEmailBody(
+      "ORDER_CONFIRMATION",
+      undefined,
+      products
+    );
+    await sendEmail(emailContent, [
+      email,
+      // "anuragivinneta@gmail.com",
+      // "rabbuips123@gmail.com",
+    ]);
+    return NextResponse.json(
+      { message: "payment success", error: false },
+      { status: 200 }
+    );
   }
-
-  return NextResponse.json(
-    { message: "payment success", error: false },
-    { status: 200 }
-  );
 }

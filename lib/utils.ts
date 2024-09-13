@@ -1,5 +1,14 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import {
+  format,
+  isToday,
+  isYesterday,
+  isThisWeek,
+  isThisMonth,
+  isThisYear,
+  differenceInDays,
+} from "date-fns";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -75,3 +84,36 @@ export function generateRandomPassword(length: number = 10): string {
 
   return password;
 }
+
+export const formatDate = (createdAt: string | Date): string => {
+  const date = new Date(createdAt); // Parse the createdAt string into a Date object
+
+  // Check if the date is today
+  if (isToday(date)) {
+    return "Today";
+  }
+
+  // Check if the date is yesterday
+  if (isYesterday(date)) {
+    return "Yesterday";
+  }
+
+  // Check if the date is within the last 7 days
+  const daysDifference = differenceInDays(new Date(), date);
+  if (daysDifference <= 7) {
+    return "Last week";
+  }
+
+  // Check if the date is this month
+  if (isThisMonth(date)) {
+    return "This month";
+  }
+
+  // Check if the date is this year
+  if (isThisYear(date)) {
+    return "This year";
+  }
+
+  // Otherwise, return the formatted date (MM/dd/yyyy)
+  return format(date, "MM/dd/yyyy");
+};

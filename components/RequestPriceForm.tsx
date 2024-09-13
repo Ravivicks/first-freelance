@@ -90,8 +90,11 @@ export const RequestPriceForm = ({
                     className="rounded-xl"
                     disabled={disabled}
                     placeholder="Please provide quantity"
-                    type="number"
                     {...field}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      field.onChange(value === "" ? "" : Number(value)); // Allow empty string, convert to number otherwise
+                    }}
                   />
                 </FormControl>
               </FormItem>

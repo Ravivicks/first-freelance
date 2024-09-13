@@ -84,18 +84,19 @@ const FeaturedProductCard = ({ product, isBestDeal }: Props) => {
       </CardContent>
 
       {/* Buttons that appear in the middle on hover */}
-      {product.lowestPrice !== 0 ? (
-        <div className=" absolute inset-0  items-center mx-5 hidden md:flex flex-col gap-2 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <Button
-            variant="outline"
-            className="rounded-full w-full"
-            onClick={(e) => {
-              e.stopPropagation(); // Prevents click event from bubbling to the card
-              isInCart ? cartOpen() : addToCart(product);
-            }}
-          >
-            {isInCart ? "Go to cart" : "Add to cart"}
-          </Button>
+      {/* {product.lowestPrice !== 0 ? ( */}
+      <div className=" absolute inset-0  items-center mx-5 hidden md:flex flex-col gap-2 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <Button
+          variant="outline"
+          className="rounded-full w-full"
+          onClick={(e) => {
+            e.stopPropagation(); // Prevents click event from bubbling to the card
+            isInCart ? cartOpen() : addToCart(product);
+          }}
+        >
+          {isInCart ? "Go to cart" : "Add to cart"}
+        </Button>
+        {product.lowestPrice !== 0 ? (
           <Button
             variant="destructive"
             className="rounded-full w-full"
@@ -106,18 +107,10 @@ const FeaturedProductCard = ({ product, isBestDeal }: Props) => {
           >
             Request Quotation
           </Button>
-
-          <Link href={`/products/${product._id}`} className="w-full">
-            <Button variant="outline" className="w-full rounded-full">
-              Product Details
-            </Button>
-          </Link>
-        </div>
-      ) : (
-        <div className="absolute inset-0 items-center mx-5 hidden md:flex flex-col gap-2 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        ) : (
           <Button
             variant="destructive"
-            className="rounded-full w-full mt-5"
+            className="rounded-full w-full"
             onClick={(e) => {
               e.stopPropagation(); // Prevents click event from bubbling to the card
               priceOpen(product._id);
@@ -125,8 +118,14 @@ const FeaturedProductCard = ({ product, isBestDeal }: Props) => {
           >
             Request For Price
           </Button>
-        </div>
-      )}
+        )}
+
+        <Link href={`/products/${product._id}`} className="w-full">
+          <Button variant="outline" className="w-full rounded-full">
+            Product Details
+          </Button>
+        </Link>
+      </div>
     </Card>
   );
 };

@@ -23,12 +23,12 @@ const Navbar = () => {
 
   return (
     <header className="w-full">
-      <nav className=" py-6 flex justify-between  items-center md:px-4">
+      <nav className=" pb-6 flex justify-between  items-center">
         {/* <div className="flex justify-between items-center"> */}
         <div>
           <Link href="/" className="flex gap-2">
             <div className="flex justify-center items-center">
-              <Image src="/logo.svg" alt="logo" width={100} height={100} />
+              <Image src="/logo.svg" alt="logo" width={140} height={100} />
               <div>
                 <p className="text-black font-black uppercase">
                   Automation Ecom

@@ -66,3 +66,20 @@ export const FileFormSchema = z.object({
     return ACCEPTED_FILE_TYPES.includes(file.type);
   }, "File must be xlsx, xls"),
 });
+
+export const CommentSchema = z.object({
+  userId: z.string().nonempty("User ID is required"),
+  productId: z.string().nonempty("Product ID is required"),
+  rating: z.number(),
+  comment: z.string(),
+  firstName: z.string(),
+  lastName: z.string(),
+  userAvatar: z.string(),
+});
+export const ReplySchema = z.object({
+  userId: z.string().nonempty("User ID is required"),
+  rating: z.number(),
+  comment: z.string(),
+  firstName: z.string(),
+  lastName: z.string(),
+});
