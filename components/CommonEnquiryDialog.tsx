@@ -62,6 +62,7 @@ const CommonEnquireDialog = () => {
               alt={product?.title || ""}
               width={50}
               height={100}
+              unoptimized
             />
             <div className="flex gap-1 flex-col">
               <p className="text-xs font-semibold">{product?.title}</p>

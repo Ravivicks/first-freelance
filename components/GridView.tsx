@@ -23,6 +23,7 @@ const GridView = () => {
               alt="g-1"
               fill
               className="object-fit"
+              unoptimized
             />
           </div>
         </div>
@@ -33,6 +34,7 @@ const GridView = () => {
               alt="g-1"
               fill
               className="object-fit "
+              unoptimized
             />
           </div>
           <div className="flex gap-2 flex-col md:flex-row">
@@ -42,6 +44,7 @@ const GridView = () => {
                 alt="g-1"
                 fill
                 className="object-fit"
+                unoptimized
               />
             </div>
             <div className="relative h-[400px] w-full">
@@ -50,6 +53,7 @@ const GridView = () => {
                 alt="g-1"
                 fill
                 className="object-fit"
+                unoptimized
               />
             </div>
           </div>
@@ -62,6 +66,7 @@ const GridView = () => {
             alt="g-1"
             fill
             className="object-fit hover:shadow-sm"
+            unoptimized
           />
         </div>
         <div className="relative h-[300px] w-full">
@@ -70,6 +75,7 @@ const GridView = () => {
             alt="g-1"
             fill
             className="object-fit"
+            unoptimized
           />
         </div>
       </div>
