@@ -24,7 +24,7 @@ export default function SecurePaymentsPage() {
         <Shield className="w-16 h-16 mx-auto mb-4 text-destructive" />
         <h1 className="text-3xl font-bold mb-4">Safe and Secure Payments</h1>
         <p className="text-lg text-gray-600">
-          At Automation eCom Global, we prioritize the security and privacy of
+          {`At Automation eCom Global, we prioritize the security and privacy of
           every transaction. We understand that, when purchasing industrial
           automation products, you need the assurance that your payment details
           and personal information are fully protected. That's why we've
@@ -32,7 +32,7 @@ export default function SecurePaymentsPage() {
           every transaction with us is safe, secure, and transparent. Whether
           you're purchasing Siemens PLCs, Schneider HMIs, or DEIF controllers,
           our platform offers you the peace of mind that comes with encrypted,
-          secure payment processing.
+          secure payment processing.`}
         </p>
       </header>
 

@@ -77,14 +77,14 @@ export default function DeliveryInformation() {
         </CardHeader>
         <CardContent>
           <p className="mb-4">
-            At Automation eCom Global, we recognize that timely and reliable
+            {`At Automation eCom Global, we recognize that timely and reliable
             delivery is crucial to your business operations. Whether you're
             purchasing Siemens PLCs, DEIF engine controllers, Schneider HMIs, or
             other industrial automation products, we ensure that your orders
             reach you quickly, safely, and with complete transparency. Our
             Delivery Information services are designed to give you confidence
             and control over your shipments, with flexible options tailored to
-            meet your specific needs.
+            meet your specific needs.`}
           </p>
         </CardContent>
       </Card>
@@ -121,7 +121,7 @@ export default function DeliveryInformation() {
           <CardContent>
             {activeFeature === "1" && (
               <p>
-                As a global leader in industrial automation, Automation eCom
+                {`As a global leader in industrial automation, Automation eCom
                 Global provides reliable delivery services across a wide range
                 of international markets, including Dubai, USA, China, India,
                 Germany, and more. Our extensive network of trusted shipping
@@ -133,12 +133,12 @@ export default function DeliveryInformation() {
                 providers in the world to ensure that our shipments are fast,
                 secure, and carefully handled. From small orders to large,
                 complex shipments, we provide delivery solutions that match your
-                operational timelines and minimize downtime.
+                operational timelines and minimize downtime.`}
               </p>
             )}
             {activeFeature === "2" && (
               <p>
-                At Automation eCom Global, we offer a variety of shipping
+                {`At Automation eCom Global, we offer a variety of shipping
                 options to accommodate the diverse needs of our customers.
                 Whether you need standard delivery, express shipping, or freight
                 services for large, heavy items, we provide flexible solutions
@@ -154,12 +154,12 @@ export default function DeliveryInformation() {
                 ensure safe transport, with proper handling and packaging. We
                 tailor each delivery method to your specific order size, weight,
                 and location, ensuring that you receive the best combination of
-                cost-efficiency and timely delivery.
+                cost-efficiency and timely delivery.`}
               </p>
             )}
             {activeFeature === "3" && (
               <p>
-                We understand that time is of the essence when it comes to
+                {`We understand that time is of the essence when it comes to
                 industrial automation. Automation eCom Global is committed to
                 providing accurate estimated delivery times so you can plan
                 accordingly. Whether you are located in a bustling city or a
@@ -175,12 +175,12 @@ export default function DeliveryInformation() {
                 ensuring a smooth cross-border transaction. Our logistics team
                 is experienced in navigating international shipping regulations,
                 so you can be confident that your products will arrive without
-                unnecessary delays.
+                unnecessary delays.`}
               </p>
             )}
             {activeFeature === "4" && (
               <p>
-                At Automation eCom Global, we take great care in ensuring that
+                {` At Automation eCom Global, we take great care in ensuring that
                 your automation products are securely packaged and safely
                 transported. We use industry-approved packaging materials that
                 protect sensitive equipment like PLCs, HMIs, drives, and
@@ -191,12 +191,12 @@ export default function DeliveryInformation() {
                 pallets for bulk or heavy orders. Our attention to detail in
                 packaging ensures that every product you receive is in perfect
                 working condition, allowing you to integrate it into your
-                systems without any concerns.
+                systems without any concerns.`}
               </p>
             )}
             {activeFeature === "5" && (
               <p>
-                From the moment your order is dispatched, you will have full
+                {`From the moment your order is dispatched, you will have full
                 visibility and control over the shipment. Automation eCom Global
                 provides a comprehensive tracking system that allows you to
                 monitor your order in real-time, from our warehouse to your
@@ -207,12 +207,12 @@ export default function DeliveryInformation() {
                 including: Order confirmation, Dispatch notification, Shipment
                 tracking updates, Delivery confirmation. These notifications
                 keep you informed about your order status and allow you to plan
-                your operations accordingly.
+                your operations accordingly.`}
               </p>
             )}
             {activeFeature === "6" && (
               <p>
-                As a global supplier, Automation eCom Global understands the
+                {`As a global supplier, Automation eCom Global understands the
                 complexities of international shipping, particularly when it
                 comes to customs regulations. We provide comprehensive customs
                 support to ensure that your products clear customs smoothly and
@@ -222,12 +222,12 @@ export default function DeliveryInformation() {
                 declarations. Our logistics team works closely with customs
                 authorities to resolve any potential issues, ensuring that your
                 shipment arrives on time without any unexpected charges or
-                delays.
+                delays.`}
               </p>
             )}
             {activeFeature === "7" && (
               <p>
-                At Automation eCom Global, we understand that industrial
+                {`At Automation eCom Global, we understand that industrial
                 operations are often located in remote or hard-to-reach areas.
                 Whether you're operating a manufacturing facility in a rural
                 area or a power plant in a remote location, we provide
@@ -235,12 +235,12 @@ export default function DeliveryInformation() {
                 no matter where you are. We collaborate with local shipping
                 providers who specialize in remote deliveries, ensuring that
                 your critical automation products are transported safely and
-                securely, even to challenging locations.
+                securely, even to challenging locations.`}
               </p>
             )}
             {activeFeature === "8" && (
               <p>
-                While we strive to ensure that every order is fulfilled
+                {`While we strive to ensure that every order is fulfilled
                 perfectly, we understand that occasionally returns or exchanges
                 may be necessary. At Automation eCom Global, we offer a
                 hassle-free returns process to address any issues with your
@@ -248,7 +248,7 @@ export default function DeliveryInformation() {
                 other concerns. Simply contact our customer support team, and we
                 will guide you through the returns or exchange process. We
                 provide prepaid return labels for eligible returns and will
-                arrange for quick replacements or refunds as needed.
+                arrange for quick replacements or refunds as needed.`}
               </p>
             )}
           </CardContent>

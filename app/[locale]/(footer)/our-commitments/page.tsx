@@ -43,10 +43,10 @@ export default function OurCommitments() {
       <section className="text-center space-y-4 custom-bg py-5 rounded-md">
         <h1 className="text-4xl font-bold tracking-tight">Our Commitments</h1>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-          At Automation eCom Global, our commitments form the backbone of
+          {`At Automation eCom Global, our commitments form the backbone of
           everything we do. We are dedicated to driving the success of our
           clients through innovative, reliable, and cost-effective industrial
-          automation solutions.
+          automation solutions.`}
         </p>
       </section>
 
@@ -56,9 +56,9 @@ export default function OurCommitments() {
             Driving Success Through Commitment
           </h2>
           <p className="text-muted-foreground">
-            Our unwavering focus on delivering the highest standards of quality,
+            {`Our unwavering focus on delivering the highest standards of quality,
             paired with competitive pricing and world-class customer service, is
-            what sets us apart in the global automation market.
+            what sets us apart in the global automation market.`}
           </p>
           <Button>Discover Our Solutions</Button>
         </div>
@@ -132,9 +132,9 @@ export default function OurCommitments() {
               to our commitment to affordability without compromising quality.
             </p>
             <p>
-              By choosing Automation eCom Global, clients gain access to
+              {`By choosing Automation eCom Global, clients gain access to
               Siemens' German engineering precision at a fraction of the market
-              price, along with reliable solutions from DEIF and ComAp.
+              price, along with reliable solutions from DEIF and ComAp.`}
             </p>
           </CardContent>
         </Card>
@@ -204,9 +204,9 @@ export default function OurCommitments() {
       <section className="text-center space-y-4 custom-bg-1 p-8 rounded-lg">
         <h2 className="text-3xl font-semibold">Experience Our Commitment</h2>
         <p className="text-muted-foreground max-w-3xl mx-auto">
-          At Automation eCom Global, we're more than just a supplier. We're your
+          {`At Automation eCom Global, we're more than just a supplier. We're your
           committed partner in industrial automation, dedicated to your success,
-          innovation, and sustainable growth.
+          innovation, and sustainable growth.`}
         </p>
         <Button variant="destructive">Contact Us Today</Button>
       </section>

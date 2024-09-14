@@ -184,8 +184,8 @@ export default function PartnerBrands() {
               Ready to Elevate Your Automation?
             </h3>
             <p className="text-muted-foreground">
-              Gain access to the latest technologies from the world's leading
-              automation brands, along with personalized service and support.
+              {`Gain access to the latest technologies from the world's leading
+              automation brands, along with personalized service and support.`}
             </p>
             <Button size="lg" variant="destructive">
               Contact Us Today

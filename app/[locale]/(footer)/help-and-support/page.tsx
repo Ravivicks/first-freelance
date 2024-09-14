@@ -236,9 +236,9 @@ export default function HelpAndSupport() {
         <section className="text-center space-y-6 bg-card/50 backdrop-blur-sm p-8 rounded-lg">
           <h2 className="text-3xl font-semibold">Need Assistance?</h2>
           <p className="text-muted-foreground max-w-3xl mx-auto">
-            Our support team is ready to help you with any questions or issues
+            {`Our support team is ready to help you with any questions or issues
             you may have. Don't hesitate to reach out for prompt and expert
-            assistance.
+            assistance.`}
           </p>
           <div className="flex justify-center space-x-4">
             <Button size="lg" variant="destructive">

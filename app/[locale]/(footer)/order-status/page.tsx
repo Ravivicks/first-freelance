@@ -71,14 +71,14 @@ export default function OrderStatus() {
         </CardHeader>
         <CardContent>
           <p className="mb-4">
-            At Automation eCom Global, we understand that staying informed about
+            {` At Automation eCom Global, we understand that staying informed about
             your order's progress is critical to keeping your operations running
             smoothly. That's why we provide a seamless, transparent, and
             user-friendly system to help you stay updated on the status of your
             orders from the moment they are placed to the time they arrive at
             your facility. Our Order Status service is designed to give you
             real-time insights, ensuring that you have all the information you
-            need at your fingertips.
+            need at your fingertips.`}
           </p>
         </CardContent>
       </Card>
@@ -143,14 +143,14 @@ export default function OrderStatus() {
           <Card>
             <CardHeader>
               <CardTitle>
-                Why Choose Automation eCom Global's Order Tracking?
+                {`Why Choose Automation eCom Global's Order Tracking?`}
               </CardTitle>
             </CardHeader>
             <CardContent>
               <ul className="list-disc pl-5 space-y-2">
                 <li>
-                  Real-time tracking: Stay updated on your order's progress with
-                  accurate, live tracking.
+                  {`Real-time tracking: Stay updated on your order's progress with
+                  accurate, live tracking.`}
                 </li>
                 <li>
                   Automated notifications: Receive email or SMS alerts for every

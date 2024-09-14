@@ -43,7 +43,7 @@ export default function ReturnAndExchange() {
         </CardHeader>
         <CardContent>
           <p className="mb-4">
-            At Automation eCom Global, we understand that your business depends
+            {`At Automation eCom Global, we understand that your business depends
             on receiving the right products in optimal condition, and we strive
             to deliver exactly that. However, we also recognize that, on
             occasion, returns or exchanges may be necessary due to a variety of
@@ -51,7 +51,7 @@ export default function ReturnAndExchange() {
             for different configurations. That's why we offer a hassle-free,
             efficient return and exchange process designed to make it easy for
             you to get the right products and maintain your operations without
-            disruption.
+            disruption.`}
           </p>
         </CardContent>
       </Card>
@@ -200,13 +200,13 @@ export default function ReturnAndExchange() {
                 </AccordionTrigger>
                 <AccordionContent>
                   <p>
-                    We understand that business needs can change, and sometimes
+                    {`We understand that business needs can change, and sometimes
                     you may require a different product or configuration after
                     placing an order. At Automation eCom Global, we offer a
                     flexible exchange policy that allows you to swap products
                     for different models or configurations, whether it's
                     upgrading to a higher-performance Siemens PLC or changing
-                    the specifications of an engine controller.
+                    the specifications of an engine controller.`}
                   </p>
                   <p className="mt-2">
                     Simply contact our support team to initiate the exchange,

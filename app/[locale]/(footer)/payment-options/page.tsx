@@ -29,14 +29,14 @@ export default function PaymentOptionsPage() {
       <header className="text-center mb-12 custom-bg p-4">
         <h1 className="text-3xl font-bold mb-4">Payment Options</h1>
         <p className="text-lg text-gray-600">
-          At Automation eCom Global, we are committed to making your purchasing
+          {`At Automation eCom Global, we are committed to making your purchasing
           experience as convenient and flexible as possible. We understand that
           every business has unique financial needs and preferences, which is
           why we offer a wide range of payment options to accommodate customers
           from various regions and industries. Whether you're purchasing
           industrial automation products such as Siemens PLCs, Schneider HMIs,
           or DEIF controllers, our payment methods are designed to be secure,
-          efficient, and tailored to your requirements.
+          efficient, and tailored to your requirements.`}
         </p>
       </header>
 
@@ -70,7 +70,7 @@ export default function PaymentOptionsPage() {
       <Card className="mb-12 custom-bg-1">
         <CardHeader>
           <CardTitle className="text-2xl font-bold">
-            Why Choose Automation eCom Global's Payment Options?
+            {`Why Choose Automation eCom Global's Payment Options?`}
           </CardTitle>
         </CardHeader>
         <CardContent>

@@ -158,10 +158,10 @@ export default function WhoWeAre() {
           Partner with Automation eCom Global
         </h2>
         <p className="text-muted-foreground max-w-3xl mx-auto">
-          We're more than a supplier—we're a trusted partner dedicated to your
+          {`We're more than a supplier—we're a trusted partner dedicated to your
           operational success. Invest in a partnership that will help your
           business grow, optimize processes, and stay competitive in an
-          increasingly automated world.
+          increasingly automated world.`}
         </p>
         <Button variant="destructive">Contact Us Today</Button>
       </section>

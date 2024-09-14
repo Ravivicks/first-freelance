@@ -28,7 +28,7 @@ export default function DataProtectionPolicyPage() {
             Data Protection and Policy
           </h1>
           <p className="text-xl max-w-6xl mx-auto">
-            At Automation eCom Global, we prioritize the security and privacy of
+            {` At Automation eCom Global, we prioritize the security and privacy of
             our customers' personal and business data. In an increasingly
             digital world, safeguarding your sensitive information is critical,
             and we are committed to ensuring that your data is always protected
@@ -37,7 +37,7 @@ export default function DataProtectionPolicyPage() {
             the General Data Protection Regulation (GDPR) and other
             international privacy regulations. We ensure that your data is
             handled with transparency, responsibility, and integrity at every
-            step of the process.
+            step of the process.`}
           </p>
         </header>
 

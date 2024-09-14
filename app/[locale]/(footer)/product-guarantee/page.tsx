@@ -45,7 +45,7 @@ export default function Component() {
         <Card className="bg-blue-50 border-blue-200 mb-12">
           <CardHeader>
             <CardTitle className="text-2xl font-bold">
-              Why Choose Automation eCom Global's Product Guarantee?
+              {`Why Choose Automation eCom Global's Product Guarantee?`}
             </CardTitle>
           </CardHeader>
           <CardContent>
