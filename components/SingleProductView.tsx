@@ -34,7 +34,7 @@ export default function SingleProductView() {
           className="object-cover md:rotate-90"
         />
       </div>
-      <div className="flex flex-col md:flex-row justify-center items-center md:items-start -mt-10 md:-mt-32 mb-16">
+      <div className="flex flex-col md:flex-row justify-center items-center md:items-center -mt-10 md:-mt-32 mb-8">
         {product && sliderImages.length > 1 ? (
           <Carousel
             className="w-full max-w-xs md:max-w-sm md:ml-52 mt-10"

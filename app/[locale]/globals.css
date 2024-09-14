@@ -68,6 +68,16 @@
     }
   }
 
+  @layer utilities {
+    .custom-bg {
+      @apply bg-gradient-to-r from-blue-100 to-purple-100 border-none shadow-lg;
+    }
+    .custom-bg-1 {
+      @apply bg-gradient-to-r from-green-100 to-blue-100 border-none shadow-lg;
+    }
+  }
+
+
 /* Hide default scrollbar arrows */
 .scrollable-form {
   max-height: 80vh;

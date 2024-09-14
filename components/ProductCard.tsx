@@ -8,10 +8,9 @@ import { cn, formatNumber } from "@/lib/utils";
 import { useCartStore } from "@/stores/useCartStore";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useEnquiry } from "@/hooks/use-enquire-open";
 import useFromStore from "@/hooks/useFromStore";
 import { useCartDetails } from "@/hooks/use-cart-details";
-import { usePriceRequest } from "@/hooks/use-price-request-open";
+import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
 
 type Props = {
   product: IProduct;
@@ -21,8 +20,7 @@ type Props = {
 const ProductCard = ({ product, isButton }: Props) => {
   const addToCart = useCartStore((state) => state.addToCart);
   const { locale } = useParams();
-  const { onOpen: priceOpen } = usePriceRequest();
-  const { onOpen } = useEnquiry();
+  const { onOpen } = useCommonEnquiry();
   const { onOpen: cartOpen } = useCartDetails();
   const cart = useFromStore(useCartStore, (state) => state.cart);
 
@@ -38,25 +36,22 @@ const ProductCard = ({ product, isButton }: Props) => {
 
   return (
     <div className="max-w-sm flex flex-col border rounded-xl p-5 h-full bg-white overflow-hidden shadow-lg transition-shadow duration-300 hover:shadow-xl relative">
-      <div className="group relative mb-5 h-[220px] w-full">
-        <Image
-          src={product?.image || ""}
-          alt={product?.title || "Product image"}
-          fill
-          className="object-cover rounded-lg transition-opacity duration-300 group-hover:opacity-50"
-          unoptimized
-        />
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <Button
-            variant="destructive"
-            className="rounded-full"
-            onClick={() => onBuyNow(product)}
-          >
-            Buy Now
-          </Button>
-        </div>
-      </div>
       <Link href={`/${locale}/products/${product._id}`}>
+        <div
+          className={cn(
+            "group relative mb-5  w-full",
+            isButton ? "h-[150px]" : "h-[220px]"
+          )}
+        >
+          <Image
+            src={product?.image || ""}
+            alt={product?.title || "Product image"}
+            fill
+            className="object-cover rounded-lg"
+            unoptimized
+          />
+        </div>
+
         <div className="flex flex-col flex-grow">
           <h1 className="text-sm font-semibold line-clamp-2 overflow-hidden mb-2">
             {product?.title}
@@ -65,52 +60,61 @@ const ProductCard = ({ product, isButton }: Props) => {
             <p className="text-xs font-semibold">{product?.stars}</p>
             <StarRating size={4} rating={product?.stars || 0} />
           </div>
-          <p className="font-semibold text-lg mb-2">
-            {product?.currency}
-            {formatNumber(product?.lowestPrice)}
-          </p>
-          <p className="text-xs text-muted-foreground font-semibold">
-            M. R. P. :
-            <span className="line-through">
-              {product.lowestPrice !== 0
-                ? `${product?.currency} ${formatNumber(product?.highestPrice)}`
-                : " Price not available"}
-            </span>
-            {product.lowestPrice !== 0 && product.discount}
-          </p>
-        </div>
-      </Link>
-      {!isButton && (
-        <div className="flex gap-2 flex-wrap mt-3">
-          <Button
-            variant="outline"
-            className="rounded-full flex-grow"
-            onClick={isInCart ? cartOpen : () => addToCart(product)}
-          >
-            {isInCart ? "Go to cart" : "Add to cart"}
-          </Button>
-          {product?.lowestPrice !== 0 ? (
-            <Button
-              variant="destructive"
-              className="rounded-full flex-grow"
-              onClick={() => onOpen(product._id)}
-            >
-              Request Quotation
-            </Button>
-          ) : (
-            <Button
-              variant="destructive"
-              className="rounded-full w-full"
-              onClick={(e) => {
-                e.stopPropagation(); // Prevents click event from bubbling to the card
-                priceOpen(product._id);
-              }}
-            >
-              Request For Price
-            </Button>
+          {product.lowestPrice !== 0 && (
+            <p className="font-semibold text-lg mb-2">
+              {product?.currency}
+              {formatNumber(product?.lowestPrice)}
+            </p>
+          )}
+          {product.lowestPrice !== 0 && (
+            <p className="text-xs text-muted-foreground font-semibold">
+              M. R. P. :
+              <span className="line-through">
+                {`${product?.currency} ${formatNumber(product?.highestPrice)}`}
+              </span>
+              {product.lowestPrice !== 0 && product.discount}
+            </p>
           )}
         </div>
-      )}
+      </Link>
+      {/* {!isButton && ( */}
+      <div className="flex gap-2 flex-wrap mt-3">
+        <Button
+          variant="outline"
+          className="rounded-full flex-grow"
+          onClick={isInCart ? cartOpen : () => addToCart(product)}
+        >
+          {isInCart ? "Go to cart" : "Add to cart"}
+        </Button>
+        {product?.lowestPrice !== 0 ? (
+          <Button
+            variant="destructive"
+            className="rounded-full flex-grow"
+            onClick={() => onOpen("quoteRequest", product._id)}
+          >
+            Request Quotation
+          </Button>
+        ) : (
+          <Button
+            variant="destructive"
+            className="rounded-full w-full"
+            onClick={(e) => {
+              e.stopPropagation(); // Prevents click event from bubbling to the card
+              onOpen("priceRequest", product._id);
+            }}
+          >
+            Request For Price
+          </Button>
+        )}
+        <Button
+          variant="outline"
+          className="rounded-full w-full"
+          onClick={() => onBuyNow(product)}
+        >
+          Buy Now
+        </Button>
+      </div>
+      {/* )} */}
     </div>
   );
 };

@@ -59,7 +59,7 @@ const ProductCarousel = () => {
       itemClass="carousel-item-padding-20-px"
       responsive={responsive}
       centerMode
-      className="mb-16 p-1 shadow-lg rounded-xl border"
+      className="mb-8 p-1 shadow-lg rounded-md border"
     >
       {productList.slice(0, 10).map((product) => (
         <Link href={`/products/${product._id}`} key={product._id}>
@@ -79,14 +79,10 @@ const ProductCarousel = () => {
                   <p className="font-bold text-xs line-clamp-2 overflow-hidden my-1">
                     {product.title}
                   </p>
-                  {product.lowestPrice !== 0 ? (
+                  {product.lowestPrice !== 0 && (
                     <p className="font-semibold text-muted-foreground text-sm">
                       {product.currency}
                       {formatNumber(product.lowestPrice)}
-                    </p>
-                  ) : (
-                    <p className="font-semibold text-muted-foreground text-sm">
-                      Price Not Avaliable
                     </p>
                   )}
                 </div>

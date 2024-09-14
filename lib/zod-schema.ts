@@ -24,6 +24,35 @@ export const formSchema = z.object({
     .optional()
     .default([]), // Ensuring it's an empty array if not provided
 });
+export const commonEnquiryFormSchema = z.object({
+  email: z.string().email(),
+  mobile: z.string(),
+  productName: z.string(),
+  productId: z.string(),
+  productPrice: z.number(),
+  enquiryDescription: z.string(),
+  quantity: z.number(),
+  status: z.enum(["pending", "approved", "rejected"]),
+  reason: z.string().optional(),
+  enquiryType: z.string(),
+  cartProduct: z
+    .array(
+      z.object({
+        productName: z.string(),
+        productId: z.string(),
+        productPrice: z.number(),
+        quantity: z.number(),
+      })
+    )
+    .optional()
+    .default([]), // Ensuring it's an empty array if not provided
+});
+
+export const supportSchema = z.object({
+  email: z.string().email(),
+  title: z.string(),
+  description: z.string(),
+});
 
 export const requestPriceFormSchema = z.object({
   email: z.string().email(),
@@ -59,6 +88,16 @@ export const formAddressSchema = z.object({
     .min(5, { message: "Zipcode must be at least 5 digits long" })
     .max(10, { message: "Zipcode can't exceed 10 digits" })
     .regex(/^\d+$/, { message: "Zipcode must contain only numbers" }),
+});
+export const userFormSchema = z.object({
+  firstName: z.string().min(1, { message: "First name is required" }),
+  lastName: z.string().min(1, { message: "Last name is required" }),
+  phone: z
+    .string()
+    .min(10, { message: "Mobile number must be at least 10 digits long" })
+    .max(15, { message: "Mobile number can't exceed 15 digits" })
+    .regex(/^\d+$/, { message: "Mobile number must contain only numbers" }),
+  email: z.string().email({ message: "Invalid email address" }),
 });
 
 export const FileFormSchema = z.object({

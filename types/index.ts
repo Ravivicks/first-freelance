@@ -92,6 +92,24 @@ export type EnquireProps = {
     quantity: number;
   }[];
 };
+export type CommonEnquireProps = {
+  email: string;
+  mobile: string;
+  productName?: string;
+  productId?: string;
+  productPrice?: number;
+  enquiryDescription: string;
+  quantity?: number;
+  status: "pending" | "approved" | "rejected";
+  reason?: string;
+  enquiryType: string;
+  cartProduct?: {
+    productName: string;
+    productId: string;
+    productPrice: number;
+    quantity: number;
+  }[];
+};
 
 export type PriceRequestProps = {
   email: string;
@@ -114,6 +132,14 @@ export type IUser = {
   lastName: string;
   email: string;
   password: string;
+  phone?: string;
+};
+
+export type UpdateUserInput = {
+  firstName: string;
+  lastName: string;
+  phone: string;
+  email: string;
 };
 
 export type IAddress = {
@@ -152,6 +178,7 @@ export interface CheckoutData {
   billingAddress: IAddress;
   status: string;
   orderId: string;
+  createdAt?: string;
 }
 
 export type IPartnerBannerFile = {
@@ -159,6 +186,8 @@ export type IPartnerBannerFile = {
   _id: string;
   title: string;
   image: File; // Use File type to represent the uploaded file
+  category?: string;
+  company?: string;
 };
 
 export type IContact = {
@@ -168,6 +197,12 @@ export type IContact = {
   phone: string;
   workingHours: string;
   email: string;
+};
+export type ISupport = {
+  _id?: string;
+  email: string;
+  title: string;
+  description: string;
 };
 
 export type IRazorOption = {

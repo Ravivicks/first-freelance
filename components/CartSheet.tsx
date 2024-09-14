@@ -15,12 +15,13 @@ import { Button } from "./ui/button";
 import { DeleteIcon, MinusIcon, PlusIcon, Trash2Icon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import EmptyCart from "./EmptyCart";
-import { useEnquiry } from "@/hooks/use-enquire-open";
+import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
+import { cn } from "@/lib/utils";
 
 const CartSheet = () => {
   const router = useRouter();
   const { isOpen, onClose } = useCartDetails();
-  const { onOpen } = useEnquiry();
+  const { onOpen } = useCommonEnquiry();
   const { cart, increaseQuantity, decreaseQuantity, removeFromCart } =
     useCartStore();
   let total = 0;
@@ -114,21 +115,26 @@ const CartSheet = () => {
                   ${total.toFixed(2)}
                 </p>
               </div>
+              {total !== 0 && (
+                <Button
+                  variant="destructive"
+                  className="w-full rounded-full mt-10"
+                  onClick={() => {
+                    router.push("/checkout");
+                    onClose();
+                  }}
+                >
+                  Checkout
+                </Button>
+              )}
               <Button
-                variant="destructive"
-                className="w-full rounded-full mt-10"
+                variant={total === 0 ? "destructive" : "outline"}
+                className={cn(
+                  "w-full rounded-full",
+                  total === 0 ? "mt-10" : "mt-2"
+                )}
                 onClick={() => {
-                  router.push("/checkout");
-                  onClose();
-                }}
-              >
-                Checkout
-              </Button>
-              <Button
-                variant="outline"
-                className="w-full rounded-full mt-2"
-                onClick={() => {
-                  onOpen("cart");
+                  onOpen("cart", "cart");
                   onClose();
                 }}
               >

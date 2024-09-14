@@ -14,6 +14,7 @@ import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import Image from "next/image";
 import { useCreateSubscriber } from "@/features/subscriber/use-add-subcriber";
+import Link from "next/link";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -58,11 +59,13 @@ const Footer = () => {
             <Building2 className="text-destructive" /> Company
           </h1>
           <div className="flex flex-col gap-2">
-            <p>Who We Are</p>
-            <p>Our Commitments</p>
-            <p>What We Stand For</p>
-            <p>Partner Brands</p>
-            <p>Careers & Opportunities</p>
+            <Link href="/who-we-are">Who We Are</Link>
+            <Link href="/our-commitments">Our Commitments</Link>
+            <Link href="/what-we-stand-for">What We Stand For</Link>
+            <Link href="/partner-brands">Partner Brands</Link>
+            <Link href="/career-and-opportunities">
+              Careers & Opportunities
+            </Link>
           </div>
         </div>
 
@@ -73,27 +76,29 @@ const Footer = () => {
             Customer Care
           </h1>
           <div className="flex flex-col gap-2">
-            <p>Help & Support</p>
-            <p>Order Status</p>
-            <p>Delivery Information</p>
-            <p>Return & Exchanges</p>
-            <p>Installation Assistance</p>
+            <Link href="/help-and-support">Help & Support</Link>
+            <Link href="/order-status">Order Status</Link>
+            <Link href="/delivery-info">Delivery Information</Link>
+            <Link href="/return-and-exchange">Return & Exchanges</Link>
+            <Link href="/installation-assistance">Installation Assistance</Link>
           </div>
         </div>
 
         {/* Information */}
-        <div className="flex-1">
+        <div className="flex flex-col gap-2">
           <h1 className="text-lg font-bold mb-3 flex gap-2">
             {" "}
             <ShieldCheck className="text-destructive" />
             Trust
           </h1>
-          <p className="mb-3">Product Guarantee</p>
-          <p className="mb-3">Safe & secure payments</p>
-          <p className="mb-3">Payment Options</p>
-          <p className="mb-3">Data Protection Policies</p>
-          <p className="mb-3">User Agreements</p>
-          <p className="mb-3">Privacy & Cookie Settings</p>
+          <Link href="/product-guarantee">Product Guarantee</Link>
+          <Link href="/safe-and-secure-payments">Safe & secure payments</Link>
+          <Link href="/payment-options">Payment Options</Link>
+          <Link href="/data-protection-policies">Data Protection Policies</Link>
+          <Link href="/user-agreements">User Agreements</Link>
+          <Link href="/privacy-and-cookie-settings">
+            Privacy & Cookie Settings
+          </Link>
         </div>
 
         {/* Payment Method */}

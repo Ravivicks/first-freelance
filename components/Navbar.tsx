@@ -12,11 +12,13 @@ import { Badge } from "./ui/badge";
 import { useCartDetails } from "@/hooks/use-cart-details";
 import SearchComponent from "./Search";
 import { useSearchOpen } from "@/hooks/use-search-open";
+import { useRouter } from "next/navigation";
 
 const navIcons = [{ src: "/assets/icons/bag.svg", alt: "bag" }];
 
 const Navbar = () => {
   const { user } = useUser();
+  const router = useRouter();
   const cart = useFromStore(useCartStore, (state) => state.cart);
   const { onOpen } = useCartDetails();
   const { onOpen: onSearchOpen } = useSearchOpen();
@@ -61,16 +63,21 @@ const Navbar = () => {
             className="object-contain md:hidden"
             onClick={onSearchOpen}
           />
-          <div className="bg-black flex text-white gap-5 px-3 py-1 rounded-md">
-            <div className="flex flex-col text-xs">
-              <p className="font-extrabold text-[#98cfea]">My</p>
-              <p className="font-semibold">orders</p>
+          {user && (
+            <div
+              className="bg-black flex text-white gap-5 px-3 py-1 rounded-md cursor-pointer"
+              onClick={() => router.push("/user-account")}
+            >
+              <div className="flex flex-col text-xs">
+                <p className="font-extrabold text-[#98cfea]">My</p>
+                <p className="font-semibold">orders</p>
+              </div>
+              <div className="flex flex-col text-xs">
+                <p className="font-extrabold text-[#98cfea]">My</p>
+                <p className="font-semibold">Account</p>
+              </div>
             </div>
-            <div className="flex flex-col text-xs">
-              <p className="font-extrabold text-[#98cfea]">My</p>
-              <p className="font-semibold">Account</p>
-            </div>
-          </div>
+          )}
 
           <div className="relative" onClick={onOpen}>
             <Image

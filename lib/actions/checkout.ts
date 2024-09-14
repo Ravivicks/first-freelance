@@ -34,3 +34,17 @@ export async function getOrderById(
     return null;
   }
 }
+export async function getOrderByUserId(
+  userId: string
+): Promise<CheckoutData[] | null> {
+  try {
+    await connectToDB();
+
+    // Use lean() to get a plain JavaScript object
+    const order = await Checkout.find({ userId: userId });
+    return JSON.parse(JSON.stringify(order));
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}

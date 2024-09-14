@@ -10,6 +10,7 @@ import { useParams } from "next/navigation";
 import { useCreateReview } from "@/features/review/use-create-review";
 import StarRatings from "react-star-ratings";
 import { Separator } from "./ui/separator";
+import { Input } from "./ui/input"; // Import the input component
 
 type CommentFormValues = z.infer<typeof CommentSchema>;
 
@@ -37,46 +38,46 @@ const CommentForm = () => {
 
   const onSubmit = (data: CommentFormValues) => {
     data.rating = rating || 0; // Ensure rating is set
-    data.userId = user?.emailAddresses?.[0]?.emailAddress || "";
+    if (user) {
+      // If the user is logged in, use Clerk user details
+      data.userId = user?.emailAddresses?.[0]?.emailAddress || "";
+      data.firstName = user?.firstName as string;
+      data.lastName = user?.lastName as string;
+      data.userAvatar = user?.imageUrl as string;
+    } else {
+      // If the user is not logged in, clear user details
+      data.userId = "guestuser@gmail.com";
+      data.userAvatar = "guest";
+    }
     data.productId = productId;
-    data.firstName = user?.firstName as string;
-    data.lastName = user?.lastName as string;
-    data.userAvatar = user?.imageUrl as string;
 
     // Call mutation and check if it triggers
     mutation.mutate(data, {
       onSuccess: () => {
         reset();
       },
+      onError: () => {
+        alert("hello");
+      },
     });
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 w-1/2">
       <input
         type="hidden"
         {...register("userId")}
-        value={user?.emailAddresses?.[0]?.emailAddress || ""}
+        value={user?.emailAddresses?.[0]?.emailAddress || "guestuser@gmail.com"}
       />
       <input type="hidden" {...register("productId")} value={productId} />
       <input
         type="hidden"
-        {...register("firstName")}
-        value={user?.firstName as string}
-      />
-      <input
-        type="hidden"
-        {...register("lastName")}
-        value={user?.lastName as string}
-      />
-      <input
-        type="hidden"
         {...register("userAvatar")}
-        value={user?.imageUrl as string}
+        value={user?.imageUrl || "guest"}
       />
 
       <div>
-        <Separator className="w-1/2 my-3" />
+        <Separator className="my-3" />
         <Label htmlFor="rating" className="mr-2">
           Rating:
         </Label>
@@ -93,14 +94,45 @@ const CommentForm = () => {
           <div className="text-red-500">{errors.rating.message}</div>
         )}
       </div>
+      {!user && (
+        <>
+          {/* Name fields for non-logged-in users */}
+          <div className="flex gap-2">
+            <div className="flex-grow">
+              <Label htmlFor="firstName">First Name:</Label>
+              <Input
+                id="firstName"
+                {...register("firstName")}
+                placeholder="Enter your first name"
+                className="mt-1 w-full"
+              />
+              {errors.firstName && (
+                <div className="text-red-500">{errors.firstName.message}</div>
+              )}
+            </div>
 
+            <div className="flex-grow">
+              <Label htmlFor="lastName">Last Name:</Label>
+              <Input
+                id="lastName"
+                {...register("lastName")}
+                placeholder="Enter your last name"
+                className="mt-1 w-full"
+              />
+              {errors.lastName && (
+                <div className="text-red-500">{errors.lastName.message}</div>
+              )}
+            </div>
+          </div>
+        </>
+      )}
       <div>
         <Label htmlFor="comment">Comment:</Label>
         <Textarea
           id="comment"
           {...register("comment")}
           placeholder="Write your comment here"
-          className="mt-1 md:w-1/2 w-full"
+          className="mt-1 w-full"
         />
         {errors.comment && (
           <div className="text-red-500">{errors.comment.message}</div>

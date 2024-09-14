@@ -3,10 +3,10 @@ import AddressDialog from "@/components/AddressDialog";
 import BannerDialog from "@/components/BannerDialog";
 import CartSheet from "@/components/CartSheet";
 import CheckoutDialog from "@/components/CheckoutDialog";
-import EnquireDialog from "@/components/EnquireDialog";
+import CommonEnquireDialog from "@/components/CommonEnquiryDialog";
 import FilterDialog from "@/components/FilterDialog";
-import RequestPriceDialog from "@/components/RequestPriceDialog";
 import SearchDialog from "@/components/SearchDialog";
+import SupportDialog from "@/components/SupportDialog";
 import { useMountedState } from "react-use";
 
 const SheetProvider = () => {
@@ -18,13 +18,13 @@ const SheetProvider = () => {
   return (
     <>
       <CartSheet />
-      <EnquireDialog />
       <BannerDialog />
       <AddressDialog />
       <FilterDialog />
-      <RequestPriceDialog />
       <CheckoutDialog />
       <SearchDialog />
+      <CommonEnquireDialog />
+      <SupportDialog />
     </>
   );
 };

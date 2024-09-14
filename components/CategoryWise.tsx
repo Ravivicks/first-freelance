@@ -12,8 +12,8 @@ interface IProps {
 
 const CategoryWise = ({ images, title = "Industry Automation" }: IProps) => {
   return (
-    <div className="mb-16">
-      <h1 className="text-4xl font-extrabold uppercase text-center mb-16">
+    <div className="mb-8">
+      <h1 className="text-4xl font-extrabold uppercase text-center mb-8">
         {title}
       </h1>
       <GridView />

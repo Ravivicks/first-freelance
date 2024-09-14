@@ -2,16 +2,18 @@
 import React from "react";
 import { Button } from "./ui/button";
 import Image from "next/image";
-import { Headset, Phone } from "lucide-react";
+import { Headset, Loader2, Phone } from "lucide-react";
 import Link from "next/link";
 import CountryDropdown from "./CountryDropdown";
 import { useGetContacts } from "@/features/contact/use-get-contacts";
+import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
+import { useSupportOpen } from "@/hooks/use-support-open";
+import Loader from "./Loader";
 
 const TopNav = () => {
   const { data, isLoading } = useGetContacts();
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  const { onOpen } = useCommonEnquiry();
+  const { onOpen: supportOpen } = useSupportOpen();
   return (
     <div className="bg-black rounded-b-md text-xs py-2 px-4">
       <div className="flex flex-col md:flex-row justify-between items-center gap-2 md:gap-4">
@@ -37,6 +39,7 @@ const TopNav = () => {
           <Button
             variant="link"
             className="font-extrabold text-[#98cfea] text-xs"
+            onClick={() => onOpen("quickQuote")}
           >
             Quick Quote
           </Button>
@@ -47,6 +50,7 @@ const TopNav = () => {
           <Button
             variant="link"
             className="font-extrabold text-gray-500 text-xs flex items-center"
+            onClick={supportOpen}
           >
             <Headset className="mr-2" size={16} />
             Customer Support
@@ -54,25 +58,33 @@ const TopNav = () => {
         </div>
 
         {/* Email Link */}
-        <div className="flex items-center">
-          <Link
-            href="mailto:sales@prosafeautomation.com"
-            className="font-semibold text-[#98cfea] text-xs"
-          >
-            {data?.[0]?.email}
-          </Link>
-        </div>
+        {isLoading ? (
+          <Loader2 className="h-8 w-8 text-muted-foreground animate-spin" />
+        ) : (
+          <div className="flex items-center">
+            <Link
+              href="mailto:sales@prosafeautomation.com"
+              className="font-semibold text-[#98cfea] text-xs"
+            >
+              {data?.[0]?.email}
+            </Link>
+          </div>
+        )}
 
         {/* Phone Section */}
-        <div className="flex items-center">
-          <Button
-            variant="link"
-            className="font-extrabold text-white text-xs flex items-center"
-          >
-            <Phone className="mr-2" size={16} />
-            {data?.[0]?.phone}
-          </Button>
-        </div>
+        {isLoading ? (
+          <Loader2 className="h-8 w-8 text-muted-foreground animate-spin" />
+        ) : (
+          <div className="flex items-center">
+            <Button
+              variant="link"
+              className="font-extrabold text-white text-xs flex items-center"
+            >
+              <Phone className="mr-2" size={16} />
+              {data?.[0]?.phone}
+            </Button>
+          </div>
+        )}
 
         {/* Country Dropdown */}
         <div className="flex items-center">

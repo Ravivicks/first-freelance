@@ -37,6 +37,7 @@ export async function createNewAddress(user: IAddress) {
         lastName: user.lastName,
         email: user.email,
         password: password,
+        phone: user.phone,
       });
 
       // Create a new Clerk user

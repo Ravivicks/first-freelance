@@ -27,7 +27,7 @@ const FeaturedPartner = () => {
   const router = useRouter();
 
   return (
-    <Card className="mb-16">
+    <Card className="mb-8">
       <h1 className="text-2xl md:text-3xl font-bold mb-5 bg-gradient-to-r from-slate-100 to-destructive/10 py-4 px-4">
         Featured Partners
       </h1>

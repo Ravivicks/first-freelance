@@ -6,12 +6,11 @@ import { Button } from "./ui/button";
 import { cn, formatNumber } from "@/lib/utils";
 import { Card, CardContent } from "./ui/card";
 import { useCartStore } from "@/stores/useCartStore";
-import { useEnquiry } from "@/hooks/use-enquire-open";
 import useFromStore from "@/hooks/useFromStore";
 import { useCartDetails } from "@/hooks/use-cart-details";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { usePriceRequest } from "@/hooks/use-price-request-open";
+import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
 
 type Props = {
   product: IProduct;
@@ -20,8 +19,7 @@ type Props = {
 
 const FeaturedProductCard = ({ product, isBestDeal }: Props) => {
   const addToCart = useCartStore((state) => state.addToCart);
-  const { onOpen } = useEnquiry();
-  const { onOpen: priceOpen } = usePriceRequest();
+  const { onOpen } = useCommonEnquiry();
   const { onOpen: cartOpen } = useCartDetails();
   const cart = useFromStore(useCartStore, (state) => state.cart);
   const router = useRouter(); // Use Next.js router for navigation
@@ -38,7 +36,7 @@ const FeaturedProductCard = ({ product, isBestDeal }: Props) => {
   return (
     <Card
       className={cn(
-        "group relative w-full sm:w-[45%] md:w-[30%] border rounded-xl mb-10 p-3 overflow-hidden transition-shadow duration-300 hover:shadow-lg flex-grow",
+        "group relative w-full sm:w-[45%] md:w-[30%] border rounded-xl p-3 overflow-hidden transition-shadow duration-300 hover:shadow-lg flex-grow",
         isBestDeal ? "lg:w-[10%]" : "lg:w-[18%]"
       )}
       onClick={handleCardClick}
@@ -64,22 +62,22 @@ const FeaturedProductCard = ({ product, isBestDeal }: Props) => {
             {product?.title}
           </h1>
 
-          <p className="font-semibold mt-3">
-            {product?.currency}
-            {product.lowestPrice !== 0
-              ? formatNumber(product?.lowestPrice)
-              : " 00.00"}
-          </p>
+          {product.lowestPrice !== 0 && (
+            <p className="font-semibold mt-3">
+              {product?.currency}
+              {formatNumber(product?.lowestPrice)}
+            </p>
+          )}
 
-          <p className="text-xs text-muted-foreground font-semibold">
-            M. R. P. :
-            <span className="line-through">
-              {product.lowestPrice !== 0
-                ? `${product?.currency} ${formatNumber(product?.highestPrice)}`
-                : " Price not available"}
-            </span>
-            {product.lowestPrice !== 0 && product.discount}
-          </p>
+          {product.lowestPrice !== 0 && (
+            <p className="text-xs text-muted-foreground font-semibold">
+              M. R. P. :
+              <span className="line-through">
+                {`${product?.currency} ${formatNumber(product?.highestPrice)}`}
+              </span>
+              {product.lowestPrice !== 0 && product.discount}
+            </p>
+          )}
         </div>
       </CardContent>
 
@@ -102,7 +100,7 @@ const FeaturedProductCard = ({ product, isBestDeal }: Props) => {
             className="rounded-full w-full"
             onClick={(e) => {
               e.stopPropagation(); // Prevents click event from bubbling to the card
-              onOpen(product._id);
+              onOpen("quoteRequest", product._id);
             }}
           >
             Request Quotation
@@ -113,7 +111,7 @@ const FeaturedProductCard = ({ product, isBestDeal }: Props) => {
             className="rounded-full w-full"
             onClick={(e) => {
               e.stopPropagation(); // Prevents click event from bubbling to the card
-              priceOpen(product._id);
+              onOpen("priceRequest", product._id);
             }}
           >
             Request For Price

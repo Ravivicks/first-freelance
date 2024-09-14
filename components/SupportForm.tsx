@@ -10,13 +10,11 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
 } from "@/components/ui/form";
-import { formSchema } from "@/lib/zod-schema";
+import { supportSchema } from "@/lib/zod-schema";
 import { Textarea } from "@/components/ui/textarea";
-import { PhoneInput } from "./PhoneInput";
 
-type FormValues = z.input<typeof formSchema>;
+type FormValues = z.input<typeof supportSchema>;
 
 type Props = {
   id?: string;
@@ -25,14 +23,14 @@ type Props = {
   disabled?: boolean;
 };
 
-export const EnquiryForm = ({
+export const SupportForm = ({
   id,
   onSubmit,
   defaultValues,
   disabled,
 }: Props) => {
   const form = useForm<FormValues>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(supportSchema),
     defaultValues: defaultValues,
   });
   const handleSubmit = (values: FormValues) => {
@@ -62,43 +60,28 @@ export const EnquiryForm = ({
             </FormItem>
           )}
         />
-        <div className="flex gap-2 w-full">
-          <FormField
-            name="mobile"
-            control={form.control}
-            render={({ field }) => {
-              return (
-                <FormItem className="w-full">
-                  <FormLabel>Mobile</FormLabel>
-                  <FormControl>
-                    <PhoneInput className="rounded-xl" {...field} />
-                  </FormControl>
-                </FormItem>
-              );
-            }}
-          />
-          <FormField
-            name="quantity"
-            control={form.control}
-            render={({ field }) => (
+        <FormField
+          name="title"
+          control={form.control}
+          render={({ field }) => {
+            return (
               <FormItem className="w-full">
-                <FormLabel>Quantity</FormLabel>
+                <FormLabel>Enquiry Title</FormLabel>
                 <FormControl>
                   <Input
                     className="rounded-xl"
                     disabled={disabled}
-                    placeholder="Please provide quantity"
-                    type="number"
+                    placeholder="Please enter you enquiry title"
                     {...field}
                   />
                 </FormControl>
               </FormItem>
-            )}
-          />
-        </div>
+            );
+          }}
+        />
 
         <FormField
-          name="enquiryDescription"
+          name="description"
           control={form.control}
           render={({ field }) => (
             <FormItem>
