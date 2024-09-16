@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { useGetBanners } from "@/features/banner/use-get-banners";
 import Link from "next/link";
 import Loader from "./Loader";
+import { useStaticDataStore } from "@/stores/useStaticDataStore";
 
 const navItems = [
   {
@@ -36,11 +37,16 @@ const navItems = [
 
 const FeaturedCategory = () => {
   const { data, isLoading } = useGetBanners("Featured-category");
+  const {
+    data: staticData,
+    isLoading: staticLoading,
+    error: staticError,
+  } = useStaticDataStore();
 
   return (
     <Card className="mb-16">
       <h1 className="text-3xl font-bold mb-5 bg-gradient-to-r from-slate-100 to-destructive/10 py-4 px-4">
-        Featured Category
+        {staticData ? staticData?.featuredCategory?.title : "Featured Category"}
       </h1>
       {isLoading ? (
         <Loader />

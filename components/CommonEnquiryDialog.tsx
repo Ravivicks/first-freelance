@@ -16,6 +16,7 @@ import { useCartStore } from "@/stores/useCartStore";
 import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
 import { CommonEnquiryForm } from "./CommonEnquiryForm";
 import { useCreateCommonEnquiry } from "@/features/enquiry/use-add-common-enquiry";
+import { useStaticDataStore } from "@/stores/useStaticDataStore";
 
 type FormValues = z.input<typeof commonEnquiryFormSchema>;
 
@@ -27,6 +28,11 @@ const CommonEnquireDialog = () => {
     id === "cart" ? "" : id || ""
   );
   const { cart } = useCartStore();
+  const {
+    data: staticData,
+    isLoading: staticLoading,
+    error,
+  } = useStaticDataStore();
 
   const onSubmit = (values: FormValues) => {
     mutation.mutate(values, {
@@ -66,10 +72,12 @@ const CommonEnquireDialog = () => {
             />
             <div className="flex gap-1 flex-col">
               <p className="text-xs font-semibold">{product?.title}</p>
-              <p className="text-xs text-muted-foreground font-semibold">
-                {product?.currency}
-                {product?.currentPrice}
-              </p>
+              {product?.lowestPrice !== 0 && (
+                <p className="text-xs text-muted-foreground font-semibold">
+                  {product?.currency}
+                  {product?.lowestPrice}
+                </p>
+              )}
             </div>
           </div>
         );
@@ -89,7 +97,11 @@ const CommonEnquireDialog = () => {
         <DialogHeader>
           <DialogTitle>
             {type === "quickQuote"
-              ? "Quick Quote Form"
+              ? staticData
+                ? staticData?.enquiry?.quickQuoteTitle
+                : "Quick Quote Form"
+              : staticData
+              ? staticData?.enquiry?.confirmDetailsTitle
               : "Please Confirm Your Details"}
           </DialogTitle>
         </DialogHeader>
@@ -99,6 +111,7 @@ const CommonEnquireDialog = () => {
 
         {/* Common enquiry form for all types */}
         <CommonEnquiryForm
+          staticData={staticData}
           type={type}
           onSubmit={onSubmit}
           disabled={mutation.isPending}

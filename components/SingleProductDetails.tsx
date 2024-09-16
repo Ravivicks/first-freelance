@@ -11,6 +11,7 @@ import { formatNumber } from "@/lib/utils";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
+import { useStaticDataStore } from "@/stores/useStaticDataStore";
 
 interface IProps {
   product: IProduct;
@@ -26,6 +27,11 @@ const SingleProductDetails = ({ product }: IProps) => {
   const { onOpen } = useCommonEnquiry();
   const { onOpen: cartOpen } = useCartDetails();
   const cart = useFromStore(useCartStore, (state) => state.cart);
+  const {
+    data: staticData,
+    isLoading: staticLoading,
+    error: staticError,
+  } = useStaticDataStore();
 
   const charLimit = 250;
   const isLongDescription = product?.description?.length > charLimit;
@@ -40,7 +46,11 @@ const SingleProductDetails = ({ product }: IProps) => {
 
       // Check if the entered quantity is less than the minQuantity
       if (numericQty < minQuantity) {
-        setError(`Minimum order quantity is ${minQuantity}`);
+        setError(
+          staticData
+            ? staticData?.singleProductDetails?.errorMessages?.minQuantity
+            : `Minimum order quantity is ${minQuantity}`
+        );
       } else {
         setError(null);
       }
@@ -117,7 +127,10 @@ const SingleProductDetails = ({ product }: IProps) => {
         </div>
         {product?.quantity && (
           <p className="text-muted-foreground text-sm">
-            {product?.quantity} Available
+            {product?.quantity}{" "}
+            {staticData
+              ? staticData?.singleProductDetails?.availabilityText
+              : "Available"}
           </p>
         )}
       </div>
@@ -127,7 +140,11 @@ const SingleProductDetails = ({ product }: IProps) => {
       <p className="text-xs md:text-sm font-semibold text-muted-foreground my-4">
         Get it by Friday 9 August.
       </p>
-      <p className="text-sm font-semibold mb-2">Product Description</p>
+      <p className="text-sm font-semibold mb-2">
+        {staticData
+          ? staticData?.singleProductDetails?.descriptionTitle
+          : "Product Description"}
+      </p>
       <p className="text-xs md:text-sm text-muted-foreground">
         {showMore || !isLongDescription
           ? product?.description
@@ -150,7 +167,13 @@ const SingleProductDetails = ({ product }: IProps) => {
           onClick={isInCart ? cartOpen : () => addToCart(product)}
           disabled={!!error} // Disable button if there's an error
         >
-          {isInCart ? "Go to cart" : "Add to cart"}
+          {isInCart
+            ? staticData
+              ? staticData?.singleProductDetails?.buttonLabels?.goToCart
+              : "Go to cart"
+            : staticData
+            ? staticData?.singleProductDetails?.buttonLabels?.addToCart
+            : "Add to cart"}
         </Button>
         {product?.lowestPrice !== 0 ? (
           <Button
@@ -159,7 +182,9 @@ const SingleProductDetails = ({ product }: IProps) => {
             onClick={() => onOpen("quoteRequest", product._id)}
             disabled={!!error} // Disable button if there's an error
           >
-            Request Quotation
+            {staticData
+              ? staticData?.singleProductDetails?.buttonLabels?.requestQuotation
+              : "Request Quotation"}
           </Button>
         ) : (
           <Button
@@ -168,7 +193,9 @@ const SingleProductDetails = ({ product }: IProps) => {
             onClick={() => onOpen("priceRequest", product._id)}
             disabled={!!error} // Disable button if there's an error
           >
-            Request For Price
+            {staticData
+              ? staticData?.singleProductDetails?.buttonLabels?.requestForPrice
+              : "Request For Price"}
           </Button>
         )}
         <Button
@@ -177,7 +204,9 @@ const SingleProductDetails = ({ product }: IProps) => {
           onClick={() => onBuyNow(product)}
           disabled={!!error} // Disable button if there's an error
         >
-          Buy Now
+          {staticData
+            ? staticData?.singleProductDetails?.buttonLabels?.buyNow
+            : "Buy Now"}
         </Button>
       </div>
     </div>

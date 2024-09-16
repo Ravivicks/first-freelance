@@ -13,6 +13,7 @@ export const useGetCountries = () => {
       }
       return response;
     },
+    refetchOnWindowFocus: false,
   });
   return query;
 };

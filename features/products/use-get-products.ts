@@ -12,6 +12,7 @@ export const useGetProducts = () => {
       }
       return response as IProduct[];
     },
+    refetchOnWindowFocus: false,
   });
   return query;
 };

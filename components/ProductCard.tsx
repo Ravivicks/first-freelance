@@ -11,6 +11,7 @@ import { useParams } from "next/navigation";
 import useFromStore from "@/hooks/useFromStore";
 import { useCartDetails } from "@/hooks/use-cart-details";
 import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
+import { useStaticDataStore } from "@/stores/useStaticDataStore";
 
 type Props = {
   product: IProduct;
@@ -23,6 +24,11 @@ const ProductCard = ({ product, isButton }: Props) => {
   const { onOpen } = useCommonEnquiry();
   const { onOpen: cartOpen } = useCartDetails();
   const cart = useFromStore(useCartStore, (state) => state.cart);
+  const {
+    data: staticData,
+    isLoading: staticLoading,
+    error,
+  } = useStaticDataStore();
 
   const isInCart = cart?.some((item) => item._id === product._id);
 
@@ -84,7 +90,13 @@ const ProductCard = ({ product, isButton }: Props) => {
           className="rounded-full flex-grow"
           onClick={isInCart ? cartOpen : () => addToCart(product)}
         >
-          {isInCart ? "Go to cart" : "Add to cart"}
+          {isInCart
+            ? staticData
+              ? staticData?.productCard?.buttonLabels?.goToCart
+              : "Go to cart"
+            : staticData
+            ? staticData?.productCard?.buttonLabels?.addToCart
+            : "Add to cart"}
         </Button>
         {product?.lowestPrice !== 0 ? (
           <Button
@@ -92,7 +104,9 @@ const ProductCard = ({ product, isButton }: Props) => {
             className="rounded-full flex-grow"
             onClick={() => onOpen("quoteRequest", product._id)}
           >
-            Request Quotation
+            {staticData
+              ? staticData?.productCard?.buttonLabels?.requestQuotation
+              : "Request Quotation"}
           </Button>
         ) : (
           <Button
@@ -103,7 +117,9 @@ const ProductCard = ({ product, isButton }: Props) => {
               onOpen("priceRequest", product._id);
             }}
           >
-            Request For Price
+            {staticData
+              ? staticData?.productCard?.buttonLabels?.requestForPrice
+              : "Request For Price"}
           </Button>
         )}
         <Button
@@ -111,7 +127,9 @@ const ProductCard = ({ product, isButton }: Props) => {
           className="rounded-full w-full"
           onClick={() => onBuyNow(product)}
         >
-          Buy Now
+          {staticData
+            ? staticData?.productCard?.buttonLabels?.buyNow
+            : "Buy Now"}
         </Button>
       </div>
       {/* )} */}

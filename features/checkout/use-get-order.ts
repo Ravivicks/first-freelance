@@ -14,6 +14,7 @@ export const useGetOrder = (id: string) => {
       }
       return response;
     },
+    refetchOnWindowFocus: false,
   });
   return query;
 };

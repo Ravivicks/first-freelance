@@ -7,6 +7,7 @@ import { IProduct } from "@/types";
 import Link from "next/link";
 import { useSearchOpen } from "@/hooks/use-search-open";
 import { getAllProducts } from "@/lib/actions/product";
+import { useStaticDataStore } from "@/stores/useStaticDataStore";
 
 export default function SearchComponent() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -20,6 +21,11 @@ export default function SearchComponent() {
   const inputRef = useRef<HTMLInputElement>(null);
   const suggestionRefs = useRef<(HTMLLIElement | null)[]>([]);
   const { onClose } = useSearchOpen();
+  const {
+    data: staticData,
+    isLoading: staticLoading,
+    error: staticError,
+  } = useStaticDataStore();
 
   // Load products based on search term and pagination
   const fetchData = async (
@@ -119,7 +125,11 @@ export default function SearchComponent() {
         </Button>
         <Input
           type="text"
-          placeholder="Search products...(For Example : 6ES7288-1ST30-0AA0)"
+          placeholder={
+            staticData
+              ? staticData?.search?.placeHolder
+              : "Search products...(For Example : 6ES7288-1ST30-0AA0)"
+          }
           value={searchTerm}
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}

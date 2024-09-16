@@ -12,13 +12,15 @@ import Image from "next/image";
 import SingleProductDetails from "./SingleProductDetails";
 import { IProduct } from "@/types";
 import { useProductsStore } from "@/stores/useProductStore";
+import { useParams } from "next/navigation";
 
 export default function SingleProductView() {
+  const { locale } = useParams();
   const { products, isLoading, error, fetchData } = useProductsStore();
   const key = "single"; // Or any relevant key
 
   React.useEffect(() => {
-    fetchData(key, 1, 1, { type: "best-deal" });
+    fetchData(key, 1, 1, { type: "best-deal" }, locale as string);
   }, [fetchData, key]);
 
   const product = products[key]?.[0];

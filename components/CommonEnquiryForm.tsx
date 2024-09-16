@@ -24,6 +24,7 @@ type Props = {
   onSubmit: (values: FormValues) => void;
   disabled?: boolean;
   type?: EnquiryType; // Add enquiry type
+  staticData?: any;
 };
 
 export const CommonEnquiryForm = ({
@@ -32,6 +33,7 @@ export const CommonEnquiryForm = ({
   defaultValues,
   disabled,
   type, // Use the type prop
+  staticData,
 }: Props) => {
   const form = useForm<FormValues>({
     resolver: zodResolver(commonEnquiryFormSchema),
@@ -54,12 +56,18 @@ export const CommonEnquiryForm = ({
           control={form.control}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>
+                {staticData ? staticData?.enquiry?.emailLabel : "Email"}
+              </FormLabel>
               <FormControl>
                 <Input
                   className="rounded-xl"
                   disabled={disabled}
-                  placeholder="Please enter your email"
+                  placeholder={
+                    staticData
+                      ? staticData?.enquiry?.emailPlaceholder
+                      : "Please enter your email"
+                  }
                   {...field}
                 />
               </FormControl>
@@ -75,7 +83,9 @@ export const CommonEnquiryForm = ({
             control={form.control}
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel>Mobile</FormLabel>
+                <FormLabel>
+                  {staticData ? staticData?.enquiry?.mobileLabel : "Mobile"}
+                </FormLabel>
                 <FormControl>
                   <PhoneInput className="rounded-xl" {...field} />
                 </FormControl>
@@ -89,12 +99,20 @@ export const CommonEnquiryForm = ({
               control={form.control}
               render={({ field }) => (
                 <FormItem className="w-full">
-                  <FormLabel>Quantity</FormLabel>
+                  <FormLabel>
+                    {staticData
+                      ? staticData?.enquiry?.quantityLabel
+                      : "Quantity"}
+                  </FormLabel>
                   <FormControl>
                     <Input
                       className="rounded-xl"
                       disabled={disabled}
-                      placeholder="Please provide quantity"
+                      placeholder={
+                        staticData
+                          ? staticData?.enquiry?.quantityPlaceholder
+                          : "Please provide quantity"
+                      }
                       {...field}
                       onChange={(e) => {
                         const value = e.target.value;
@@ -115,12 +133,20 @@ export const CommonEnquiryForm = ({
           control={form.control}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Enquiry Description</FormLabel>
+              <FormLabel>
+                {staticData
+                  ? staticData?.enquiry?.enquiryDescriptionLabel
+                  : "Enquiry Description"}
+              </FormLabel>
               <FormControl>
                 <Textarea
                   className="rounded-xl"
                   disabled={disabled}
-                  placeholder="Please enter Detail description of your enquiry"
+                  placeholder={
+                    staticData
+                      ? staticData?.enquiry?.enquiryDescriptionPlaceholder
+                      : "Please enter Detail description of your enquiry"
+                  }
                   {...field}
                 />
               </FormControl>
@@ -135,7 +161,13 @@ export const CommonEnquiryForm = ({
           disabled={disabled}
           variant="destructive"
         >
-          {disabled ? "Submitting..." : "Submit your request"}
+          {disabled
+            ? staticData
+              ? staticData?.enquiry?.submittingButton
+              : "Submitting..."
+            : staticData
+            ? staticData?.enquiry?.submitButton
+            : "Submit your request"}
         </Button>
       </form>
     </Form>

@@ -5,6 +5,7 @@ import Product from "../models/product.model";
 import { connectToDB } from "../mongoose";
 import Enquiry from "../models/enquiry.model";
 import PartnerBanner from "../models/banner.model";
+import axios from "axios";
 
 const CHUNK_SIZE = 500; // Adjust based on performance testing
 
@@ -31,10 +32,34 @@ export async function createBulkProducts(products: IProduct[]) {
   }
 }
 
+async function translateText(
+  text: string,
+  targetLanguage: string
+): Promise<string> {
+  try {
+    const response = await axios.post(
+      `https://translation.googleapis.com/language/translate/v2`,
+      null,
+      {
+        params: {
+          q: text,
+          target: targetLanguage,
+          key: process.env.NEXT_PUBLIC_GOOGLE_TRANSLATE_API_KEY,
+        },
+      }
+    );
+    return response.data.data.translations[0].translatedText;
+  } catch (error) {
+    console.error("Translation error:", error);
+    throw new Error("Failed to translate text");
+  }
+}
+
 export async function getAllProducts(
   page: number,
   pageSize: number,
-  filters: Record<string, any> = {} // Accepts any key-value pairs
+  filters: Record<string, any> = {},
+  locale: string = "en" // Add locale as a parameter
 ): Promise<{
   products: IProduct[];
   totalCount: number;
@@ -45,22 +70,18 @@ export async function getAllProducts(
   try {
     await connectToDB();
 
-    // Create a filter object
     const filter: any = {};
 
     if (filters.query) {
-      // Add title and brand filtering using regular expressions
       filter.$or = [
-        { title: { $regex: filters.query, $options: "i" } }, // case-insensitive search for title
-        { brand: { $regex: filters.query, $options: "i" } }, // case-insensitive search for brand
+        { title: { $regex: filters.query, $options: "i" } },
+        { brand: { $regex: filters.query, $options: "i" } },
       ];
     }
 
     Object.keys(filters).forEach((key) => {
       if (filters[key]) {
-        // Check if the key is 'brand' and it's a comma-separated string
         if (key === "brand" && typeof filters[key] === "string") {
-          // Split the string by commas and use it as an array in the filter
           filter[key] = { $in: filters[key].split(",") };
         } else {
           filter[key] = filters[key];
@@ -69,43 +90,49 @@ export async function getAllProducts(
     });
 
     const skip = (page - 1) * pageSize;
-
-    // Fetch the total count of products that match the filter
     const totalCount = await Product.countDocuments(filter);
-
-    // Fetch products with filtering and pagination
     const products = await Product.find(filter)
       .skip(skip)
       .limit(pageSize)
       .lean();
 
-    // Fetch the list of distinct brand names in the entire database (ignoring the filter)
     const distinctBrands = await Product.distinct("brand");
-
-    // Format the brands into the desired { label: "brand", value: "brand" } structure
     const brands = distinctBrands.map((brand) => ({
       label: brand,
       value: brand,
     }));
-    // Fetch the list of distinct type names in the entire database (ignoring the filter)
-    const distinctTypes = await Product.distinct("type");
 
-    // Format the brands into the desired { label: "type", value: "type" } structure
+    const distinctTypes = await Product.distinct("type");
     const types = distinctTypes.map((type) => ({
       label: type,
       value: type,
     }));
-    // Fetch the list of distinct category names in the entire database (ignoring the filter)
-    const distinctCategories = await Product.distinct("category");
 
-    // Format the brands into the desired { label: "category", value: "category" } structure
+    const distinctCategories = await Product.distinct("category");
     const categories = distinctCategories.map((category) => ({
       label: category,
       value: category,
     }));
 
+    // Translate product titles and descriptions
+    const translatedProducts = await Promise.all(
+      products.map(async (product) => {
+        const translatedTitle = await translateText(product.title, locale);
+        const translatedDescription = await translateText(
+          product.description,
+          locale
+        );
+
+        return {
+          ...product,
+          title: translatedTitle,
+          description: translatedDescription,
+        };
+      })
+    );
+
     return {
-      products: JSON.parse(JSON.stringify(products)),
+      products: JSON.parse(JSON.stringify(translatedProducts)),
       totalCount,
       brands,
       types,
@@ -130,14 +157,36 @@ export async function getAllProductso() {
 }
 
 export async function getProductById(
-  productId: string
+  productId: string,
+  locale: string = "en" // Default to English
 ): Promise<IProduct | null> {
   try {
     await connectToDB();
 
-    // Use lean() to get a plain JavaScript object
-    const product = await Product.findOne({ _id: productId });
-    return JSON.parse(JSON.stringify(product));
+    // Fetch the product
+    const product = await Product.findOne({ _id: productId }).lean();
+    if (!product) return null;
+
+    // Create a list of fields that should be translated
+    const fieldsToTranslate: Array<
+      keyof Pick<IProduct, "title" | "description" | "productInformationTech">
+    > = ["title", "description", "productInformationTech"];
+
+    // Create a copy of the product
+    const translatedProduct: IProduct = { ...product };
+
+    // Translate each relevant field
+    for (const field of fieldsToTranslate) {
+      const fieldValue = product[field]; // Get the original value
+
+      if (typeof fieldValue === "string") {
+        // Only translate if the field is a string
+        const translatedValue = await translateText(fieldValue, locale);
+        translatedProduct[field] = translatedValue as any; // Cast to any since we're sure it's a string field
+      }
+    }
+
+    return JSON.parse(JSON.stringify(translatedProduct));
   } catch (error) {
     console.log(error);
     return null;

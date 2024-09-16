@@ -32,7 +32,7 @@ export default async function Index() {
       <FeaturedCategory />
       <SingleProductView />
       <FeaturedPartner />
-      <CategoryWise title="Industry Automation" />
+      <CategoryWise />
       <FeaturedProduct />
     </div>
   );

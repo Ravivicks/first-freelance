@@ -17,11 +17,17 @@ import { useRouter } from "next/navigation";
 import EmptyCart from "./EmptyCart";
 import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
 import { cn } from "@/lib/utils";
+import { useStaticDataStore } from "@/stores/useStaticDataStore";
 
 const CartSheet = () => {
   const router = useRouter();
   const { isOpen, onClose } = useCartDetails();
   const { onOpen } = useCommonEnquiry();
+  const {
+    data: staticData,
+    isLoading: staticLoading,
+    error,
+  } = useStaticDataStore();
   const { cart, increaseQuantity, decreaseQuantity, removeFromCart } =
     useCartStore();
   let total = 0;
@@ -36,7 +42,9 @@ const CartSheet = () => {
     <Sheet open={isOpen} onOpenChange={onClose}>
       <SheetContent className="space-y-4">
         <SheetHeader>
-          <SheetTitle>Your Cart</SheetTitle>
+          <SheetTitle>
+            {staticData ? staticData?.cart?.yourCart : "Your Cart"}
+          </SheetTitle>
           {cart && cart?.length > 0 && (
             <SheetDescription className="flex gap-2 bg-destructive/5 p-3 rounded-full font-semibold text-destructive mt-10">
               <Image
@@ -45,7 +53,9 @@ const CartSheet = () => {
                 width={20}
                 height={10}
               />{" "}
-              You Have {cart?.length} Items in your cart!
+              {staticData ? staticData?.cart?.youHave : "You Have"}{" "}
+              {cart?.length}{" "}
+              {staticData ? staticData?.cart?.item : "Items in your cart!"}
             </SheetDescription>
           )}
         </SheetHeader>
@@ -110,7 +120,9 @@ const CartSheet = () => {
                 </div>
               ))}
               <div className="flex justify-between mt-16">
-                <p className="text-black text-sm font-semibold">Subtotal</p>
+                <p className="text-black text-sm font-semibold">
+                  {staticData ? staticData?.cart?.subtotal : "Subtotal"}
+                </p>
                 <p className="text-sm font-semibold text-muted-foreground">
                   ${total.toFixed(2)}
                 </p>
@@ -124,7 +136,7 @@ const CartSheet = () => {
                     onClose();
                   }}
                 >
-                  Checkout
+                  {staticData ? staticData?.cart?.checkout : "Checkout"}
                 </Button>
               )}
               <Button
@@ -138,7 +150,9 @@ const CartSheet = () => {
                   onClose();
                 }}
               >
-                Request For Quotation
+                {staticData
+                  ? staticData?.cart?.requestForQuotation
+                  : "Request For Quotation"}
               </Button>
             </div>
           </div>

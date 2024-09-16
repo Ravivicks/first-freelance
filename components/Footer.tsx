@@ -15,10 +15,18 @@ import { Button } from "./ui/button";
 import Image from "next/image";
 import { useCreateSubscriber } from "@/features/subscriber/use-add-subcriber";
 import Link from "next/link";
+import { useStaticDataStore } from "@/stores/useStaticDataStore";
+import { useParams } from "next/navigation";
 
 const Footer = () => {
+  const { locale } = useParams();
   const [email, setEmail] = useState("");
   const subscriberMutation = useCreateSubscriber();
+  const {
+    data: staticData,
+    isLoading: staticLoading,
+    error,
+  } = useStaticDataStore();
   const values = {
     email: email,
     status: "New",
@@ -33,10 +41,16 @@ const Footer = () => {
       {/* Newsletter Section */}
       <div className="bg-gray-50 w-full py-4 flex items-center justify-center rounded-b-sm border">
         <div className="flex flex-col md:flex-row gap-2 items-center">
-          <p className="font-semibold text-black">NewsLetter</p>
+          <p className="font-semibold text-black">
+            {staticData ? staticData?.footer?.newsletter?.title : "NewsLetter"}
+          </p>
           <Input
             className="w-full md:w-[300px]"
-            placeholder="Enter your email"
+            placeholder={
+              staticData
+                ? staticData?.footer?.newsletter?.placeholder
+                : "Enter your email"
+            }
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -46,7 +60,9 @@ const Footer = () => {
             onClick={handleNewsletter}
             disabled={subscriberMutation.isPending || !email}
           >
-            Subscribe
+            {staticData
+              ? staticData?.footer?.newsletter?.subscribeButton
+              : "Subscribe"}
           </Button>
         </div>
       </div>
@@ -56,16 +72,18 @@ const Footer = () => {
         {/* About Us */}
         <div className="flex-1">
           <h1 className="text-lg font-bold mb-3 flex gap-2">
-            <Building2 className="text-destructive" /> Company
+            <Building2 className="text-destructive" />{" "}
+            {staticData ? staticData?.footer?.company?.title : "Company"}
           </h1>
           <div className="flex flex-col gap-2">
-            <Link href="/who-we-are">Who We Are</Link>
-            <Link href="/our-commitments">Our Commitments</Link>
-            <Link href="/what-we-stand-for">What We Stand For</Link>
-            <Link href="/partner-brands">Partner Brands</Link>
-            <Link href="/career-and-opportunities">
-              Careers & Opportunities
-            </Link>
+            {staticData &&
+              staticData?.footer?.company?.links.map(
+                (link: any, index: number) => (
+                  <Link href={`/${locale}${link?.url}`} key={index}>
+                    {link?.text}
+                  </Link>
+                )
+              )}
           </div>
         </div>
 
@@ -73,14 +91,19 @@ const Footer = () => {
         <div className="flex-1">
           <h1 className="text-lg font-bold mb-3 flex gap-2">
             <Bot className="text-destructive" />
-            Customer Care
+            {staticData
+              ? staticData?.footer?.customerCare?.title
+              : " Customer Care"}
           </h1>
           <div className="flex flex-col gap-2">
-            <Link href="/help-and-support">Help & Support</Link>
-            <Link href="/order-status">Order Status</Link>
-            <Link href="/delivery-info">Delivery Information</Link>
-            <Link href="/return-and-exchange">Return & Exchanges</Link>
-            <Link href="/installation-assistance">Installation Assistance</Link>
+            {staticData &&
+              staticData?.footer?.customerCare?.navItems.map(
+                (link: any, index: number) => (
+                  <Link href={`/${locale}${link?.url}`} key={index}>
+                    {link?.text}
+                  </Link>
+                )
+              )}
           </div>
         </div>
 
@@ -89,16 +112,14 @@ const Footer = () => {
           <h1 className="text-lg font-bold mb-3 flex gap-2">
             {" "}
             <ShieldCheck className="text-destructive" />
-            Trust
+            {staticData ? staticData?.footer?.trust?.title : "Trust"}
           </h1>
-          <Link href="/product-guarantee">Product Guarantee</Link>
-          <Link href="/safe-and-secure-payments">Safe & secure payments</Link>
-          <Link href="/payment-options">Payment Options</Link>
-          <Link href="/data-protection-policies">Data Protection Policies</Link>
-          <Link href="/user-agreements">User Agreements</Link>
-          <Link href="/privacy-and-cookie-settings">
-            Privacy & Cookie Settings
-          </Link>
+          {staticData &&
+            staticData?.footer?.trust?.links.map((link: any, index: number) => (
+              <Link href={`/${locale}${link?.url}`} key={index}>
+                {link?.text}
+              </Link>
+            ))}
         </div>
 
         {/* Payment Method */}
@@ -106,7 +127,9 @@ const Footer = () => {
           <h1 className="text-lg font-bold mb-3 flex gap-2">
             {" "}
             <HandCoins className="text-destructive" />
-            Payment Method
+            {staticData
+              ? staticData?.footer?.paymentMethod?.title
+              : "Payment Method"}
           </h1>
           <Image
             src="/payment.jpg"
@@ -114,15 +137,19 @@ const Footer = () => {
             width={250}
             height={200}
           />
-          <p className="my-3">Online Transfer / Wire Transfer</p>
-          <p>RTGS / NEFT</p>
+          {staticData &&
+            staticData?.footer?.paymentMethod?.methods.map(
+              (link: any, index: number) => <p key={index}>{link}</p>
+            )}
         </div>
 
         {/* Shipping Method */}
         <div className="flex-1">
           <h1 className="text-lg font-bold mb-3 flex gap-2">
             <Truck className="text-destructive" />
-            Shipping Method
+            {staticData
+              ? staticData?.footer?.shippingMethod?.title
+              : "Shipping Method"}
           </h1>
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-2">
@@ -150,7 +177,10 @@ const Footer = () => {
       {/* Footer Bottom */}
       <div className="p-3 bg-gray-50 rounded-t-sm border">
         <p className="text-xs">
-          © 2024 AUTOMATION ECOM GLOBAL. All Rights Reserved. PROSAFE AUTOMATION
+          ©{" "}
+          {staticData
+            ? staticData?.footer?.bottomText
+            : `2024 AUTOMATION ECOM GLOBAL. All Rights Reserved. PROSAFE AUTOMATION
           is not an authorised distributor or representative of the
           manufacturers featured on this website. SIEMENS, SIMATIC ®, SITOP ®,
           SIMADYN ®, SINUMERIC ®, SIMOVERT® and others are registered trademarks
@@ -158,7 +188,7 @@ const Footer = () => {
           by the respective companies. Subject to errors. Notice of liability:
           Despite careful control of the content, we accept no liability for the
           content of external links. The operators of the linked pages are
-          solely responsible for their content.
+          solely responsible for their content.`}
         </p>
       </div>
     </footer>

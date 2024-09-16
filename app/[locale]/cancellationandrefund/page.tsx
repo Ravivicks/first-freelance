@@ -1,7 +1,18 @@
+"use client";
+import { useFetchStaticData } from "@/features/static-data/use-get-data";
+import { useStaticDataStore } from "@/stores/useStaticDataStore";
 import Image from "next/image";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 
 export default function Component() {
+  const { locale } = useParams();
+  useFetchStaticData(locale as string, "car");
+  const {
+    data: staticData,
+    isLoading: staticLoading,
+    error,
+  } = useStaticDataStore();
   return (
     <div>
       <div className=" relative h-[300px] w-full my-4 ">
@@ -16,20 +27,34 @@ export default function Component() {
         <div className="space-y-8">
           <div>
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              Cancellation and Refund Policy
+              {staticData
+                ? staticData?.cancellationAndRefund?.heading
+                : "Cancellation and Refund Policy"}
             </h1>
             <p className="mt-4 text-muted-foreground">
-              {`PROSAFE AUTOMATION believes in helping its customers as far as
+              {staticData
+                ? staticData?.cancellationAndRefund?.introduction
+                : `PROSAFE AUTOMATION believes in helping its customers as far as
               possible, and has therefore a liberal cancellation policy. Under
               this policy:`}
             </p>
           </div>
           <div className="space-y-4">
-            <h2 className="text-xl font-bold">Cancellations and Refunds</h2>
+            <h2 className="text-xl font-bold">
+              {staticData &&
+                staticData?.cancellationAndRefund?.sections?.[0]?.title}
+            </h2>
             <ul className="space-y-2 text-muted-foreground">
               <li>
-                <strong>Timeframe:</strong>
-                {`Cancellations will be considered
+                <strong>
+                  {staticData &&
+                    staticData?.cancellationAndRefund?.sections?.[0]?.items?.[0]
+                      ?.strong}
+                </strong>
+                {staticData
+                  ? staticData?.cancellationAndRefund?.sections?.[0]?.items?.[0]
+                      ?.text
+                  : `Cancellations will be considered
                 only if the request is made within same day of placing the
                 order. However, the cancellation request may not be entertained
                 if the orders have been communicated to the vendors/merchants
@@ -39,12 +64,22 @@ export default function Component() {
           </div>
           <div className="space-y-4">
             <h2 className="text-xl font-bold">
-              How to Request a Cancellation or Refund
+              {staticData
+                ? staticData?.cancellationAndRefund?.sections?.[1]?.title
+                : "How to Request a Cancellation or Refund"}
             </h2>
             <ul className="space-y-2 text-muted-foreground">
               <li>
-                <strong>Process:</strong>{" "}
-                {`In case of receipt of damaged or
+                <strong>
+                  {staticData
+                    ? staticData?.cancellationAndRefund?.sections?.[1]
+                        ?.items?.[0]?.strong
+                    : "Process:"}
+                </strong>{" "}
+                {staticData
+                  ? staticData?.cancellationAndRefund?.sections?.[1]?.items?.[0]
+                      ?.text
+                  : `In case of receipt of damaged or
                 defective items please report the same to our Customer Service
                 team. The request will, however, be entertained once the
                 merchant has checked and determined the same at his own end.
@@ -56,16 +91,31 @@ export default function Component() {
                 into your complaint will take an appropriate decision.`}
               </li>
               <li>
-                <strong>Response Time:</strong> In case of any Refunds approved
-                {` by the PROSAFE AUTOMATION, it'll take 1-2 days for the refund to
+                <strong>
+                  {staticData
+                    ? staticData?.cancellationAndRefund?.sections?.[1]
+                        ?.items?.[1]?.strong
+                    : "Response Time:"}
+                </strong>{" "}
+                {staticData
+                  ? staticData?.cancellationAndRefund?.sections?.[1]?.items?.[1]
+                      ?.text
+                  : `In case of any Refunds approved
+                by the PROSAFE AUTOMATION, it'll take 1-2 days for the refund to
                 be processed to the end customer.`}
               </li>
             </ul>
           </div>
           <div className="space-y-4">
-            <h2 className="text-xl font-bold">Customer Support</h2>
+            <h2 className="text-xl font-bold">
+              {staticData
+                ? staticData?.cancellationAndRefund?.sections?.[2]?.title
+                : "Customer Support"}
+            </h2>
             <p className="text-muted-foreground">
-              {`If you have any questions or concerns about our cancellation and
+              {staticData
+                ? staticData?.cancellationAndRefund?.sections?.[2]?.paragraph
+                : `If you have any questions or concerns about our cancellation and
               refund policy, please don't hesitate to reach out to our customer
               support team. We are here to assist you and ensure your shopping
               experience is a positive one.`}
@@ -77,7 +127,10 @@ export default function Component() {
                 prefetch={false}
               >
                 <MailOpenIcon className="mr-2 h-5 w-5" />
-                Email Support
+                {staticData
+                  ? staticData?.cancellationAndRefund?.sections?.[2]
+                      ?.contactLinks?.[0]?.text
+                  : "Email Support"}
               </Link>
               <Link
                 href="#"
@@ -85,7 +138,10 @@ export default function Component() {
                 prefetch={false}
               >
                 <PhoneIcon className="mr-2 h-5 w-5" />
-                Call Support
+                {staticData
+                  ? staticData?.cancellationAndRefund?.sections?.[2]
+                      ?.contactLinks?.[1]?.text
+                  : "Call Support"}
               </Link>
             </div>
           </div>

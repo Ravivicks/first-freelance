@@ -1,0 +1,84 @@
+[{
+    "careersAndOpportunities": {
+    "heading": "Careers and Opportunities",
+    "intro": "Join Automation eCom Global and be part of a team driving innovation in industrial automation across the globe.",
+    "whyJoinUs": {
+      "title": "Why Join Us?",
+      "careerAspects": [
+        {
+          "id": "global-leader",
+          "title": "Be Part of a Global Leader",
+          "content": "Work with cutting-edge technologies and global brands like Siemens, Schneider, DEIF, and ComAp. Our operations span Dubai, USA, China, India, and Germany, offering diverse project opportunities across multiple industries and regions."
+        },
+        {
+          "id": "growth",
+          "title": "Grow with Us",
+          "content": "Access a range of training programs, mentorship opportunities, and on-the-job learning experiences. Stay ahead with emerging technologies like Industry 4.0, AI, and IoT-based automation systems."
+        },
+        {
+          "id": "work-environment",
+          "title": "Dynamic Work Environment",
+          "content": "Join a diverse, inclusive workplace where innovation thrives and every voice is heard. Collaborate with global teams and bring fresh ideas to solve complex challenges in industrial automation."
+        },
+        {
+          "id": "roles",
+          "title": "Exciting Roles",
+          "content": "Explore opportunities in Engineering, Sales, Customer Support, Product Management, and Supply Chain. Every position is crucial to our success in the industrial automation market."
+        },
+        {
+          "id": "work-life-balance",
+          "title": "Work-Life Balance",
+          "content": "Enjoy flexible working arrangements, paid time off, and health benefits. We're committed to supporting your well-being and productivity."
+        },
+        {
+          "id": "sustainability",
+          "title": "Contribute to a Sustainable Future",
+          "content": "Be part of projects that reduce energy consumption, optimize resource use, and minimize environmental impact. Contribute to positive change both in and out of the workplace."
+        }
+      ]
+    },
+    "excitingRoles": {
+      "title": "Exciting Roles Across Multiple Functions",
+      "roles": [
+        "Engineering",
+        "Sales and Business Development",
+        "Customer Support",
+        "Technical Assistance",
+        "Product Management",
+        "Marketing",
+        "Supply Chain",
+        "Operations"
+      ],
+      "description": "Whether your passion lies in technical innovation, sales strategy, or customer service, we offer roles that match your skills and aspirations."
+    },
+    "joinUs": {
+      "title": "Join Us on Our Journey",
+      "content": "At Automation eCom Global, we are not just building automation solutions; we are building a future where industries are more efficient, sustainable, and innovative. We invite passionate, driven individuals to join us on this journey and be part of something greater.",
+      "benefits": [
+        {
+          "icon": "Rocket",
+          "text": "Work with cutting-edge technology"
+        },
+        {
+          "icon": "Globe2",
+          "text": "Contribute to industry-leading projects"
+        },
+        {
+          "icon": "Users",
+          "text": "Grow alongside bright minds in automation"
+        },
+        {
+          "icon": "Leaf",
+          "text": "Make a positive impact on the environment"
+        }
+      ],
+      "callToAction": {
+        "title": "Ready to Start Your Journey?",
+        "description": "Explore our current openings and take the first step towards an exciting career in industrial automation.",
+        "buttonText": "View Open Positions",
+        "buttonVariant": "destructive",
+        "buttonSize": "lg"
+      }
+    }
+  }
+}]

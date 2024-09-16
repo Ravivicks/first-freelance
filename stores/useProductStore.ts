@@ -21,7 +21,8 @@ interface Actions {
     key: string, // Add key to fetchData
     page?: number,
     pageSize?: number,
-    filters?: Record<string, any>
+    filters?: Record<string, any>,
+    locale?: string // Add locale to fetchData
   ) => Promise<void>;
   setPage: (key: string, page: number) => void;
 }
@@ -53,13 +54,19 @@ export const useProductsStore = create<State & Actions>((set) => ({
   types: INITIAL_STATE.types,
   categories: INITIAL_STATE.categories,
 
-  fetchData: async (key, page = 1, pageSize = 20, filters = {}) => {
+  fetchData: async (
+    key,
+    page = 1,
+    pageSize = 20,
+    filters = {},
+    locale = "en"
+  ) => {
     try {
       set({ isLoading: true, error: null });
 
-      // Fetch products and totalCount from the API with dynamic filters
+      // Fetch products, totalCount, and metadata from the API with dynamic filters and locale
       const { products, totalCount, brands, types, categories } =
-        await getAllProducts(page, pageSize, filters);
+        await getAllProducts(page, pageSize, filters, locale);
 
       // Calculate total pages
       const totalPages = Math.ceil(totalCount / pageSize);
@@ -69,8 +76,8 @@ export const useProductsStore = create<State & Actions>((set) => ({
           ...state.products,
           [key]:
             page === 1
-              ? products
-              : [...(state.products[key] || []), ...products],
+              ? products // Replace products on the first page
+              : [...(state.products[key] || []), ...products], // Append products on subsequent pages
         },
         isLoading: false,
         currentPage: {
@@ -79,9 +86,9 @@ export const useProductsStore = create<State & Actions>((set) => ({
         },
         totalPages, // Single value for totalPages
         totalCount, // Single value for totalCount
-        brands,
-        types,
-        categories,
+        brands, // Update brands from the API
+        types, // Update types from the API
+        categories, // Update categories from the API
       }));
     } catch (error) {
       set({ error, isLoading: false });

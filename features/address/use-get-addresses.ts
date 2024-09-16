@@ -13,6 +13,7 @@ export const useGetAddresses = (email: string) => {
       return (response as IAddress[]) || [];
     },
     enabled: false,
+    refetchOnWindowFocus: false,
   });
   return query;
 };

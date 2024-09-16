@@ -13,6 +13,7 @@ export const useGetBanners = (title?: string) => {
       return response;
     },
     enabled: !!title || title === undefined, // Only run if title is defined or if it's fetching all banners
+    refetchOnWindowFocus: false,
   });
   return query;
 };

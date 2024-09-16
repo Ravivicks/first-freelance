@@ -13,6 +13,7 @@ export const useGetAddress = (id: string) => {
       }
       return response;
     },
+    refetchOnWindowFocus: false,
   });
   return query;
 };

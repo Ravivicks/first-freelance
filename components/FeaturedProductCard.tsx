@@ -9,8 +9,9 @@ import { useCartStore } from "@/stores/useCartStore";
 import useFromStore from "@/hooks/useFromStore";
 import { useCartDetails } from "@/hooks/use-cart-details";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
+import { useStaticDataStore } from "@/stores/useStaticDataStore";
 
 type Props = {
   product: IProduct;
@@ -18,6 +19,7 @@ type Props = {
 };
 
 const FeaturedProductCard = ({ product, isBestDeal }: Props) => {
+  const { locale } = useParams();
   const addToCart = useCartStore((state) => state.addToCart);
   const { onOpen } = useCommonEnquiry();
   const { onOpen: cartOpen } = useCartDetails();
@@ -25,6 +27,11 @@ const FeaturedProductCard = ({ product, isBestDeal }: Props) => {
   const router = useRouter(); // Use Next.js router for navigation
 
   const isInCart = cart?.some((item) => item._id === product._id);
+  const {
+    data: staticData,
+    isLoading: staticLoading,
+    error: staticError,
+  } = useStaticDataStore();
 
   const handleCardClick = () => {
     if (window.innerWidth < 768) {
@@ -92,7 +99,13 @@ const FeaturedProductCard = ({ product, isBestDeal }: Props) => {
             isInCart ? cartOpen() : addToCart(product);
           }}
         >
-          {isInCart ? "Go to cart" : "Add to cart"}
+          {isInCart
+            ? staticData
+              ? staticData?.bestDeal?.buttonLabels?.goToCart
+              : "Go to cart"
+            : staticData
+            ? staticData?.bestDeal?.buttonLabels?.addToCart
+            : "Add to cart"}
         </Button>
         {product.lowestPrice !== 0 ? (
           <Button
@@ -103,7 +116,9 @@ const FeaturedProductCard = ({ product, isBestDeal }: Props) => {
               onOpen("quoteRequest", product._id);
             }}
           >
-            Request Quotation
+            {staticData
+              ? staticData?.bestDeal?.buttonLabels?.requestQuotation
+              : "Request Quotation"}
           </Button>
         ) : (
           <Button
@@ -114,13 +129,17 @@ const FeaturedProductCard = ({ product, isBestDeal }: Props) => {
               onOpen("priceRequest", product._id);
             }}
           >
-            Request For Price
+            {staticData
+              ? staticData?.bestDeal?.buttonLabels?.requestForPrice
+              : "Request For Price"}
           </Button>
         )}
 
-        <Link href={`/products/${product._id}`} className="w-full">
+        <Link href={`/${locale}/products/${product._id}`} className="w-full">
           <Button variant="outline" className="w-full rounded-full">
-            Product Details
+            {staticData
+              ? staticData?.bestDeal?.buttonLabels?.productDetails
+              : "Product Details"}
           </Button>
         </Link>
       </div>
