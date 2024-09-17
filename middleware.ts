@@ -33,6 +33,6 @@ export const config = {
     "/(api|trpc)(.*)",
     // Apply next-intl middleware to localized routes
     "/",
-    "/(en|es)/:path*",
+    "/(en|es|ca|fr|it|ko|pt|ro)/:path*",
   ],
 };
