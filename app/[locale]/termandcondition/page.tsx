@@ -1,4 +1,5 @@
 "use client";
+import Loader from "@/components/Loader";
 import { useFetchStaticData } from "@/features/static-data/use-get-data";
 import { useStaticDataStore } from "@/stores/useStaticDataStore";
 import Image from "next/image";
@@ -12,6 +13,9 @@ export default function Component() {
     isLoading: staticLoading,
     error,
   } = useStaticDataStore();
+  if (staticLoading) {
+    return <Loader />;
+  }
   return (
     <div className="bg-background text-foreground">
       <div className=" relative h-[300px] w-full my-4 ">

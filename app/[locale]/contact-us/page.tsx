@@ -7,6 +7,7 @@ import { useGetContacts } from "@/features/contact/use-get-contacts";
 import { useParams } from "next/navigation";
 import { useFetchStaticData } from "@/features/static-data/use-get-data";
 import { useStaticDataStore } from "@/stores/useStaticDataStore";
+import Loader from "@/components/Loader";
 
 export default function Component() {
   const { locale } = useParams();
@@ -17,8 +18,8 @@ export default function Component() {
     error,
   } = useStaticDataStore();
   const { data, isLoading } = useGetContacts();
-  if (isLoading) {
-    return <div>Loading...</div>;
+  if (isLoading && staticLoading) {
+    return <Loader />;
   }
   return (
     <div className="w-full">

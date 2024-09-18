@@ -7,6 +7,7 @@ import { useParams } from "next/navigation";
 import { useFetchStaticData } from "@/features/static-data/use-get-data";
 import { useStaticDataStore } from "@/stores/useStaticDataStore";
 import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
+import Loader from "@/components/Loader";
 
 const iconMapping: { [key: string]: React.ElementType } = {
   Lock,
@@ -18,12 +19,11 @@ const iconMapping: { [key: string]: React.ElementType } = {
 export default function DataProtectionPolicyPage() {
   const { locale } = useParams();
   useFetchStaticData(locale as string, "dpp");
-  const {
-    data: staticData,
-    isLoading: staticLoading,
-    error,
-  } = useStaticDataStore();
+  const { data: staticData, isLoading, error } = useStaticDataStore();
   const { onOpen } = useCommonEnquiry();
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div className="min-h-screen">
       <div className="container mx-auto px-4 py-12 max-w-6xl">

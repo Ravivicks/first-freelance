@@ -8,6 +8,7 @@ import { useParams } from "next/navigation";
 import { useFetchStaticData } from "@/features/static-data/use-get-data";
 import { useStaticDataStore } from "@/stores/useStaticDataStore";
 import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
+import Loader from "@/components/Loader";
 const iconMapping: { [key: string]: React.ElementType } = {
   Lightbulb,
   Shield,
@@ -21,7 +22,7 @@ export default function WhatWeStandFor() {
   const [activeTab, setActiveTab] = useState("innovation");
   const { locale } = useParams();
   useFetchStaticData(locale as string, "wwsf");
-  const { data: staticData } = useStaticDataStore();
+  const { data: staticData, isLoading } = useStaticDataStore();
   const { onOpen } = useCommonEnquiry();
 
   const coreValues = [
@@ -78,7 +79,9 @@ export default function WhatWeStandFor() {
         "We serve customers across Dubai, USA, China, India, and Germany, providing them with the best automation solutions sourced from world-leading brands. Our teams are equipped to provide expert advice that takes into consideration the unique demands and regulatory requirements of each market.",
     },
   ];
-
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div className="min-h-screen">
       <div className="container mx-auto px-4 py-8 space-y-12 ">

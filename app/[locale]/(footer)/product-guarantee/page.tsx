@@ -12,12 +12,17 @@ import { useParams } from "next/navigation";
 import { useFetchStaticData } from "@/features/static-data/use-get-data";
 import { useStaticDataStore } from "@/stores/useStaticDataStore";
 import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
+import Loader from "@/components/Loader";
 
 export default function Component() {
   const { locale } = useParams();
   useFetchStaticData(locale as string, "pg");
-  const { data: staticData } = useStaticDataStore();
+  const { data: staticData, isLoading } = useStaticDataStore();
   const { onOpen } = useCommonEnquiry();
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <div className="min-h-screen">

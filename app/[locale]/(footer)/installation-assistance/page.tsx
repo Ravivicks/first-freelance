@@ -4,11 +4,15 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useParams } from "next/navigation";
 import { useFetchStaticData } from "@/features/static-data/use-get-data";
 import { useStaticDataStore } from "@/stores/useStaticDataStore";
+import Loader from "@/components/Loader";
 
 export default function InstallationAssistance() {
   const { locale } = useParams();
   useFetchStaticData(locale as string, "ia");
-  const { data: staticData } = useStaticDataStore();
+  const { data: staticData, isLoading } = useStaticDataStore();
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-8 text-center">
@@ -44,12 +48,14 @@ export default function InstallationAssistance() {
 
       <Tabs defaultValue="expert-guidance" className="mb-8">
         <TabsList className="grid w-full grid-cols-4 mb-4">
-          {staticData ? (
-            Object.keys(staticData?.installationAssistance?.tabs).map((key) => (
-              <TabsTrigger key={key} value={key}>
-                {staticData?.installationAssistance?.tabs[key].tab}
-              </TabsTrigger>
-            ))
+          {staticData?.installationAssistance?.tabs ? (
+            Object?.keys(staticData?.installationAssistance?.tabs).map(
+              (key) => (
+                <TabsTrigger key={key} value={key}>
+                  {staticData?.installationAssistance?.tabs[key].tab}
+                </TabsTrigger>
+              )
+            )
           ) : (
             <>
               <TabsTrigger value="expert-guidance">Expert Guidance</TabsTrigger>
@@ -59,8 +65,8 @@ export default function InstallationAssistance() {
             </>
           )}
         </TabsList>
-        {staticData ? (
-          Object.entries(staticData?.installationAssistance?.tabs).map(
+        {staticData?.installationAssistance?.tabs && staticData ? (
+          Object?.entries(staticData?.installationAssistance?.tabs).map(
             ([key, tab]: [key: any, tab: any]) => (
               <TabsContent key={key} value={key}>
                 <Card>
@@ -221,12 +227,12 @@ export default function InstallationAssistance() {
         <Card className="mb-8">
           <CardHeader>
             <CardTitle>
-              {staticData?.installationAssistance?.additionalServices.title}
+              {staticData?.installationAssistance?.additionalServices?.title}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {staticData?.installationAssistance?.additionalServices.items.map(
+              {staticData?.installationAssistance?.additionalServices?.items?.map(
                 (item: any, index: number) => (
                   <div key={index}>
                     <h3 className="text-lg font-semibold">
@@ -290,12 +296,12 @@ export default function InstallationAssistance() {
         <Card>
           <CardHeader>
             <CardTitle>
-              {staticData?.installationAssistance?.whyChoose.title}
+              {staticData?.installationAssistance?.whyChoose?.title}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <ul className="list-disc list-inside space-y-2">
-              {staticData?.installationAssistance?.whyChoose.items.map(
+              {staticData?.installationAssistance?.whyChoose?.items?.map(
                 (item: any, index: number) => (
                   <li key={index}>{item}</li>
                 )

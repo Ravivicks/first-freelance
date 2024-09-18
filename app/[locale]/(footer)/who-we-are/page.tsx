@@ -1,4 +1,5 @@
 "use client";
+import Loader from "@/components/Loader";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -18,8 +19,12 @@ const iconMapping: { [key: string]: React.ElementType } = {
 export default function WhoWeAre() {
   const { locale } = useParams();
   useFetchStaticData(locale as string, "wwa");
-  const { data: staticData } = useStaticDataStore();
+  const { data: staticData, isLoading } = useStaticDataStore();
   const { onOpen } = useCommonEnquiry();
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <div className="container mx-auto px-2 py-8 space-y-12">

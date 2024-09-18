@@ -16,6 +16,7 @@ import {
 import { useParams } from "next/navigation";
 import { useFetchStaticData } from "@/features/static-data/use-get-data";
 import { useStaticDataStore } from "@/stores/useStaticDataStore";
+import Loader from "@/components/Loader";
 
 const iconMapping: { [key: string]: React.ElementType } = {
   TrendingUp,
@@ -31,11 +32,7 @@ export default function CareersAndOpportunities() {
   const [activeTab, setActiveTab] = useState("global-leader");
   const { locale } = useParams();
   useFetchStaticData(locale as string, "cao");
-  const {
-    data: staticData,
-    isLoading: staticLoading,
-    error,
-  } = useStaticDataStore();
+  const { data: staticData, isLoading, error } = useStaticDataStore();
 
   const careerAspects = [
     {
@@ -92,6 +89,10 @@ export default function CareersAndOpportunities() {
     "Supply Chain",
     "Operations",
   ];
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <div className="min-h-screen">

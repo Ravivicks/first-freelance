@@ -33,13 +33,14 @@ import {
 import { useParams } from "next/navigation";
 import { useFetchStaticData } from "@/features/static-data/use-get-data";
 import { useStaticDataStore } from "@/stores/useStaticDataStore";
+import Loader from "@/components/Loader";
 
 export default function OrderStatus() {
   const [orderNumber, setOrderNumber] = useState("");
   const [orderStatus, setOrderStatus] = useState(null);
   const { locale } = useParams();
   useFetchStaticData(locale as string, "os");
-  const { data: staticData } = useStaticDataStore();
+  const { data: staticData, isLoading } = useStaticDataStore();
 
   const mockOrderStatuses: any = {
     "12345": {
@@ -80,6 +81,10 @@ export default function OrderStatus() {
     HistoryIcon: <HistoryIcon className="h-6 w-6" />,
   };
 
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <div className="container mx-auto px-4 py-8">
       <Card className="mb-8 custom-bg">
@@ -119,16 +124,17 @@ export default function OrderStatus() {
               </CardHeader>
               <CardContent>
                 <ScrollArea className="h-[400px] w-full rounded-md border p-4">
-                  {Object.entries(staticData?.orderStatus?.features)?.map(
-                    ([key, item]: [key: any, item: any]) => (
-                      <OrderStatusFeature
-                        key={key}
-                        icon={iconMap[item.icon]}
-                        title={item.title}
-                        description={item.description}
-                      />
-                    )
-                  )}
+                  {staticData?.orderStatus?.features &&
+                    Object?.entries(staticData?.orderStatus?.features)?.map(
+                      ([key, item]: [key: any, item: any]) => (
+                        <OrderStatusFeature
+                          key={key}
+                          icon={iconMap[item.icon]}
+                          title={item.title}
+                          description={item.description}
+                        />
+                      )
+                    )}
                 </ScrollArea>
               </CardContent>
             </Card>
@@ -145,43 +151,43 @@ export default function OrderStatus() {
                   <li>
                     {
                       staticData?.orderStatus?.features?.realTimeTracking
-                        .description
+                        ?.description
                     }
                   </li>
                   <li>
                     {
                       staticData?.orderStatus?.features?.automatedNotifications
-                        .description
+                        ?.description
                     }
                   </li>
                   <li>
                     {
                       staticData?.orderStatus?.features?.accessViaPortal
-                        .description
+                        ?.description
                     }
                   </li>
                   <li>
                     {
                       staticData?.orderStatus?.features?.orderStatusSupport
-                        .description
+                        ?.description
                     }
                   </li>
                   <li>
                     {
                       staticData?.orderStatus?.features?.deliveryTimeframes
-                        .description
+                        ?.description
                     }
                   </li>
                   <li>
                     {
                       staticData?.orderStatus?.features?.multipleShippingMethods
-                        .description
+                        ?.description
                     }
                   </li>
                   <li>
                     {
                       staticData?.orderStatus?.features?.seamlessCommunication
-                        .description
+                        ?.description
                     }
                   </li>
                 </ul>

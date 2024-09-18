@@ -1,4 +1,5 @@
 "use client";
+import Loader from "@/components/Loader";
 import { useFetchStaticData } from "@/features/static-data/use-get-data";
 import { useStaticDataStore } from "@/stores/useStaticDataStore";
 import Image from "next/image";
@@ -8,11 +9,10 @@ import { useParams } from "next/navigation";
 export default function Component() {
   const { locale } = useParams();
   useFetchStaticData(locale as string, "car");
-  const {
-    data: staticData,
-    isLoading: staticLoading,
-    error,
-  } = useStaticDataStore();
+  const { data: staticData, isLoading, error } = useStaticDataStore();
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div>
       <div className=" relative h-[300px] w-full my-4 ">

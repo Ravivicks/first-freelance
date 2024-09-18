@@ -25,6 +25,7 @@ import {
 import { useParams } from "next/navigation";
 import { useFetchStaticData } from "@/features/static-data/use-get-data";
 import { useStaticDataStore } from "@/stores/useStaticDataStore";
+import Loader from "@/components/Loader";
 const iconMapping: { [key: string]: React.ElementType } = {
   ArrowLeftRight,
   Package,
@@ -41,12 +42,15 @@ export default function ReturnAndExchange() {
   const [orderNumber, setOrderNumber] = useState("");
   const { locale } = useParams();
   useFetchStaticData(locale as string, "rae");
-  const { data: staticData } = useStaticDataStore();
+  const { data: staticData, isLoading } = useStaticDataStore();
 
   const handleInitiateReturn = () => {
     // This would typically involve an API call to your backend
     console.log(`Initiating return for order number: ${orderNumber}`);
   };
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <div className="container mx-auto px-4 py-8">

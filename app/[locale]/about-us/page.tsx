@@ -7,15 +7,16 @@ import { useParams } from "next/navigation";
 import { useGetOtherPageData } from "@/features/static-data/use-get-other";
 import { useFetchStaticData } from "@/features/static-data/use-get-data";
 import { useStaticDataStore } from "@/stores/useStaticDataStore";
+import Loader from "@/components/Loader";
 
 export default function Component() {
   const { locale } = useParams();
   useFetchStaticData(locale as string, "about");
-  const {
-    data: staticData,
-    isLoading: staticLoading,
-    error,
-  } = useStaticDataStore();
+  const { data: staticData, isLoading, error } = useStaticDataStore();
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <div className="flex flex-col min-h-dvh">

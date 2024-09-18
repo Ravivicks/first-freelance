@@ -9,6 +9,7 @@ import { useParams } from "next/navigation";
 import { useFetchStaticData } from "@/features/static-data/use-get-data";
 import { useStaticDataStore } from "@/stores/useStaticDataStore";
 import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
+import Loader from "@/components/Loader";
 
 const iconMapping: { [key: string]: React.ElementType } = {
   Cpu,
@@ -21,7 +22,7 @@ export default function PartnerBrands() {
   const [activeTab, setActiveTab] = useState("siemens");
   const { locale } = useParams();
   useFetchStaticData(locale as string, "pb");
-  const { data: staticData } = useStaticDataStore();
+  const { data: staticData, isLoading } = useStaticDataStore();
   const { onOpen } = useCommonEnquiry();
 
   const partners = [
@@ -93,7 +94,9 @@ export default function PartnerBrands() {
         "Based in the Czech Republic, ComAp is an industry leader in engine controllers, known for delivering high-performance solutions for a wide range of power generation and industrial applications. ComAp controllers are trusted for their advanced synchronization, load-sharing, and control capabilities, making them ideal for businesses that rely on precise and dependable control systems. Automation eCom Global offers a range of ComAp products, including controllers for diesel generators, turbines, and hybrid power systems, ensuring that our customers have the tools they need to maintain continuous, uninterrupted operations.",
     },
   ];
-
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20">
       <div className="container mx-auto px-4 py-8 space-y-8">

@@ -1,4 +1,5 @@
 "use client";
+import Loader from "@/components/Loader";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -20,7 +21,7 @@ const iconMapping: { [key: string]: React.ElementType } = {
 export default function OurCommitments() {
   const { locale } = useParams();
   useFetchStaticData(locale as string, "oc");
-  const { data: staticData } = useStaticDataStore();
+  const { data: staticData, isLoading } = useStaticDataStore();
   const { onOpen } = useCommonEnquiry();
 
   const commitments = [
@@ -55,7 +56,9 @@ export default function OurCommitments() {
         "We're committed to providing energy-efficient solutions and supporting environmental and social initiatives in our communities.",
     },
   ];
-
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div className="container mx-auto px-4 py-8 space-y-12">
       <section className="text-center space-y-4 custom-bg py-5 rounded-md">

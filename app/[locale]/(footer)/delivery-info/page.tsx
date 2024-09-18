@@ -30,6 +30,7 @@ import {
 import { useParams } from "next/navigation";
 import { useFetchStaticData } from "@/features/static-data/use-get-data";
 import { useStaticDataStore } from "@/stores/useStaticDataStore";
+import Loader from "@/components/Loader";
 
 const iconMapping: { [key: string]: LucideIcon } = {
   Globe,
@@ -48,7 +49,7 @@ export default function DeliveryInformation() {
 
   const { locale } = useParams();
   useFetchStaticData(locale as string, "di");
-  const { data: staticData } = useStaticDataStore();
+  const { data: staticData, isLoading } = useStaticDataStore();
 
   const activeFeatureData = staticData?.deliveryInfo?.features.find(
     (f: any) => f.id === activeFeature
@@ -57,6 +58,10 @@ export default function DeliveryInformation() {
   const ActiveIcon = activeFeatureData
     ? iconMapping[activeFeatureData.icon]
     : null;
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <div className="container mx-auto px-4 py-8">
