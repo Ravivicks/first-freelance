@@ -1,3 +1,4 @@
+"use client";
 import {
   Shield,
   Cookie,
@@ -11,88 +12,191 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
+import { useParams } from "next/navigation";
+import { useFetchStaticData } from "@/features/static-data/use-get-data";
+import { useStaticDataStore } from "@/stores/useStaticDataStore";
+const iconMapping: { [key: string]: React.ElementType } = {
+  Shield,
+  Cookie,
+  Lock,
+  RefreshCw,
+  UserCheck,
+  ChevronRight,
+};
 
 export default function PrivacyCookieSettingsPage() {
+  const { locale } = useParams();
+  useFetchStaticData(locale as string, "pacs");
+  const { data: staticData } = useStaticDataStore();
+
   return (
     <div className="min-h-screen">
       <div className="container mx-auto px-4 py-12 max-w-5xl">
         <header className="text-center mb-12">
           <Shield className="w-20 h-20 mx-auto mb-6 text-destructive" />
-          <h1 className="text-5xl font-bold mb-4">Privacy & Cookie Settings</h1>
+          <h1 className="text-5xl font-bold mb-4">
+            {staticData
+              ? staticData?.privacyAndCookieSettings?.title
+              : `Privacy & Cookie Settings`}
+          </h1>
           <p className="text-xl max-w-5xl mx-auto">
-            At Automation eCom Global, we prioritize your privacy and are
+            {staticData
+              ? staticData?.privacyAndCookieSettings?.description
+              : `At Automation eCom Global, we prioritize your privacy and are
             committed to ensuring that your personal data is handled responsibly
             and securely. Our Privacy & Cookie Settings allow you to control how
             your information is collected, stored, and used while you navigate
             our website. We strive to provide you with full transparency
             regarding our data collection practices and give you the tools to
             manage your privacy preferences, including the use of cookies and
-            other tracking technologies.
+            other tracking technologies.`}
           </p>
         </header>
 
         <Tabs defaultValue="privacy" className="mb-12">
           <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 mb-8">
-            <TabsTrigger value="privacy">Privacy Policy</TabsTrigger>
-            <TabsTrigger value="cookies">Cookie Policy</TabsTrigger>
-            <TabsTrigger value="preferences">Cookie Preferences</TabsTrigger>
-            <TabsTrigger value="updates">Policy Updates</TabsTrigger>
+            {staticData ? (
+              staticData?.privacyAndCookieSettings?.privacyPoints?.map(
+                (point: any, index: number) => {
+                  const IconComponent = iconMapping[point.icon];
+                  return (
+                    <TabsTrigger key={index} value={point.tab}>
+                      {IconComponent && (
+                        <IconComponent className="w-5 h-5 mr-2" />
+                      )}
+                      <span className="capitalize">{point.tab}</span>
+                    </TabsTrigger>
+                  );
+                }
+              )
+            ) : (
+              <>
+                <TabsTrigger value="privacy">Privacy Policy</TabsTrigger>
+                <TabsTrigger value="cookies">Cookie Policy</TabsTrigger>
+                <TabsTrigger value="preferences">
+                  Cookie Preferences
+                </TabsTrigger>
+                <TabsTrigger value="updates">Policy Updates</TabsTrigger>
+              </>
+            )}
           </TabsList>
-          {privacyPoints.map((point, index) => (
-            <TabsContent key={index} value={point.tab}>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-2xl">
-                    <point.icon className="w-8 h-8" />
-                    <span>{point.title}</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="prose max-w-none">
-                    {point.content.split("\n\n").map((paragraph, pIndex) => (
-                      <p key={pIndex} className="mb-4 text-gray-700">
-                        {paragraph}
-                      </p>
-                    ))}
-                    {point.list && (
-                      <ul className="space-y-2 text-gray-700">
-                        {point.list.map((item, iIndex) => (
-                          <li key={iIndex} className="flex items-start">
-                            <ChevronRight className="w-5 h-5 mr-2 mt-1 flex-shrink-0" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            </TabsContent>
-          ))}
+          {staticData
+            ? staticData?.privacyAndCookieSettings?.privacyPoints?.map(
+                (point: any, index: number) => {
+                  const IconComponent = iconMapping[point.icon];
+                  return (
+                    <TabsContent key={index} value={point.tab}>
+                      <Card>
+                        <CardHeader>
+                          <CardTitle className="flex items-center gap-2 text-2xl">
+                            {IconComponent && (
+                              <IconComponent className="w-8 h-8" />
+                            )}
+                            <span>{point.title}</span>
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="prose max-w-none">
+                            {point.content
+                              .split("\n\n")
+                              .map((paragraph: any, pIndex: number) => (
+                                <p key={pIndex} className="mb-4 text-gray-700">
+                                  {paragraph}
+                                </p>
+                              ))}
+                            {point.list && (
+                              <ul className="space-y-2 text-gray-700">
+                                {point.list.map((item: any, iIndex: number) => (
+                                  <li key={iIndex} className="flex items-start">
+                                    <ChevronRight className="w-5 h-5 mr-2 mt-1 flex-shrink-0" />
+                                    <span>{item}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </TabsContent>
+                  );
+                }
+              )
+            : privacyPoints.map((point, index) => (
+                <TabsContent key={index} value={point.tab}>
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2 text-2xl">
+                        <point.icon className="w-8 h-8" />
+                        <span>{point.title}</span>
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="prose max-w-none">
+                        {point.content
+                          .split("\n\n")
+                          .map((paragraph, pIndex) => (
+                            <p key={pIndex} className="mb-4 text-gray-700">
+                              {paragraph}
+                            </p>
+                          ))}
+                        {point.list && (
+                          <ul className="space-y-2 text-gray-700">
+                            {point.list.map((item, iIndex) => (
+                              <li key={iIndex} className="flex items-start">
+                                <ChevronRight className="w-5 h-5 mr-2 mt-1 flex-shrink-0" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </TabsContent>
+              ))}
         </Tabs>
 
         <Card className="mb-12 bg-gradient-to-r from-blue-100 to-purple-100 border-none shadow-lg">
           <CardHeader>
             <CardTitle className="text-2xl font-bold">
-              Manage Your Cookie Preferences
+              {staticData
+                ? staticData?.privacyAndCookieSettings?.manageTitle
+                : `Manage Your Cookie Preferences`}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid gap-6 md:grid-cols-2">
-              {cookieTypes.map((type, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-between p-4 bg-white rounded-lg shadow"
-                >
-                  <Label
-                    htmlFor={`cookie-${index}`}
-                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                  >
-                    {type}
-                  </Label>
-                  <Switch id={`cookie-${index}`} />
-                </div>
-              ))}
+              {staticData
+                ? staticData?.privacyAndCookieSettings?.cookieTypes.map(
+                    (type: any, index: number) => (
+                      <div
+                        key={index}
+                        className="flex items-center justify-between p-4 bg-white rounded-lg shadow"
+                      >
+                        <Label
+                          htmlFor={`cookie-${index}`}
+                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                        >
+                          {type}
+                        </Label>
+                        <Switch id={`cookie-${index}`} />
+                      </div>
+                    )
+                  )
+                : cookieTypes.map((type, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center justify-between p-4 bg-white rounded-lg shadow"
+                    >
+                      <Label
+                        htmlFor={`cookie-${index}`}
+                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      >
+                        {type}
+                      </Label>
+                      <Switch id={`cookie-${index}`} />
+                    </div>
+                  ))}
             </div>
           </CardContent>
         </Card>
@@ -100,29 +204,37 @@ export default function PrivacyCookieSettingsPage() {
         <Card className="mb-12 bg-gradient-to-r from-green-100 to-blue-100 border-none shadow-lg">
           <CardHeader>
             <CardTitle className="text-2xl font-bold">
-              Why Choose Automation eCom Global for Data Privacy?
+              {staticData
+                ? staticData?.privacyAndCookieSettings?.whyChooseText
+                : `Why Choose Automation eCom Global for Data Privacy?`}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <ul className="grid gap-4 md:grid-cols-2">
-              {chooseUsPoints.map((point, index) => (
-                <li
-                  key={index}
-                  className="flex items-start gap-2 bg-white p-4 rounded-lg shadow"
-                >
-                  <Shield className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">{point}</span>
-                </li>
-              ))}
+              {staticData
+                ? staticData?.privacyAndCookieSettings?.chooseUsPoints.map(
+                    (point: any, index: number) => (
+                      <li
+                        key={index}
+                        className="flex items-start gap-2 bg-white p-4 rounded-lg shadow"
+                      >
+                        <Shield className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                        <span className="text-gray-700">{point}</span>
+                      </li>
+                    )
+                  )
+                : chooseUsPoints.map((point, index) => (
+                    <li
+                      key={index}
+                      className="flex items-start gap-2 bg-white p-4 rounded-lg shadow"
+                    >
+                      <Shield className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                      <span className="text-gray-700">{point}</span>
+                    </li>
+                  ))}
             </ul>
           </CardContent>
         </Card>
-
-        <div className="text-center">
-          <Button size="lg" variant="destructive">
-            Save Privacy Settings
-          </Button>
-        </div>
       </div>
     </div>
   );

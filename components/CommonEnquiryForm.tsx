@@ -16,7 +16,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { PhoneInput } from "./PhoneInput";
 
 type FormValues = z.input<typeof commonEnquiryFormSchema>;
-type EnquiryType = "cart" | "priceRequest" | "quickQuote" | "quoteRequest"; // Define your types
+type EnquiryType =
+  | "cart"
+  | "priceRequest"
+  | "quickQuote"
+  | "quoteRequest"
+  | "serviceQuote"
+  | "entireProjectQuote";
 
 type Props = {
   id?: string;

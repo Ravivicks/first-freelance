@@ -5,9 +5,24 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Cpu, Zap, Power, CloudLightning } from "lucide-react";
+import { useParams } from "next/navigation";
+import { useFetchStaticData } from "@/features/static-data/use-get-data";
+import { useStaticDataStore } from "@/stores/useStaticDataStore";
+import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
+
+const iconMapping: { [key: string]: React.ElementType } = {
+  Cpu,
+  Zap,
+  Power,
+  CloudLightning,
+};
 
 export default function PartnerBrands() {
   const [activeTab, setActiveTab] = useState("siemens");
+  const { locale } = useParams();
+  useFetchStaticData(locale as string, "pb");
+  const { data: staticData } = useStaticDataStore();
+  const { onOpen } = useCommonEnquiry();
 
   const partners = [
     {
@@ -84,12 +99,16 @@ export default function PartnerBrands() {
       <div className="container mx-auto px-4 py-8 space-y-8">
         <section className="text-center space-y-4 custom-bg py-4 rounded-md">
           <h1 className="text-5xl font-extrabold tracking-tight bg-clip-text">
-            Our Partner Brands
+            {staticData
+              ? staticData?.partnerBrands?.title
+              : `Our Partner Brands`}
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            At Automation eCom Global, our strength lies in our strategic
+            {staticData
+              ? staticData?.partnerBrands?.intro
+              : `At Automation eCom Global, our strength lies in our strategic
             partnerships with some of the most renowned and innovative brands in
-            the world of industrial automation.
+            the world of industrial automation.`}
           </p>
         </section>
 
@@ -100,95 +119,189 @@ export default function PartnerBrands() {
             className="w-full"
           >
             <TabsList className="grid grid-cols-2 lg:grid-cols-4 w-full mb-8">
-              {partners.map((partner) => (
-                <TabsTrigger
-                  key={partner.id}
-                  value={partner.id}
-                  className="text-sm"
-                >
-                  <partner.icon className="w-5 h-5 mr-2" />
-                  <span>{partner.name}</span>
-                </TabsTrigger>
-              ))}
+              {staticData
+                ? staticData?.partnerBrands?.partners?.map(
+                    (partner: any, index: number) => {
+                      const IconComponent = iconMapping[partner.icon];
+
+                      return (
+                        <TabsTrigger
+                          key={partner.id}
+                          value={partner.id}
+                          className="text-sm"
+                        >
+                          {IconComponent && (
+                            <IconComponent className="w-5 h-5 mr-2" />
+                          )}
+                          <span>{partner.name}</span>
+                        </TabsTrigger>
+                      );
+                    }
+                  )
+                : partners.map((partner) => (
+                    <TabsTrigger
+                      key={partner.id}
+                      value={partner.id}
+                      className="text-sm"
+                    >
+                      <partner.icon className="w-5 h-5 mr-2" />
+                      <span>{partner.name}</span>
+                    </TabsTrigger>
+                  ))}
             </TabsList>
-            {partners.map((partner) => (
-              <TabsContent key={partner.id} value={partner.id} className="mt-6">
-                <Card>
-                  <CardHeader>
-                    <div className="flex items-center justify-between">
-                      <CardTitle className="flex items-center text-3xl">
-                        <partner.icon className="w-8 h-8 mr-3 text-primary" />
-                        {partner.name}
-                      </CardTitle>
-                      <Badge variant="secondary" className="text-sm">
-                        {partner.tagline}
-                      </Badge>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="space-y-6">
-                    <p className="text-muted-foreground">
-                      {partner.description}
-                    </p>
-                    <div>
-                      <h3 className="font-semibold mb-2">Key Products:</h3>
-                      <div className="flex flex-wrap gap-2">
-                        {partner.products.map((product, index) => (
-                          <Badge key={index} variant="outline">
-                            {product}
+            {staticData
+              ? staticData?.partnerBrands?.partners?.map(
+                  (partner: any, index: number) => {
+                    const IconComponent = iconMapping[partner.icon];
+                    return (
+                      <TabsContent
+                        key={partner.id}
+                        value={partner.id}
+                        className="mt-6"
+                      >
+                        <Card>
+                          <CardHeader>
+                            <div className="flex items-center justify-between">
+                              <CardTitle className="flex items-center text-3xl">
+                                {IconComponent && (
+                                  <IconComponent className="w-8 h-8 mr-3 text-primary" />
+                                )}
+                                {partner.name}
+                              </CardTitle>
+                              <Badge variant="secondary" className="text-sm">
+                                {partner.tagline}
+                              </Badge>
+                            </div>
+                          </CardHeader>
+                          <CardContent className="space-y-6">
+                            <p className="text-muted-foreground">
+                              {partner.description}
+                            </p>
+                            <div>
+                              <h3 className="font-semibold mb-2">
+                                Key Products:
+                              </h3>
+                              <div className="flex flex-wrap gap-2">
+                                {partner.products.map(
+                                  (product: any, index: number) => (
+                                    <Badge key={index} variant="outline">
+                                      {product}
+                                    </Badge>
+                                  )
+                                )}
+                              </div>
+                            </div>
+                            <p>{partner.content}</p>
+                          </CardContent>
+                        </Card>
+                      </TabsContent>
+                    );
+                  }
+                )
+              : partners.map((partner) => (
+                  <TabsContent
+                    key={partner.id}
+                    value={partner.id}
+                    className="mt-6"
+                  >
+                    <Card>
+                      <CardHeader>
+                        <div className="flex items-center justify-between">
+                          <CardTitle className="flex items-center text-3xl">
+                            <partner.icon className="w-8 h-8 mr-3 text-primary" />
+                            {partner.name}
+                          </CardTitle>
+                          <Badge variant="secondary" className="text-sm">
+                            {partner.tagline}
                           </Badge>
-                        ))}
-                      </div>
-                    </div>
-                    <p>{partner.content}</p>
-                  </CardContent>
-                </Card>
-              </TabsContent>
-            ))}
+                        </div>
+                      </CardHeader>
+                      <CardContent className="space-y-6">
+                        <p className="text-muted-foreground">
+                          {partner.description}
+                        </p>
+                        <div>
+                          <h3 className="font-semibold mb-2">Key Products:</h3>
+                          <div className="flex flex-wrap gap-2">
+                            {partner.products.map((product, index) => (
+                              <Badge key={index} variant="outline">
+                                {product}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+                        <p>{partner.content}</p>
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+                ))}
           </Tabs>
         </section>
 
         <section className="grid md:grid-cols-2 gap-8 items-center bg-card/50 backdrop-blur-sm rounded-lg p-8">
           <div className="space-y-4">
             <h2 className="text-3xl font-semibold">
-              The Automation eCom Global Advantage
+              {staticData
+                ? staticData?.partnerBrands?.advantage?.title
+                : `The Automation eCom Global Advantage`}
             </h2>
             <p className="text-muted-foreground">
-              What sets us apart is our ability to provide world-class
+              {staticData
+                ? staticData?.partnerBrands?.advantage?.description
+                : ` What sets us apart is our ability to provide world-class
               automation solutions backed by strong relationships with these
               leading brands. We offer unparalleled access to high-quality
               products, along with the technical expertise and customer support
               that ensures our clients can maximize the value of their
-              automation investments.
+              automation investments.`}
             </p>
             <ul className="space-y-2">
               <li className="flex items-center">
                 <Cpu className="w-5 h-5 mr-2 text-primary" />
-                Best-in-market pricing
+                {staticData
+                  ? staticData?.partnerBrands?.advantage?.points?.[0]
+                  : `Best-in-market pricing`}
               </li>
               <li className="flex items-center">
                 <Zap className="w-5 h-5 mr-2 text-primary" />
-                Comprehensive product range
+                {staticData
+                  ? staticData?.partnerBrands?.advantage?.points?.[1]
+                  : `Comprehensive product range`}
               </li>
               <li className="flex items-center">
                 <CloudLightning className="w-5 h-5 mr-2 text-primary" />
-                Tailored solutions
+                {staticData
+                  ? staticData?.partnerBrands?.advantage?.points?.[2]
+                  : `Tailored solutions`}
               </li>
               <li className="flex items-center">
                 <Power className="w-5 h-5 mr-2 text-primary" />
-                Unmatched customer support
+                {staticData
+                  ? staticData?.partnerBrands?.advantage?.points?.[3]
+                  : `Unmatched customer support`}
               </li>
             </ul>
           </div>
           <div className="space-y-6 text-center">
             <h3 className="text-2xl font-semibold">
-              Ready to Elevate Your Automation?
+              {staticData
+                ? staticData?.partnerBrands?.cta?.title
+                : `Ready to Elevate Your Automation?`}
             </h3>
             <p className="text-muted-foreground">
-              {`Gain access to the latest technologies from the world's leading
+              {staticData
+                ? staticData?.partnerBrands?.cta?.description
+                : `Gain access to the latest technologies from the world's leading
               automation brands, along with personalized service and support.`}
             </p>
-            <Button size="lg" variant="destructive">
-              Contact Us Today
+            <Button
+              size="lg"
+              variant="destructive"
+              onClick={() => onOpen("serviceQuote")}
+            >
+              {staticData
+                ? staticData?.partnerBrands?.cta?.buttonText
+                : `Contact Us Today`}
             </Button>
           </div>
         </section>

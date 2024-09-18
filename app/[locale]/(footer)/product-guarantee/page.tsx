@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -7,39 +8,69 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Shield, Check } from "lucide-react";
+import { useParams } from "next/navigation";
+import { useFetchStaticData } from "@/features/static-data/use-get-data";
+import { useStaticDataStore } from "@/stores/useStaticDataStore";
+import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
 
 export default function Component() {
+  const { locale } = useParams();
+  useFetchStaticData(locale as string, "pg");
+  const { data: staticData } = useStaticDataStore();
+  const { onOpen } = useCommonEnquiry();
+
   return (
     <div className="min-h-screen">
       <div className="container mx-auto px-4 py-12 max-w-6xl ">
         <header className="text-center mb-12">
           <Shield className="w-16 h-16 mx-auto mb-4 text-destructive" />
-          <h1 className="text-4xl font-bold mb-4">Product Guarantee</h1>
+          <h1 className="text-4xl font-bold mb-4">
+            {staticData
+              ? staticData?.productGaurantee?.header?.title
+              : `Product Guarantee`}
+          </h1>
           <p className="text-xl max-w-3xl mx-auto">
-            At Automation eCom Global, we stand behind the quality and
+            {staticData
+              ? staticData?.productGaurantee?.header?.subtitle
+              : ` At Automation eCom Global, we stand behind the quality and
             reliability of every product we offer. Our commitment to excellence
             means that all the automation products you purchase from us come
             with a comprehensive Product Guarantee that ensures you receive only
             the best-in-class components and systems. From Siemens PLCs to DEIF
             engine controllers and Schneider HMIs, every product is backed by
             our strong guarantee, giving you peace of mind and confidence in
-            your investment.
+            your investment.`}
           </p>
         </header>
 
         <Accordion type="single" collapsible className="mb-12">
-          {guaranteePoints.map((point, index) => (
-            <AccordionItem key={index} value={`item-${index}`}>
-              <AccordionTrigger className="text-lg font-semibold">
-                {index + 1}. {point.title}
-              </AccordionTrigger>
-              <AccordionContent className="space-y-4">
-                {point.content.map((paragraph, pIndex) => (
-                  <p key={pIndex}>{paragraph}</p>
-                ))}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
+          {staticData
+            ? staticData?.productGaurantee?.guaranteePoints.map(
+                (point: any, index: number) => (
+                  <AccordionItem key={index} value={`item-${index}`}>
+                    <AccordionTrigger className="text-lg font-semibold">
+                      {index + 1}. {point.title}
+                    </AccordionTrigger>
+                    <AccordionContent className="space-y-4">
+                      {point.content.map((paragraph: any, pIndex: number) => (
+                        <p key={pIndex}>{paragraph}</p>
+                      ))}
+                    </AccordionContent>
+                  </AccordionItem>
+                )
+              )
+            : guaranteePoints.map((point, index) => (
+                <AccordionItem key={index} value={`item-${index}`}>
+                  <AccordionTrigger className="text-lg font-semibold">
+                    {index + 1}. {point.title}
+                  </AccordionTrigger>
+                  <AccordionContent className="space-y-4">
+                    {point.content.map((paragraph, pIndex) => (
+                      <p key={pIndex}>{paragraph}</p>
+                    ))}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
         </Accordion>
 
         <Card className="bg-blue-50 border-blue-200 mb-12">
@@ -50,19 +81,34 @@ export default function Component() {
           </CardHeader>
           <CardContent>
             <ul className="grid gap-4 md:grid-cols-2">
-              {chooseUsPoints.map((point, index) => (
-                <li key={index} className="flex items-start gap-2">
-                  <Check className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
-                  <span>{point}</span>
-                </li>
-              ))}
+              {staticData
+                ? staticData?.productGaurantee?.chooseUsPoints.map(
+                    (point: any, index: number) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <Check className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                        <span>{point}</span>
+                      </li>
+                    )
+                  )
+                : chooseUsPoints.map((point, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <Check className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
+                      <span>{point}</span>
+                    </li>
+                  ))}
             </ul>
           </CardContent>
         </Card>
 
         <div className="text-center">
-          <Button size="lg" variant="destructive">
-            Contact Us for More Information
+          <Button
+            size="lg"
+            variant="destructive"
+            onClick={() => onOpen("quickQuote")}
+          >
+            {staticData
+              ? staticData?.productGaurantee?.buttonText
+              : `Contact Us for More Information`}
           </Button>
         </div>
       </div>

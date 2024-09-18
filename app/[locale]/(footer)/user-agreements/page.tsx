@@ -1,3 +1,4 @@
+"use client";
 import { Check, ChevronDown, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,18 +8,29 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useParams } from "next/navigation";
+import { useFetchStaticData } from "@/features/static-data/use-get-data";
+import { useStaticDataStore } from "@/stores/useStaticDataStore";
 
 export default function UserAgreementPage() {
+  const { locale } = useParams();
+  useFetchStaticData(locale as string, "ua");
+  const { data: staticData } = useStaticDataStore();
+
   return (
     <div className="min-h-screen">
       <div className="container mx-auto px-4 py-12 max-w-6xl">
         <header className="text-center mb-12">
           <FileText className="w-16 h-16 mx-auto mb-4 text-destructive" />
           <h1 className="text-4xl font-bold mb-4 text-gray-900">
-            User Agreement
+            {staticData
+              ? staticData?.userAgreements?.header?.title
+              : `User Agreement`}
           </h1>
           <p className="text-lg text-gray-600 max-w-6xl mx-auto">
-            At Automation eCom Global, we are committed to ensuring that your
+            {staticData
+              ? staticData?.userAgreements?.header?.description
+              : `At Automation eCom Global, we are committed to ensuring that your
             experience on our platform is secure, transparent, and
             straightforward. Our User Agreements provide you with clear
             guidelines on the terms and conditions governing your use of our
@@ -27,57 +39,88 @@ export default function UserAgreementPage() {
             ethical relationship while providing a seamless and trustworthy
             shopping experience. By using our website and making purchases, you
             agree to comply with the policies and terms set forth in these
-            agreements.
+            agreements.`}
           </p>
         </header>
 
         <Accordion type="single" collapsible className="mb-12">
-          {agreementPoints.map((point, index) => (
-            <AccordionItem key={index} value={`item-${index}`}>
-              <AccordionTrigger className="text-lg font-semibold text-gray-800">
-                <span className="flex items-center gap-2">
-                  <span>{index + 1}.</span> {point.title}
-                </span>
-              </AccordionTrigger>
-              <AccordionContent className="text-gray-600 space-y-4 pt-4">
-                {point.content.split("\n\n").map((paragraph, pIndex) => (
-                  <p key={pIndex}>{paragraph}</p>
-                ))}
-                {point.list && (
-                  <ul className="list-disc pl-5 space-y-2">
-                    {point.list.map((item, iIndex) => (
-                      <li key={iIndex}>{item}</li>
+          {staticData
+            ? staticData?.userAgreements?.agreementPoints.map(
+                (point: any, index: number) => (
+                  <AccordionItem key={index} value={`item-${index}`}>
+                    <AccordionTrigger className="text-lg font-semibold text-gray-800">
+                      <span className="flex items-center gap-2">
+                        <span>{index + 1}.</span> {point.title}
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-gray-600 space-y-4 pt-4">
+                      {point.content
+                        .split("\n\n")
+                        .map((paragraph: any, pIndex: number) => (
+                          <p key={pIndex}>{paragraph}</p>
+                        ))}
+                      {point.list && (
+                        <ul className="list-disc pl-5 space-y-2">
+                          {point.list.map((item: any, iIndex: number) => (
+                            <li key={iIndex}>{item}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </AccordionContent>
+                  </AccordionItem>
+                )
+              )
+            : agreementPoints.map((point, index) => (
+                <AccordionItem key={index} value={`item-${index}`}>
+                  <AccordionTrigger className="text-lg font-semibold text-gray-800">
+                    <span className="flex items-center gap-2">
+                      <span>{index + 1}.</span> {point.title}
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-gray-600 space-y-4 pt-4">
+                    {point.content.split("\n\n").map((paragraph, pIndex) => (
+                      <p key={pIndex}>{paragraph}</p>
                     ))}
-                  </ul>
-                )}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
+                    {point.list && (
+                      <ul className="list-disc pl-5 space-y-2">
+                        {point.list.map((item, iIndex) => (
+                          <li key={iIndex}>{item}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
         </Accordion>
 
         <Card className="mb-12 custom-bg-1">
           <CardHeader>
             <CardTitle className="text-2xl font-bold">
-              Why Choose Automation eCom Global?
+              {staticData
+                ? staticData?.userAgreements?.chooseUsTitle
+                : `Why Choose Automation eCom Global?`}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <ul className="space-y-3">
-              {chooseUsPoints.map((point, index) => (
-                <li key={index} className="flex items-start gap-2">
-                  <Check className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">{point}</span>
-                </li>
-              ))}
+              {staticData
+                ? staticData?.userAgreements?.chooseUsPoints.map(
+                    (point: any, index: number) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <Check className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                        <span className="text-gray-700">{point}</span>
+                      </li>
+                    )
+                  )
+                : chooseUsPoints.map((point, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <Check className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                      <span className="text-gray-700">{point}</span>
+                    </li>
+                  ))}
             </ul>
           </CardContent>
         </Card>
-
-        <div className="text-center">
-          <Button size="lg" variant="destructive">
-            Accept Agreement
-          </Button>
-        </div>
       </div>
     </div>
   );

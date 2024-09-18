@@ -1,7 +1,13 @@
 import { create } from "zustand";
 
 // Define the possible enquiry types
-type EnquiryType = "cart" | "priceRequest" | "quickQuote" | "quoteRequest";
+type EnquiryType =
+  | "cart"
+  | "priceRequest"
+  | "quickQuote"
+  | "quoteRequest"
+  | "serviceQuote"
+  | "entireProjectQuote";
 
 type NewCommonEnquireState = {
   type?: EnquiryType; // Add type to represent the type of enquiry

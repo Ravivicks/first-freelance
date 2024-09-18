@@ -1,3 +1,4 @@
+"use client";
 import {
   Shield,
   CreditCard,
@@ -16,15 +17,39 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { useParams } from "next/navigation";
+import { useFetchStaticData } from "@/features/static-data/use-get-data";
+import { useStaticDataStore } from "@/stores/useStaticDataStore";
+import Link from "next/link";
+const iconMapping: { [key: string]: React.ElementType } = {
+  Shield,
+  CreditCard,
+  Building,
+  Smartphone,
+  Lock,
+  FileText,
+  UserCheck,
+  HelpCircle,
+};
 
 export default function SecurePaymentsPage() {
+  const { locale } = useParams();
+  useFetchStaticData(locale as string, "sasp");
+  const { data: staticData } = useStaticDataStore();
+
   return (
     <div className="container mx-auto px-4 py-8">
       <header className="text-center mb-12">
         <Shield className="w-16 h-16 mx-auto mb-4 text-destructive" />
-        <h1 className="text-3xl font-bold mb-4">Safe and Secure Payments</h1>
+        <h1 className="text-3xl font-bold mb-4">
+          {staticData
+            ? staticData?.safeAndSecurePayments?.header?.title
+            : `Safe and Secure Payments`}
+        </h1>
         <p className="text-lg text-gray-600">
-          {`At Automation eCom Global, we prioritize the security and privacy of
+          {staticData
+            ? staticData?.safeAndSecurePayments?.header?.description
+            : `At Automation eCom Global, we prioritize the security and privacy of
           every transaction. We understand that, when purchasing industrial
           automation products, you need the assurance that your payment details
           and personal information are fully protected. That's why we've
@@ -37,79 +62,128 @@ export default function SecurePaymentsPage() {
       </header>
 
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12">
-        {securityFeatures.map((feature, index) => (
-          <Card key={index} className="flex flex-col">
-            <CardHeader>
-              <feature.icon className="w-8 h-8 mb-2 text-destructive" />
-              <CardTitle>{feature.title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription>{feature.description}</CardDescription>
-            </CardContent>
-          </Card>
-        ))}
+        {staticData
+          ? staticData?.safeAndSecurePayments?.securityFeatures.map(
+              (feature: any, index: number) => {
+                const IconComponent = iconMapping[feature.icon];
+                return (
+                  <Card key={index} className="flex flex-col">
+                    <CardHeader>
+                      {IconComponent && (
+                        <IconComponent className="w-8 h-8 mb-2 text-destructive" />
+                      )}
+                      <CardTitle>{feature.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription>{feature.description}</CardDescription>
+                    </CardContent>
+                  </Card>
+                );
+              }
+            )
+          : securityFeatures.map((feature, index) => (
+              <Card key={index} className="flex flex-col">
+                <CardHeader>
+                  <feature.icon className="w-8 h-8 mb-2 text-destructive" />
+                  <CardTitle>{feature.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>{feature.description}</CardDescription>
+                </CardContent>
+              </Card>
+            ))}
       </div>
 
       <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-4">
-          Multiple Payment Options:
+          {staticData
+            ? staticData?.safeAndSecurePayments?.paymentOptions?.title
+            : `Multiple Payment Options:`}
         </h2>
         <p className="mb-4">
-          To make your shopping experience convenient and seamless, Automation
+          {staticData
+            ? staticData?.safeAndSecurePayments?.paymentOptions?.description
+            : `To make your shopping experience convenient and seamless, Automation
           eCom Global offers a wide range of payment methods tailored to meet
           your business needs. We cater to international customers across Dubai,
           USA, China, India, Germany, and other regions, providing you with
-          flexibility in how you pay for your purchases.
+          flexibility in how you pay for your purchases.`}
         </p>
         <ul className="list-disc pl-6 space-y-2">
-          <li>
-            <strong>Credit and Debit Cards:</strong> We accept major credit and
-            debit cards, including Visa, MasterCard, and American Express,
-            ensuring that your transactions are processed swiftly and securely.
-          </li>
-          <li>
-            <strong>Bank Transfers:</strong> For large orders or international
-            clients, we offer bank transfer options, providing a reliable and
-            secure way to complete high-value transactions. We work with leading
-            banks to ensure that your funds are transferred safely and
-            efficiently.
-          </li>
-          <li>
-            <strong>PayPal:</strong> We support PayPal payments, offering a
-            fast, easy, and secure way to pay for your orders without having to
-            share your financial information directly.
-          </li>
-          <li>
-            <strong>Digital Wallets:</strong> For customers who prefer mobile
-            payment solutions, we offer compatibility with leading digital
-            wallets such as Apple Pay and Google Pay, ensuring secure, one-tap
-            payments.
-          </li>
+          {staticData ? (
+            staticData?.safeAndSecurePayments?.paymentOptions?.options?.map(
+              (option: any, index: number) => (
+                <li key={index}>
+                  <strong>{option.title}:</strong> {option.description}
+                </li>
+              )
+            )
+          ) : (
+            <>
+              <li>
+                <strong>Credit and Debit Cards:</strong> We accept major credit
+                and debit cards, including Visa, MasterCard, and American
+                Express, ensuring that your transactions are processed swiftly
+                and securely.
+              </li>
+              <li>
+                <strong>Bank Transfers:</strong> For large orders or
+                international clients, we offer bank transfer options, providing
+                a reliable and secure way to complete high-value transactions.
+                We work with leading banks to ensure that your funds are
+                transferred safely and efficiently.
+              </li>
+              <li>
+                <strong>PayPal:</strong> We support PayPal payments, offering a
+                fast, easy, and secure way to pay for your orders without having
+                to share your financial information directly.
+              </li>
+              <li>
+                <strong>Digital Wallets:</strong> For customers who prefer
+                mobile payment solutions, we offer compatibility with leading
+                digital wallets such as Apple Pay and Google Pay, ensuring
+                secure, one-tap payments.
+              </li>
+            </>
+          )}
         </ul>
         <p className="mt-4">
-          Our multiple payment options are designed to provide you with the
+          {staticData
+            ? staticData?.safeAndSecurePayments?.paymentOptions?.conclusion
+            : `Our multiple payment options are designed to provide you with the
           flexibility to choose the method that works best for your business,
-          while maintaining the highest levels of security and compliance.
+          while maintaining the highest levels of security and compliance.`}
         </p>
       </section>
 
       <section className="custom-bg-1 p-8 rounded-lg mb-12">
         <h2 className="text-2xl font-semibold mb-4">
-          Why Choose Automation eCom Global for Secure Payments?
+          {staticData
+            ? staticData?.safeAndSecurePayments?.chooseUsTitle
+            : `Why Choose Automation eCom Global for Secure Payments?`}
         </h2>
         <ul className="space-y-2">
-          {chooseUsPoints.map((point, index) => (
-            <li key={index} className="flex items-start gap-2">
-              <Shield className="w-5 h-5 text-destructive mt-1 flex-shrink-0" />
-              <span>{point}</span>
-            </li>
-          ))}
+          {staticData
+            ? staticData?.safeAndSecurePayments?.chooseUsPoints.map(
+                (point: any, index: number) => (
+                  <li key={index} className="flex items-start gap-2">
+                    <Shield className="w-5 h-5 text-destructive mt-1 flex-shrink-0" />
+                    <span>{point}</span>
+                  </li>
+                )
+              )
+            : chooseUsPoints.map((point, index) => (
+                <li key={index} className="flex items-start gap-2">
+                  <Shield className="w-5 h-5 text-destructive mt-1 flex-shrink-0" />
+                  <span>{point}</span>
+                </li>
+              ))}
         </ul>
       </section>
 
       <div className="text-center">
         <Button size="lg" variant="destructive">
-          Start Secure Shopping
+          <Link href="/">Start Secure Shopping</Link>
         </Button>
       </div>
     </div>

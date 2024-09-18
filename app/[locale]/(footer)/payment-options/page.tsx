@@ -1,3 +1,4 @@
+"use client";
 import {
   CreditCard,
   Building,
@@ -22,14 +23,38 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useParams } from "next/navigation";
+import { useFetchStaticData } from "@/features/static-data/use-get-data";
+import { useStaticDataStore } from "@/stores/useStaticDataStore";
+
+const iconMapping: { [key: string]: React.ElementType } = {
+  CreditCard,
+  Building,
+  Smartphone,
+  FileText,
+  Globe,
+  Briefcase,
+  DollarSign,
+  CreditCardIcon,
+};
 
 export default function PaymentOptionsPage() {
+  const { locale } = useParams();
+  useFetchStaticData(locale as string, "po");
+  const { data: staticData } = useStaticDataStore();
+
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
       <header className="text-center mb-12 custom-bg p-4">
-        <h1 className="text-3xl font-bold mb-4">Payment Options</h1>
+        <h1 className="text-3xl font-bold mb-4">
+          {staticData
+            ? staticData?.paymentOptions?.header?.title
+            : `Payment Options`}
+        </h1>
         <p className="text-lg text-gray-600">
-          {`At Automation eCom Global, we are committed to making your purchasing
+          {staticData
+            ? staticData?.paymentOptions?.header?.description
+            : `At Automation eCom Global, we are committed to making your purchasing
           experience as convenient and flexible as possible. We understand that
           every business has unique financial needs and preferences, which is
           why we offer a wide range of payment options to accommodate customers
@@ -41,30 +66,58 @@ export default function PaymentOptionsPage() {
       </header>
 
       <Accordion type="single" collapsible className="mb-12">
-        {paymentOptions.map((option, index) => (
-          <AccordionItem key={index} value={`item-${index}`}>
-            <AccordionTrigger className="text-lg font-semibold">
-              <div className="flex items-center gap-2">
-                <option.icon className="w-6 h-6" />
-                <span>{option.title}</span>
-              </div>
-            </AccordionTrigger>
-            <AccordionContent>
-              <div className="prose max-w-none">
-                {option.content.split("\n\n").map((paragraph, pIndex) => (
-                  <p key={pIndex}>{paragraph}</p>
-                ))}
-                {option.list && (
-                  <ul>
-                    {option.list.map((item, iIndex) => (
-                      <li key={iIndex}>{item}</li>
+        {staticData
+          ? staticData?.paymentOptions?.paymentOptions?.map(
+              (option: any, index: number) => {
+                const IconComponent = iconMapping[option.icon];
+                return (
+                  <AccordionItem key={index} value={`item-${index}`}>
+                    <AccordionTrigger className="text-lg font-semibold">
+                      <div className="flex items-center gap-2">
+                        {IconComponent && <IconComponent className="w-6 h-6" />}
+                        <span>{option.title}</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="prose max-w-none">
+                        {option.content}
+                        {option.list && (
+                          <ul>
+                            {option.list.map((item: any, iIndex: number) => (
+                              <li key={iIndex}>{item}</li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                );
+              }
+            )
+          : paymentOptions.map((option, index) => (
+              <AccordionItem key={index} value={`item-${index}`}>
+                <AccordionTrigger className="text-lg font-semibold">
+                  <div className="flex items-center gap-2">
+                    <option.icon className="w-6 h-6" />
+                    <span>{option.title}</span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="prose max-w-none">
+                    {option.content.split("\n\n").map((paragraph, pIndex) => (
+                      <p key={pIndex}>{paragraph}</p>
                     ))}
-                  </ul>
-                )}
-              </div>
-            </AccordionContent>
-          </AccordionItem>
-        ))}
+                    {option.list && (
+                      <ul>
+                        {option.list.map((item, iIndex) => (
+                          <li key={iIndex}>{item}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
       </Accordion>
 
       <Card className="mb-12 custom-bg-1">
@@ -75,19 +128,32 @@ export default function PaymentOptionsPage() {
         </CardHeader>
         <CardContent>
           <ul className="space-y-2">
-            {chooseUsPoints.map((point, index) => (
-              <li key={index} className="flex items-start gap-2">
-                <DollarSign className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
-                <span>{point}</span>
-              </li>
-            ))}
+            {staticData
+              ? staticData?.paymentOptions?.chooseUsPoints?.map(
+                  (point: any, index: number) => {
+                    return (
+                      <li key={index} className="flex items-start gap-2">
+                        <DollarSign className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                        <span>{point}</span>
+                      </li>
+                    );
+                  }
+                )
+              : chooseUsPoints.map((point, index) => (
+                  <li key={index} className="flex items-start gap-2">
+                    <DollarSign className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                    <span>{point}</span>
+                  </li>
+                ))}
           </ul>
         </CardContent>
       </Card>
 
       <div className="text-center">
         <Button size="lg" variant="destructive">
-          Start Shopping Now
+          {staticData
+            ? staticData?.paymentOptions?.shoppingButton
+            : `Start Shopping Now`}
         </Button>
       </div>
     </div>

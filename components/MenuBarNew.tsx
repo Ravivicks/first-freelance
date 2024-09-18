@@ -14,10 +14,12 @@ import { useUser } from "@clerk/nextjs";
 import { useProductsStore } from "@/stores/useProductStore";
 import { menuItems } from "@/lib/data";
 import { useStaticDataStore } from "@/stores/useStaticDataStore";
+import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
 
 const MenuBarNew = () => {
   const { user } = useUser();
   const router = useRouter();
+  const { onOpen } = useCommonEnquiry();
   const { brands, categories } = useProductsStore();
   const {
     data: staticData,
@@ -108,22 +110,22 @@ const MenuBarNew = () => {
           <div className="flex">
             {/* Additional Menubar Items at the End */}
             <MenubarMenu>
-              <MenubarTrigger>
-                <Link href="/">
-                  {staticData
-                    ? staticData?.menuBar?.fifthMenuTitle
-                    : "Service Quote"}
-                </Link>
+              <MenubarTrigger onClick={() => onOpen("serviceQuote")}>
+                {staticData
+                  ? staticData?.menuBar?.fifthMenuTitle
+                  : "Service Quote"}
               </MenubarTrigger>
-              <MenubarTrigger>
+              <MenubarTrigger onClick={() => onOpen("entireProjectQuote")}>
                 {staticData
                   ? staticData?.menuBar?.sixthMenuTitle
                   : "Entire Project Quote"}
               </MenubarTrigger>
               <MenubarTrigger>
-                {staticData
-                  ? staticData?.menuBar?.seventhMenuTitle
-                  : "Why 100s of customers trust us"}
+                <Link href="/who-we-are">
+                  {staticData
+                    ? staticData?.menuBar?.seventhMenuTitle
+                    : "Why 100s of customers trust us"}
+                </Link>
               </MenubarTrigger>
             </MenubarMenu>
           </div>

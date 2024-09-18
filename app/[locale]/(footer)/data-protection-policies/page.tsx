@@ -1,34 +1,43 @@
-import {
-  Shield,
+"use client";
+import { Shield, Lock, Globe, Database, UserCheck } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useParams } from "next/navigation";
+import { useFetchStaticData } from "@/features/static-data/use-get-data";
+import { useStaticDataStore } from "@/stores/useStaticDataStore";
+import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
+
+const iconMapping: { [key: string]: React.ElementType } = {
   Lock,
   Globe,
   Database,
-  Share2,
   UserCheck,
-  Cookie,
-  RefreshCw,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+};
 
 export default function DataProtectionPolicyPage() {
+  const { locale } = useParams();
+  useFetchStaticData(locale as string, "dpp");
+  const {
+    data: staticData,
+    isLoading: staticLoading,
+    error,
+  } = useStaticDataStore();
+  const { onOpen } = useCommonEnquiry();
   return (
     <div className="min-h-screen">
       <div className="container mx-auto px-4 py-12 max-w-6xl">
         <header className="text-center mb-12">
           <Shield className="w-20 h-20 mx-auto mb-6 text-destructive" />
           <h1 className="text-4xl font-bold mb-4">
-            Data Protection and Policy
+            {staticData
+              ? staticData?.dataProtectionPolicies?.header?.title
+              : `Data Protection and Policy`}
           </h1>
           <p className="text-xl max-w-6xl mx-auto">
-            {` At Automation eCom Global, we prioritize the security and privacy of
+            {staticData
+              ? staticData?.dataProtectionPolicies?.header?.description
+              : `At Automation eCom Global, we prioritize the security and privacy of
             our customers' personal and business data. In an increasingly
             digital world, safeguarding your sensitive information is critical,
             and we are committed to ensuring that your data is always protected
@@ -43,62 +52,171 @@ export default function DataProtectionPolicyPage() {
 
         <Tabs defaultValue="privacy" className="mb-12">
           <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 mb-8">
-            <TabsTrigger value="privacy">Privacy Commitment</TabsTrigger>
-            <TabsTrigger value="compliance">GDPR Compliance</TabsTrigger>
-            <TabsTrigger value="data-usage">Data Usage</TabsTrigger>
-            <TabsTrigger value="your-rights">Your Rights</TabsTrigger>
+            {staticData ? (
+              staticData?.dataProtectionPolicies?.policyPoints?.map(
+                (point: any, index: number) => {
+                  const IconComponent = iconMapping[point.icon]; // Get the appropriate icon
+                  return (
+                    <TabsTrigger
+                      key={index}
+                      value={point.tab}
+                      className="flex items-center gap-2"
+                    >
+                      {/* Render the icon in the tab if it exists */}
+                      {IconComponent && <IconComponent className="w-5 h-5" />}
+                      <span>{point.title}</span>
+                    </TabsTrigger>
+                  );
+                }
+              )
+            ) : (
+              <>
+                <TabsTrigger
+                  value="privacy"
+                  className="flex items-center gap-2"
+                >
+                  <Lock className="w-5 h-5" />
+                  <span>Privacy Commitment</span>
+                </TabsTrigger>
+                <TabsTrigger
+                  value="compliance"
+                  className="flex items-center gap-2"
+                >
+                  <Globe className="w-5 h-5" />
+                  <span>GDPR Compliance</span>
+                </TabsTrigger>
+                <TabsTrigger
+                  value="data-usage"
+                  className="flex items-center gap-2"
+                >
+                  <Database className="w-5 h-5" />
+                  <span>Data Usage</span>
+                </TabsTrigger>
+                <TabsTrigger
+                  value="your-rights"
+                  className="flex items-center gap-2"
+                >
+                  <UserCheck className="w-5 h-5" />
+                  <span>Your Rights</span>
+                </TabsTrigger>
+              </>
+            )}
           </TabsList>
-          {policyPoints.map((point, index) => (
-            <TabsContent key={index} value={point.tab}>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-2xl">
-                    <point.icon className="w-8 h-8" />
-                    <span>{point.title}</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="prose max-w-none">
-                    {point.content.split("\n\n").map((paragraph, pIndex) => (
-                      <p key={pIndex} className="mb-4 text-gray-700">
-                        {paragraph}
-                      </p>
-                    ))}
-                    {point.list && (
-                      <ul className="list-disc pl-5 space-y-2 text-gray-700">
-                        {point.list.map((item, iIndex) => (
-                          <li key={iIndex}>{item}</li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            </TabsContent>
-          ))}
+
+          {staticData
+            ? staticData?.dataProtectionPolicies?.policyPoints?.map(
+                (point: any, index: number) => {
+                  const IconComponent = iconMapping[point.icon]; // Get the appropriate icon
+                  return (
+                    <TabsContent key={index} value={point.tab}>
+                      <Card>
+                        <CardHeader>
+                          <CardTitle className="flex items-center gap-2 text-2xl">
+                            {/* Render the icon in the content if it exists */}
+                            {IconComponent && (
+                              <IconComponent className="w-8 h-8" />
+                            )}
+                            <span>{point.title}</span>
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="prose max-w-none">
+                            {point.content
+                              .split("\n\n")
+                              .map((paragraph: string, pIndex: number) => (
+                                <p key={pIndex} className="mb-4 text-gray-700">
+                                  {paragraph}
+                                </p>
+                              ))}
+                            {point.list && (
+                              <ul className="list-disc pl-5 space-y-2 text-gray-700">
+                                {point.list.map((item: any, iIndex: number) => (
+                                  <li key={iIndex}>{item}</li>
+                                ))}
+                              </ul>
+                            )}
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </TabsContent>
+                  );
+                }
+              )
+            : policyPoints.map((point: any, index: number) => {
+                const IconComponent = iconMapping[point.icon]; // Get the appropriate icon
+                return (
+                  <TabsContent key={index} value={point.tab}>
+                    <Card>
+                      <CardHeader>
+                        <CardTitle className="flex items-center gap-2 text-2xl">
+                          {IconComponent && (
+                            <IconComponent className="w-8 h-8" />
+                          )}
+                          <span>{point.title}</span>
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="prose max-w-none">
+                          {point.content
+                            .split("\n\n")
+                            .map((paragraph: string, pIndex: number) => (
+                              <p key={pIndex} className="mb-4 text-gray-700">
+                                {paragraph}
+                              </p>
+                            ))}
+                          {point.list && (
+                            <ul className="list-disc pl-5 space-y-2 text-gray-700">
+                              {point.list.map((item: any, iIndex: number) => (
+                                <li key={iIndex}>{item}</li>
+                              ))}
+                            </ul>
+                          )}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+                );
+              })}
         </Tabs>
 
         <Card className="mb-12 custom-bg-1">
           <CardHeader>
             <CardTitle className="text-2xl font-bold">
-              Why Choose Automation eCom Global for Data Protection?
+              {staticData
+                ? staticData?.dataProtectionPolicies?.whyChooseUs?.title
+                : `Why Choose Automation eCom Global for Data Protection?`}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <ul className="grid gap-4 md:grid-cols-2">
-              {chooseUsPoints.map((point, index) => (
-                <li key={index} className="flex items-start gap-2">
-                  <Shield className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
-                  <span>{point}</span>
-                </li>
-              ))}
+              {staticData
+                ? staticData?.dataProtectionPolicies?.chooseUsPoints.map(
+                    (point: any, index: number) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <Shield className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                        <span>{point}</span>
+                      </li>
+                    )
+                  )
+                : chooseUsPoints.map((point, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <Shield className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                      <span>{point}</span>
+                    </li>
+                  ))}
             </ul>
           </CardContent>
         </Card>
 
         <div className="text-center">
-          <Button size="lg" variant="destructive">
-            Contact Us for More Information
+          <Button
+            size="lg"
+            variant="destructive"
+            onClick={() => onOpen("quickQuote")}
+          >
+            {staticData
+              ? staticData?.dataProtectionPolicies?.whyChooseUs?.callToAction
+              : `Contact Us for More Information`}
           </Button>
         </div>
       </div>

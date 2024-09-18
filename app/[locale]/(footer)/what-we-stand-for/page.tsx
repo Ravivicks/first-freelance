@@ -4,9 +4,25 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Lightbulb, Shield, Award, Leaf, Users, Globe } from "lucide-react";
+import { useParams } from "next/navigation";
+import { useFetchStaticData } from "@/features/static-data/use-get-data";
+import { useStaticDataStore } from "@/stores/useStaticDataStore";
+import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
+const iconMapping: { [key: string]: React.ElementType } = {
+  Lightbulb,
+  Shield,
+  Award,
+  Leaf,
+  Users,
+  Globe,
+};
 
 export default function WhatWeStandFor() {
   const [activeTab, setActiveTab] = useState("innovation");
+  const { locale } = useParams();
+  useFetchStaticData(locale as string, "wwsf");
+  const { data: staticData } = useStaticDataStore();
+  const { onOpen } = useCommonEnquiry();
 
   const coreValues = [
     {
@@ -68,35 +84,63 @@ export default function WhatWeStandFor() {
       <div className="container mx-auto px-4 py-8 space-y-12 ">
         <section className="text-center space-y-4 custom-bg py-4 rounded-md">
           <h1 className="text-5xl font-extrabold tracking-tight bg-clip-text">
-            What We Stand For
+            {staticData
+              ? staticData?.whatWeStandFor?.title
+              : `What We Stand For`}
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            At Automation eCom Global, our core values and guiding principles
+            {staticData
+              ? staticData?.whatWeStandFor?.introText
+              : `At Automation eCom Global, our core values and guiding principles
             shape everything we do. We believe in building a foundation based on
-            innovation, integrity, excellence, and sustainability.
+            innovation, integrity, excellence, and sustainability.`}
           </p>
         </section>
 
         <section className="grid md:grid-cols-3 gap-8">
-          {coreValues.map((value) => (
-            <Card
-              key={value.id}
-              className="bg-card/50 backdrop-blur-sm border-primary/10 hover:border-primary/30 transition-all duration-300"
-            >
-              <CardHeader>
-                <value.icon className="w-12 h-12 text-primary mb-4" />
-                <CardTitle>{value.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">{value.description}</p>
-              </CardContent>
-            </Card>
-          ))}
+          {staticData
+            ? staticData?.whatWeStandFor?.coreValues.map((value: any) => {
+                const IconComponent = iconMapping[value.icon];
+                return (
+                  <Card
+                    key={value.id}
+                    className="bg-card/50 backdrop-blur-sm border-primary/10 hover:border-primary/30 transition-all duration-300"
+                  >
+                    <CardHeader>
+                      {IconComponent && (
+                        <IconComponent className="w-12 h-12 text-primary mb-4" />
+                      )}
+                      <CardTitle>{value.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground">
+                        {value.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                );
+              })
+            : coreValues.map((value) => (
+                <Card
+                  key={value.id}
+                  className="bg-card/50 backdrop-blur-sm border-primary/10 hover:border-primary/30 transition-all duration-300"
+                >
+                  <CardHeader>
+                    <value.icon className="w-12 h-12 text-primary mb-4" />
+                    <CardTitle>{value.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">{value.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
         </section>
 
         <section className="bg-card/50 backdrop-blur-sm rounded-lg p-8 space-y-8">
           <h2 className="text-3xl font-semibold text-center">
-            Our Values in Detail
+            {staticData
+              ? staticData?.whatWeStandFor?.detailsSection?.title
+              : `Our Values in Detail`}
           </h2>
           <Tabs
             value={activeTab}
@@ -104,48 +148,99 @@ export default function WhatWeStandFor() {
             className="w-full"
           >
             <TabsList className="grid grid-cols-3 lg:grid-cols-6 w-full">
-              {coreValues.map((value) => (
-                <TabsTrigger
-                  key={value.id}
-                  value={value.id}
-                  className="text-sm"
-                >
-                  {/* <value.icon className="w-5 h-5 mr-2" /> */}
-                  <span className="hidden md:inline">{value.title}</span>
-                </TabsTrigger>
-              ))}
+              {staticData
+                ? staticData?.whatWeStandFor?.coreValues.map((value: any) => {
+                    const IconComponent = iconMapping[value.icon];
+                    return (
+                      <TabsTrigger
+                        key={value.id}
+                        value={value.id}
+                        className="text-sm"
+                      >
+                        {IconComponent && (
+                          <IconComponent className="w-5 h-5 mr-2" />
+                        )}
+                        <span className="hidden md:inline">{value.title}</span>
+                      </TabsTrigger>
+                    );
+                  })
+                : coreValues.map((value) => (
+                    <TabsTrigger
+                      key={value.id}
+                      value={value.id}
+                      className="text-sm"
+                    >
+                      {/* <value.icon className="w-5 h-5 mr-2" /> */}
+                      <span className="hidden md:inline">{value.title}</span>
+                    </TabsTrigger>
+                  ))}
             </TabsList>
-            {coreValues.map((value) => (
-              <TabsContent key={value.id} value={value.id} className="mt-6">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center">
-                      <value.icon className="w-6 h-6 mr-2 text-primary" />
-                      {value.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p>{value.content}</p>
-                  </CardContent>
-                </Card>
-              </TabsContent>
-            ))}
+            {staticData
+              ? staticData?.whatWeStandFor?.coreValues.map((value: any) => {
+                  const IconComponent = iconMapping[value.icon];
+                  return (
+                    <TabsContent
+                      key={value.id}
+                      value={value.id}
+                      className="mt-6"
+                    >
+                      <Card>
+                        <CardHeader>
+                          <CardTitle className="flex items-center">
+                            {IconComponent && (
+                              <IconComponent className="w-6 h-6 mr-2 text-primary" />
+                            )}
+                            {value.title}
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <p>{value.content}</p>
+                        </CardContent>
+                      </Card>
+                    </TabsContent>
+                  );
+                })
+              : coreValues.map((value) => (
+                  <TabsContent key={value.id} value={value.id} className="mt-6">
+                    <Card>
+                      <CardHeader>
+                        <CardTitle className="flex items-center">
+                          <value.icon className="w-6 h-6 mr-2 text-primary" />
+                          {value.title}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p>{value.content}</p>
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+                ))}
           </Tabs>
         </section>
 
         <section className="text-center space-y-6 bg-card/50 backdrop-blur-sm p-8 rounded-lg">
           <h2 className="text-3xl font-semibold">
-            Experience Our Values in Action
+            {staticData
+              ? staticData?.whatWeStandFor?.detailsSection?.introText
+              : `Experience Our Values in Action`}
           </h2>
           <p className="text-muted-foreground max-w-3xl mx-auto">
-            At Automation eCom Global, we stand for more than just automation
+            {staticData
+              ? staticData?.whatWeStandFor?.detailsSection?.description
+              : ` At Automation eCom Global, we stand for more than just automation
             products—we stand for excellence, integrity, innovation,
             sustainability, and above all, our customers. Experience the
             difference our values make in delivering exceptional automation
-            solutions.
+            solutions.`}
           </p>
-          <Button size="lg" variant="destructive">
-            Contact Us Today
+          <Button
+            size="lg"
+            variant="destructive"
+            onClick={() => onOpen("serviceQuote")}
+          >
+            {staticData
+              ? staticData?.whatWeStandFor?.detailsSection?.contactButton
+              : `Contact Us Today`}
           </Button>
         </section>
       </div>

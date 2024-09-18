@@ -13,9 +13,29 @@ import {
   Rocket,
   Globe2,
 } from "lucide-react";
+import { useParams } from "next/navigation";
+import { useFetchStaticData } from "@/features/static-data/use-get-data";
+import { useStaticDataStore } from "@/stores/useStaticDataStore";
+
+const iconMapping: { [key: string]: React.ElementType } = {
+  TrendingUp,
+  Users,
+  Briefcase,
+  HeartHandshake,
+  Leaf,
+  Rocket,
+  Globe2,
+};
 
 export default function CareersAndOpportunities() {
   const [activeTab, setActiveTab] = useState("global-leader");
+  const { locale } = useParams();
+  useFetchStaticData(locale as string, "cao");
+  const {
+    data: staticData,
+    isLoading: staticLoading,
+    error,
+  } = useStaticDataStore();
 
   const careerAspects = [
     {
@@ -78,17 +98,23 @@ export default function CareersAndOpportunities() {
       <div className="container mx-auto px-4 py-8 space-y-16">
         <section className="text-center space-y-4 custom-bg py-4 rounded-md">
           <h1 className="text-5xl font-extrabold tracking-tight bg-clip-text">
-            Careers and Opportunities
+            {staticData
+              ? staticData?.careersAndOpportunities?.heading
+              : "Careers and Opportunities"}
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Join Automation eCom Global and be part of a team driving innovation
-            in industrial automation across the globe.
+            {staticData
+              ? staticData?.careersAndOpportunities?.intro
+              : `Join Automation eCom Global and be part of a team driving innovation
+            in industrial automation across the globe.`}
           </p>
         </section>
 
         <section className="bg-card/50 backdrop-blur-sm rounded-lg p-8 space-y-8">
           <h2 className="text-3xl font-semibold text-center mb-8">
-            Why Join Us?
+            {staticData
+              ? staticData?.careersAndOpportunities?.joinUs?.whyJoinUs?.title
+              : "Why Join Us?"}
           </h2>
           <Tabs
             value={activeTab}
@@ -96,95 +122,181 @@ export default function CareersAndOpportunities() {
             className="w-full"
           >
             <TabsList className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 w-full mb-8">
-              {careerAspects.map((aspect) => (
-                <TabsTrigger
-                  key={aspect.id}
-                  value={aspect.id}
-                  className="text-sm"
-                >
-                  <span className="hidden md:inline">{aspect.title}</span>
-                </TabsTrigger>
-              ))}
+              {staticData
+                ? staticData?.careersAndOpportunities?.whyJoinUs?.careerAspects.map(
+                    (aspect: any) => (
+                      <TabsTrigger
+                        key={aspect.id}
+                        value={aspect.id}
+                        className="text-sm"
+                      >
+                        <span className="hidden md:inline">{aspect.title}</span>
+                      </TabsTrigger>
+                    )
+                  )
+                : careerAspects.map((aspect) => (
+                    <TabsTrigger
+                      key={aspect.id}
+                      value={aspect.id}
+                      className="text-sm"
+                    >
+                      <span className="hidden md:inline">{aspect.title}</span>
+                    </TabsTrigger>
+                  ))}
             </TabsList>
-            {careerAspects.map((aspect) => (
-              <TabsContent key={aspect.id} value={aspect.id} className="mt-6">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center text-2xl">
-                      <aspect.icon className="w-8 h-8 mr-3 text-primary" />
-                      {aspect.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p>{aspect.content}</p>
-                  </CardContent>
-                </Card>
-              </TabsContent>
-            ))}
+            {staticData
+              ? staticData?.careersAndOpportunities?.whyJoinUs?.careerAspects.map(
+                  (aspect: any) => {
+                    const IconComponent = iconMapping[aspect.icon];
+                    return (
+                      <TabsContent
+                        key={aspect.id}
+                        value={aspect.id}
+                        className="mt-6"
+                      >
+                        <Card>
+                          <CardHeader>
+                            <CardTitle className="flex items-center text-2xl">
+                              {IconComponent && (
+                                <IconComponent className="w-8 h-8 mr-3 text-primary" />
+                              )}
+                              {aspect.title}
+                            </CardTitle>
+                          </CardHeader>
+                          <CardContent>
+                            <p>{aspect.content}</p>
+                          </CardContent>
+                        </Card>
+                      </TabsContent>
+                    );
+                  }
+                )
+              : careerAspects.map((aspect: any) => (
+                  <TabsContent
+                    key={aspect.id}
+                    value={aspect.id}
+                    className="mt-6"
+                  >
+                    <Card>
+                      <CardHeader>
+                        <CardTitle className="flex items-center text-2xl">
+                          <aspect.icon className="w-8 h-8 mr-3 text-primary" />
+                          {aspect.title}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p>{aspect.content}</p>
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+                ))}
           </Tabs>
         </section>
 
         <section className="bg-card/50 backdrop-blur-sm rounded-lg p-8 space-y-8">
           <h2 className="text-3xl font-semibold text-center">
-            Exciting Roles Across Multiple Functions
+            {staticData
+              ? staticData?.careersAndOpportunities?.excitingRoles?.title
+              : " Exciting Roles Across Multiple Functions"}
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
-            {roles.map((role, index) => (
-              <Badge
-                key={index}
-                variant="secondary"
-                className="text-lg py-2 px-4"
-              >
-                {role}
-              </Badge>
-            ))}
+            {staticData
+              ? staticData?.careersAndOpportunities?.excitingRoles?.roles.map(
+                  (role: any, index: number) => (
+                    <Badge
+                      key={index}
+                      variant="secondary"
+                      className="text-lg py-2 px-4"
+                    >
+                      {role}
+                    </Badge>
+                  )
+                )
+              : roles.map((role: any, index: number) => (
+                  <Badge
+                    key={index}
+                    variant="secondary"
+                    className="text-lg py-2 px-4"
+                  >
+                    {role}
+                  </Badge>
+                ))}
           </div>
           <p className="text-center text-muted-foreground">
-            Whether your passion lies in technical innovation, sales strategy,
+            {staticData
+              ? staticData?.careersAndOpportunities?.excitingRoles?.description
+              : `Whether your passion lies in technical innovation, sales strategy,
             or customer service, we offer roles that match your skills and
-            aspirations.
+            aspirations.`}
           </p>
         </section>
 
         <section className="grid md:grid-cols-2 gap-8 items-center bg-card/50 backdrop-blur-sm rounded-lg p-8">
           <div className="space-y-4">
-            <h2 className="text-3xl font-semibold">Join Us on Our Journey</h2>
+            <h2 className="text-3xl font-semibold">
+              {staticData
+                ? staticData?.careersAndOpportunities?.joinUs?.title
+                : "Join Us on Our Journey"}
+            </h2>
             <p className="text-muted-foreground">
-              At Automation eCom Global, we are not just building automation
+              {staticData
+                ? staticData?.careersAndOpportunities?.joinUs?.content
+                : `At Automation eCom Global, we are not just building automation
               solutions; we are building a future where industries are more
               efficient, sustainable, and innovative. We invite passionate,
               driven individuals to join us on this journey and be part of
-              something greater.
+              something greater.`}
             </p>
             <ul className="space-y-2">
               <li className="flex items-center">
                 <Rocket className="w-5 h-5 mr-2 text-primary" />
-                Work with cutting-edge technology
+                {staticData
+                  ? staticData?.careersAndOpportunities?.joinUs?.benefits?.[0]
+                      ?.text
+                  : "Work with cutting-edge technology"}
               </li>
               <li className="flex items-center">
                 <Globe2 className="w-5 h-5 mr-2 text-primary" />
-                Contribute to industry-leading projects
+                {staticData
+                  ? staticData?.careersAndOpportunities?.joinUs?.benefits?.[1]
+                      ?.text
+                  : `Contribute to industry-leading projects`}
               </li>
               <li className="flex items-center">
                 <Users className="w-5 h-5 mr-2 text-primary" />
-                Grow alongside bright minds in automation
+                {staticData
+                  ? staticData?.careersAndOpportunities?.joinUs?.benefits?.[2]
+                      ?.text
+                  : `Grow alongside bright minds in automation`}
               </li>
               <li className="flex items-center">
                 <Leaf className="w-5 h-5 mr-2 text-primary" />
-                Make a positive impact on the environment
+                {staticData
+                  ? staticData?.careersAndOpportunities?.joinUs?.benefits?.[3]
+                      ?.text
+                  : `Make a positive impact on the environment`}
               </li>
             </ul>
           </div>
           <div className="space-y-6 text-center">
             <h3 className="text-2xl font-semibold">
-              Ready to Start Your Journey?
+              {staticData
+                ? staticData?.careersAndOpportunities?.joinUs?.callToAction
+                    ?.title
+                : `Ready to Start Your Journey?`}
             </h3>
             <p className="text-muted-foreground">
-              Explore our current openings and take the first step towards an
-              exciting career in industrial automation.
+              {staticData
+                ? staticData?.careersAndOpportunities?.joinUs?.callToAction
+                    ?.description
+                : `Explore our current openings and take the first step towards an
+              exciting career in industrial automation.`}
             </p>
             <Button variant="destructive" size="lg">
-              View Open Positions
+              {staticData
+                ? staticData?.careersAndOpportunities?.joinUs?.callToAction
+                    ?.buttonText
+                : `View Open Positions`}
             </Button>
           </div>
         </section>
