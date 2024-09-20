@@ -96,9 +96,9 @@ export default function CareersAndOpportunities() {
 
   return (
     <div className="min-h-screen">
-      <div className="container mx-auto px-4 py-8 space-y-16">
+      <div className="container mx-auto md:px-4 px-1 py-8 space-y-16 max-w-6xl">
         <section className="text-center space-y-4 custom-bg py-4 rounded-md">
-          <h1 className="text-5xl font-extrabold tracking-tight bg-clip-text">
+          <h1 className="text-4xl font-extrabold tracking-tight bg-clip-text">
             {staticData
               ? staticData?.careersAndOpportunities?.heading
               : "Careers and Opportunities"}
@@ -122,7 +122,7 @@ export default function CareersAndOpportunities() {
             onValueChange={setActiveTab}
             className="w-full"
           >
-            <TabsList className="grid grid-cols-2 lg:grid-cols-4 w-full mb-8">
+            <TabsList className="grid grid-cols-1 lg:grid-cols-3 w-full mb-8">
               {staticData
                 ? staticData?.careersAndOpportunities?.whyJoinUs?.careerAspects?.map(
                     (aspect: any) => {
@@ -200,7 +200,7 @@ export default function CareersAndOpportunities() {
           </Tabs>
         </section>
 
-        <section className="bg-card/50 backdrop-blur-sm rounded-lg p-8 space-y-8">
+        <section className="bg-card/50 backdrop-blur-sm rounded-lg md:p-8 space-y-8">
           <h2 className="text-3xl font-semibold text-center">
             {staticData
               ? staticData?.careersAndOpportunities?.excitingRoles?.title
@@ -238,7 +238,7 @@ export default function CareersAndOpportunities() {
           </p>
         </section>
 
-        <section className="grid md:grid-cols-2 gap-8 items-center bg-card/50 backdrop-blur-sm rounded-lg p-8">
+        <section className="grid md:grid-cols-2 gap-8 items-center bg-card/50 backdrop-blur-sm rounded-lg md:p-8">
           <div className="space-y-4">
             <h2 className="text-3xl font-semibold">
               {staticData

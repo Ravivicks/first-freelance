@@ -23,7 +23,7 @@ export default function Component() {
           src="/images/privacy-policy-banner.jpg"
           alt="term"
           fill
-          className="object-fill rounded-xl shadow-xl"
+          className="object-fill rounded-md shadow-xl"
         />
       </div>
       <div className="container mx-auto px-4 md:px-6 max-w-5xl py-12 md:py-16">

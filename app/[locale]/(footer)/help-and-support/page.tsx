@@ -60,7 +60,7 @@ export default function HelpAndSupport() {
 
   return (
     <div className="min-h-screen">
-      <div className="container mx-auto px-4 py-8 space-y-16">
+      <div className="container mx-auto md:px-4 px-1 py-8 space-y-16 max-w-6xl">
         <section className="text-center custom-bg py-4 space-y-4">
           <h1 className="md:text-5xl text-4xl font-extrabold tracking-tight bg-clip-text">
             {staticData?.helpAndSupport?.title}
@@ -118,7 +118,7 @@ export default function HelpAndSupport() {
           <h2 className="text-3xl font-semibold text-center mb-8">
             {staticData?.helpAndSupport?.whyChooseTitle}
           </h2>
-          <ul className="list-disc list-inside space-y-2 text-center">
+          <ul className="list-disc list-inside space-y-2 text-center px-3">
             {staticData?.helpAndSupport?.whyChooseItems?.map(
               (item: any, index: number) => (
                 <li key={index} className="text-lg">
@@ -129,7 +129,7 @@ export default function HelpAndSupport() {
           </ul>
         </section>
 
-        <section className="space-y-8">
+        <section className="space-y-8 max-w-5xl mx-auto">
           <h2 className="text-3xl font-semibold text-center mb-8">
             {staticData?.helpAndSupport?.faqTitle}
           </h2>
@@ -147,7 +147,7 @@ export default function HelpAndSupport() {
           </Accordion>
         </section>
 
-        <section className="text-center">
+        <section className="text-center max-w-6xl mx-auto">
           <h2 className="text-3xl font-semibold mb-4">
             {staticData?.helpAndSupport?.assistanceTitle}
           </h2>

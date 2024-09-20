@@ -84,9 +84,9 @@ export default function WhatWeStandFor() {
   }
   return (
     <div className="min-h-screen">
-      <div className="container mx-auto px-4 py-8 space-y-12 ">
+      <div className="container mx-auto px-1 py-8 space-y-12 max-w-6xl ">
         <section className="text-center space-y-4 custom-bg py-4 rounded-md">
-          <h1 className="text-5xl font-extrabold tracking-tight bg-clip-text">
+          <h1 className="text-4xl font-extrabold tracking-tight bg-clip-text">
             {staticData
               ? staticData?.whatWeStandFor?.title
               : `What We Stand For`}
@@ -150,7 +150,7 @@ export default function WhatWeStandFor() {
             onValueChange={setActiveTab}
             className="w-full"
           >
-            <TabsList className="grid grid-cols-3 lg:grid-cols-6 w-full">
+            <TabsList className="grid grid-cols-1 lg:grid-cols-3 w-full">
               {staticData
                 ? staticData?.whatWeStandFor?.coreValues.map((value: any) => {
                     const IconComponent = iconMapping[value.icon];
@@ -163,7 +163,7 @@ export default function WhatWeStandFor() {
                         {IconComponent && (
                           <IconComponent className="w-5 h-5 mr-2" />
                         )}
-                        <span className="hidden md:inline">{value.title}</span>
+                        <span>{value.title}</span>
                       </TabsTrigger>
                     );
                   })

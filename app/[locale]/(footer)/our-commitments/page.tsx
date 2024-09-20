@@ -60,7 +60,7 @@ export default function OurCommitments() {
     return <Loader />;
   }
   return (
-    <div className="container mx-auto px-4 py-8 space-y-12">
+    <div className="container mx-auto md:px-4 px-1 py-8 space-y-12 max-w-6xl">
       <section className="text-center space-y-4 custom-bg py-5 rounded-md">
         <h1 className="text-4xl font-bold tracking-tight">
           {staticData

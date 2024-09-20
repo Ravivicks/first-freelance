@@ -23,7 +23,7 @@ export default function Component() {
           src="/images/term1.jpg"
           alt="term"
           fill
-          className="object-fill rounded-xl shadow-xl"
+          className="object-fill rounded-md shadow-xl"
         />
       </div>
       <main className="container mx-auto max-w-5xl py-12 px-4 md:px-6">

@@ -27,7 +27,7 @@ export default function WhoWeAre() {
   }
 
   return (
-    <div className="container mx-auto px-2 py-8 space-y-12">
+    <div className="container mx-auto px-2 py-8 space-y-12 max-w-6xl">
       <section className="text-center space-y-4 custom-bg py-5 rounded-md">
         <h1 className="text-4xl font-bold tracking-tight">
           {staticData ? staticData?.whoWeAre?.title : `Who We Are`}

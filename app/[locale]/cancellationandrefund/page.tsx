@@ -22,7 +22,7 @@ export default function Component() {
           src="/images/refund.webp"
           alt="term"
           fill
-          className="object-fill rounded-xl shadow-xl"
+          className="object-fill rounded-md shadow-xl"
         />
       </div>
       <div className="container mx-auto max-w-5xl px-4 py-12 md:px-6 md:py-16">

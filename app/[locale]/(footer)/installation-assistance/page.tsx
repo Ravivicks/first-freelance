@@ -14,7 +14,7 @@ export default function InstallationAssistance() {
     return <Loader />;
   }
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto md:px-4 px-1 py-8 max-w-6xl">
       <h1 className="text-3xl font-bold mb-8 text-center">
         {staticData
           ? staticData?.installationAssistance?.title

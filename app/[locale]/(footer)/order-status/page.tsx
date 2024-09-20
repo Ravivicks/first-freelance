@@ -86,7 +86,7 @@ export default function OrderStatus() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto md:px-4 px-1 py-8 max-w-6xl">
       <Card className="mb-8 custom-bg">
         <CardHeader>
           <CardTitle>

@@ -1,16 +1,12 @@
 "use client";
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import {
   ArrowLeftRight,
   Package,
@@ -53,7 +49,7 @@ export default function ReturnAndExchange() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto md:px-4 px-1 py-8 max-w-6xl">
       <h1 className="text-3xl font-bold mb-8 text-center">
         {staticData
           ? staticData?.returnAndExchange?.header
@@ -86,7 +82,7 @@ export default function ReturnAndExchange() {
       </Card>
 
       <div className="grid md:grid-cols-3 gap-8 mb-8">
-        <Card className="md:col-span-2">
+        <Card className="md:col-span-3">
           <CardHeader>
             <CardTitle>
               {staticData
@@ -347,7 +343,7 @@ export default function ReturnAndExchange() {
           </CardContent>
         </Card>
 
-        <Card>
+        {/* <Card>
           <CardHeader>
             <CardTitle>
               {staticData
@@ -389,7 +385,7 @@ export default function ReturnAndExchange() {
               </div>
             </form>
           </CardContent>
-        </Card>
+        </Card> */}
       </div>
 
       <Card>

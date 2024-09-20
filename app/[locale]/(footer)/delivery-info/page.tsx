@@ -64,7 +64,7 @@ export default function DeliveryInformation() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto md:px-4 px-1 py-8 max-w-6xl">
       <Card className="mb-8 custom-bg">
         <CardHeader>
           <CardTitle>
@@ -89,9 +89,9 @@ export default function DeliveryInformation() {
         </CardContent>
       </Card>
 
-      <div className="grid md:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-4 grid-cols-1 gap-8">
         {/* Features List */}
-        <Card className="md:col-span-1">
+        <Card className="md:col-span-2">
           <CardHeader>
             <CardTitle>Delivery Features</CardTitle>
           </CardHeader>

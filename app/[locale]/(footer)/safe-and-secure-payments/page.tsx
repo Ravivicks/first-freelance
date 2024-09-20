@@ -43,7 +43,7 @@ export default function SecurePaymentsPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto md:px-4 px-1 py-8 max-w-6xl">
       <header className="text-center mb-12">
         <Shield className="w-16 h-16 mx-auto mb-4 text-destructive" />
         <h1 className="text-3xl font-bold mb-4">

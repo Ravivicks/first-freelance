@@ -26,7 +26,7 @@ export default function DataProtectionPolicyPage() {
   }
   return (
     <div className="min-h-screen">
-      <div className="container mx-auto px-4 py-12 max-w-6xl">
+      <div className="container mx-auto md:px-4 px-1 py-12 max-w-6xl">
         <header className="text-center mb-12">
           <Shield className="w-20 h-20 mx-auto mb-6 text-destructive" />
           <h1 className="text-4xl font-bold mb-4">
@@ -51,7 +51,7 @@ export default function DataProtectionPolicyPage() {
         </header>
 
         <Tabs defaultValue="privacy" className="mb-12">
-          <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 mb-8">
+          <TabsList className="grid w-full grid-cols-1 lg:grid-cols-4 mb-8">
             {staticData ? (
               staticData?.dataProtectionPolicies?.policyPoints?.map(
                 (point: any, index: number) => {

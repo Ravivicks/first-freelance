@@ -16,7 +16,7 @@ export default function Component() {
   }
   return (
     <div className="w-full">
-      <section className="w-full py-12 md:py-20 lg:py-24 bg-[url('/images/bg-con.jpg?height=200&width=1600')] h-[300px] bg-cover bg-center my-4 rounded-2xl">
+      <section className="w-full py-12 md:py-20 lg:py-24 bg-[url('/images/bg-con.jpg?height=200&width=1600')] h-[300px] bg-cover bg-center my-4 rounded-md">
         <div className="container px-4 md:px-6">
           <div className="max-w-2xl space-y-4 text-center">
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">
