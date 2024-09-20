@@ -1,18 +1,19 @@
 "use client";
 import Link from "next/link";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import Image from "next/image";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { useParams } from "next/navigation";
-import { useGetOtherPageData } from "@/features/static-data/use-get-other";
 import { useFetchStaticData } from "@/features/static-data/use-get-data";
 import { useStaticDataStore } from "@/stores/useStaticDataStore";
 import Loader from "@/components/Loader";
+import { Button } from "@/components/ui/button";
+import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
 
 export default function Component() {
   const { locale } = useParams();
   useFetchStaticData(locale as string, "about");
   const { data: staticData, isLoading, error } = useStaticDataStore();
+  const { onOpen } = useCommonEnquiry();
 
   if (isLoading) {
     return <Loader />;
@@ -67,7 +68,7 @@ export default function Component() {
                 </p>
                 <div className="space-x-4">
                   <Link
-                    href="#"
+                    href="/product-details/siemens?type=all"
                     className="inline-flex h-9 items-center justify-center rounded-xl bg-destructive px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                     prefetch={false}
                   >
@@ -77,7 +78,7 @@ export default function Component() {
                       : "Explore Products"}
                   </Link>
                   <Link
-                    href="#"
+                    href="/contact-us"
                     className="inline-flex h-9 items-center justify-center rounded-xl border border-input bg-background px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                     prefetch={false}
                   >
@@ -135,7 +136,7 @@ export default function Component() {
             </div>
           </div>
         </section>
-        <section className="w-full py-12 md:py-24 lg:py-16 border rounded-full shadow-md bg-destructive/5">
+        <section className="w-[80%] mx-auto py-12 md:py-24 lg:py-16 border rounded-xl shadow-md custom-bg">
           <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
             <div className="space-y-3">
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
@@ -150,7 +151,15 @@ export default function Component() {
                 the best possible solutions and support.`}
               </p>
             </div>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            <Button
+              variant="destructive"
+              className="mt-5 md:w-1/2 mx-auto"
+              onClick={() => onOpen("quoteRequest")}
+            >
+              Request Quote
+            </Button>
+
+            {/* <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {staticData &&
                 staticData?.about?.section3?.teamMembers.map(
                   (teamMember: any, index: number) => (
@@ -171,7 +180,7 @@ export default function Component() {
                     </div>
                   )
                 )}
-            </div>
+            </div> */}
           </div>
         </section>
         <section className="w-full py-12 md:py-24 lg:py-32">
@@ -192,7 +201,7 @@ export default function Component() {
             </div>
             <div className="flex justify-center space-x-4">
               <Link
-                href="#"
+                href="/product-details/siemens?type=all"
                 className="inline-flex h-10 items-center justify-center rounded-xl bg-destructive px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                 prefetch={false}
               >
@@ -201,7 +210,7 @@ export default function Component() {
                   : "View Products"}
               </Link>
               <Link
-                href="#"
+                href="/contact-us"
                 className="inline-flex h-10 items-center justify-center rounded-xl border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                 prefetch={false}
               >

@@ -56,6 +56,31 @@ export const CommonEnquiryForm = ({
         onSubmit={form.handleSubmit(handleSubmit)}
         className="space-y-4 pt-4"
       >
+        <FormField
+          name="fullName"
+          control={form.control}
+          render={({ field }) => (
+            <FormItem className="w-full">
+              <FormLabel>
+                {staticData
+                  ? staticData?.contact?.form?.fields?.name?.label
+                  : "Name"}
+              </FormLabel>
+              <FormControl>
+                <Input
+                  disabled={disabled}
+                  placeholder={
+                    staticData
+                      ? staticData?.contact?.form?.fields?.name?.placeholder
+                      : "John Doe"
+                  }
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage /> {/* Display error message */}
+            </FormItem>
+          )}
+        />
         {/* Email Field */}
         <FormField
           name="email"
@@ -67,7 +92,6 @@ export const CommonEnquiryForm = ({
               </FormLabel>
               <FormControl>
                 <Input
-                  className="rounded-xl"
                   disabled={disabled}
                   placeholder={
                     staticData
@@ -93,7 +117,17 @@ export const CommonEnquiryForm = ({
                   {staticData ? staticData?.enquiry?.mobileLabel : "Mobile"}
                 </FormLabel>
                 <FormControl>
-                  <PhoneInput className="rounded-xl" {...field} />
+                  <Input
+                    className="[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                    type="number"
+                    disabled={disabled}
+                    placeholder={
+                      staticData
+                        ? staticData?.contact?.form?.fields?.phone?.placeholder
+                        : "(123) 456-7890"
+                    }
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -112,7 +146,6 @@ export const CommonEnquiryForm = ({
                   </FormLabel>
                   <FormControl>
                     <Input
-                      className="rounded-xl"
                       disabled={disabled}
                       placeholder={
                         staticData
@@ -146,7 +179,6 @@ export const CommonEnquiryForm = ({
               </FormLabel>
               <FormControl>
                 <Textarea
-                  className="rounded-xl"
                   disabled={disabled}
                   placeholder={
                     staticData
@@ -162,11 +194,7 @@ export const CommonEnquiryForm = ({
         />
 
         {/* Submit Button */}
-        <Button
-          className="w-full rounded-xl"
-          disabled={disabled}
-          variant="destructive"
-        >
+        <Button className="w-full" disabled={disabled} variant="destructive">
           {disabled
             ? staticData
               ? staticData?.enquiry?.submittingButton

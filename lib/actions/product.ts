@@ -72,6 +72,7 @@ export async function getAllProducts(
 
     const filter: any = {};
 
+    // Construct filters for querying
     if (filters.query) {
       filter.$or = [
         { title: { $regex: filters.query, $options: "i" } },
@@ -90,46 +91,42 @@ export async function getAllProducts(
     });
 
     const skip = (page - 1) * pageSize;
-    const totalCount = await Product.countDocuments(filter);
-    const products = await Product.find(filter)
-      .skip(skip)
-      .limit(pageSize)
-      .lean();
 
-    const distinctBrands = await Product.distinct("brand");
-    const brands = distinctBrands.map((brand) => ({
-      label: brand,
-      value: brand,
+    // Fetch total count and products in a single query
+    const [totalCount, products] = await Promise.all([
+      Product.countDocuments(filter),
+      Product.find(filter).skip(skip).limit(pageSize).lean(),
+    ]);
+
+    // Fetch distinct brands, types, and categories in parallel
+    const [brands, types, categories] = await Promise.all([
+      Product.distinct("brand"),
+      Product.distinct("type"),
+      Product.distinct("category"),
+    ]).then(([brands, types, categories]) => [
+      brands.map((brand) => ({ label: brand, value: brand })),
+      types.map((type) => ({ label: type, value: type })),
+      categories.map((category) => ({ label: category, value: category })),
+    ]);
+
+    // Prepare texts for batch translation
+    const titles = products.map((product) => product.title);
+    const descriptions = products.map((product) => product.description);
+
+    // Translate titles and descriptions in parallel
+    const [translatedTitles, translatedDescriptions] = await Promise.all([
+      Promise.all(titles.map((title) => translateText(title, locale))),
+      Promise.all(
+        descriptions.map((description) => translateText(description, locale))
+      ),
+    ]);
+
+    // Combine translated texts with original products
+    const translatedProducts = products.map((product, index) => ({
+      ...product,
+      title: translatedTitles[index],
+      description: translatedDescriptions[index],
     }));
-
-    const distinctTypes = await Product.distinct("type");
-    const types = distinctTypes.map((type) => ({
-      label: type,
-      value: type,
-    }));
-
-    const distinctCategories = await Product.distinct("category");
-    const categories = distinctCategories.map((category) => ({
-      label: category,
-      value: category,
-    }));
-
-    // Translate product titles and descriptions
-    const translatedProducts = await Promise.all(
-      products.map(async (product) => {
-        const translatedTitle = await translateText(product.title, locale);
-        const translatedDescription = await translateText(
-          product.description,
-          locale
-        );
-
-        return {
-          ...product,
-          title: translatedTitle,
-          description: translatedDescription,
-        };
-      })
-    );
 
     return {
       products: JSON.parse(JSON.stringify(translatedProducts)),

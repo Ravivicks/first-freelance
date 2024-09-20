@@ -5,6 +5,7 @@ export const commonEnquirySchema = new Schema<CommonEnquireProps>(
   {
     email: { type: String, required: true },
     mobile: { type: String },
+    fullName: { type: String },
     productId: { type: String },
     productName: { type: String },
     productPrice: { type: Number },

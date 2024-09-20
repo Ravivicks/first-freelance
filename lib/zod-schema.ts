@@ -25,12 +25,17 @@ export const formSchema = z.object({
     .default([]), // Ensuring it's an empty array if not provided
 });
 export const commonEnquiryFormSchema = z.object({
-  email: z.string().email(),
-  mobile: z.string(),
+  fullName: z.string().min(1, { message: "First name is required" }),
+  mobile: z
+    .string()
+    .min(10, { message: "Mobile number must be at least 10 digits long" })
+    .max(15, { message: "Mobile number can't exceed 15 digits" })
+    .regex(/^\d+$/, { message: "Mobile number must contain only numbers" }),
+  email: z.string().email({ message: "Invalid email address" }),
+  enquiryDescription: z.string().min(1, { message: "Description is required" }),
   productName: z.string(),
   productId: z.string(),
   productPrice: z.number(),
-  enquiryDescription: z.string(),
   quantity: z.number(),
   status: z.enum(["pending", "approved", "rejected"]),
   reason: z.string().optional(),
@@ -67,6 +72,35 @@ export const requestPriceFormSchema = z.object({
 export const formBannerSchema = z.object({
   image: z.string(),
   brand: z.string(),
+});
+
+export const contactFormSchema = z.object({
+  fullName: z.string().min(1, { message: "First name is required" }),
+  mobile: z
+    .string()
+    .min(10, { message: "Mobile number must be at least 10 digits long" })
+    .max(15, { message: "Mobile number can't exceed 15 digits" })
+    .regex(/^\d+$/, { message: "Mobile number must contain only numbers" }),
+  email: z.string().email({ message: "Invalid email address" }),
+  enquiryDescription: z.string().min(1, { message: "Address is required" }),
+  productName: z.string(),
+  productId: z.string(),
+  productPrice: z.number(),
+  quantity: z.number(),
+  status: z.enum(["pending", "approved", "rejected"]),
+  reason: z.string().optional(),
+  enquiryType: z.string(),
+  cartProduct: z
+    .array(
+      z.object({
+        productName: z.string(),
+        productId: z.string(),
+        productPrice: z.number(),
+        quantity: z.number(),
+      })
+    )
+    .optional()
+    .default([]),
 });
 
 export const formAddressSchema = z.object({

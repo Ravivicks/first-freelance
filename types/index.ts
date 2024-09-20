@@ -109,6 +109,7 @@ export type CommonEnquireProps = {
     productPrice: number;
     quantity: number;
   }[];
+  fullName?: string;
 };
 
 export type PriceRequestProps = {

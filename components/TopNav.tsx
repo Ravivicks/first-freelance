@@ -56,22 +56,22 @@ const TopNav = () => {
         </div>
 
         {/* Customer Support Section */}
-        {staticLoading ? (
+        {/* {staticLoading ? (
           <Loader2 className="h-8 w-8 text-muted-foreground animate-spin" />
-        ) : (
-          <div className="flex items-center">
-            <Button
-              variant="link"
-              className="font-extrabold text-gray-500 text-xs flex items-center"
-              onClick={supportOpen}
-            >
-              <Headset className="mr-2" size={16} />
-              {staticData
-                ? staticData?.page1?.customerSupport
-                : "Customer Support"}
-            </Button>
-          </div>
-        )}
+        ) : ( */}
+        <div className="flex items-center">
+          <Button
+            variant="link"
+            className="font-extrabold text-gray-500 text-xs flex items-center"
+            onClick={supportOpen}
+          >
+            <Headset className="mr-2" size={16} />
+            {staticData
+              ? staticData?.page1?.customerSupport
+              : "Customer Support"}
+          </Button>
+        </div>
+        {/* )} */}
 
         {/* Email Link */}
         {isLoading ? (

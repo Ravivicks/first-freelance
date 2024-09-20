@@ -11,6 +11,7 @@ import Image from "next/image";
 import React from "react";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { getEstimatedDeliveryDate } from "@/lib/utils";
 
 const ProductShiping = () => {
   const [showMore, setShowMore] = React.useState(false);
@@ -64,12 +65,12 @@ const ProductShiping = () => {
                       post office norms
                     </li>
                     <li>
-                      PROSAFE AUTOMATION is not liable for any delay in delivery
-                      by the courier company / postal authorities and only
-                      guarantees to hand over the consignment to the courier
-                      company or postal authorities within 1-2 days rom the date
-                      of the order and payment or as per the delivery date
-                      agreed at the time of order confirmation.
+                      AUTOMATION ECOM GLOBAL is not liable for any delay in
+                      delivery by the courier company / postal authorities and
+                      only guarantees to hand over the consignment to the
+                      courier company or postal authorities within 1-2 days rom
+                      the date of the order and payment or as per the delivery
+                      date agreed at the time of order confirmation.
                     </li>
                     <li>
                       Delivery of all orders will be to the address provided by
@@ -98,11 +99,14 @@ const ProductShiping = () => {
           <p className="font-bold">Delivery:</p>
           <div className="flex flex-col gap-3">
             <p className="relative pr-6 font-semibold ">
-              Estimated between Mon, Sep 2 and Wed, Sep 25
+              {getEstimatedDeliveryDate()}
             </p>
             <p className=" font-semibold text-muted-foreground">
               Please note the delivery estimate is
-              <span className="text-black">greater than 11 business days.</span>
+              <span className="text-black">
+                {" "}
+                greater than 11 business days.
+              </span>
             </p>
             <p className="font-semibold text-muted-foreground">
               Please allow additional time if international delivery is subject
@@ -141,7 +145,9 @@ const ProductShiping = () => {
             <p className="font-bold">Comapny Moneyback Guarantee</p>
             <p className="font-semibold text-muted-foreground">
               Get the item you ordered or your money back. Learn more
-              <span className="underline ml-1">Learn more</span>
+              <Link href="/product-guarantee">
+                <span className="underline ml-1">Learn more</span>
+              </Link>
             </p>
           </div>
         </div>

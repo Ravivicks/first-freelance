@@ -108,18 +108,22 @@ const Footer = () => {
         </div>
 
         {/* Information */}
-        <div className="flex flex-col gap-2">
+        <div className="flex-1">
           <h1 className="text-lg font-bold mb-3 flex gap-2">
             {" "}
             <ShieldCheck className="text-destructive" />
             {staticData ? staticData?.footer?.trust?.title : "Trust"}
           </h1>
-          {staticData &&
-            staticData?.footer?.trust?.links.map((link: any, index: number) => (
-              <Link href={`/${locale}${link?.url}`} key={index}>
-                {link?.text}
-              </Link>
-            ))}
+          <div className="flex flex-col gap-2">
+            {staticData &&
+              staticData?.footer?.trust?.links.map(
+                (link: any, index: number) => (
+                  <Link href={`/${locale}${link?.url}`} key={index}>
+                    {link?.text}
+                  </Link>
+                )
+              )}
+          </div>
         </div>
 
         {/* Payment Method */}

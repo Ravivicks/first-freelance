@@ -15,8 +15,8 @@ const partnerList = [
     image: "/featured/partner/schneider.jpg",
   },
   {
-    title: "Prosafe Automation",
-    image: "/featured/partner/Prosafe.svg",
+    title: "Pro-Face",
+    image: "/featured/partner/Proface.png",
   },
   {
     title: "Deif Group",

@@ -51,11 +51,7 @@ const navItems = [
 ];
 
 const CircularNavbar = () => {
-  const {
-    data: staticData,
-    isLoading: staticLoading,
-    error,
-  } = useStaticDataStore();
+  const { data: staticData, error } = useStaticDataStore();
   return (
     <div className="flex flex-wrap justify-center gap-4 md:gap-8 items-center my-5 rounded-md py-5 bg-gradient-to-r from-slate-100 to-destructive/10 shadow-sm border">
       {staticData &&

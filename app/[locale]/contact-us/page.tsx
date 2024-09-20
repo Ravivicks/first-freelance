@@ -1,22 +1,15 @@
 "use client";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
 import { useGetContacts } from "@/features/contact/use-get-contacts";
 import { useParams } from "next/navigation";
 import { useFetchStaticData } from "@/features/static-data/use-get-data";
 import { useStaticDataStore } from "@/stores/useStaticDataStore";
 import Loader from "@/components/Loader";
+import { ContactForm } from "@/components/ContactForm";
 
 export default function Component() {
   const { locale } = useParams();
   useFetchStaticData(locale as string, "contact");
-  const {
-    data: staticData,
-    isLoading: staticLoading,
-    error,
-  } = useStaticDataStore();
+  const { data: staticData, isLoading: staticLoading } = useStaticDataStore();
   const { data, isLoading } = useGetContacts();
   if (isLoading && staticLoading) {
     return <Loader />;
@@ -44,78 +37,7 @@ export default function Component() {
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
               {staticData ? staticData?.contact?.form?.title : "Contact Us"}
             </h2>
-            <form className="space-y-4">
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <div className="space-y-2">
-                  <Label htmlFor="name">
-                    {staticData
-                      ? staticData?.contact?.form?.fields?.name?.label
-                      : "Name"}
-                  </Label>
-                  <Input
-                    id="name"
-                    placeholder={
-                      staticData
-                        ? staticData?.contact?.form?.fields?.name?.placeholder
-                        : "John Doe"
-                    }
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">
-                    {staticData
-                      ? staticData?.contact?.form?.fields?.email?.label
-                      : "Email"}
-                  </Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder={
-                      staticData
-                        ? staticData?.contact?.form?.fields?.email?.placeholder
-                        : "example@acme.com"
-                    }
-                  />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="phone">
-                  {staticData
-                    ? staticData?.contact?.form?.fields?.phone?.label
-                    : "Phone"}
-                </Label>
-                <Input
-                  id="phone"
-                  type="tel"
-                  placeholder={
-                    staticData
-                      ? staticData?.contact?.form?.fields?.phone?.placeholder
-                      : "(123) 456-7890"
-                  }
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="message">
-                  {staticData
-                    ? staticData?.contact?.form?.fields?.message?.label
-                    : "Message"}
-                </Label>
-                <Textarea
-                  id="message"
-                  rows={5}
-                  placeholder={
-                    staticData
-                      ? staticData?.contact?.form?.fields?.message?.placeholder
-                      : "How can we help you?"
-                  }
-                />
-              </div>
-              <Button type="submit" className="bg-destructive">
-                {staticData
-                  ? staticData?.contact?.form?.submitButton
-                  : "Send Message"}
-              </Button>
-            </form>
+            <ContactForm staticData={staticData} />
           </div>
           <div className="space-y-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">

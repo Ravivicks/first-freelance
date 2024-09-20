@@ -117,3 +117,38 @@ export const formatDate = (createdAt: string | Date): string => {
   // Otherwise, return the formatted date (MM/dd/yyyy)
   return format(date, "MM/dd/yyyy");
 };
+
+export function getDeliveryDateMessage(): string {
+  const today = new Date();
+
+  // Add 14 days to the current date
+  const deliveryDate = new Date(today);
+  deliveryDate.setDate(today.getDate() + 14);
+
+  // Get the day of the week
+  const options: Intl.DateTimeFormatOptions = {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+  };
+  const formattedDate = deliveryDate.toLocaleDateString("en-US", options);
+
+  return `Get it by ${formattedDate}`;
+}
+
+export const getEstimatedDeliveryDate = () => {
+  const currentDate = new Date();
+
+  // Start date: current date + 11 days
+  const startDate = new Date(currentDate);
+  startDate.setDate(currentDate.getDate() + 11);
+
+  // End date: start date + 20 days
+  const endDate = new Date(startDate);
+  endDate.setDate(startDate.getDate() + 20);
+
+  const start = format(startDate, "EEE, MMM d");
+  const end = format(endDate, "EEE, MMM d");
+
+  return `Estimated between ${start} and ${end}`;
+};

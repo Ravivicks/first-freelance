@@ -7,7 +7,7 @@ import { IProduct } from "@/types";
 import { useCartStore } from "@/stores/useCartStore";
 import { useCartDetails } from "@/hooks/use-cart-details";
 import useFromStore from "@/hooks/useFromStore";
-import { formatNumber } from "@/lib/utils";
+import { formatNumber, getDeliveryDateMessage } from "@/lib/utils";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
@@ -138,7 +138,7 @@ const SingleProductDetails = ({ product }: IProps) => {
       {error && <p className="text-red-500 text-xs mt-2">{error}</p>}
 
       <p className="text-xs md:text-sm font-semibold text-muted-foreground my-4">
-        Get it by Friday 9 August.
+        {getDeliveryDateMessage()}.
       </p>
       <p className="text-sm font-semibold mb-2">
         {staticData

@@ -116,6 +116,7 @@ const CommonEnquireDialog = () => {
           onSubmit={onSubmit}
           disabled={mutation.isPending}
           defaultValues={{
+            fullName: "",
             email: user?.emailAddresses[0].emailAddress || "",
             mobile: "",
             productId: product?._id || "",
