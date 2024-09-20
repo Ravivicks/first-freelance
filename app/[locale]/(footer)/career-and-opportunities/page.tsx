@@ -11,7 +11,7 @@ import {
   HeartHandshake,
   Leaf,
   Rocket,
-  Globe2,
+  Globe,
 } from "lucide-react";
 import { useParams } from "next/navigation";
 import { useFetchStaticData } from "@/features/static-data/use-get-data";
@@ -25,7 +25,7 @@ const iconMapping: { [key: string]: React.ElementType } = {
   HeartHandshake,
   Leaf,
   Rocket,
-  Globe2,
+  Globe,
 };
 
 export default function CareersAndOpportunities() {
@@ -37,7 +37,7 @@ export default function CareersAndOpportunities() {
   const careerAspects = [
     {
       id: "global-leader",
-      icon: Globe2,
+      icon: Globe,
       title: "Be Part of a Global Leader",
       content:
         "Work with cutting-edge technologies and global brands like Siemens, Schneider, DEIF, and ComAp. Our operations span Dubai, USA, China, India, and Germany, offering diverse project opportunities across multiple industries and regions.",
@@ -103,7 +103,7 @@ export default function CareersAndOpportunities() {
               ? staticData?.careersAndOpportunities?.heading
               : "Careers and Opportunities"}
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto px-3 md:px-0">
             {staticData
               ? staticData?.careersAndOpportunities?.intro
               : `Join Automation eCom Global and be part of a team driving innovation
@@ -122,18 +122,24 @@ export default function CareersAndOpportunities() {
             onValueChange={setActiveTab}
             className="w-full"
           >
-            <TabsList className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 w-full mb-8">
+            <TabsList className="grid grid-cols-2 lg:grid-cols-4 w-full mb-8">
               {staticData
-                ? staticData?.careersAndOpportunities?.whyJoinUs?.careerAspects.map(
-                    (aspect: any) => (
-                      <TabsTrigger
-                        key={aspect.id}
-                        value={aspect.id}
-                        className="text-sm"
-                      >
-                        <span className="hidden md:inline">{aspect.title}</span>
-                      </TabsTrigger>
-                    )
+                ? staticData?.careersAndOpportunities?.whyJoinUs?.careerAspects?.map(
+                    (aspect: any) => {
+                      const IconComponent = iconMapping[aspect.icon];
+                      return (
+                        <TabsTrigger
+                          key={aspect.id}
+                          value={aspect.id}
+                          className="text-sm"
+                        >
+                          {IconComponent && (
+                            <IconComponent className="w-5 h-5 mr-2" />
+                          )}
+                          <span>{aspect.title}</span>
+                        </TabsTrigger>
+                      );
+                    }
                   )
                 : careerAspects.map((aspect) => (
                     <TabsTrigger
@@ -141,12 +147,12 @@ export default function CareersAndOpportunities() {
                       value={aspect.id}
                       className="text-sm"
                     >
-                      <span className="hidden md:inline">{aspect.title}</span>
+                      <span>{aspect.title}</span>
                     </TabsTrigger>
                   ))}
             </TabsList>
             {staticData
-              ? staticData?.careersAndOpportunities?.whyJoinUs?.careerAspects.map(
+              ? staticData?.careersAndOpportunities?.whyJoinUs?.careerAspects?.map(
                   (aspect: any) => {
                     const IconComponent = iconMapping[aspect.icon];
                     return (
@@ -159,7 +165,7 @@ export default function CareersAndOpportunities() {
                           <CardHeader>
                             <CardTitle className="flex items-center text-2xl">
                               {IconComponent && (
-                                <IconComponent className="w-8 h-8 mr-3 text-primary" />
+                                <IconComponent className="w-8 h-8 mr-3 text-destructive" />
                               )}
                               {aspect.title}
                             </CardTitle>
@@ -207,7 +213,7 @@ export default function CareersAndOpportunities() {
                     <Badge
                       key={index}
                       variant="secondary"
-                      className="text-lg py-2 px-4"
+                      className="text-lg py-2 px-4 text-center"
                     >
                       {role}
                     </Badge>
@@ -257,7 +263,7 @@ export default function CareersAndOpportunities() {
                   : "Work with cutting-edge technology"}
               </li>
               <li className="flex items-center">
-                <Globe2 className="w-5 h-5 mr-2 text-destructive" />
+                <Globe className="w-5 h-5 mr-2 text-destructive" />
                 {staticData
                   ? staticData?.careersAndOpportunities?.joinUs?.benefits?.[1]
                       ?.text

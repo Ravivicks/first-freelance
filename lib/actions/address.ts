@@ -64,7 +64,6 @@ export async function createNewAddress(user: IAddress) {
           };
           const emailContent = await generateEmailBody("NEW_USER", userData);
           const emailRes = await sendEmail(emailContent, [user.email]);
-          console.log(emailRes);
         }
       } catch (clerkError: any) {
         console.error(

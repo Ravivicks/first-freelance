@@ -62,10 +62,10 @@ export default function HelpAndSupport() {
     <div className="min-h-screen">
       <div className="container mx-auto px-4 py-8 space-y-16">
         <section className="text-center custom-bg py-4 space-y-4">
-          <h1 className="text-5xl font-extrabold tracking-tight bg-clip-text">
+          <h1 className="md:text-5xl text-4xl font-extrabold tracking-tight bg-clip-text">
             {staticData?.helpAndSupport?.title}
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto px-3 md:px-0">
             {staticData?.helpAndSupport?.subtitle}
           </p>
         </section>

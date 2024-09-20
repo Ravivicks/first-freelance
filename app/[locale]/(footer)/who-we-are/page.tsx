@@ -32,7 +32,7 @@ export default function WhoWeAre() {
         <h1 className="text-4xl font-bold tracking-tight">
           {staticData ? staticData?.whoWeAre?.title : `Who We Are`}
         </h1>
-        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+        <p className="text-xl text-muted-foreground max-w-3xl mx-auto px-3 md:px-0">
           {staticData
             ? staticData?.whoWeAre?.introText
             : `Automation eCom Global: Your forward-thinking leader in industrial

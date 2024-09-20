@@ -164,7 +164,7 @@ export default function PartnerBrands() {
                       >
                         <Card>
                           <CardHeader>
-                            <div className="flex items-center justify-between">
+                            <div className="flex md:items-center md:justify-between flex-col gap-6 md:flex-row">
                               <CardTitle className="flex items-center text-3xl">
                                 {IconComponent && (
                                   <IconComponent className="w-8 h-8 mr-3 text-destructive" />

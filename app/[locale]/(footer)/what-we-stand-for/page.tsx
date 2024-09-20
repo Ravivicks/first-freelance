@@ -91,7 +91,7 @@ export default function WhatWeStandFor() {
               ? staticData?.whatWeStandFor?.title
               : `What We Stand For`}
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto px-3 md:px-0">
             {staticData
               ? staticData?.whatWeStandFor?.introText
               : `At Automation eCom Global, our core values and guiding principles

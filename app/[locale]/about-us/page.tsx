@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useFetchStaticData } from "@/features/static-data/use-get-data";
 import { useStaticDataStore } from "@/stores/useStaticDataStore";
 import Loader from "@/components/Loader";
@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
 
 export default function Component() {
+  const router = useRouter();
   const { locale } = useParams();
   useFetchStaticData(locale as string, "about");
   const { data: staticData, isLoading, error } = useStaticDataStore();
@@ -66,26 +67,29 @@ export default function Component() {
                   their goals through innovative technology and unparalleled
                   customer service.`}
                 </p>
-                <div className="space-x-4">
-                  <Link
-                    href="/product-details/siemens?type=all"
-                    className="inline-flex h-9 items-center justify-center rounded-xl bg-destructive px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                    prefetch={false}
+                <div className="md:space-x-4 space-y-4">
+                  <Button
+                    variant="destructive"
+                    className="w-full md:w-fit"
+                    onClick={() =>
+                      router.push("/product-details/siemens?type=all")
+                    }
                   >
                     {staticData
                       ? staticData?.about?.section1?.links?.exploreProducts
                           ?.label
                       : "Explore Products"}
-                  </Link>
-                  <Link
-                    href="/contact-us"
-                    className="inline-flex h-9 items-center justify-center rounded-xl border border-input bg-background px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                    prefetch={false}
+                  </Button>
+
+                  <Button
+                    variant="outline"
+                    className="w-full md:w-fit"
+                    onClick={() => router.push("/contact-us")}
                   >
                     {staticData
                       ? staticData?.about?.section1?.links?.contactUs?.label
                       : "Contact Us"}
-                  </Link>
+                  </Button>
                 </div>
               </div>
             </div>
@@ -200,24 +204,25 @@ export default function Component() {
               </p>
             </div>
             <div className="flex justify-center space-x-4">
-              <Link
-                href="/product-details/siemens?type=all"
-                className="inline-flex h-10 items-center justify-center rounded-xl bg-destructive px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                prefetch={false}
+              <Button
+                variant="destructive"
+                className="w-full md:w-fit"
+                onClick={() => router.push("/product-details/siemens?type=all")}
               >
                 {staticData
                   ? staticData?.about?.section4?.links?.viewProducts?.label
                   : "View Products"}
-              </Link>
-              <Link
-                href="/contact-us"
-                className="inline-flex h-10 items-center justify-center rounded-xl border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                prefetch={false}
+              </Button>
+
+              <Button
+                variant="outline"
+                className="w-full md:w-fit"
+                onClick={() => router.push("/contact-us")}
               >
                 {staticData
                   ? staticData?.about?.section4?.links?.contactUs?.label
                   : "Contact Us"}
-              </Link>
+              </Button>
             </div>
           </div>
         </section>

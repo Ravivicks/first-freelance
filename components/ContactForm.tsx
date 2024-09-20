@@ -78,7 +78,7 @@ export const ContactForm = ({ staticData }: Props) => {
         onSubmit={form.handleSubmit(handleSubmit)}
         className="scrollable-form space-y-4 pt-4 px-2 max-h-[80vh] overflow-auto"
       >
-        <div className="flex gap-2">
+        <div className="flex flex-col md:flex-row gap-2">
           <FormField
             name="fullName"
             control={form.control}

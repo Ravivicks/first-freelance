@@ -21,8 +21,6 @@ const FeaturedProduct = () => {
     fetchData(key, 1, 20, { brand: "Schneider Electric" }, locale as string);
   }, [fetchData, key]);
 
-  console.log(products);
-
   if (isLoading) {
     return <div>Loading...</div>;
   }

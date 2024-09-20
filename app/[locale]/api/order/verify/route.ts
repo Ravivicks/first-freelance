@@ -49,7 +49,6 @@ export async function POST(req: NextRequest, res: NextResponse) {
     },
     { new: true } // Return the updated document
   );
-  console.log(updatedCheckout);
 
   if (!updatedCheckout) {
     return NextResponse.json(

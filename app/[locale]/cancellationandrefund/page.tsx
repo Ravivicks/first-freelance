@@ -122,7 +122,7 @@ export default function Component() {
               support team. We are here to assist you and ensure your shopping
               experience is a positive one.`}
             </p>
-            <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+            <div className="flex gap-2 sm:flex-row sm:items-center">
               <p
                 onClick={() => onOpen()}
                 className="inline-flex cursor-pointer items-center rounded-xl bg-destructive px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"

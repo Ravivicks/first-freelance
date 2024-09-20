@@ -67,7 +67,7 @@ export default function OurCommitments() {
             ? staticData?.ourCommitments?.sections?.introduction?.title
             : `Our Commitments`}
         </h1>
-        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+        <p className="text-xl text-muted-foreground max-w-3xl mx-auto px-3 md:px-0">
           {staticData
             ? staticData?.ourCommitments?.sections?.introduction?.paragraph
             : `At Automation eCom Global, our commitments form the backbone of

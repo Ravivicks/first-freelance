@@ -47,7 +47,7 @@ export default function InstallationAssistance() {
       </Card>
 
       <Tabs defaultValue="expert-guidance" className="mb-8">
-        <TabsList className="grid w-full grid-cols-4 mb-4">
+        <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 mb-4">
           {staticData?.installationAssistance?.tabs ? (
             Object?.keys(staticData?.installationAssistance?.tabs).map(
               (key) => (
