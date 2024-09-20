@@ -20,8 +20,8 @@ export default function NoReviews() {
           <MessageSquare className="w-16 h-16 text-gray-400" />
         </div>
         <p className="text-gray-600 mb-4">
-          This product hasn't received any reviews yet. Be the first to share
-          your thoughts!
+          {`This product hasn't received any reviews yet. Be the first to share
+          your thoughts!`}
         </p>
         <div className="flex justify-center space-x-1 text-yellow-400 mb-4">
           <Star className="w-6 h-6" />
