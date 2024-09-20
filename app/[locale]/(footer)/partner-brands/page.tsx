@@ -167,7 +167,7 @@ export default function PartnerBrands() {
                             <div className="flex items-center justify-between">
                               <CardTitle className="flex items-center text-3xl">
                                 {IconComponent && (
-                                  <IconComponent className="w-8 h-8 mr-3 text-primary" />
+                                  <IconComponent className="w-8 h-8 mr-3 text-destructive" />
                                 )}
                                 {partner.name}
                               </CardTitle>
@@ -260,25 +260,25 @@ export default function PartnerBrands() {
             </p>
             <ul className="space-y-2">
               <li className="flex items-center">
-                <Cpu className="w-5 h-5 mr-2 text-primary" />
+                <Cpu className="w-5 h-5 mr-2 text-destructive" />
                 {staticData
                   ? staticData?.partnerBrands?.advantage?.points?.[0]
                   : `Best-in-market pricing`}
               </li>
               <li className="flex items-center">
-                <Zap className="w-5 h-5 mr-2 text-primary" />
+                <Zap className="w-5 h-5 mr-2 text-destructive" />
                 {staticData
                   ? staticData?.partnerBrands?.advantage?.points?.[1]
                   : `Comprehensive product range`}
               </li>
               <li className="flex items-center">
-                <CloudLightning className="w-5 h-5 mr-2 text-primary" />
+                <CloudLightning className="w-5 h-5 mr-2 text-destructive" />
                 {staticData
                   ? staticData?.partnerBrands?.advantage?.points?.[2]
                   : `Tailored solutions`}
               </li>
               <li className="flex items-center">
-                <Power className="w-5 h-5 mr-2 text-primary" />
+                <Power className="w-5 h-5 mr-2 text-destructive" />
                 {staticData
                   ? staticData?.partnerBrands?.advantage?.points?.[3]
                   : `Unmatched customer support`}

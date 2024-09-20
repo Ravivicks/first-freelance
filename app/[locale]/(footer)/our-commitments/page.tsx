@@ -91,11 +91,11 @@ export default function OurCommitments() {
             paired with competitive pricing and world-class customer service, is
             what sets us apart in the global automation market.`}
           </p>
-          <Button>
+          {/* <Button>
             {staticData
               ? staticData?.ourCommitments?.sections?.drivingSuccess?.button
               : `Discover Our Solutions`}
-          </Button>
+          </Button> */}
         </div>
         <Image
           src="/footer/placement.png?height=400&width=600"
@@ -121,7 +121,7 @@ export default function OurCommitments() {
                     <Card key={index} className="flex flex-col">
                       <CardHeader>
                         {IconComponent && (
-                          <IconComponent className="w-12 h-12 mb-4 text-primary" />
+                          <IconComponent className="w-12 h-12 mb-4 text-destructive" />
                         )}
                         <CardTitle>{commitment.title}</CardTitle>
                       </CardHeader>

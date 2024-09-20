@@ -36,7 +36,7 @@ export default function PrivacyCookieSettingsPage() {
 
   return (
     <div className="min-h-screen">
-      <div className="container mx-auto px-4 py-12 max-w-5xl">
+      <div className="container mx-auto px-4 py-12 max-w-6xl">
         <header className="text-center mb-12">
           <Shield className="w-20 h-20 mx-auto mb-6 text-destructive" />
           <h1 className="text-5xl font-bold mb-4">
@@ -44,7 +44,7 @@ export default function PrivacyCookieSettingsPage() {
               ? staticData?.privacyAndCookieSettings?.title
               : `Privacy & Cookie Settings`}
           </h1>
-          <p className="text-xl max-w-5xl mx-auto">
+          <p className="text-xl max-w-6xl mx-auto">
             {staticData
               ? staticData?.privacyAndCookieSettings?.description
               : `At Automation eCom Global, we prioritize your privacy and are

@@ -100,7 +100,7 @@ export default function ReturnAndExchange() {
                 staticData?.returnAndExchange?.policySections?.map(
                   (item: any, index: number) => (
                     <AccordionItem value={`item-${index}`} key={index}>
-                      <AccordionTrigger>
+                      <AccordionTrigger className="text-lg font-semibold">
                         {index + 1}. {item.title}
                       </AccordionTrigger>
                       <AccordionContent>
@@ -409,7 +409,7 @@ export default function ReturnAndExchange() {
                   return (
                     <div className="flex items-center space-x-2" key={index}>
                       {IconComponent && (
-                        <IconComponent className="h-6 w-6 text-primary" />
+                        <IconComponent className="h-6 w-6 text-destructive" />
                       )}
                       <span>{item.text}</span>
                     </div>
@@ -419,23 +419,23 @@ export default function ReturnAndExchange() {
             ) : (
               <div>
                 <div className="flex items-center space-x-2">
-                  <ArrowLeftRight className="h-6 w-6 text-primary" />
+                  <ArrowLeftRight className="h-6 w-6 text-destructive" />
                   <span>Hassle-free process</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Clock className="h-6 w-6 text-primary" />
+                  <Clock className="h-6 w-6 text-destructive" />
                   <span>Quick refunds and replacements</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Truck className="h-6 w-6 text-primary" />
+                  <Truck className="h-6 w-6 text-destructive" />
                   <span>Prepaid return shipping</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <HelpCircle className="h-6 w-6 text-primary" />
+                  <HelpCircle className="h-6 w-6 text-destructive" />
                   <span>Expert support</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Globe className="h-6 w-6 text-primary" />
+                  <Globe className="h-6 w-6 text-destructive" />
                   <span>International return assistance</span>
                 </div>
               </div>

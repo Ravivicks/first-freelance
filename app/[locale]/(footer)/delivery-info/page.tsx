@@ -104,9 +104,9 @@ export default function DeliveryInformation() {
                     <Button
                       key={feature.id}
                       variant={
-                        activeFeature === feature.id ? "default" : "outline"
+                        activeFeature === feature.id ? "destructive" : "outline"
                       }
-                      className="w-full justify-start"
+                      className="w-full justify-start font-semibold"
                       onClick={() => setActiveFeature(feature.id)}
                     >
                       {Icon && <Icon className="h-4 w-4 mr-2" />}{" "}
@@ -149,7 +149,9 @@ export default function DeliveryInformation() {
               staticData?.deliveryInfo?.features?.map(
                 (feature: any, index: number) => (
                   <AccordionItem key={index} value={`item-${index + 1}`}>
-                    <AccordionTrigger>{feature.title}</AccordionTrigger>
+                    <AccordionTrigger className="text-lg font-semibold">
+                      {feature.title}
+                    </AccordionTrigger>
                     <AccordionContent>{feature.description}</AccordionContent>
                   </AccordionItem>
                 )

@@ -79,7 +79,7 @@ const TopNav = () => {
         ) : (
           <div className="flex items-center">
             <Link
-              href="mailto:sales@prosafeautomation.com"
+              href="mailto:sales@automationecomglobal.com"
               className="font-semibold text-[#98cfea] text-xs"
             >
               {data?.[0]?.email}

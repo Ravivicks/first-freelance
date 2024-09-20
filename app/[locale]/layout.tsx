@@ -32,7 +32,7 @@ export default async function LocaleLayout({
             <NextIntlClientProvider messages={messages}>
               <QueryProvider>
                 <SheetProvider />
-                <Toaster position="top-right" />
+                <Toaster position="top-right" duration={500} />
                 <div className="hidden md:block">
                   <TopNav />
                 </div>

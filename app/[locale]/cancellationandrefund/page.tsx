@@ -1,6 +1,7 @@
 "use client";
 import Loader from "@/components/Loader";
 import { useFetchStaticData } from "@/features/static-data/use-get-data";
+import { useSupportOpen } from "@/hooks/use-support-open";
 import { useStaticDataStore } from "@/stores/useStaticDataStore";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,6 +11,7 @@ export default function Component() {
   const { locale } = useParams();
   useFetchStaticData(locale as string, "car");
   const { data: staticData, isLoading, error } = useStaticDataStore();
+  const { onOpen } = useSupportOpen();
   if (isLoading) {
     return <Loader />;
   }
@@ -121,28 +123,26 @@ export default function Component() {
               experience is a positive one.`}
             </p>
             <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
-              <Link
-                href="#"
-                className="inline-flex items-center rounded-xl bg-destructive px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                prefetch={false}
+              <p
+                onClick={() => onOpen()}
+                className="inline-flex cursor-pointer items-center rounded-xl bg-destructive px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               >
                 <MailOpenIcon className="mr-2 h-5 w-5" />
                 {staticData
                   ? staticData?.cancellationAndRefund?.sections?.[2]
                       ?.contactLinks?.[0]?.text
                   : "Email Support"}
-              </Link>
-              <Link
-                href="#"
-                className="inline-flex items-center rounded-xl border border-input bg-background px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-                prefetch={false}
+              </p>
+              <p
+                onClick={() => onOpen()}
+                className="inline-flex cursor-pointer items-center rounded-xl border border-input bg-background px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
               >
                 <PhoneIcon className="mr-2 h-5 w-5" />
                 {staticData
                   ? staticData?.cancellationAndRefund?.sections?.[2]
                       ?.contactLinks?.[1]?.text
                   : "Call Support"}
-              </Link>
+              </p>
             </div>
           </div>
         </div>

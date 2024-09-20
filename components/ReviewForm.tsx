@@ -63,7 +63,7 @@ const CommentForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 w-1/2">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 md:w-1/2">
       <input
         type="hidden"
         {...register("userId")}
@@ -97,7 +97,7 @@ const CommentForm = () => {
       {!user && (
         <>
           {/* Name fields for non-logged-in users */}
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-col md:flex-row">
             <div className="flex-grow">
               <Label htmlFor="firstName">First Name:</Label>
               <Input

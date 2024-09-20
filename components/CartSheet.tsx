@@ -72,15 +72,18 @@ const CartSheet = () => {
                         height={50}
                         width={50}
                         className="rounded-xl"
+                        unoptimized
                       />
                       <div className="flex flex-col gap-1">
                         <p className="font-semibold text-xs">
                           {cartItem.title}
                         </p>
-                        <p className="font-semibold text-xs text-muted-foreground">
-                          {cartItem.currency}
-                          {cartItem.lowestPrice}
-                        </p>
+                        {cartItem.lowestPrice !== 0 && (
+                          <p className="font-semibold text-xs text-muted-foreground">
+                            {cartItem.currency}
+                            {cartItem.lowestPrice}
+                          </p>
+                        )}
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
@@ -119,14 +122,16 @@ const CartSheet = () => {
                   </div>
                 </div>
               ))}
-              <div className="flex justify-between mt-16">
-                <p className="text-black text-sm font-semibold">
-                  {staticData ? staticData?.cart?.subtotal : "Subtotal"}
-                </p>
-                <p className="text-sm font-semibold text-muted-foreground">
-                  ${total.toFixed(2)}
-                </p>
-              </div>
+              {total !== 0 && (
+                <div className="flex justify-between mt-16">
+                  <p className="text-black text-sm font-semibold">
+                    {staticData ? staticData?.cart?.subtotal : "Subtotal"}
+                  </p>
+                  <p className="text-sm font-semibold text-muted-foreground">
+                    ${total.toFixed(2)}
+                  </p>
+                </div>
+              )}
               {total !== 0 && (
                 <Button
                   variant="destructive"

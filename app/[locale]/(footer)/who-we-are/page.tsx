@@ -83,7 +83,7 @@ export default function WhoWeAre() {
                     <Card key={index}>
                       <CardContent className="pt-6 text-center space-y-4">
                         {IconComponent && (
-                          <IconComponent className="w-12 h-12 mx-auto text-primary" />
+                          <IconComponent className="w-12 h-12 mx-auto text-destructive" />
                         )}
                         <h3 className="text-xl font-semibold">{item.title}</h3>
                         <p className="text-muted-foreground">

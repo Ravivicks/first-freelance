@@ -53,6 +53,7 @@ const FeaturedPartner = () => {
                   alt={item.title}
                   fill
                   className="object-fill"
+                  unoptimized
                 />
               </div>
               <div className="border-t-2 w-full mt-7">

@@ -9,9 +9,9 @@ import {
 } from "@/components/ui/dialog";
 import { Loader2 } from "lucide-react";
 import { Separator } from "./ui/separator";
-import CheckBoxList from "./CheckBoxList";
 import { useProductsStore } from "@/stores/useProductStore";
 import { useFilterOpen } from "@/hooks/use-filter-open";
+import { CheckboxReactHookFormMultiple } from "./CheckboxList";
 
 const FilterDialog = () => {
   const { isLoading, brands, categories } = useProductsStore();
@@ -34,13 +34,7 @@ const FilterDialog = () => {
         ) : (
           <div>
             <Separator className="my-2" />
-            <CheckBoxList data={brands} title="Brands" searchParam="brand" />
-            <Separator className="my-2" />
-            <CheckBoxList
-              data={categories}
-              title="Category"
-              searchParam="category"
-            />
+            <CheckboxReactHookFormMultiple />
           </div>
         )}
       </DialogContent>

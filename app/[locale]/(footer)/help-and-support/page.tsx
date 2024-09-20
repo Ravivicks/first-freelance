@@ -22,31 +22,33 @@ import { useParams } from "next/navigation";
 import { useFetchStaticData } from "@/features/static-data/use-get-data";
 import { useStaticDataStore } from "@/stores/useStaticDataStore";
 import Loader from "@/components/Loader";
+import { useSupportOpen } from "@/hooks/use-support-open";
 
 export default function HelpAndSupport() {
   const [expandedService, setExpandedService] = useState<string | null>(null);
   const { locale } = useParams();
   useFetchStaticData(locale as string, "has");
   const { data: staticData, isLoading } = useStaticDataStore();
+  const { onOpen } = useSupportOpen();
 
   const getIconComponent = (iconName: string) => {
     switch (iconName) {
       case "Wrench":
-        return <Wrench className="w-8 h-8 mr-3 text-primary" />;
+        return <Wrench className="w-8 h-8 mr-3 text-destructive" />;
       case "PhoneCall":
-        return <PhoneCall className="w-8 h-8 mr-3 text-primary" />;
+        return <PhoneCall className="w-8 h-8 mr-3 text-destructive" />;
       case "Globe":
-        return <Globe className="w-8 h-8 mr-3 text-primary" />;
+        return <Globe className="w-8 h-8 mr-3 text-destructive" />;
       case "Settings":
-        return <Settings className="w-8 h-8 mr-3 text-primary" />;
+        return <Settings className="w-8 h-8 mr-3 text-destructive" />;
       case "FileText":
-        return <FileText className="w-8 h-8 mr-3 text-primary" />;
+        return <FileText className="w-8 h-8 mr-3 text-destructive" />;
       case "Package":
-        return <Package className="w-8 h-8 mr-3 text-primary" />;
+        return <Package className="w-8 h-8 mr-3 text-destructive" />;
       case "ShieldCheck":
-        return <ShieldCheck className="w-8 h-8 mr-3 text-primary" />;
+        return <ShieldCheck className="w-8 h-8 mr-3 text-destructive" />;
       case "MessageSquare":
-        return <MessageSquare className="w-8 h-8 mr-3 text-primary" />;
+        return <MessageSquare className="w-8 h-8 mr-3 text-destructive" />;
       default:
         return null;
     }
@@ -87,12 +89,12 @@ export default function HelpAndSupport() {
                 <CardContent className="space-y-4">
                   <p className="text-muted-foreground">{service.shortDesc}</p>
                   {expandedService === service.id ? (
-                    <div className="mt-4">
+                    <div className="mt-4 text-muted-foreground">
                       <p>{service.content}</p>
                       <Button
                         variant="link"
                         onClick={() => setExpandedService(null)}
-                        className="mt-2 p-0"
+                        className="mt-2 p-0 text-black"
                       >
                         Read Less
                       </Button>
@@ -101,7 +103,7 @@ export default function HelpAndSupport() {
                     <Button
                       variant="link"
                       onClick={() => setExpandedService(service.id)}
-                      className="mt-2 p-0"
+                      className="mt-2 p-0 text-black"
                     >
                       Read More
                     </Button>
@@ -112,7 +114,7 @@ export default function HelpAndSupport() {
           </div>
         </section>
 
-        <section className="space-y-8">
+        <section className="space-y-8 custom-bg-1 py-8">
           <h2 className="text-3xl font-semibold text-center mb-8">
             {staticData?.helpAndSupport?.whyChooseTitle}
           </h2>
@@ -153,11 +155,8 @@ export default function HelpAndSupport() {
             {staticData?.helpAndSupport?.assistanceDescription}
           </p>
           <div className="flex justify-center gap-4">
-            <Button variant="outline">
+            <Button variant="destructive" onClick={() => onOpen()}>
               {staticData?.helpAndSupport?.contactSupportButton}
-            </Button>
-            <Button variant="secondary">
-              {staticData?.helpAndSupport?.viewKnowledgeBaseButton}
             </Button>
           </div>
         </section>

@@ -1,77 +1,198 @@
-import React, { useState } from "react";
+"use client";
+
+import { useEffect, useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { useProductsStore } from "@/stores/useProductStore";
 import { useRouter, useSearchParams } from "next/navigation";
+import { ChevronDown, ChevronUp } from "lucide-react";
+import { useFilterOpen } from "@/hooks/use-filter-open";
 
-export interface Item {
-  label: string;
-  value: string;
-}
+const FormSchema = z.object({
+  brands: z.array(z.string()), // Remove validation for at least one brand
+  categories: z.array(z.string()), // Remove validation for at least one category
+});
 
-interface Items {
-  data: { label: string; value: string }[];
-  title: string;
-  searchParam: string;
-}
-
-export default function CheckBoxList({ data, searchParam, title }: Items) {
-  const [checkedItems, setCheckedItems] = useState<string[]>([]);
-  const [showAll, setShowAll] = useState(false); // State to toggle showing all items
+export function CheckboxReactHookFormMultiple() {
+  const { brands, categories } = useProductsStore();
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { onClose } = useFilterOpen();
 
-  const handleCheckboxChange = (itemLabel: string) => {
-    setCheckedItems((prev) => {
-      const updatedItems = prev.includes(itemLabel)
-        ? prev.filter((label) => label !== itemLabel)
-        : [...prev, itemLabel];
+  const brand = searchParams.get("brand");
+  const category = searchParams.get("category");
 
-      // Update the searchParams with the new list of brands
-      const newSearchParams = new URLSearchParams(searchParams.toString());
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+      brands: [],
+      categories: [],
+    },
+  });
 
-      if (updatedItems.length > 0) {
-        newSearchParams.set(searchParam, updatedItems.join(","));
-      } else {
-        newSearchParams.delete(searchParam);
-      }
+  useEffect(() => {
+    if (brand) {
+      form.setValue("brands", Array.isArray(brand) ? brand : [brand]);
+    }
 
-      // Update the URL without a full reload
-      router.replace(`?${newSearchParams.toString()}`);
+    if (category) {
+      form.setValue(
+        "categories",
+        Array.isArray(category) ? category : [category]
+      );
+    }
+  }, [brand, category, form]);
 
-      return updatedItems;
-    });
-  };
+  const [showMoreBrands, setShowMoreBrands] = useState(false);
+  const [showMoreCategories, setShowMoreCategories] = useState(false);
 
-  const displayedItems = showAll ? data : data.slice(0, 5);
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    const brandString = data.brands.join(",");
+    const categoryString = data.categories.join(",");
+
+    router.push(
+      `/en/product-details/Siemens?type=all&category=${encodeURIComponent(
+        categoryString
+      )}&brand=${encodeURIComponent(brandString)}`
+    );
+    onClose();
+  }
 
   return (
-    <div className="space-y-4">
-      <h2 className="text-sm font-semibold mb-4">{title}</h2>
-      <ul className="space-y-2">
-        {displayedItems.map((item, index) => (
-          <li key={index} className="flex items-center space-x-2">
-            <Checkbox
-              id={`id - ${index}`}
-              checked={checkedItems.includes(item.label)} // Use label for checking
-              onCheckedChange={() => handleCheckboxChange(item.label)} // Use label here
-            />
-            <Label
-              htmlFor={`id - ${index}`} // Updated to match the Checkbox id
-              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-            >
-              {item.label}
-            </Label>
-          </li>
-        ))}
-      </ul>
-      {data.length > 5 && (
-        <button
-          className="text-blue-500 text-sm font-medium mt-2"
-          onClick={() => setShowAll((prev) => !prev)}
-        >
-          {showAll ? "Show Less" : "Show More"}
-        </button>
-      )}
-    </div>
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <FormField
+          control={form.control}
+          name="brands"
+          render={() => (
+            <FormItem>
+              <div className="mb-4">
+                <FormLabel className="text-muted-foreground font-bold">
+                  Brands
+                </FormLabel>
+              </div>
+              {brands
+                .slice(0, showMoreBrands ? brands.length : 10)
+                .map((item, index: number) => (
+                  <FormField
+                    key={index}
+                    control={form.control}
+                    name="brands"
+                    render={({ field }) => (
+                      <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                        <FormControl>
+                          <Checkbox
+                            checked={field.value?.includes(item.value)}
+                            onCheckedChange={(checked) => {
+                              const newValue = checked
+                                ? [...(field.value || []), item.value]
+                                : field.value?.filter(
+                                    (value) => value !== item.value
+                                  ) || [];
+                              field.onChange(newValue);
+                            }}
+                          />
+                        </FormControl>
+                        <FormLabel className="font-normal">
+                          {item.label}
+                        </FormLabel>
+                      </FormItem>
+                    )}
+                  />
+                ))}
+              {brands.length > 10 && (
+                <Button
+                  type="button"
+                  className="p-0 text-destructive"
+                  variant="link"
+                  onClick={() => setShowMoreBrands(!showMoreBrands)}
+                >
+                  {showMoreBrands ? "Show Less" : "Show More"}
+                  {!showMoreBrands ? (
+                    <ChevronDown className="size-4 ml-1" />
+                  ) : (
+                    <ChevronUp className="size-4 ml-1" />
+                  )}
+                </Button>
+              )}
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="categories"
+          render={() => (
+            <FormItem>
+              <div className="mb-4">
+                <FormLabel className="text-muted-foreground font-bold">
+                  Categories
+                </FormLabel>
+              </div>
+              {categories
+                .slice(0, showMoreCategories ? categories.length : 10)
+                .map((item, index: number) => (
+                  <FormField
+                    key={index}
+                    control={form.control}
+                    name="categories"
+                    render={({ field }) => (
+                      <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                        <FormControl>
+                          <Checkbox
+                            checked={field.value?.includes(item.value)}
+                            onCheckedChange={(checked) => {
+                              const newValue = checked
+                                ? [...(field.value || []), item.value]
+                                : field.value?.filter(
+                                    (value) => value !== item.value
+                                  ) || [];
+                              field.onChange(newValue);
+                            }}
+                          />
+                        </FormControl>
+                        <FormLabel className="font-normal">
+                          {item.label}
+                        </FormLabel>
+                      </FormItem>
+                    )}
+                  />
+                ))}
+              {categories.length > 10 && (
+                <Button
+                  type="button"
+                  className="p-0 text-destructive"
+                  variant="link"
+                  onClick={() => setShowMoreCategories(!showMoreCategories)}
+                >
+                  {showMoreCategories ? "Show Less" : "Show More"}
+                  {!showMoreCategories ? (
+                    <ChevronDown className="size-4 ml-1" />
+                  ) : (
+                    <ChevronUp className="size-4 ml-1" />
+                  )}
+                </Button>
+              )}
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit" variant="destructive" className="w-full">
+          Apply Filter
+        </Button>
+      </form>
+    </Form>
   );
 }

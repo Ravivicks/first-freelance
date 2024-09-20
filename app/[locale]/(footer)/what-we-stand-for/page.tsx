@@ -111,7 +111,7 @@ export default function WhatWeStandFor() {
                   >
                     <CardHeader>
                       {IconComponent && (
-                        <IconComponent className="w-12 h-12 text-primary mb-4" />
+                        <IconComponent className="w-12 h-12 text-destructive mb-4" />
                       )}
                       <CardTitle>{value.title}</CardTitle>
                     </CardHeader>
@@ -129,7 +129,7 @@ export default function WhatWeStandFor() {
                   className="bg-card/50 backdrop-blur-sm border-primary/10 hover:border-primary/30 transition-all duration-300"
                 >
                   <CardHeader>
-                    <value.icon className="w-12 h-12 text-primary mb-4" />
+                    <value.icon className="w-12 h-12 text-destructive mb-4" />
                     <CardTitle>{value.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -191,7 +191,7 @@ export default function WhatWeStandFor() {
                         <CardHeader>
                           <CardTitle className="flex items-center">
                             {IconComponent && (
-                              <IconComponent className="w-6 h-6 mr-2 text-primary" />
+                              <IconComponent className="w-6 h-6 mr-2 text-destructive" />
                             )}
                             {value.title}
                           </CardTitle>

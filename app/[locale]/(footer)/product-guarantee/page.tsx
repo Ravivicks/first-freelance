@@ -34,7 +34,7 @@ export default function Component() {
               ? staticData?.productGaurantee?.header?.title
               : `Product Guarantee`}
           </h1>
-          <p className="text-xl max-w-3xl mx-auto">
+          <p className="text-xl max-w-6xl mx-auto">
             {staticData
               ? staticData?.productGaurantee?.header?.subtitle
               : ` At Automation eCom Global, we stand behind the quality and

@@ -16,20 +16,12 @@ import {
   useSearchParams,
 } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { MultiSelect } from "@/components/MultiSelect";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
-import CheckBoxList from "@/components/CheckBoxList";
 import { Button } from "@/components/ui/button";
-import { Filter, FilterIcon } from "lucide-react";
+import { Filter } from "lucide-react";
 import { useFilterOpen } from "@/hooks/use-filter-open";
 import { useProductsStore } from "@/stores/useProductStore";
+import { CheckboxReactHookFormMultiple } from "@/components/CheckboxList";
 
 const conditionList = [
   { value: "any-condition", label: "Any Condition" },
@@ -159,13 +151,7 @@ const PartnerProductDetails = () => {
         <div className="pr-5 hidden md:block">
           <h1 className="font-bold text-lg">Filter By</h1>
           <Separator className="my-2" />
-          <CheckBoxList data={brands} title="Brands" searchParam="brand" />
-          <Separator className="my-2" />
-          <CheckBoxList
-            data={categories}
-            title="Category"
-            searchParam="category"
-          />
+          <CheckboxReactHookFormMultiple />
         </div>
         <div className="flex-1">
           <div className="my-3">

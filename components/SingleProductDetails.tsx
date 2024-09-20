@@ -88,7 +88,7 @@ const SingleProductDetails = ({ product }: IProps) => {
       <h1 className="text-xl md:text-2xl my-2">{product?.title}</h1>
       <div className="my-2 flex gap-2 md:gap-4 text-muted-foreground text-xs md:text-sm items-center">
         <StarRating size={4} rating={product?.stars || 0} />
-        <span>42 Reviews</span>
+        {/* <span>42 Reviews</span> */}
       </div>
       {product?.lowestPrice !== 0 && (
         <p className="font-bold text-xl md:text-2xl">
