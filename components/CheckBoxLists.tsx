@@ -25,7 +25,7 @@ const FormSchema = z.object({
   categories: z.array(z.string()), // Remove validation for at least one category
 });
 
-export function CheckboxReactHookFormMultiple() {
+export function CheckBoxLists() {
   const { brands, categories } = useProductsStore();
   const router = useRouter();
   const searchParams = useSearchParams();

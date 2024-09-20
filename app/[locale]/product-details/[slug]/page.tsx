@@ -21,7 +21,7 @@ import { Button } from "@/components/ui/button";
 import { Filter } from "lucide-react";
 import { useFilterOpen } from "@/hooks/use-filter-open";
 import { useProductsStore } from "@/stores/useProductStore";
-import { CheckboxReactHookFormMultiple } from "@/components/CheckboxList";
+import { CheckBoxLists } from "@/components/CheckBoxLists";
 
 const conditionList = [
   { value: "any-condition", label: "Any Condition" },
@@ -151,7 +151,7 @@ const PartnerProductDetails = () => {
         <div className="pr-5 hidden md:block">
           <h1 className="font-bold text-lg">Filter By</h1>
           <Separator className="my-2" />
-          <CheckboxReactHookFormMultiple />
+          <CheckBoxLists />
         </div>
         <div className="flex-1">
           <div className="my-3">
