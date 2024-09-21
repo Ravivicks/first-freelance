@@ -22,6 +22,17 @@ const CommentForm = () => {
   // Ensure id is treated as a string
   const productId = Array.isArray(id) ? id[0] : id || "";
 
+  // Default form values, including firstName and lastName when the user is logged in
+  const defaultValues = {
+    userId: user?.emailAddresses?.[0]?.emailAddress || "guestuser@gmail.com",
+    productId,
+    userAvatar: user?.imageUrl || "guest",
+    firstName: user?.firstName || "", // Set default firstName
+    lastName: user?.lastName || "", // Set default lastName
+    rating: 0, // Default rating
+    comment: "",
+  };
+
   const {
     register,
     handleSubmit,
@@ -31,6 +42,7 @@ const CommentForm = () => {
     formState: { errors },
   } = useForm<CommentFormValues>({
     resolver: zodResolver(CommentSchema),
+    defaultValues, // Use the defaultValues object here
     mode: "onBlur",
   });
 
@@ -38,6 +50,7 @@ const CommentForm = () => {
 
   const onSubmit = (data: CommentFormValues) => {
     data.rating = rating || 0; // Ensure rating is set
+
     if (user) {
       // If the user is logged in, use Clerk user details
       data.userId = user?.emailAddresses?.[0]?.emailAddress || "";
@@ -49,6 +62,7 @@ const CommentForm = () => {
       data.userId = "guestuser@gmail.com";
       data.userAvatar = "guest";
     }
+
     data.productId = productId;
 
     // Call mutation and check if it triggers
@@ -57,24 +71,16 @@ const CommentForm = () => {
         reset();
       },
       onError: () => {
-        alert("hello");
+        alert("Failed to submit the review");
       },
     });
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 md:w-1/2">
-      <input
-        type="hidden"
-        {...register("userId")}
-        value={user?.emailAddresses?.[0]?.emailAddress || "guestuser@gmail.com"}
-      />
-      <input type="hidden" {...register("productId")} value={productId} />
-      <input
-        type="hidden"
-        {...register("userAvatar")}
-        value={user?.imageUrl || "guest"}
-      />
+      <input type="hidden" {...register("userId")} />
+      <input type="hidden" {...register("productId")} />
+      <input type="hidden" {...register("userAvatar")} />
 
       <div>
         <Separator className="my-3" />
@@ -94,6 +100,7 @@ const CommentForm = () => {
           <div className="text-red-500">{errors.rating.message}</div>
         )}
       </div>
+
       {!user && (
         <>
           {/* Name fields for non-logged-in users */}
@@ -126,6 +133,7 @@ const CommentForm = () => {
           </div>
         </>
       )}
+
       <div>
         <Label htmlFor="comment">Comment:</Label>
         <Textarea

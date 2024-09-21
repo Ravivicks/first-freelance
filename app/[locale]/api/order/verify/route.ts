@@ -45,7 +45,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
         status: "success", // Mark the payment as successful
         transactionId: razorpayPaymentId, // Store the Razorpay payment ID
       },
-      status: "completed", // Update the order status
+      status: "order-placed", // Update the order status
     },
     { new: true } // Return the updated document
   );
