@@ -58,7 +58,7 @@ const FeaturedCategory = () => {
               className="rounded-xl flex flex-col flex-grow sm:flex-row justify-evenly items-center w-full sm:w-1/2 lg:w-1/5 hover:shadow-lg border p-4 transition-shadow"
               key={index}
             >
-              <div className="relative mb-4 sm:mb-0 w-[350px] h-[200px]">
+              <div className="relative mb-4 sm:mb-0 md:w-[350px] h-[200px] w-[250px] ">
                 <Image
                   src={`${process.env.NEXT_PUBLIC_APP_URL}/en/api/images/${item.imageId}`}
                   alt={item?.category as string}

@@ -1,0 +1,67 @@
+[
+    {
+        "productShipping": {
+          "intro": [
+            {
+              "icon": "Undo2",
+              "title": "Breathe easy.",
+              "description": "Free returns."
+            },
+            {
+              "icon": "ZapIcon",
+              "title": "People want this.",
+              "description": "31 people are watching this."
+            }
+          ],
+          "shipping": {
+            "title": "Shipping:",
+            "details": "US $1.00 Standard Shipping from India to worldwide.",
+            "linkText": "See details",
+            "additionalInfo": [
+              "For International buyers, orders are shipped and delivered through registered international courier companies and/or International speed post only.",
+              "For domestic buyers, orders are shipped through registered domestic courier companies and/or speed post only.",
+              "Orders are shipped within 1-2 days or as per the delivery date agreed at the time of order confirmation and delivering of the shipment subject to Courier Company / post office norms.",
+              "AUTOMATION ECOM GLOBAL is not liable for any delay in delivery by the courier company / postal authorities and only guarantees to hand over the consignment to the courier company or postal authorities within 1-2 days from the date of the order and payment or as per the delivery date agreed at the time of order confirmation.",
+              "Delivery of all orders will be to the address provided by the buyer. Delivery of our services will be confirmed on your mail ID as specified during registration."
+            ]
+          },
+          "delivery": {
+            "title": "Delivery:",
+            "estimatedDelivery": {
+              "text": "Estimated Delivery Date",
+              "date": "Get from the function"
+            },
+            "details": [
+              "Please note the delivery estimate is greater than 11 business days.",
+              "Please allow additional time if international delivery is subject to customs processing."
+            ]
+          },
+          "returns": {
+            "title": "Shipping:",
+            "details": "30 days returns. Seller pays for return shipping.",
+            "linkText": "See details",
+            "linkUrl": "/cancellationandrefund"
+          },
+          "payments": {
+            "title": "Payments:",
+            "image": {
+              "src": "/images/payment-mode.png",
+              "alt": "payment",
+              "width": 400,
+              "height": 100
+            }
+          },
+          "shopWithConfidence": {
+            "title": "Shop with confidence",
+            "guarantee": {
+              "icon": "Shield",
+              "title": "Company Moneyback Guarantee",
+              "description": "Get the item you ordered or your money back.",
+              "linkText": "Learn more",
+              "linkUrl": "/product-guarantee"
+            }
+          }
+        }
+      }
+      
+]

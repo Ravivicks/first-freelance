@@ -17,22 +17,22 @@ const MobileTopNav = () => {
   //   return <div>Loading...</div>;
   // }
   return (
-    <div className="bg-black rounded-b-md text-xs py-2 px-4">
+    <div className="bg-black rounded-b-md text-xs py-2 pl-4">
       <div className="flex justify-between items-center gap-2 md:gap-4">
         {/* Warranty Section */}
         <div className="flex items-center">
-          <Button
+          {/* <Button
             variant="link"
             className="text-white font-semibold text-xs flex items-center"
-          >
-            <Image
-              src="/images/warranty.webp"
-              alt="12 month warranty"
-              height={30}
-              width={22}
-              className="mr-1"
-            />
-          </Button>
+          > */}
+          <Image
+            src="/images/warranty.webp"
+            alt="12 month warranty"
+            height={30}
+            width={22}
+            className="mr-2 object-fit"
+          />
+          {/* </Button> */}
         </div>
 
         {/* Quick Quote Button */}

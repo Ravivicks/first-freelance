@@ -36,7 +36,7 @@ const FeaturedProductCard = ({ product, isBestDeal }: Props) => {
   const handleCardClick = () => {
     if (window.innerWidth < 768) {
       // Assuming mobile viewport width is less than 768px
-      router.push(`/products/${product._id}`); // Navigate to the product details page
+      router.push(`/${locale}/products/${product._id}`); // Navigate to the product details page
     }
   };
 

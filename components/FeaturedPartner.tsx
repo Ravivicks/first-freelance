@@ -16,7 +16,7 @@ const partnerList = [
   },
   {
     title: "Pro-Face",
-    image: "/featured/partner/Proface.png",
+    image: "/featured/partner/proface.png",
   },
   {
     title: "Deif Group",
