@@ -109,9 +109,11 @@ export default function DeliveryInformation() {
                       className="w-full justify-start font-semibold"
                       onClick={() => setActiveFeature(feature.id)}
                     >
-                      {Icon && <Icon className="h-4 w-4 mr-2" />}{" "}
+                      {Icon && (
+                        <Icon className="h-4 w-4 hidden md:inline md:mr-2" />
+                      )}{" "}
                       {/* Render the icon */}
-                      <span className="ml-2">{feature.title}</span>
+                      <span className="ml-2 text-wrap">{feature.title}</span>
                       <ChevronRight className="ml-auto h-4 w-4" />
                     </Button>
                   );

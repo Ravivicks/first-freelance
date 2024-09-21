@@ -139,7 +139,7 @@ export default function WhatWeStandFor() {
               ))}
         </section>
 
-        <section className="bg-card/50 backdrop-blur-sm rounded-lg p-8 space-y-8">
+        <section className="bg-card/50 backdrop-blur-sm rounded-lg md:p-8 space-y-8">
           <h2 className="text-3xl font-semibold text-center">
             {staticData
               ? staticData?.whatWeStandFor?.detailsSection?.title
@@ -189,11 +189,11 @@ export default function WhatWeStandFor() {
                     >
                       <Card>
                         <CardHeader>
-                          <CardTitle className="flex items-center">
+                          <CardTitle className="flex items-center flex-col md:flex-row">
                             {IconComponent && (
-                              <IconComponent className="w-6 h-6 mr-2 text-destructive" />
+                              <IconComponent className="md:w-6 w-10 h-10 md:h-6 self-start mb-3 md:mb-0 md:mr-2 text-destructive" />
                             )}
-                            {value.title}
+                            <p>{value.title}</p>
                           </CardTitle>
                         </CardHeader>
                         <CardContent>

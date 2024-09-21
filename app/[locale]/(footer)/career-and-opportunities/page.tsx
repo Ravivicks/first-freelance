@@ -163,9 +163,9 @@ export default function CareersAndOpportunities() {
                       >
                         <Card>
                           <CardHeader>
-                            <CardTitle className="flex items-center text-2xl">
+                            <CardTitle className="flex items-center flex-col md:flex-row text-2xl">
                               {IconComponent && (
-                                <IconComponent className="w-8 h-8 mr-3 text-destructive" />
+                                <IconComponent className="w-8 h-8 mr-3 text-destructive self-start" />
                               )}
                               {aspect.title}
                             </CardTitle>

@@ -8,6 +8,7 @@ import {
   FileText,
   UserCheck,
   HelpCircle,
+  CreditCardIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -24,7 +25,7 @@ import Link from "next/link";
 import Loader from "@/components/Loader";
 const iconMapping: { [key: string]: React.ElementType } = {
   Shield,
-  CreditCard,
+  CreditCardIcon,
   Building,
   Smartphone,
   Lock,

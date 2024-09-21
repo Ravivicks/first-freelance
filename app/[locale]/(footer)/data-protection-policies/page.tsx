@@ -111,10 +111,10 @@ export default function DataProtectionPolicyPage() {
                     <TabsContent key={index} value={point.tab}>
                       <Card>
                         <CardHeader>
-                          <CardTitle className="flex items-center gap-2 text-2xl">
+                          <CardTitle className="flex items-center flex-col md:flex-row gap-2 text-2xl">
                             {/* Render the icon in the content if it exists */}
                             {IconComponent && (
-                              <IconComponent className="w-8 h-8" />
+                              <IconComponent className="w-8 h-8 text-destructive self-start" />
                             )}
                             <span>{point.title}</span>
                           </CardTitle>
