@@ -96,10 +96,10 @@ export default function Component() {
           </div>
         </section>
         <section className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container space-y-12 md:px-6">
+          <div className="container space-y-12 px-1 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <div className="inline-block rounded-xl bg-muted px-3 py-1 text-sm">
+                <div className="inline-block rounded-xl bg-muted md:px-3 py-1 text-sm">
                   {staticData
                     ? staticData?.about?.section2?.title
                     : "Our Expertise"}
@@ -127,7 +127,7 @@ export default function Component() {
                   (card: any, index: number) => (
                     <Card className="grid gap-1 rounded-xl h-full" key={index}>
                       <CardContent>
-                        <CardHeader>
+                        <CardHeader className="py-4 px-0">
                           <h3 className="text-lg font-bold">{card.title}</h3>
                         </CardHeader>
                         <p className="text-sm text-muted-foreground">

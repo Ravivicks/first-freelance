@@ -189,7 +189,7 @@ export default function WhatWeStandFor() {
                     >
                       <Card>
                         <CardHeader>
-                          <CardTitle className="flex items-center flex-col md:flex-row">
+                          <CardTitle className="flex md:items-center flex-col md:flex-row">
                             {IconComponent && (
                               <IconComponent className="md:w-6 w-10 h-10 md:h-6 self-start mb-3 md:mb-0 md:mr-2 text-destructive" />
                             )}

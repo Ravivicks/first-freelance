@@ -93,7 +93,7 @@ export default function PrivacyCookieSettingsPage() {
                     <TabsContent key={index} value={point.tab}>
                       <Card>
                         <CardHeader>
-                          <CardTitle className="flex items-center flex-col md:flex-row gap-2 text-2xl">
+                          <CardTitle className="flex md:items-center  flex-col md:flex-row gap-2 text-2xl">
                             {IconComponent && (
                               <IconComponent className="w-8 h-8 text-destructive self-start" />
                             )}

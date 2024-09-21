@@ -125,8 +125,10 @@ export default function DeliveryInformation() {
         {/* Feature Details */}
         <Card className="md:col-span-2">
           <CardHeader>
-            <CardTitle className="flex items-center">
-              {ActiveIcon && <ActiveIcon className="h-5 w-5 mr-2" />}{" "}
+            <CardTitle className="flex md:items-center flex-col md:flex-row">
+              {ActiveIcon && (
+                <ActiveIcon className="md:h-5 md:w-5 md:mr-2 w-10 h-10 mb-3 md:mb-0 text-destructive" />
+              )}{" "}
               {/* Icon before title */}
               {activeFeatureData?.title}
             </CardTitle>
