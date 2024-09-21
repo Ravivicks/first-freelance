@@ -34,7 +34,7 @@ export async function getReviewByProductId(
     await connectToDB();
 
     // Find reviews by productId, using lean for performance
-    const reviews = await Review.find({ productId });
+    const reviews = await Review.find({ productId, status: "active" });
 
     // If no reviews found, return an empty array
     if (!reviews) return [];

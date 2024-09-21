@@ -55,6 +55,7 @@ const ReviewSchema: Schema = new Schema(
     userAvatar: { type: String },
     likes: [LikeUnlikeSchema],
     replies: [ReplySchema],
+    status: { type: String, default: "active" },
   },
   {
     timestamps: true,
