@@ -8,19 +8,19 @@ import { useStaticDataStore } from "@/stores/useStaticDataStore";
 const partnerList = [
   {
     title: "Siemens",
-    image: "/featured/partner/siemens.png",
+    image: "/featured/partner/siemens.webp",
   },
   {
     title: "Schneider Electric",
-    image: "/featured/partner/schneider.jpg",
+    image: "/featured/partner/schneider.webp",
   },
   {
     title: "Pro-Face",
-    image: "/featured/partner/proface.png",
+    image: "/featured/partner/proface.webp",
   },
   {
     title: "Deif Group",
-    image: "/featured/partner/deif.png",
+    image: "/featured/partner/deif.webp",
   },
 ];
 
