@@ -34,6 +34,7 @@ const HeroCarousel = () => {
                   fill
                   className="object-fit"
                   unoptimized
+                  priority
                 />
               </CarouselItem>
             ))}

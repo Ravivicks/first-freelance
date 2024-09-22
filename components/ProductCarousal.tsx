@@ -81,6 +81,7 @@ const ProductCarousel = () => {
                   }
                   className="object-cover"
                   unoptimized
+                  loading="lazy"
                 />
                 <div>
                   <Badge variant="destructive">
