@@ -136,10 +136,11 @@ const Footer = () => {
               : "Payment Method"}
           </h1>
           <Image
-            src="/payment.jpg"
+            src="/payment.webp"
             alt="Payment methods"
             width={250}
             height={200}
+            loading="lazy"
           />
           {staticData &&
             staticData?.footer?.paymentMethod?.methods.map(
@@ -158,19 +159,21 @@ const Footer = () => {
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-2">
               <Image
-                src="/Versand_UPS.png"
+                src="/Versand_UPS.webp"
                 alt="UPS"
                 width={100}
                 height={100}
+                loading="lazy"
               />
               <p>UPS Worldwide Express</p>
             </div>
             <div className="flex items-center gap-2">
               <Image
-                src="/Versand_DHL.png"
+                src="/Versand_DHL.webp"
                 alt="DHL"
                 width={100}
                 height={100}
+                loading="lazy"
               />
               <p>DHL Express track</p>
             </div>
