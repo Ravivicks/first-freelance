@@ -51,11 +51,6 @@ const nextConfig = {
       bodySizeLimit: "60mb", // Adjust this limit as needed
     },
   },
-  staleTimes: {
-    dynamic: 30,
-    static: 180,
-  },
-  webpackMemoryOptimizations: true,
 };
 
 const withNextIntl = createNextIntlPlugin();
