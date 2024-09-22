@@ -17,6 +17,7 @@ import { useParams } from "next/navigation";
 import { useFetchStaticData } from "@/features/static-data/use-get-data";
 import { useStaticDataStore } from "@/stores/useStaticDataStore";
 import Loader from "@/components/Loader";
+import { useSupportOpen } from "@/hooks/use-support-open";
 
 const iconMapping: { [key: string]: React.ElementType } = {
   TrendingUp,
@@ -33,6 +34,7 @@ export default function CareersAndOpportunities() {
   const { locale } = useParams();
   useFetchStaticData(locale as string, "cao");
   const { data: staticData, isLoading, error } = useStaticDataStore();
+  const { onOpen } = useSupportOpen();
 
   const careerAspects = [
     {
@@ -299,7 +301,7 @@ export default function CareersAndOpportunities() {
                 : `Explore our current openings and take the first step towards an
               exciting career in industrial automation.`}
             </p>
-            <Button variant="destructive" size="lg">
+            <Button variant="destructive" size="lg" onClick={onOpen}>
               {staticData
                 ? staticData?.careersAndOpportunities?.joinUs?.callToAction
                     ?.buttonText
