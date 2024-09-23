@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -14,13 +13,8 @@ import {
   MessageCircle,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useParams } from "next/navigation";
-import Loader from "@/components/Loader";
 
 export default function OrderStatus() {
-  const [orderNumber, setOrderNumber] = useState("");
-  const [orderStatus, setOrderStatus] = useState(null);
-  const { locale } = useParams();
   const t = useTranslations("orderStatus");
 
   const iconMap: any = {
@@ -47,8 +41,8 @@ export default function OrderStatus() {
 
       <Tabs defaultValue="features" className="w-full">
         <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="features">Features</TabsTrigger>
-          <TabsTrigger value="why-choose">Why Choose Us</TabsTrigger>
+          <TabsTrigger value="features">{t("features.tab")}</TabsTrigger>
+          <TabsTrigger value="why-choose">{t("whyChoose.tab")}</TabsTrigger>
         </TabsList>
         <TabsContent value="features">
           <Card>

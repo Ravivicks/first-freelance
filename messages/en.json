@@ -650,6 +650,7 @@
   },
   "deliveryInfo": {
     "aboutDeliveryServices": "At Automation eCom Global, we recognize that timely and reliable delivery is crucial to your business operations. Whether you're purchasing Siemens PLCs, DEIF engine controllers, Schneider HMIs, or other industrial automation products, we ensure that your orders reach you quickly, safely, and with complete transparency. Our Delivery Information services are designed to give you confidence and control over your shipments, with flexible options tailored to meet your specific needs.",
+    "featuresTitle": "Delivery Features",
     "features": [
       {
         "id": "1",
@@ -876,6 +877,8 @@
   "orderStatus": {
     "aboutService": "At Automation eCom Global, we understand that staying informed about your order's progress is critical to keeping your operations running smoothly. That's why we provide a seamless, transparent, and user-friendly system to help you stay updated on the status of your orders from the moment they are placed to the time they arrive at your facility. Our Order Status service is designed to give you real-time insights, ensuring that you have all the information you need at your fingertips.",
     "features": {
+      "title": "Our Order Status Features",
+      "tab": "Features",
       "realTimeTracking": {
         "title": "1. Real-Time Tracking",
         "description": "From the time you confirm your purchase with Automation eCom Global, our system kicks into action to provide you with real-time tracking of your order. Whether you're purchasing Siemens PLCs, DEIF engine controllers, or any of our wide range of automation products, you'll be able to track the progress of your shipment every step of the way. Once your order has been processed and dispatched, you will receive a tracking number that allows you to monitor the location and estimated arrival time of your package. Our system integrates with global shipping partners to ensure that you receive up-to-date information on your order, including delivery times, delays (if any), and any actions you need to take regarding customs or local regulations.",
@@ -919,6 +922,7 @@
     },
     "whyChoose": {
       "title": "Why Choose Automation eCom Global's Order Tracking?",
+      "tab": "Why Choose Us",
       "items": [
         "Real-time tracking: Stay updated on your order's progress with accurate, live tracking.",
         "Automated notifications: Receive email or SMS alerts for every important stage of your order.",
@@ -1184,6 +1188,7 @@
         ]
       }
     ],
+    "chooseUsTitle":"Why Choose Automation eCom Global for Secure Payments?",
     "chooseUsPoints": [
       "Multiple payment methods: From credit cards and bank transfers to digital wallets and purchase orders, we offer a variety of payment options to suit your needs.",
       "Secure transactions: All payments are protected with advanced encryption and fraud detection systems.",

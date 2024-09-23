@@ -61,7 +61,7 @@ export default function PrivacyCookieSettingsPage() {
                       {IconComponent && (
                         <IconComponent className="w-8 h-8 text-destructive self-start" />
                       )}
-                      <span>{t(point.title)}</span>
+                      <span>{point.title}</span>
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
