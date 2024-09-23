@@ -6,7 +6,6 @@ import { Button } from "./ui/button";
 import FeaturedProductCard from "./FeaturedProductCard";
 import { useProductsStore } from "@/stores/useProductStore";
 import { useParams, useRouter } from "next/navigation";
-import { useStaticDataStore } from "@/stores/useStaticDataStore";
 import { useTranslations } from "next-intl";
 
 const BestDeal = () => {

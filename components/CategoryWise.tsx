@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import GridView from "./GridView";
-import { useStaticDataStore } from "@/stores/useStaticDataStore";
 import { useTranslations } from "next-intl";
 
 const CategoryWise = () => {

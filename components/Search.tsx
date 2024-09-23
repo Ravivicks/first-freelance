@@ -7,7 +7,6 @@ import { IProduct } from "@/types";
 import Link from "next/link";
 import { useSearchOpen } from "@/hooks/use-search-open";
 import { getAllProducts } from "@/lib/actions/product";
-import { useStaticDataStore } from "@/stores/useStaticDataStore";
 import { useTranslations } from "next-intl";
 
 export default function SearchComponent() {

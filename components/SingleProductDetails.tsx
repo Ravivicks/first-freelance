@@ -11,7 +11,6 @@ import { formatNumber, getDeliveryDateMessage } from "@/lib/utils";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
-import { useStaticDataStore } from "@/stores/useStaticDataStore";
 import { useTranslations } from "next-intl";
 
 interface IProps {

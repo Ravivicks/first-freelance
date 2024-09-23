@@ -8,7 +8,6 @@ import { Badge } from "./ui/badge";
 import { formatNumber } from "@/lib/utils";
 import { useProductsStore } from "@/stores/useProductStore";
 import Link from "next/link";
-import { useStaticDataStore } from "@/stores/useStaticDataStore";
 import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 

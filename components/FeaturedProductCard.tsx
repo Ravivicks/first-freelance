@@ -11,7 +11,6 @@ import { useCartDetails } from "@/hooks/use-cart-details";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
-import { useStaticDataStore } from "@/stores/useStaticDataStore";
 import { useTranslations } from "next-intl";
 
 type Props = {

@@ -3,7 +3,6 @@ import React from "react";
 import { Card, CardContent } from "./ui/card";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useStaticDataStore } from "@/stores/useStaticDataStore";
 import { useTranslations } from "next-intl";
 
 const partnerList = [
