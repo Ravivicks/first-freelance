@@ -7,18 +7,14 @@ import FeaturedProductCard from "./FeaturedProductCard";
 import { useProductsStore } from "@/stores/useProductStore";
 import { useParams, useRouter } from "next/navigation";
 import { useStaticDataStore } from "@/stores/useStaticDataStore";
+import { useTranslations } from "next-intl";
 
 const BestDeal = () => {
   const { locale } = useParams();
   const router = useRouter();
   const { products, isLoading, error, fetchData } = useProductsStore();
   const key = "best-deal";
-  const {
-    data: staticData,
-    isLoading: staticLoading,
-    error: staticError,
-  } = useStaticDataStore();
-
+  const t = useTranslations("bestDeal");
   useEffect(() => {
     fetchData(key, 1, 20, { type: "top-selling" }, locale as string);
   }, [fetchData, key]);
@@ -28,9 +24,7 @@ const BestDeal = () => {
   return (
     <Card className="mb-8">
       <div className="flex justify-between w-full items-center bg-gradient-to-r from-slate-100 to-destructive/10 py-4 px-4 mb-5">
-        <h1 className="text-3xl font-bold">
-          {staticData ? staticData?.bestDeal?.title : "Top Selling Products"}
-        </h1>
+        <h1 className="text-3xl font-bold">{t("title")}</h1>
         <Button
           variant="destructive"
           className="sm:mt-0 hidden md:flex rounded-full"
@@ -38,8 +32,7 @@ const BestDeal = () => {
             router.push(`/product-details/top-selling?type=top-selling`);
           }}
         >
-          {staticData ? staticData?.bestDeal?.viewAllButtonText : "View All"}{" "}
-          <ChevronRight className="ml-1 size-5" />
+          {t("viewAllButtonText")} <ChevronRight className="ml-1 size-5" />
         </Button>
         <Button variant="destructive" className="rounded-full md:hidden">
           <ChevronRight className="size-4" />

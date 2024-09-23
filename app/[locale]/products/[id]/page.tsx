@@ -15,7 +15,7 @@ import ProductShiping from "@/components/ProductShiping";
 import { useProductsStore } from "@/stores/useProductStore";
 import ProductCard from "@/components/ProductCard";
 import Loader from "@/components/Loader";
-import { useStaticDataStore } from "@/stores/useStaticDataStore";
+import { useTranslations } from "next-intl";
 
 const ProductDetailsById = () => {
   const { locale, id } = useParams();
@@ -30,15 +30,12 @@ const ProductDetailsById = () => {
     fetchData,
   } = useProductsStore();
   const key = "product-by-id";
-  const {
-    data: staticData,
-    isLoading: staticLoading,
-    error,
-  } = useStaticDataStore();
+
+  const t = useTranslations("productDetails");
 
   useEffect(() => {
     if (product?.brand) {
-      fetchData(key, 1, 20, { query: product.brand }, locale as string);
+      fetchData(key, 1, 20, { query: product?.brand }, locale as string);
     }
   }, [fetchData, product?.brand, key, locale]);
 
@@ -61,10 +58,7 @@ const ProductDetailsById = () => {
         onClick={handleGoBack}
         className="font-semibold text-muted-foreground"
       >
-        <ChevronLeft className="mr-2 h-4 w-4" />{" "}
-        {staticData
-          ? staticData?.productDetails?.backToResult
-          : "Back to result"}
+        <ChevronLeft className="mr-2 h-4 w-4" /> {t("backToResult")}
       </Button>
 
       <div className="flex items-center flex-col md:flex-row justify-between gap-8 my-8">
@@ -85,14 +79,10 @@ const ProductDetailsById = () => {
           <div className="w-full lg:w-2/3">
             <div className="flex justify-between items-center mb-5">
               <h1 className="text-xl md:text-2xl font-bold">
-                {staticData
-                  ? staticData?.productDetails?.similarProducts
-                  : "Similar Products"}
+                {t("similarProducts")}
               </h1>
               <p className="text-sm text-gray-500 cursor-pointer">
-                {staticData
-                  ? staticData?.productDetails?.feedbackSeeAll
-                  : "Feedback | See all"}
+                {t("feedbackSeeAll")}
               </p>
             </div>
             <div className="flex flex-wrap gap-4">
@@ -112,26 +102,22 @@ const ProductDetailsById = () => {
         </div>
       </div>
       <h1 className="text-xl md:text-2xl font-bold mt-10">
-        {staticData
-          ? staticData?.productDetails?.mostlyVisitedProducts
-          : "Mostly Visited Products"}
+        {t("mostlyVisitedProducts")}
       </h1>
       <ProductNew product={product as IProduct} />
       <Tabs defaultValue="review" className="mt-10">
         <TabsList className="bg-inherit">
           <TabsTrigger value="product" className="text-lg md:text-xl font-bold">
-            {staticData
-              ? staticData?.productDetails?.productDetails
-              : "Product Details"}
+            {t("productDetails")}
           </TabsTrigger>
           <TabsTrigger value="review" className="text-lg md:text-xl font-bold">
-            {staticData ? staticData?.productDetails?.reviews : "Reviews"}
+            {t("reviews")}
           </TabsTrigger>
           <TabsTrigger
             value="discussion"
             className="text-lg md:text-xl font-bold"
           >
-            {staticData ? staticData?.productDetails?.discussion : "Discussion"}
+            {t("discussion")}
           </TabsTrigger>
         </TabsList>
         <TabsContent value="product" className="w-full">

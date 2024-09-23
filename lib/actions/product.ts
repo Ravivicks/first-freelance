@@ -32,29 +32,6 @@ export async function createBulkProducts(products: IProduct[]) {
   }
 }
 
-async function translateText(
-  text: string,
-  targetLanguage: string
-): Promise<string> {
-  try {
-    const response = await axios.post(
-      `https://translation.googleapis.com/language/translate/v2`,
-      null,
-      {
-        params: {
-          q: text,
-          target: targetLanguage,
-          key: process.env.NEXT_PUBLIC_GOOGLE_TRANSLATE_API_KEY,
-        },
-      }
-    );
-    return response.data.data.translations[0].translatedText;
-  } catch (error) {
-    console.error("Translation error:", error);
-    throw new Error("Failed to translate text");
-  }
-}
-
 export async function getAllProducts(
   page: number,
   pageSize: number,
@@ -109,27 +86,8 @@ export async function getAllProducts(
       categories.map((category) => ({ label: category, value: category })),
     ]);
 
-    // Prepare texts for batch translation
-    const titles = products.map((product) => product.title);
-    const descriptions = products.map((product) => product.description);
-
-    // Translate titles and descriptions in parallel
-    const [translatedTitles, translatedDescriptions] = await Promise.all([
-      Promise.all(titles.map((title) => translateText(title, locale))),
-      Promise.all(
-        descriptions.map((description) => translateText(description, locale))
-      ),
-    ]);
-
-    // Combine translated texts with original products
-    const translatedProducts = products.map((product, index) => ({
-      ...product,
-      title: translatedTitles[index],
-      description: translatedDescriptions[index],
-    }));
-
     return {
-      products: JSON.parse(JSON.stringify(translatedProducts)),
+      products: JSON.parse(JSON.stringify(products)),
       totalCount,
       brands,
       types,
@@ -164,26 +122,7 @@ export async function getProductById(
     const product = await Product.findOne({ _id: productId }).lean();
     if (!product) return null;
 
-    // Create a list of fields that should be translated
-    const fieldsToTranslate: Array<
-      keyof Pick<IProduct, "title" | "description" | "productInformationTech">
-    > = ["title", "description", "productInformationTech"];
-
-    // Create a copy of the product
-    const translatedProduct: IProduct = { ...product };
-
-    // Translate each relevant field
-    for (const field of fieldsToTranslate) {
-      const fieldValue = product[field]; // Get the original value
-
-      if (typeof fieldValue === "string") {
-        // Only translate if the field is a string
-        const translatedValue = await translateText(fieldValue, locale);
-        translatedProduct[field] = translatedValue as any; // Cast to any since we're sure it's a string field
-      }
-    }
-
-    return JSON.parse(JSON.stringify(translatedProduct));
+    return JSON.parse(JSON.stringify(product));
   } catch (error) {
     console.log(error);
     return null;

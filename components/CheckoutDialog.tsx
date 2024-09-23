@@ -16,8 +16,10 @@ import { useGetAddress } from "@/features/address/use-get-address";
 import { useRouter } from "next/navigation";
 import Cart from "./Cart";
 import PaymentButton from "./PaymentButton";
+import { useTranslations } from "next-intl";
 
 const CheckoutDialog = () => {
+  const t = useTranslations("checkoutDialog");
   const router = useRouter();
   const { isOpen, onClose, id, data } = useCheckoutOpen();
   const { data: address, isLoading } = useGetAddress(id as string);
@@ -38,10 +40,8 @@ const CheckoutDialog = () => {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="overflow-auto max-w-full md:max-w-lg lg:max-w-2xl xl:max-w-3xl">
         <DialogHeader>
-          <DialogTitle>Checkout</DialogTitle>
-          <DialogDescription>
-            Please confirm your details before making payment of your order
-          </DialogDescription>
+          <DialogTitle>{t("title")}</DialogTitle>
+          <DialogDescription>{t("description")}</DialogDescription>
         </DialogHeader>
 
         {isLoading ? (
@@ -53,10 +53,12 @@ const CheckoutDialog = () => {
             <div className="mb-3">
               <Card>
                 <CardContent className="p-3 text-sm">
-                  <h1 className="font-bold text-lg mb-4">Payment Method</h1>
+                  <h1 className="font-bold text-lg mb-4">
+                    {t("paymentMethod.header")}
+                  </h1>
                   <div className="flex">
                     <p>
-                      Selected Payment Method :{" "}
+                      {t("paymentMethod.selectedMethod")}{" "}
                       <span className="font-semibold">
                         {" "}
                         {data?.[0]?.paymentMethod}
@@ -69,7 +71,9 @@ const CheckoutDialog = () => {
             <div className="mb-3">
               <Card>
                 <CardContent className="p-6">
-                  <h1 className="font-bold text-lg">Item Details</h1>
+                  <h1 className="font-bold text-lg">
+                    {t("itemDetails.header")}
+                  </h1>
                   <Cart />
                 </CardContent>
               </Card>
@@ -78,7 +82,9 @@ const CheckoutDialog = () => {
               <Card>
                 <CardContent className="p-6">
                   <div className="text-sm space-y-2">
-                    <h1 className="font-bold text-lg">Shipping Details</h1>
+                    <h1 className="font-bold text-lg">
+                      {t("shippingDetails.header")}
+                    </h1>
                     <p className="text-lg">
                       {address?.firstName} {address?.lastName}
                     </p>
@@ -87,10 +93,15 @@ const CheckoutDialog = () => {
                     </p>
 
                     <p>
-                      Country: {address?.country} State: {address?.state}
+                      {t("shippingDetails.country")} {address?.country}{" "}
+                      {t("shippingDetails.state")} {address?.state}
                     </p>
-                    <p>Phone: {address?.phone}</p>
-                    <p>Email-id: {address?.email}</p>
+                    <p>
+                      {t("shippingDetails.phone")} {address?.phone}
+                    </p>
+                    <p>
+                      {t("shippingDetails.email")} {address?.email}
+                    </p>
                   </div>
                 </CardContent>
               </Card>
@@ -98,31 +109,31 @@ const CheckoutDialog = () => {
                 <Card>
                   <CardContent className="p-6">
                     <h2 className="text-lg font-semibold mb-4">
-                      Order Details
+                      {t("orderDetails.header")}
                     </h2>
                     <div className="space-y-2">
                       <div className="flex justify-between">
-                        <span>Price</span>
+                        <span>{t("orderDetails.price")}</span>
                         <span>₹{formatNumber(total)}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>GST</span>
+                        <span>{t("orderDetails.gst")}</span>
                         <span>₹ {formatNumber(gstAmount)}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>Delivery charges</span>
+                        <span>{t("orderDetails.deliveryCharges")}</span>
                         <span>₹ {formatNumber(shippingAmount)}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>Discount price</span>
+                        <span>{t("orderDetails.discountPrice")}</span>
                         <span>₹{formatNumber(discountAmount)}</span>
                       </div>
                       <div className="flex justify-between font-bold text-lg">
-                        <span>Total Amount</span>
+                        <span>{t("orderDetails.totalAmount")}</span>
                         <span>₹ {formatNumber(totalWithGSTAndShipping)}</span>
                       </div>
                       <p className="text-xs text-gray-500">
-                        (Incl. of all taxes)
+                        {t("orderDetails.inclOfTaxes")}
                       </p>
                     </div>
                   </CardContent>
@@ -130,21 +141,11 @@ const CheckoutDialog = () => {
               </div>
             </div>
             <div className="mt-4 p-2 bg-green-100 rounded-md">
-              <p className="text-sm text-green-800">
-                Your total savings amount on this order
-              </p>
+              <p className="text-sm text-green-800">{t("savings.message")}</p>
               <p className="text-lg font-bold text-green-00">
-                ₹ {formatNumber(discountAmount)}
+                {t("savings.amountLabel")} {formatNumber(discountAmount)}
               </p>
             </div>
-            {/* <Button
-              className="w-full my-3"
-              variant="destructive"
-              onClick={makePayment}
-              disabled={mutation.isPending || cart.length === 0}
-            >
-              Proceed to payment
-            </Button> */}
             <PaymentButton amount={1} />
           </div>
         )}

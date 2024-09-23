@@ -28,8 +28,7 @@ import {
   LucideIcon,
 } from "lucide-react";
 import { useParams } from "next/navigation";
-import { useFetchStaticData } from "@/features/static-data/use-get-data";
-import { useStaticDataStore } from "@/stores/useStaticDataStore";
+import { useTranslations } from "next-intl";
 import Loader from "@/components/Loader";
 
 const iconMapping: { [key: string]: LucideIcon } = {
@@ -48,44 +47,22 @@ export default function DeliveryInformation() {
   const [activeFeature, setActiveFeature] = useState("1");
 
   const { locale } = useParams();
-  useFetchStaticData(locale as string, "di");
-  const { data: staticData, isLoading } = useStaticDataStore();
+  const t = useTranslations("deliveryInfo");
 
-  const activeFeatureData = staticData?.deliveryInfo?.features.find(
-    (f: any) => f.id === activeFeature
-  );
-
+  const features = t.raw("features");
+  const activeFeatureData = features.find((f: any) => f.id === activeFeature);
   const ActiveIcon = activeFeatureData
     ? iconMapping[activeFeatureData.icon]
     : null;
-
-  if (isLoading) {
-    return <Loader />;
-  }
 
   return (
     <div className="container mx-auto md:px-4 px-1 py-8 max-w-6xl">
       <Card className="mb-8 custom-bg">
         <CardHeader>
-          <CardTitle>
-            {staticData
-              ? staticData?.deliveryInfo?.title
-              : `About Our Delivery Services`}
-          </CardTitle>
+          <CardTitle>{t("title")}</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="mb-4">
-            {staticData
-              ? staticData?.deliveryInfo?.aboutDeliveryServices
-              : `At Automation eCom Global, we recognize that timely and reliable
-            delivery is crucial to your business operations. Whether you're
-            purchasing Siemens PLCs, DEIF engine controllers, Schneider HMIs, or
-            other industrial automation products, we ensure that your orders
-            reach you quickly, safely, and with complete transparency. Our
-            Delivery Information services are designed to give you confidence
-            and control over your shipments, with flexible options tailored to
-            meet your specific needs.`}
-          </p>
+          <p className="mb-4">{t("aboutDeliveryServices")}</p>
         </CardContent>
       </Card>
 
@@ -93,31 +70,29 @@ export default function DeliveryInformation() {
         {/* Features List */}
         <Card className="md:col-span-2">
           <CardHeader>
-            <CardTitle>Delivery Features</CardTitle>
+            <CardTitle>{t("featuresTitle")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-2">
-              {staticData &&
-                staticData?.deliveryInfo?.features.map((feature: any) => {
-                  const Icon = iconMapping[feature.icon]; // Get the icon dynamically
-                  return (
-                    <Button
-                      key={feature.id}
-                      variant={
-                        activeFeature === feature.id ? "destructive" : "outline"
-                      }
-                      className="w-full justify-start font-semibold"
-                      onClick={() => setActiveFeature(feature.id)}
-                    >
-                      {Icon && (
-                        <Icon className="h-4 w-4 hidden md:inline md:mr-2" />
-                      )}{" "}
-                      {/* Render the icon */}
-                      <span className="ml-2 text-wrap">{feature.title}</span>
-                      <ChevronRight className="ml-auto h-4 w-4" />
-                    </Button>
-                  );
-                })}
+              {features.map((feature: any) => {
+                const Icon = iconMapping[feature.icon]; // Get the icon dynamically
+                return (
+                  <Button
+                    key={feature.id}
+                    variant={
+                      activeFeature === feature.id ? "destructive" : "outline"
+                    }
+                    className="w-full justify-start font-semibold"
+                    onClick={() => setActiveFeature(feature.id)}
+                  >
+                    {Icon && (
+                      <Icon className="h-4 w-4 hidden md:inline md:mr-2" />
+                    )}
+                    <span className="ml-2 text-wrap">{feature.title}</span>
+                    <ChevronRight className="ml-auto h-4 w-4" />
+                  </Button>
+                );
+              })}
             </div>
           </CardContent>
         </Card>
@@ -128,8 +103,7 @@ export default function DeliveryInformation() {
             <CardTitle className="flex md:items-center flex-col md:flex-row">
               {ActiveIcon && (
                 <ActiveIcon className="md:h-5 md:w-5 md:mr-2 w-10 h-10 mb-3 md:mb-0 text-destructive" />
-              )}{" "}
-              {/* Icon before title */}
+              )}
               {activeFeatureData?.title}
             </CardTitle>
           </CardHeader>
@@ -141,25 +115,18 @@ export default function DeliveryInformation() {
 
       <Card className="mt-8">
         <CardHeader>
-          <CardTitle>
-            {staticData
-              ? staticData?.deliveryInfo?.whyChooseTitle
-              : `Why Choose Automation eCom Global for Your Delivery Needs?`}
-          </CardTitle>
+          <CardTitle>{t("whyChooseTitle")}</CardTitle>
         </CardHeader>
         <CardContent>
           <Accordion type="single" collapsible className="w-full">
-            {staticData &&
-              staticData?.deliveryInfo?.features?.map(
-                (feature: any, index: number) => (
-                  <AccordionItem key={index} value={`item-${index + 1}`}>
-                    <AccordionTrigger className="text-lg font-semibold">
-                      {feature.title}
-                    </AccordionTrigger>
-                    <AccordionContent>{feature.description}</AccordionContent>
-                  </AccordionItem>
-                )
-              )}
+            {t.raw("whyChooseUs").map((item: any, index: number) => (
+              <AccordionItem key={index} value={`item-${index + 1}`}>
+                <AccordionTrigger className="text-lg font-semibold">
+                  {item.title}
+                </AccordionTrigger>
+                <AccordionContent>{item.description}</AccordionContent>
+              </AccordionItem>
+            ))}
           </Accordion>
         </CardContent>
       </Card>

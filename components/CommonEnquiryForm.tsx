@@ -30,7 +30,7 @@ type Props = {
   onSubmit: (values: FormValues) => void;
   disabled?: boolean;
   type?: EnquiryType; // Add enquiry type
-  staticData?: any;
+  t?: any;
 };
 
 export const CommonEnquiryForm = ({
@@ -39,7 +39,7 @@ export const CommonEnquiryForm = ({
   defaultValues,
   disabled,
   type, // Use the type prop
-  staticData,
+  t,
 }: Props) => {
   const form = useForm<FormValues>({
     resolver: zodResolver(commonEnquiryFormSchema),
@@ -61,19 +61,11 @@ export const CommonEnquiryForm = ({
           control={form.control}
           render={({ field }) => (
             <FormItem className="w-full">
-              <FormLabel>
-                {staticData
-                  ? staticData?.contact?.form?.fields?.name?.label
-                  : "Name"}
-              </FormLabel>
+              <FormLabel>{t("fullNameLabel")}</FormLabel>
               <FormControl>
                 <Input
                   disabled={disabled}
-                  placeholder={
-                    staticData
-                      ? staticData?.contact?.form?.fields?.name?.placeholder
-                      : "John Doe"
-                  }
+                  placeholder={t("fullNamePlaceholder")}
                   {...field}
                 />
               </FormControl>
@@ -87,17 +79,11 @@ export const CommonEnquiryForm = ({
           control={form.control}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>
-                {staticData ? staticData?.enquiry?.emailLabel : "Email"}
-              </FormLabel>
+              <FormLabel>{t("emailLabel")}</FormLabel>
               <FormControl>
                 <Input
                   disabled={disabled}
-                  placeholder={
-                    staticData
-                      ? staticData?.enquiry?.emailPlaceholder
-                      : "Please enter your email"
-                  }
+                  placeholder={t("emailPlaceholder")}
                   {...field}
                 />
               </FormControl>
@@ -113,19 +99,13 @@ export const CommonEnquiryForm = ({
             control={form.control}
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel>
-                  {staticData ? staticData?.enquiry?.mobileLabel : "Mobile"}
-                </FormLabel>
+                <FormLabel>{t("mobileLabel")}</FormLabel>
                 <FormControl>
                   <Input
                     className="[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                     type="number"
                     disabled={disabled}
-                    placeholder={
-                      staticData
-                        ? staticData?.contact?.form?.fields?.phone?.placeholder
-                        : "(123) 456-7890"
-                    }
+                    placeholder={"(123) 456-7890"}
                     {...field}
                   />
                 </FormControl>
@@ -139,19 +119,11 @@ export const CommonEnquiryForm = ({
               control={form.control}
               render={({ field }) => (
                 <FormItem className="w-full">
-                  <FormLabel>
-                    {staticData
-                      ? staticData?.enquiry?.quantityLabel
-                      : "Quantity"}
-                  </FormLabel>
+                  <FormLabel>{t("quantityLabel")}</FormLabel>
                   <FormControl>
                     <Input
                       disabled={disabled}
-                      placeholder={
-                        staticData
-                          ? staticData?.enquiry?.quantityPlaceholder
-                          : "Please provide quantity"
-                      }
+                      placeholder={t("quantityPlaceholder")}
                       {...field}
                       onChange={(e) => {
                         const value = e.target.value;
@@ -172,19 +144,11 @@ export const CommonEnquiryForm = ({
           control={form.control}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>
-                {staticData
-                  ? staticData?.enquiry?.enquiryDescriptionLabel
-                  : "Enquiry Description"}
-              </FormLabel>
+              <FormLabel>{t("enquiryDescriptionLabel")}</FormLabel>
               <FormControl>
                 <Textarea
                   disabled={disabled}
-                  placeholder={
-                    staticData
-                      ? staticData?.enquiry?.enquiryDescriptionPlaceholder
-                      : "Please enter Detail description of your enquiry"
-                  }
+                  placeholder={t("enquiryDescriptionPlaceholder")}
                   {...field}
                 />
               </FormControl>
@@ -195,13 +159,7 @@ export const CommonEnquiryForm = ({
 
         {/* Submit Button */}
         <Button className="w-full" disabled={disabled} variant="destructive">
-          {disabled
-            ? staticData
-              ? staticData?.enquiry?.submittingButton
-              : "Submitting..."
-            : staticData
-            ? staticData?.enquiry?.submitButton
-            : "Submit your request"}
+          {disabled ? t("submittingButton") : t("submitButton")}
         </Button>
       </form>
     </Form>

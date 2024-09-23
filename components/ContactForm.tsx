@@ -8,35 +8,20 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage, // Import FormMessage for error display
+  FormMessage,
 } from "@/components/ui/form";
 import { contactFormSchema } from "@/lib/zod-schema";
 import { Textarea } from "@/components/ui/textarea";
-
 import { z } from "zod";
 import { useCreateCommonEnquiry } from "@/features/enquiry/use-add-common-enquiry";
 
-type FormValues = z.input<typeof contactFormSchema>;
+type FormValues = z.infer<typeof contactFormSchema>;
 
 type Props = {
-  staticData: any;
+  t: any; // Adjust this type as needed
 };
 
-const defaultValues = {
-  fullName: "",
-  email: "",
-  mobile: "",
-  productId: "",
-  productName: "",
-  productPrice: 0,
-  enquiryDescription: "",
-  quantity: 1,
-  status: "pending",
-  enquiryType: "contactQuery",
-  reason: "",
-  cartProduct: [],
-};
-export const ContactForm = ({ staticData }: Props) => {
+export const ContactForm = ({ t }: Props) => {
   const form = useForm<FormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -56,7 +41,6 @@ export const ContactForm = ({ staticData }: Props) => {
   });
 
   const mutation = useCreateCommonEnquiry();
-
   const disabled = mutation.isPending || false;
 
   const handleSubmit = (values: FormValues) => {
@@ -84,19 +68,11 @@ export const ContactForm = ({ staticData }: Props) => {
             control={form.control}
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel>
-                  {staticData
-                    ? staticData?.contact?.form?.fields?.name?.label
-                    : "Name"}
-                </FormLabel>
+                <FormLabel>Name</FormLabel>
                 <FormControl>
                   <Input
                     disabled={disabled}
-                    placeholder={
-                      staticData
-                        ? staticData?.contact?.form?.fields?.name?.placeholder
-                        : "John Doe"
-                    }
+                    placeholder="John Doe"
                     {...field}
                   />
                 </FormControl>
@@ -109,19 +85,11 @@ export const ContactForm = ({ staticData }: Props) => {
             control={form.control}
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel>
-                  {staticData
-                    ? staticData?.contact?.form?.fields?.email?.label
-                    : "Email"}
-                </FormLabel>
+                <FormLabel>Email</FormLabel>
                 <FormControl>
                   <Input
                     disabled={disabled}
-                    placeholder={
-                      staticData
-                        ? staticData?.contact?.form?.fields?.email?.placeholder
-                        : "example@acme.com"
-                    }
+                    placeholder="example@acme.com"
                     {...field}
                   />
                 </FormControl>
@@ -135,21 +103,13 @@ export const ContactForm = ({ staticData }: Props) => {
           control={form.control}
           render={({ field }) => (
             <FormItem className="w-full">
-              <FormLabel>
-                {staticData
-                  ? staticData?.contact?.form?.fields?.phone?.label
-                  : "Phone"}{" "}
-              </FormLabel>
+              <FormLabel>Phone</FormLabel>
               <FormControl>
                 <Input
                   className="[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   type="number"
                   disabled={disabled}
-                  placeholder={
-                    staticData
-                      ? staticData?.contact?.form?.fields?.phone?.placeholder
-                      : "(123) 456-7890"
-                  }
+                  placeholder="(123) 456-7890"
                   {...field}
                 />
               </FormControl>
@@ -161,38 +121,23 @@ export const ContactForm = ({ staticData }: Props) => {
         <FormField
           name="enquiryDescription"
           control={form.control}
-          render={({ field }) => {
-            return (
-              <FormItem className="w-full">
-                <FormLabel>
-                  {staticData
-                    ? staticData?.contact?.form?.fields?.message?.label
-                    : "Message"}
-                </FormLabel>
-                <FormControl>
-                  <Textarea
-                    disabled={disabled}
-                    placeholder={
-                      staticData
-                        ? staticData?.contact?.form?.fields?.message
-                            ?.placeholder
-                        : "How can we help you?"
-                    }
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage /> {/* Display error message */}
-              </FormItem>
-            );
-          }}
+          render={({ field }) => (
+            <FormItem className="w-full">
+              <FormLabel>Message</FormLabel>
+              <FormControl>
+                <Textarea
+                  disabled={disabled}
+                  placeholder="How can we help you?"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage /> {/* Display error message */}
+            </FormItem>
+          )}
         />
 
         <Button className="md:w-1/2" disabled={disabled} variant="destructive">
-          {disabled
-            ? "Sending..."
-            : staticData
-            ? staticData?.contact?.form?.submitButton
-            : "Send Message"}
+          {disabled ? "Sending..." : "Send Message"}
         </Button>
       </form>
     </Form>

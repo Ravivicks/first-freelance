@@ -12,6 +12,7 @@ import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
 import { useStaticDataStore } from "@/stores/useStaticDataStore";
+import { useTranslations } from "next-intl";
 
 interface IProps {
   product: IProduct;
@@ -27,11 +28,7 @@ const SingleProductDetails = ({ product }: IProps) => {
   const { onOpen } = useCommonEnquiry();
   const { onOpen: cartOpen } = useCartDetails();
   const cart = useFromStore(useCartStore, (state) => state.cart);
-  const {
-    data: staticData,
-    isLoading: staticLoading,
-    error: staticError,
-  } = useStaticDataStore();
+  const t = useTranslations("singleProductDetails");
 
   const charLimit = 250;
   const isLongDescription = product?.description?.length > charLimit;
@@ -46,11 +43,7 @@ const SingleProductDetails = ({ product }: IProps) => {
 
       // Check if the entered quantity is less than the minQuantity
       if (numericQty < minQuantity) {
-        setError(
-          staticData
-            ? staticData?.singleProductDetails?.errorMessages?.minQuantity
-            : `Minimum order quantity is ${minQuantity}`
-        );
+        setError(`Minimum order quantity is ${minQuantity}`);
       } else {
         setError(null);
       }
@@ -127,10 +120,7 @@ const SingleProductDetails = ({ product }: IProps) => {
         </div>
         {product?.quantity && (
           <p className="text-muted-foreground text-sm">
-            {product?.quantity}{" "}
-            {staticData
-              ? staticData?.singleProductDetails?.availabilityText
-              : "Available"}
+            {product?.quantity} {t("availabilityText")}
           </p>
         )}
       </div>
@@ -140,11 +130,7 @@ const SingleProductDetails = ({ product }: IProps) => {
       <p className="text-xs md:text-sm font-semibold text-muted-foreground my-4">
         {getDeliveryDateMessage()}.
       </p>
-      <p className="text-sm font-semibold mb-2">
-        {staticData
-          ? staticData?.singleProductDetails?.descriptionTitle
-          : "Product Description"}
-      </p>
+      <p className="text-sm font-semibold mb-2">{t("descriptionTitle")}</p>
       <p className="text-xs md:text-sm text-muted-foreground">
         {showMore || !isLongDescription
           ? product?.description
@@ -167,13 +153,7 @@ const SingleProductDetails = ({ product }: IProps) => {
           onClick={isInCart ? cartOpen : () => addToCart(product)}
           disabled={!!error} // Disable button if there's an error
         >
-          {isInCart
-            ? staticData
-              ? staticData?.singleProductDetails?.buttonLabels?.goToCart
-              : "Go to cart"
-            : staticData
-            ? staticData?.singleProductDetails?.buttonLabels?.addToCart
-            : "Add to cart"}
+          {isInCart ? t("buttonLabels.goToCart") : t("buttonLabels.addToCart")}
         </Button>
         {product?.lowestPrice !== 0 ? (
           <Button
@@ -182,9 +162,7 @@ const SingleProductDetails = ({ product }: IProps) => {
             onClick={() => onOpen("quoteRequest", product._id)}
             disabled={!!error} // Disable button if there's an error
           >
-            {staticData
-              ? staticData?.singleProductDetails?.buttonLabels?.requestQuotation
-              : "Request Quotation"}
+            {t("buttonLabels.requestQuotation")}
           </Button>
         ) : (
           <Button
@@ -193,9 +171,7 @@ const SingleProductDetails = ({ product }: IProps) => {
             onClick={() => onOpen("priceRequest", product._id)}
             disabled={!!error} // Disable button if there's an error
           >
-            {staticData
-              ? staticData?.singleProductDetails?.buttonLabels?.requestForPrice
-              : "Request For Price"}
+            {t("buttonLabels.requestForPrice")}
           </Button>
         )}
         <Button
@@ -204,9 +180,7 @@ const SingleProductDetails = ({ product }: IProps) => {
           onClick={() => onBuyNow(product)}
           disabled={!!error} // Disable button if there's an error
         >
-          {staticData
-            ? staticData?.singleProductDetails?.buttonLabels?.buyNow
-            : "Buy Now"}
+          {t("buttonLabels.buyNow")}
         </Button>
       </div>
     </div>

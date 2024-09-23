@@ -1,7 +1,328 @@
 {
-    "PhotoViewer": {
-      "title": "Street photography",
-      "description": "La fotografía callejera capta momentos de la vida real e interacciones humanas en lugares públicos. Es una forma de contar historias visuales y congelar momentos fugaces del tiempo, convirtiendo lo ordinario en extraordinario."
-     
+  "page1": {
+    "warranty": "Garantía de 12 meses",
+    "quickQuote": "Cotización Rápida",
+    "customerSupport": "Atención al Cliente",
+    "email": "sales@prosafeautomation.com",
+    "phone": "Teléfono"
+  },
+  "page2": {
+    "navItems": [
+      {
+        "title": "PLC de Siemens",
+        "image": "/product-category/webp/1.webp",
+        "url": "/"
+      },
+      {
+        "title": "Drive de Siemens",
+        "image": "/product-category//webp/2.webp",
+        "url": "/"
+      },
+      {
+        "title": "HMI de Siemens",
+        "image": "/product-category/webp/3.webp",
+        "url": "/"
+      },
+      {
+        "title": "Fuente de Alimentación de Siemens",
+        "image": "/product-category/webp/4.webp",
+        "url": "/"
+      },
+      {
+        "title": "Controlador Diesel Gen.",
+        "image": "/product-category/webp/5.webp",
+        "url": "/"
+      },
+      {
+        "title": "Schneider Pro-Face Telemecanique",
+        "image": "/product-category/webp/6.webp",
+        "url": "/"
+      },
+      {
+        "title": "Certificación y Pruebas de Rendimiento",
+        "image": "/product-category/webp/7.webp",
+        "url": "/"
+      },
+      {
+        "title": "Productos Obsoletos Descontinuados de Siemens y más",
+        "image": "/product-category/webp/8.webp",
+        "url": "/"
+      },
+      {
+        "title": "Otros Productos de Automatización",
+        "image": "/product-category/webp/9.webp",
+        "url": "/"
+      }
+    ]
+  },
+  "bestDeal": {
+    "title": "Productos Más Vendidos",
+    "viewAllButtonText": "Ver Todos",
+    "viewAllButtonIcon": "ChevronRight",
+    "mobileButtonIcon": "ChevronRight",
+    "buttonLabels": {
+      "addToCart": "Añadir al carrito",
+      "goToCart": "Ir al carrito",
+      "requestQuotation": "Solicitar Cotización",
+      "requestForPrice": "Solicitar Precio",
+      "productDetails": "Detalles del Producto"
     }
-  }
+  },
+  "productCarousel": {
+    "loadingText": "Cargando...",
+    "badgeText": "Mejor Elección",
+    "cardAltText": "Imagen de {title}"
+  },
+  "featuredCategory": {
+    "title": "Categoría Destacada",
+    "defaultCompanyImage": "/featured/partner/siemens.png",
+    "companyImages": {
+      "Siemens": "/featured/partner/siemens.png",
+      "DEIF": "/featured/partner/deif.png",
+      "Pro-face": "/featured/partner/proface.png"
+    }
+  },
+  "singleProductDetails": {
+    "charLimit": 250,
+    "errorMessages": {
+      "minQuantity": "La cantidad mínima de pedido es {minQuantity}"
+    },
+    "availabilityText": "Disponible",
+    "getItByText": "Recíbelo para el viernes 9 de agosto.",
+    "descriptionTitle": "Descripción del Producto",
+    "buttonLabels": {
+      "addToCart": "Añadir al carrito",
+      "goToCart": "Ir al carrito",
+      "buyNow": "Comprar Ahora",
+      "requestQuotation": "Solicitar Cotización",
+      "requestForPrice": "Solicitar Precio"
+    }
+  },
+  "featuredPartner": {
+    "title": "Socios Destacados"
+  },
+  "industryAutomation": {
+    "title": "Automatización Industrial"
+  },
+  "featuredProduct": {
+    "title": "Producto Destacado",
+    "buttonLabels": {
+      "addToCart": "Añadir al carrito",
+      "goToCart": "Ir al carrito",
+      "requestQuotation": "Solicitar Cotización",
+      "requestForPrice": "Solicitar Precio",
+      "productDetails": "Detalles del Producto"
+    }
+  },
+  "search": {
+    "placeHolder": "Buscar productos...(Por Ejemplo: 6ES7288-1ST30-0AA0)"
+  },
+  "menuBar": {
+    "firstMenuTitle": "Más Vendidos",
+    "secondMenuTitle": "Comprar por Categoría",
+    "thirdMenuTitle": "Comprar por Marca",
+    "fourthMenuTitle": "Sobre la Empresa",
+    "fifthMenuTitle": "Cotización de Servicio",
+    "sixthMenuTitle": "Cotización del Proyecto Completo",
+    "seventhMenuTitle": "Por qué cientos de clientes confían en nosotros",
+    "aboutSubmenu": [
+      {
+        "title": "Sobre Nosotros",
+        "url": "/about-us"
+      },
+      {
+        "title": "Contáctenos",
+        "url": "/contact-us"
+      },
+      {
+        "title": "Términos y Condiciones",
+        "url": "/termandcondition"
+      },
+      {
+        "title": "Política de Privacidad",
+        "url": "/privacy-policy"
+      },
+      {
+        "title": "Políticas de Cancelación/Reembolso",
+        "url": "/cancellationandrefund"
+      }
+    ]
+  },
+  "footer": {
+    "newsletter": {
+      "title": "Boletín",
+      "placeholder": "Introduce tu email",
+      "subscribeButton": "Suscribirse",
+      "successMessage": "¡Gracias por suscribirte!"
+    },
+    "company": {
+      "title": "Empresa",
+      "links": [
+        {
+          "text": "Quiénes Somos",
+          "url": "/who-we-are"
+        },
+        {
+          "text": "Nuestros Compromisos",
+          "url": "/our-commitments"
+        },
+        {
+          "text": "En Qué Creemos",
+          "url": "/what-we-stand-for"
+        },
+        {
+          "text": "Marcas Asociadas",
+          "url": "/partner-brands"
+        },
+        {
+          "text": "Carreras y Oportunidades",
+          "url": "/career-and-opportunities"
+        }
+      ]
+    },
+    "customerCare": {
+      "title": "Atención al Cliente",
+      "navItems": [
+        {
+          "text": "Ayuda y Soporte",
+          "url": "/help-and-support"
+        },
+        {
+          "text": "Estado del Pedido",
+          "url": "/order-status"
+        },
+        {
+          "text": "Información de Entrega",
+          "url": "/delivery-info"
+        },
+        {
+          "text": "Devoluciones e Intercambios",
+          "url": "/return-and-exchange"
+        },
+        {
+          "text": "Asistencia para Instalación",
+          "url": "/installation-assistance"
+        }
+      ]
+    },
+    "trust": {
+      "title": "Confianza",
+      "links": [
+        {
+          "text": "Garantía del Producto",
+          "url": "/product-guarantee"
+        },
+        {
+          "text": "Pagos Seguros",
+          "url": "/safe-and-secure-payments"
+        },
+        {
+          "text": "Opciones de Pago",
+          "url": "/payment-options"
+        },
+        {
+          "text": "Políticas de Protección de Datos",
+          "url": "/data-protection-policies"
+        },
+        {
+          "text": "Acuerdos de Usuario",
+          "url": "/user-agreements"
+        },
+        {
+          "text": "Ajustes de Privacidad y Cookies",
+          "url": "/privacy-and-cookie-settings"
+        }
+      ]
+    },
+    "paymentMethod": {
+      "title": "Método de Pago",
+      "methods": [
+        "Transferencia en Línea / Transferencia Bancaria",
+        "RTGS / NEFT"
+      ],
+      "image": "/payment.jpg",
+      "alt": "Métodos de pago"
+    },
+    "shippingMethod": {
+      "title": "Método de Envío",
+      "providers": [
+        {
+          "name": "UPS",
+          "logo": "/Versand_UPS.png"
+        },
+        {
+          "name": "DHL",
+          "logo": "/Versand_DHL.png"
+        }
+      ]
+    },
+    "bottomText": "2024 AUTOMATION ECOM GLOBAL. Todos los Derechos Reservados. Automation eCom Global no es un distribuidor autorizado ni representante de los fabricantes presentados en este sitio web. SIEMENS, SIMATIC ®, SITOP ®, SIMADYN ®, SINUMERIC ®, SIMOVERT® y otros son marcas registradas de Siemens Aktiengesellschaft, Berlín y Múnich. Todas las marcas comerciales son propiedad de las respectivas empresas. Sujeto a errores. Aviso de responsabilidad: A pesar de un cuidadoso control del contenido, no aceptamos responsabilidad por el contenido de los enlaces externos. Los operadores de las páginas enlazadas son los únicos responsables de su contenido."
+  },
+  "productCard": {
+    "buttonLabels": {
+      "addToCart": "Añadir al carrito",
+      "goToCart": "Ir al carrito",
+      "requestQuotation": "Solicitar Cotización",
+      "requestForPrice": "Solicitar Precio",
+      "buyNow": "Comprar Ahora"
+    }
+  },
+  "productDetails": {
+    "description": "Descripción del Producto",
+    "charLimit": 250,
+    "errorMessages": {
+      "minQuantity": "La cantidad mínima de pedido es {minQuantity}"
+    },
+    "availabilityText": "Disponible",
+    "getItByText": "Recíbelo para el viernes 9 de agosto.",
+    "buttonLabels": {
+      "addToCart": "Añadir al carrito",
+      "goToCart": "Ir al carrito",
+      "buyNow": "Comprar Ahora",
+      "requestQuotation": "Solicitar Cotización",
+      "requestForPrice": "Solicitar Precio"
+    }
+  },
+  
+    "cart": {
+      "yourCart": "Tu Carrito",
+      "subtotal": "Subtotal",
+      "checkout": "Pagar",
+      "requestForQuotation": "Solicitar Cotización",
+      "item": "¡Artículos en tu carrito!",
+      "youHave": "Tienes"
+    },
+    "enquiry": {
+      "fullNameLabel": "Nombre Completo",
+      "fullNamePlaceholder": "Por favor, ingresa tu nombre completo",
+      "emailLabel": "Correo Electrónico",
+      "emailPlaceholder": "Por favor, ingresa tu correo electrónico",
+      "mobileLabel": "Teléfono Móvil",
+      "quantityLabel": "Cantidad",
+      "quantityPlaceholder": "Por favor, proporciona la cantidad",
+      "enquiryDescriptionLabel": "Descripción de la Consulta",
+      "enquiryDescriptionPlaceholder": "Por favor, ingresa una descripción detallada de tu consulta",
+      "submitButton": "Envía tu solicitud",
+      "submittingButton": "Enviando...",
+      "quickQuoteTitle": "Formulario de Cotización Rápida",
+      "confirmDetailsTitle": "Por favor, confirma tus datos"
+    },
+    "support": {
+      "titleLabel": "Título de la Consulta",
+      "titlePlaceholder": "Por favor, ingresa el título de tu consulta",
+      "emailLabel": "Correo Electrónico",
+      "emailPlaceholder": "Por favor, ingresa tu correo electrónico",
+      "enquiryDescriptionLabel": "Descripción de la Consulta",
+      "enquiryDescriptionPlaceholder": "Por favor, ingresa una descripción detallada de tu consulta",
+      "submitButton": "Envía tu solicitud",
+      "submittingButton": "Enviando...",
+      "enterDetailsTitle": "Por favor, ingresa tus datos"
+    },
+    "emptyCart": {
+      "title": "Tu Carrito Está Vacío",
+      "description": "Parece que aún no has agregado nada a tu carrito.",
+      "action": "Continuar Comprando"
+    }
+  
+  
+}

@@ -12,6 +12,7 @@ import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
 import { useStaticDataStore } from "@/stores/useStaticDataStore";
+import { useTranslations } from "next-intl";
 
 type Props = {
   product: IProduct;
@@ -27,11 +28,7 @@ const FeaturedProductCard = ({ product, isBestDeal }: Props) => {
   const router = useRouter(); // Use Next.js router for navigation
 
   const isInCart = cart?.some((item) => item._id === product._id);
-  const {
-    data: staticData,
-    isLoading: staticLoading,
-    error: staticError,
-  } = useStaticDataStore();
+  const t = useTranslations("bestDeal");
 
   const handleCardClick = () => {
     if (window.innerWidth < 768) {
@@ -99,13 +96,7 @@ const FeaturedProductCard = ({ product, isBestDeal }: Props) => {
             isInCart ? cartOpen() : addToCart(product);
           }}
         >
-          {isInCart
-            ? staticData
-              ? staticData?.bestDeal?.buttonLabels?.goToCart
-              : "Go to cart"
-            : staticData
-            ? staticData?.bestDeal?.buttonLabels?.addToCart
-            : "Add to cart"}
+          {isInCart ? t("buttonLabels.goToCart") : t("buttonLabels.addToCart")}
         </Button>
         {product.lowestPrice !== 0 ? (
           <Button
@@ -116,9 +107,7 @@ const FeaturedProductCard = ({ product, isBestDeal }: Props) => {
               onOpen("quoteRequest", product._id);
             }}
           >
-            {staticData
-              ? staticData?.bestDeal?.buttonLabels?.requestQuotation
-              : "Request Quotation"}
+            {t("buttonLabels.requestQuotation")}
           </Button>
         ) : (
           <Button
@@ -129,17 +118,13 @@ const FeaturedProductCard = ({ product, isBestDeal }: Props) => {
               onOpen("priceRequest", product._id);
             }}
           >
-            {staticData
-              ? staticData?.bestDeal?.buttonLabels?.requestForPrice
-              : "Request For Price"}
+            {t("buttonLabels.requestForPrice")}
           </Button>
         )}
 
         <Link href={`/${locale}/products/${product._id}`} className="w-full">
           <Button variant="outline" className="w-full rounded-full">
-            {staticData
-              ? staticData?.bestDeal?.buttonLabels?.productDetails
-              : "Product Details"}
+            {t("buttonLabels.productDetails")}
           </Button>
         </Link>
       </div>

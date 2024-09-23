@@ -10,6 +10,7 @@ import { useProductsStore } from "@/stores/useProductStore";
 import Link from "next/link";
 import { useStaticDataStore } from "@/stores/useStaticDataStore";
 import { useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 const responsive = {
   superLargeDesktop: {
@@ -34,11 +35,7 @@ const ProductCarousel = () => {
   const { locale } = useParams();
   const { products, isLoading, fetchData } = useProductsStore();
   const key = "product-carousel"; // Use the appropriate key
-  const {
-    data: staticData,
-    isLoading: staticLoading,
-    error: staticError,
-  } = useStaticDataStore();
+  const t = useTranslations("productCarousel");
 
   useEffect(() => {
     fetchData(key, 1, 20, { brand: "Telemecanique" }, locale as string);
@@ -74,21 +71,13 @@ const ProductCarousel = () => {
                   src={product.image}
                   height={200}
                   width={150}
-                  alt={
-                    staticData
-                      ? staticData?.productCarousel?.cardAltText
-                      : `Image of ${product.title}`
-                  }
+                  alt={`Image of ${product.title}`}
                   className="object-cover"
                   unoptimized
                   loading="lazy"
                 />
                 <div>
-                  <Badge variant="destructive">
-                    {staticData
-                      ? staticData?.productCarousel?.badgeText
-                      : "Best Choice"}
-                  </Badge>
+                  <Badge variant="destructive">{t("badgeText")}</Badge>
                   <p className="font-bold text-xs line-clamp-2 overflow-hidden my-1">
                     {product.title}
                   </p>

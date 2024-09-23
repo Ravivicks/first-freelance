@@ -16,7 +16,7 @@ import { useCartStore } from "@/stores/useCartStore";
 import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
 import { CommonEnquiryForm } from "./CommonEnquiryForm";
 import { useCreateCommonEnquiry } from "@/features/enquiry/use-add-common-enquiry";
-import { useStaticDataStore } from "@/stores/useStaticDataStore";
+import { useTranslations } from "next-intl";
 
 type FormValues = z.input<typeof commonEnquiryFormSchema>;
 
@@ -28,12 +28,7 @@ const CommonEnquireDialog = () => {
     id === "cart" ? "" : id || ""
   );
   const { cart } = useCartStore();
-  const {
-    data: staticData,
-    isLoading: staticLoading,
-    error,
-  } = useStaticDataStore();
-
+  const t = useTranslations("enquiry");
   const onSubmit = (values: FormValues) => {
     mutation.mutate(values, {
       onSuccess: () => onClose(),
@@ -97,12 +92,8 @@ const CommonEnquireDialog = () => {
         <DialogHeader>
           <DialogTitle>
             {type === "quickQuote"
-              ? staticData
-                ? staticData?.enquiry?.quickQuoteTitle
-                : "Quick Quote Form"
-              : staticData
-              ? staticData?.enquiry?.confirmDetailsTitle
-              : "Please Confirm Your Details"}
+              ? t("quickQuoteTitle")
+              : t("confirmDetailsTitle")}
           </DialogTitle>
         </DialogHeader>
 
@@ -111,7 +102,7 @@ const CommonEnquireDialog = () => {
 
         {/* Common enquiry form for all types */}
         <CommonEnquiryForm
-          staticData={staticData}
+          t={t}
           type={type}
           onSubmit={onSubmit}
           disabled={mutation.isPending}

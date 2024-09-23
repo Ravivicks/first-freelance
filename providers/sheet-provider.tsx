@@ -1,6 +1,5 @@
 "use client";
 import AddressDialog from "@/components/AddressDialog";
-import BannerDialog from "@/components/BannerDialog";
 import CartSheet from "@/components/CartSheet";
 import CheckoutDialog from "@/components/CheckoutDialog";
 import CommonEnquireDialog from "@/components/CommonEnquiryDialog";
@@ -18,7 +17,6 @@ const SheetProvider = () => {
   return (
     <>
       <CartSheet />
-      <BannerDialog />
       <AddressDialog />
       <FilterDialog />
       <CheckoutDialog />

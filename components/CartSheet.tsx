@@ -8,26 +8,21 @@ import {
 } from "@/components/ui/sheet";
 import React from "react";
 import { useCartDetails } from "@/hooks/use-cart-details";
-import useFromStore from "@/hooks/useFromStore";
 import { useCartStore } from "@/stores/useCartStore";
 import Image from "next/image";
 import { Button } from "./ui/button";
-import { DeleteIcon, MinusIcon, PlusIcon, Trash2Icon } from "lucide-react";
+import { MinusIcon, PlusIcon, Trash2Icon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import EmptyCart from "./EmptyCart";
 import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
 import { cn } from "@/lib/utils";
-import { useStaticDataStore } from "@/stores/useStaticDataStore";
+import { useTranslations } from "next-intl";
 
 const CartSheet = () => {
   const router = useRouter();
   const { isOpen, onClose } = useCartDetails();
   const { onOpen } = useCommonEnquiry();
-  const {
-    data: staticData,
-    isLoading: staticLoading,
-    error,
-  } = useStaticDataStore();
+
   const { cart, increaseQuantity, decreaseQuantity, removeFromCart } =
     useCartStore();
   let total = 0;
@@ -37,14 +32,13 @@ const CartSheet = () => {
       0
     );
   }
+  const t = useTranslations("cart");
 
   return (
     <Sheet open={isOpen} onOpenChange={onClose}>
       <SheetContent className="space-y-4">
         <SheetHeader>
-          <SheetTitle>
-            {staticData ? staticData?.cart?.yourCart : "Your Cart"}
-          </SheetTitle>
+          <SheetTitle>{t("yourCart")}</SheetTitle>
           {cart && cart?.length > 0 && (
             <SheetDescription className="flex gap-2 bg-destructive/5 p-3 rounded-full font-semibold text-destructive mt-10">
               <Image
@@ -53,9 +47,7 @@ const CartSheet = () => {
                 width={20}
                 height={10}
               />{" "}
-              {staticData ? staticData?.cart?.youHave : "You Have"}{" "}
-              {cart?.length}{" "}
-              {staticData ? staticData?.cart?.item : "Items in your cart!"}
+              {t("youHave")} {cart?.length} {t("item")}
             </SheetDescription>
           )}
         </SheetHeader>
@@ -125,7 +117,7 @@ const CartSheet = () => {
               {total !== 0 && (
                 <div className="flex justify-between mt-16">
                   <p className="text-black text-sm font-semibold">
-                    {staticData ? staticData?.cart?.subtotal : "Subtotal"}
+                    {t("subtotal")}
                   </p>
                   <p className="text-sm font-semibold text-muted-foreground">
                     ${total.toFixed(2)}
@@ -141,7 +133,7 @@ const CartSheet = () => {
                     onClose();
                   }}
                 >
-                  {staticData ? staticData?.cart?.checkout : "Checkout"}
+                  {t("checkout")}
                 </Button>
               )}
               <Button
@@ -155,9 +147,7 @@ const CartSheet = () => {
                   onClose();
                 }}
               >
-                {staticData
-                  ? staticData?.cart?.requestForQuotation
-                  : "Request For Quotation"}
+                {t("requestForQuotation")}
               </Button>
             </div>
           </div>

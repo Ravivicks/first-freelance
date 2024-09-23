@@ -16,10 +16,10 @@ import useFromStore from "@/hooks/useFromStore";
 import { useCartStore } from "@/stores/useCartStore";
 import { useCartDetails } from "@/hooks/use-cart-details";
 import { useSearchOpen } from "@/hooks/use-search-open";
-import { useStaticDataStore } from "@/stores/useStaticDataStore";
 import { useProductsStore } from "@/stores/useProductStore";
 import { useRouter } from "next/navigation";
 import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
+import { useTranslations } from "next-intl";
 
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,11 +31,7 @@ const MobileNav = () => {
   const { brands, categories } = useProductsStore();
   const { onOpen: enquiryOpen } = useCommonEnquiry();
 
-  const {
-    data: staticData,
-    isLoading: staticLoading,
-    error: staticError,
-  } = useStaticDataStore();
+  const t = useTranslations("menuBar");
 
   const handleClick = (url: string, category: string) => {
     router.push(`/product-details/${url}?type=all&category=${category}`);
@@ -45,6 +41,7 @@ const MobileNav = () => {
     router.push(`/product-details/${url}?type=all&brand=${brand}`);
     setIsOpen(false);
   };
+  const aboutSubmenu = t.raw("aboutSubmenu");
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger>
@@ -124,14 +121,12 @@ const MobileNav = () => {
         </div>
         <nav className="flex flex-col gap-y-2 pt-6 overflow-y-auto">
           <p className="my-2 font-bold">
-            {staticData ? staticData?.menuBar?.firstMenuTitle : "Best Seller"}
+            {t ? t("firstMenuTitle") : "Best Seller"}
           </p>
           <Collapsible>
             <div>
               <CollapsibleTrigger className="flex justify-between w-full my-2 font-bold">
-                {staticData
-                  ? staticData?.menuBar?.secondMenuTitle
-                  : "Shop by category"}
+                {t ? t("secondMenuTitle") : "Shop by category"}
                 <LucideChevronDown size={15} className="ml-2 mt-1" />
               </CollapsibleTrigger>
               <CollapsibleContent>
@@ -154,9 +149,7 @@ const MobileNav = () => {
           <Collapsible>
             <div>
               <CollapsibleTrigger className="flex justify-between w-full my-2 font-bold">
-                {staticData
-                  ? staticData?.menuBar?.thirdMenuTitle
-                  : "Shop by Brand"}
+                {t ? t("thirdMenuTitle") : "Shop by Brand"}
                 <LucideChevronDown size={15} className="ml-2 mt-1" />
               </CollapsibleTrigger>
               <CollapsibleContent>
@@ -179,26 +172,22 @@ const MobileNav = () => {
           <Collapsible>
             <div>
               <CollapsibleTrigger className="flex justify-between w-full my-2 font-bold">
-                {staticData
-                  ? staticData?.menuBar?.fourthMenuTitle
-                  : "About Company"}
+                {t ? t("fourthMenuTitle") : "About Company"}
                 <LucideChevronDown size={15} className="ml-2 mt-1" />
               </CollapsibleTrigger>
               <CollapsibleContent>
                 <Card className="border-none my-6">
-                  {staticData &&
-                    staticData?.menuBar?.aboutSubmenu?.map(
-                      (subMenu: any, index: number) => (
-                        <CardContent key={index}>
-                          <Link
-                            href={subMenu.url}
-                            onClick={() => setIsOpen(false)}
-                          >
-                            {subMenu.title}
-                          </Link>
-                        </CardContent>
-                      )
-                    )}
+                  {Array.isArray(aboutSubmenu) &&
+                    aboutSubmenu.map((subMenu: any, index: number) => (
+                      <CardContent key={index}>
+                        <Link
+                          href={subMenu.url}
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {subMenu.title}
+                        </Link>
+                      </CardContent>
+                    ))}
                 </Card>
               </CollapsibleContent>
             </div>
@@ -210,7 +199,7 @@ const MobileNav = () => {
               setIsOpen(false);
             }}
           >
-            {staticData ? staticData?.menuBar?.fifthMenuTitle : "Service Quote"}
+            {t ? t("fifthMenuTitle") : "Service Quote"}
           </p>
           <p
             className="my-2 font-bold"
@@ -219,15 +208,11 @@ const MobileNav = () => {
               setIsOpen(false);
             }}
           >
-            {staticData
-              ? staticData?.menuBar?.sixthMenuTitle
-              : "Entire Project Quote"}
+            {t ? t("sixthMenuTitle") : "Entire Project Quote"}
           </p>
           <p className="my-2 font-bold">
             <Link href="/who-we-are" onClick={() => setIsOpen(false)}>
-              {staticData
-                ? staticData?.menuBar?.seventhMenuTitle
-                : "Why 100s of customers trust us"}
+              {t ? t("seventhMenuTitle") : "Why 100s of customers trust us"}
             </Link>
           </p>
         </nav>

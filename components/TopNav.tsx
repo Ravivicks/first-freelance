@@ -8,21 +8,14 @@ import CountryDropdown from "./CountryDropdown";
 import { useGetContacts } from "@/features/contact/use-get-contacts";
 import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
 import { useSupportOpen } from "@/hooks/use-support-open";
-import { useFetchStaticData } from "@/features/static-data/use-get-data";
-import { useStaticDataStore } from "@/stores/useStaticDataStore";
-import { useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 const TopNav = () => {
-  const { locale } = useParams();
   const { data, isLoading } = useGetContacts();
   const { onOpen } = useCommonEnquiry();
   const { onOpen: supportOpen } = useSupportOpen();
-  useFetchStaticData(locale as string, "home");
-  const {
-    data: staticData,
-    isLoading: staticLoading,
-    error,
-  } = useStaticDataStore();
+
+  const t = useTranslations("page1");
 
   return (
     <div className="bg-black rounded-b-md text-xs py-2 px-4">
@@ -40,7 +33,7 @@ const TopNav = () => {
               width={30}
               className="mr-1"
             />
-            {staticData ? staticData?.page1?.warranty : "12 month warranty"}
+            {t ? t("warranty") : "12 month warranty"}
           </Button>
         </div>
 
@@ -51,7 +44,8 @@ const TopNav = () => {
             className="font-extrabold text-[#98cfea] text-xs"
             onClick={() => onOpen("quickQuote")}
           >
-            {staticData ? staticData?.page1?.quickQuote : "Quick Quote"}
+            {t("quickQuote")}
+            {t ? t("quickQuote") : "Quick Quote"}
           </Button>
         </div>
 
@@ -66,9 +60,7 @@ const TopNav = () => {
             onClick={supportOpen}
           >
             <Headset className="mr-2" size={16} />
-            {staticData
-              ? staticData?.page1?.customerSupport
-              : "Customer Support"}
+            {t ? t("customerSupport") : "Customer Support"}
           </Button>
         </div>
         {/* )} */}

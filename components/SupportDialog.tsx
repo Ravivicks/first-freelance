@@ -12,6 +12,7 @@ import { useUser } from "@clerk/nextjs";
 import { useSupportOpen } from "@/hooks/use-support-open";
 import { useCreateSupport } from "@/features/support/use-create-support";
 import { SupportForm } from "./SupportForm";
+import { useTranslations } from "next-intl";
 
 type FormValues = z.input<typeof supportSchema>;
 
@@ -26,17 +27,20 @@ const SupportDialog = () => {
     });
   };
 
+  const t = useTranslations("support");
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent>
         <div>
           <DialogHeader>
-            <DialogTitle>Please Enter Your Details</DialogTitle>
+            <DialogTitle>{t("enterDetailsTitle")}</DialogTitle>
           </DialogHeader>
           {/* <div className="flex justify-between w-full space-x-4"> */}
 
           <div>
             <SupportForm
+              t={t}
               onSubmit={onSubmit}
               disabled={mutation.isPending}
               defaultValues={{

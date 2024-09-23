@@ -23,8 +23,8 @@ export function ProductNew({ product }: IProductNew) {
   const router = useRouter();
 
   React.useEffect(() => {
-    fetchData(key, 1, 20, { brand: product.brand });
-  }, [fetchData, key, product.brand]);
+    fetchData(key, 1, 20, { brand: product?.brand });
+  }, [fetchData, key, product?.brand]);
 
   const productList = products[key] || [];
 

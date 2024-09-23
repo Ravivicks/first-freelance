@@ -12,6 +12,7 @@ import useFromStore from "@/hooks/useFromStore";
 import { useCartDetails } from "@/hooks/use-cart-details";
 import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
 import { useStaticDataStore } from "@/stores/useStaticDataStore";
+import { useTranslations } from "next-intl";
 
 type Props = {
   product: IProduct;
@@ -24,11 +25,7 @@ const ProductCard = ({ product, isButton }: Props) => {
   const { onOpen } = useCommonEnquiry();
   const { onOpen: cartOpen } = useCartDetails();
   const cart = useFromStore(useCartStore, (state) => state.cart);
-  const {
-    data: staticData,
-    isLoading: staticLoading,
-    error,
-  } = useStaticDataStore();
+  const t = useTranslations("productCard");
 
   const isInCart = cart?.some((item) => item._id === product._id);
 
@@ -90,13 +87,7 @@ const ProductCard = ({ product, isButton }: Props) => {
           className="rounded-full flex-grow"
           onClick={isInCart ? cartOpen : () => addToCart(product)}
         >
-          {isInCart
-            ? staticData
-              ? staticData?.productCard?.buttonLabels?.goToCart
-              : "Go to cart"
-            : staticData
-            ? staticData?.productCard?.buttonLabels?.addToCart
-            : "Add to cart"}
+          {isInCart ? t("buttonLabels.goToCart") : t("buttonLabels.addToCart")}
         </Button>
         {product?.lowestPrice !== 0 ? (
           <Button
@@ -104,9 +95,7 @@ const ProductCard = ({ product, isButton }: Props) => {
             className="rounded-full flex-grow"
             onClick={() => onOpen("quoteRequest", product._id)}
           >
-            {staticData
-              ? staticData?.productCard?.buttonLabels?.requestQuotation
-              : "Request Quotation"}
+            {t("buttonLabels.requestQuotation")}
           </Button>
         ) : (
           <Button
@@ -117,9 +106,7 @@ const ProductCard = ({ product, isButton }: Props) => {
               onOpen("priceRequest", product._id);
             }}
           >
-            {staticData
-              ? staticData?.productCard?.buttonLabels?.requestForPrice
-              : "Request For Price"}
+            {t("buttonLabels.requestForPrice")}
           </Button>
         )}
         <Button
@@ -127,9 +114,7 @@ const ProductCard = ({ product, isButton }: Props) => {
           className="rounded-full w-full"
           onClick={() => onBuyNow(product)}
         >
-          {staticData
-            ? staticData?.productCard?.buttonLabels?.buyNow
-            : "Buy Now"}
+          {t("buttonLabels.buyNow")}
         </Button>
       </div>
       {/* )} */}

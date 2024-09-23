@@ -8,7 +8,7 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage, // Import FormMessage for error display
+  FormMessage,
 } from "@/components/ui/form";
 import { formAddressSchema } from "@/lib/zod-schema";
 import { Textarea } from "@/components/ui/textarea";
@@ -19,10 +19,10 @@ import {
   SelectItem,
   SelectValue,
 } from "@/components/ui/select";
-
 import countryList from "@/lib/countries.json";
 import { useEffect, useState } from "react";
 import { z } from "zod";
+import { useTranslations } from "next-intl";
 
 type FormValues = z.input<typeof formAddressSchema>;
 
@@ -34,6 +34,8 @@ type Props = {
 };
 
 export const AddressForm = ({ onSubmit, defaultValues, disabled }: Props) => {
+  const t = useTranslations("addressForm"); // Use translations from the JSON
+
   const form = useForm<FormValues>({
     resolver: zodResolver(formAddressSchema),
     defaultValues: defaultValues,
@@ -75,15 +77,15 @@ export const AddressForm = ({ onSubmit, defaultValues, disabled }: Props) => {
             control={form.control}
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel>First Name</FormLabel>
+                <FormLabel>{t("labels.firstName")}</FormLabel>
                 <FormControl>
                   <Input
                     disabled={disabled}
-                    placeholder="Please enter your first name"
+                    placeholder={t("placeholders.firstName")}
                     {...field}
                   />
                 </FormControl>
-                <FormMessage /> {/* Display error message */}
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -92,15 +94,15 @@ export const AddressForm = ({ onSubmit, defaultValues, disabled }: Props) => {
             control={form.control}
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel>Last Name</FormLabel>
+                <FormLabel>{t("labels.lastName")}</FormLabel>
                 <FormControl>
                   <Input
                     disabled={disabled}
-                    placeholder="Please enter your last name"
+                    placeholder={t("placeholders.lastName")}
                     {...field}
                   />
                 </FormControl>
-                <FormMessage /> {/* Display error message */}
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -111,17 +113,17 @@ export const AddressForm = ({ onSubmit, defaultValues, disabled }: Props) => {
             control={form.control}
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel>Mobile </FormLabel>
+                <FormLabel>{t("labels.phone")}</FormLabel>
                 <FormControl>
                   <Input
                     className="[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                     type="number"
                     disabled={disabled}
-                    placeholder="Please enter your Mobile number"
+                    placeholder={t("placeholders.phone")}
                     {...field}
                   />
                 </FormControl>
-                <FormMessage /> {/* Display error message */}
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -130,15 +132,15 @@ export const AddressForm = ({ onSubmit, defaultValues, disabled }: Props) => {
             control={form.control}
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel>Email</FormLabel>
+                <FormLabel>{t("labels.email")}</FormLabel>
                 <FormControl>
                   <Input
                     disabled={disabled}
-                    placeholder="Please enter your email address"
+                    placeholder={t("placeholders.email")}
                     {...field}
                   />
                 </FormControl>
-                <FormMessage /> {/* Display error message */}
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -149,15 +151,15 @@ export const AddressForm = ({ onSubmit, defaultValues, disabled }: Props) => {
           render={({ field }) => {
             return (
               <FormItem className="w-full">
-                <FormLabel>Address</FormLabel>
+                <FormLabel>{t("labels.address")}</FormLabel>
                 <FormControl>
                   <Textarea
                     disabled={disabled}
-                    placeholder="Please enter complete address"
+                    placeholder={t("placeholders.address")}
                     {...field}
                   />
                 </FormControl>
-                <FormMessage /> {/* Display error message */}
+                <FormMessage />
               </FormItem>
             );
           }}
@@ -169,7 +171,7 @@ export const AddressForm = ({ onSubmit, defaultValues, disabled }: Props) => {
             render={({ field }) => {
               return (
                 <FormItem className="w-full">
-                  <FormLabel>Country</FormLabel>
+                  <FormLabel>{t("labels.country")}</FormLabel>
                   <FormControl>
                     <Select
                       onValueChange={(value) => {
@@ -180,7 +182,7 @@ export const AddressForm = ({ onSubmit, defaultValues, disabled }: Props) => {
                       disabled={disabled}
                     >
                       <SelectTrigger>
-                        <SelectValue placeholder="Select country" />
+                        <SelectValue placeholder={t("placeholders.country")} />
                       </SelectTrigger>
                       <SelectContent>
                         {countryList.map((country, index) => (
@@ -191,7 +193,7 @@ export const AddressForm = ({ onSubmit, defaultValues, disabled }: Props) => {
                       </SelectContent>
                     </Select>
                   </FormControl>
-                  <FormMessage /> {/* Display error message */}
+                  <FormMessage />
                 </FormItem>
               );
             }}
@@ -202,7 +204,7 @@ export const AddressForm = ({ onSubmit, defaultValues, disabled }: Props) => {
             render={({ field }) => {
               return (
                 <FormItem className="w-full">
-                  <FormLabel>State</FormLabel>
+                  <FormLabel>{t("labels.state")}</FormLabel>
                   <FormControl>
                     {availableStates.length > 0 ? (
                       <Select
@@ -211,7 +213,7 @@ export const AddressForm = ({ onSubmit, defaultValues, disabled }: Props) => {
                         disabled={disabled || !selectedCountry}
                       >
                         <SelectTrigger>
-                          <SelectValue placeholder="Select state" />
+                          <SelectValue placeholder={t("placeholders.state")} />
                         </SelectTrigger>
                         <SelectContent>
                           {availableStates.map((state, index) => (
@@ -222,15 +224,14 @@ export const AddressForm = ({ onSubmit, defaultValues, disabled }: Props) => {
                         </SelectContent>
                       </Select>
                     ) : (
-                      // If no states available, show a non-interactive placeholder
                       <Input
                         disabled
-                        placeholder="No states available"
-                        value="No states available"
+                        placeholder={t("placeholders.noStatesAvailable")}
+                        value={t("placeholders.noStatesAvailable")}
                       />
                     )}
                   </FormControl>
-                  <FormMessage /> {/* Display error message */}
+                  <FormMessage />
                 </FormItem>
               );
             }}
@@ -243,15 +244,15 @@ export const AddressForm = ({ onSubmit, defaultValues, disabled }: Props) => {
             render={({ field }) => {
               return (
                 <FormItem className="w-full">
-                  <FormLabel>City</FormLabel>
+                  <FormLabel>{t("labels.city")}</FormLabel>
                   <FormControl>
                     <Input
                       disabled={disabled}
-                      placeholder="Please enter city name"
+                      placeholder={t("placeholders.city")}
                       {...field}
                     />
                   </FormControl>
-                  <FormMessage /> {/* Display error message */}
+                  <FormMessage />
                 </FormItem>
               );
             }}
@@ -262,17 +263,17 @@ export const AddressForm = ({ onSubmit, defaultValues, disabled }: Props) => {
             render={({ field }) => {
               return (
                 <FormItem className="w-full">
-                  <FormLabel>Zipcode</FormLabel>
+                  <FormLabel>{t("labels.zipcode")}</FormLabel>
                   <FormControl>
                     <Input
                       className="[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                       type="number"
                       disabled={disabled}
-                      placeholder="Please enter postal code"
+                      placeholder={t("placeholders.zipcode")}
                       {...field}
                     />
                   </FormControl>
-                  <FormMessage /> {/* Display error message */}
+                  <FormMessage />
                 </FormItem>
               );
             }}
@@ -280,7 +281,7 @@ export const AddressForm = ({ onSubmit, defaultValues, disabled }: Props) => {
         </div>
 
         <Button className="w-full" disabled={disabled} variant="destructive">
-          {disabled ? "Saving..." : "Save Address"}
+          {disabled ? t("buttons.saving") : t("buttons.saveAddress")}
         </Button>
       </form>
     </Form>

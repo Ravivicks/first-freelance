@@ -21,6 +21,7 @@ type Props = {
   defaultValues?: FormValues;
   onSubmit: (values: FormValues) => void;
   disabled?: boolean;
+  t?: any;
 };
 
 export const SupportForm = ({
@@ -28,6 +29,7 @@ export const SupportForm = ({
   onSubmit,
   defaultValues,
   disabled,
+  t,
 }: Props) => {
   const form = useForm<FormValues>({
     resolver: zodResolver(supportSchema),
@@ -48,12 +50,12 @@ export const SupportForm = ({
           control={form.control}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>{t("emailLabel")}</FormLabel>
               <FormControl>
                 <Input
                   className="rounded-xl"
                   disabled={disabled}
-                  placeholder="Please enter you email"
+                  placeholder={t("emailPlaceholder")}
                   {...field}
                 />
               </FormControl>
@@ -66,12 +68,12 @@ export const SupportForm = ({
           render={({ field }) => {
             return (
               <FormItem className="w-full">
-                <FormLabel>Enquiry Title</FormLabel>
+                <FormLabel>{t("titleLabel")}</FormLabel>
                 <FormControl>
                   <Input
                     className="rounded-xl"
                     disabled={disabled}
-                    placeholder="Please enter you enquiry title"
+                    placeholder={t("titlePlaceholder")}
                     {...field}
                   />
                 </FormControl>
@@ -85,12 +87,12 @@ export const SupportForm = ({
           control={form.control}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Enquiry Description</FormLabel>
+              <FormLabel>{t("enquiryDescriptionLabel")}</FormLabel>
               <FormControl>
                 <Textarea
                   className="rounded-xl"
                   disabled={disabled}
-                  placeholder="Please enter Detail description of your enquiry"
+                  placeholder={t("enquiryDescriptionPlaceholder")}
                   {...field}
                 />
               </FormControl>
@@ -103,7 +105,7 @@ export const SupportForm = ({
           disabled={disabled}
           variant="destructive"
         >
-          {id ? "Submitting......" : "Submit your request"}
+          {id ? t("submittingButton") : t("enterDetailsTitle")}
         </Button>
       </form>
     </Form>

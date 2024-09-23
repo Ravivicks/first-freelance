@@ -5,8 +5,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { useGetBanners } from "@/features/banner/use-get-banners";
 import Link from "next/link";
-import Loader from "./Loader";
-import { useStaticDataStore } from "@/stores/useStaticDataStore";
+import { useTranslations } from "next-intl";
 
 const navItems = [
   {
@@ -37,16 +36,11 @@ const navItems = [
 
 const FeaturedCategory = () => {
   const { data, isLoading } = useGetBanners("Featured-category");
-  const {
-    data: staticData,
-    isLoading: staticLoading,
-    error: staticError,
-  } = useStaticDataStore();
-
+  const t = useTranslations("featuredCategory");
   return (
     <Card className="mb-16">
       <h1 className="text-3xl font-bold mb-5 bg-gradient-to-r from-slate-100 to-destructive/10 py-4 px-4">
-        {staticData ? staticData?.featuredCategory?.title : "Featured Category"}
+        {t("title")}
       </h1>
       {/* {isLoading ? (
         <Loader />

@@ -1,24 +1,22 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { MapPin, ShoppingBag, Plus, Check, Edit2 } from "lucide-react";
 import { useAddressOpen } from "@/hooks/use-address-open";
-import {
-  calculateTotalWithGSTAndShipping,
-  cn,
-  formatNumber,
-} from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import { useCartStore } from "@/stores/useCartStore";
 import { useGetAddresses } from "@/features/address/use-get-addresses";
 import { IAddress } from "@/types";
 import { useGetAddress } from "@/features/address/use-get-address";
-import { useCheckoutOpen } from "@/hooks/use-checkout-open";
 import { useUser } from "@clerk/nextjs";
 import Cart from "@/components/Cart";
 import PaymentAndShipping from "@/components/PaymentAndShipping";
+import { useTranslations } from "next-intl";
 
 export default function Component() {
+  const t = useTranslations("checkout");
   const { user } = useUser();
   const [selectedAddress, setSelectedAddress] = useState<string | null>(null);
   const emailId = user ? user?.emailAddresses?.[0]?.emailAddress : "";
@@ -30,11 +28,9 @@ export default function Component() {
 
   const handleAddressSelect = (id: string) => {
     if (selectedAddress === id) {
-      // Deselect the address if it's already selected
       setSelectedAddress(null);
-      setAddressData(undefined); // Clear address data
+      setAddressData(undefined);
     } else {
-      // Select the address
       setSelectedAddress(id);
     }
   };
@@ -60,21 +56,24 @@ export default function Component() {
 
   useEffect(() => {
     if (!isOpen) {
-      refetch(); // Refetch addresses when the popup is closed
+      refetch();
     }
   }, [isOpen, refetch]);
+
   return (
     <div className="container mx-auto p-4 max-w-6xl">
-      <h1 className="text-2xl font-bold mb-6">{`You're almost there...!`}</h1>
+      <h1 className="text-2xl font-bold mb-6">{t("titles.heading")}</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="md:col-span-2 space-y-6">
           {/* Delivery Address */}
           <Card>
             <CardHeader className="bg-gradient-to-r from-slate-100 to-destructive/10 py-4">
-              <div className="flex items-center gap-2 ">
+              <div className="flex items-center gap-2">
                 <MapPin className="text-destructive" />
-                <h2 className="text-lg font-semibold ">Delivery address</h2>
+                <h2 className="text-lg font-semibold ">
+                  {t("titles.deliveryAddress")}
+                </h2>
               </div>
             </CardHeader>
             <CardContent className="p-6">
@@ -109,7 +108,7 @@ export default function Component() {
                             {item.city}, {item.state} - {item.zipcode}
                           </p>
                           <p className="text-sm text-gray-600">
-                            Mobile No.: {item.phone}
+                            {t("placeholders.mobileNo")} {item.phone}
                           </p>
                         </div>
 
@@ -127,17 +126,15 @@ export default function Component() {
               ) : (
                 <div className="bg-gray-100 p-3 rounded-md text-green-800">
                   <h1 className="font-semibold">
-                    {`You don't have any saved delivery address.`}
+                    {t("messages.noSavedAddress")}
                   </h1>
                   <p className="text-xs">
-                    {`Don't worry you can add new address with clicking`}
-                    <span className="font-bold"> Add Address </span> button and
-                    continue to checkout.
+                    {t("messages.addAddressInfo")}{" "}
+                    <span className="font-bold">
+                      {t("labels.addAddressButton")}
+                    </span>
                   </p>
-                  <p className="text-xs">
-                    If you already have an account please login so we can fecth
-                    your address from you profile
-                  </p>
+                  <p className="text-xs">{t("messages.loginPrompt")}</p>
                 </div>
               )}
               <Button
@@ -146,7 +143,7 @@ export default function Component() {
                 onClick={() => onOpen("")}
               >
                 <Plus className="w-4 h-4 mr-2" />
-                Add Address
+                {t("labels.addAddressButton")}
               </Button>
             </CardContent>
           </Card>
@@ -156,7 +153,9 @@ export default function Component() {
             <CardHeader className="bg-gradient-to-r from-slate-100 to-destructive/10 py-4">
               <div className="flex items-center gap-2">
                 <ShoppingBag className="text-destructive" />
-                <h2 className="text-lg font-semibold">Order Summary</h2>
+                <h2 className="text-lg font-semibold">
+                  {t("titles.orderSummary")}
+                </h2>
               </div>
             </CardHeader>
             <CardContent className="p-6">
@@ -165,58 +164,12 @@ export default function Component() {
           </Card>
         </div>
 
-        {/* Order Details */}
+        {/* Payment and Shipping Details */}
         <div>
           <PaymentAndShipping
             total={total}
             addressData={addressData as IAddress}
           />
-          {/* <Card>
-            <CardContent className="p-6">
-              <h2 className="text-lg font-semibold mb-4">
-                Payment & Shipping Details
-              </h2>
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span>Price</span>
-                  <span>₹{formatNumber(total)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>GST</span>
-                  <span>₹ {formatNumber(gstAmount)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Delivery charges</span>
-                  <span>₹ {formatNumber(shippingAmount)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Discount price</span>
-                  <span>₹{formatNumber(discountAmount)}</span>
-                </div>
-                <div className="flex justify-between font-bold text-lg">
-                  <span>Total Amount</span>
-                  <span>₹ {formatNumber(totalWithGSTAndShipping)}</span>
-                </div>
-                <p className="text-xs text-gray-500">(Incl. of all taxes)</p>
-              </div>
-              <div className="mt-4 p-2 bg-green-100 rounded-md">
-                <p className="text-sm text-green-800">
-                  Your total Savings amount on this order
-                </p>
-                <p className="text-lg font-bold text-green-00">
-                  ₹ {formatNumber(discountAmount)}
-                </p>
-              </div>
-              <Button
-                className="w-full mt-4"
-                variant="destructive"
-                onClick={() => onCheckoutOpen(addressData?._id as string)}
-                disabled={cart.length === 0 || addressData === undefined}
-              >
-                CheckOut
-              </Button>
-            </CardContent>
-          </Card> */}
         </div>
       </div>
     </div>

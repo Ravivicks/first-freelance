@@ -4,6 +4,7 @@ import { Card, CardContent } from "./ui/card";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useStaticDataStore } from "@/stores/useStaticDataStore";
+import { useTranslations } from "next-intl";
 
 const partnerList = [
   {
@@ -26,16 +27,12 @@ const partnerList = [
 
 const FeaturedPartner = () => {
   const router = useRouter();
-  const {
-    data: staticData,
-    isLoading: staticLoading,
-    error: staticError,
-  } = useStaticDataStore();
+  const t = useTranslations("featuredPartner");
 
   return (
     <Card className="mb-8">
       <h1 className="text-2xl md:text-3xl font-bold mb-5 bg-gradient-to-r from-slate-100 to-destructive/10 py-4 px-4">
-        {staticData ? staticData?.featuredPartner?.title : "Featured Partners"}
+        {t("title")}
       </h1>
       <div className="flex gap-3 flex-wrap justify-center p-3">
         {partnerList.map((item, index) => (

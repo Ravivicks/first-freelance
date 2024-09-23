@@ -1,26 +1,18 @@
 "use client";
-import Loader from "@/components/Loader";
-import { useFetchStaticData } from "@/features/static-data/use-get-data";
 import { useSupportOpen } from "@/hooks/use-support-open";
-import { useStaticDataStore } from "@/stores/useStaticDataStore";
 import Image from "next/image";
-import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export default function Component() {
-  const { locale } = useParams();
-  useFetchStaticData(locale as string, "car");
-  const { data: staticData, isLoading, error } = useStaticDataStore();
   const { onOpen } = useSupportOpen();
-  if (isLoading) {
-    return <Loader />;
-  }
+  const t = useTranslations("cancellationAndRefund");
+
   return (
     <div>
-      <div className=" relative h-[300px] w-full my-4 ">
+      <div className="relative h-[300px] w-full my-4">
         <Image
           src="/images/refund.webp"
-          alt="term"
+          alt={t("heading")}
           fill
           className="object-fill rounded-md shadow-xl"
         />
@@ -29,120 +21,54 @@ export default function Component() {
         <div className="space-y-8">
           <div>
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              {staticData
-                ? staticData?.cancellationAndRefund?.heading
-                : "Cancellation and Refund Policy"}
+              {t("heading")}
             </h1>
-            <p className="mt-4 text-muted-foreground">
-              {staticData
-                ? staticData?.cancellationAndRefund?.introduction
-                : `PROSAFE AUTOMATION believes in helping its customers as far as
-              possible, and has therefore a liberal cancellation policy. Under
-              this policy:`}
-            </p>
+            <p className="mt-4 text-muted-foreground">{t("introduction")}</p>
           </div>
           <div className="space-y-4">
-            <h2 className="text-xl font-bold">
-              {staticData &&
-                staticData?.cancellationAndRefund?.sections?.[0]?.title}
-            </h2>
+            <h2 className="text-xl font-bold">{t("section1.title")}</h2>
             <ul className="space-y-2 text-muted-foreground">
-              <li>
-                <strong>
-                  {staticData &&
-                    staticData?.cancellationAndRefund?.sections?.[0]?.items?.[0]
-                      ?.strong}
-                </strong>
-                {staticData
-                  ? staticData?.cancellationAndRefund?.sections?.[0]?.items?.[0]
-                      ?.text
-                  : `Cancellations will be considered
-                only if the request is made within same day of placing the
-                order. However, the cancellation request may not be entertained
-                if the orders have been communicated to the vendors/merchants
-                and they have initiated the process of shipping them.`}
-              </li>
+              {t.raw("section1.items").map((item: any, itemIndex: number) => (
+                <li key={itemIndex}>
+                  <strong>{item.strong}</strong> {item.text}
+                </li>
+              ))}
             </ul>
           </div>
           <div className="space-y-4">
-            <h2 className="text-xl font-bold">
-              {staticData
-                ? staticData?.cancellationAndRefund?.sections?.[1]?.title
-                : "How to Request a Cancellation or Refund"}
-            </h2>
+            <h2 className="text-xl font-bold">{t("section2.title")}</h2>
             <ul className="space-y-2 text-muted-foreground">
-              <li>
-                <strong>
-                  {staticData
-                    ? staticData?.cancellationAndRefund?.sections?.[1]
-                        ?.items?.[0]?.strong
-                    : "Process:"}
-                </strong>{" "}
-                {staticData
-                  ? staticData?.cancellationAndRefund?.sections?.[1]?.items?.[0]
-                      ?.text
-                  : `In case of receipt of damaged or
-                defective items please report the same to our Customer Service
-                team. The request will, however, be entertained once the
-                merchant has checked and determined the same at his own end.
-                This should be reported within same day of receipt of the
-                products. In case you feel that the product received is not as
-                shown on the site or as per your expectations, you must bring it
-                to the notice of our customer service within same day of
-                receiving the product. The Customer Service Team after looking
-                into your complaint will take an appropriate decision.`}
-              </li>
-              <li>
-                <strong>
-                  {staticData
-                    ? staticData?.cancellationAndRefund?.sections?.[1]
-                        ?.items?.[1]?.strong
-                    : "Response Time:"}
-                </strong>{" "}
-                {staticData
-                  ? staticData?.cancellationAndRefund?.sections?.[1]?.items?.[1]
-                      ?.text
-                  : `In case of any Refunds approved
-                by the PROSAFE AUTOMATION, it'll take 1-2 days for the refund to
-                be processed to the end customer.`}
-              </li>
+              {t.raw("section2.items").map((item: any, itemIndex: number) => (
+                <li key={itemIndex}>
+                  <strong>{item.strong}</strong> {item.text}
+                </li>
+              ))}
             </ul>
           </div>
           <div className="space-y-4">
-            <h2 className="text-xl font-bold">
-              {staticData
-                ? staticData?.cancellationAndRefund?.sections?.[2]?.title
-                : "Customer Support"}
-            </h2>
-            <p className="text-muted-foreground">
-              {staticData
-                ? staticData?.cancellationAndRefund?.sections?.[2]?.paragraph
-                : `If you have any questions or concerns about our cancellation and
-              refund policy, please don't hesitate to reach out to our customer
-              support team. We are here to assist you and ensure your shopping
-              experience is a positive one.`}
-            </p>
+            <h2 className="text-xl font-bold">{t("section3.title")}</h2>
+            <p className="text-muted-foreground">{t("section3.paragraph")}</p>
             <div className="flex gap-2 sm:flex-row sm:items-center">
-              <p
-                onClick={() => onOpen()}
-                className="inline-flex cursor-pointer items-center rounded-xl bg-destructive px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-              >
-                <MailOpenIcon className="mr-2 h-5 w-5" />
-                {staticData
-                  ? staticData?.cancellationAndRefund?.sections?.[2]
-                      ?.contactLinks?.[0]?.text
-                  : "Email Support"}
-              </p>
-              <p
-                onClick={() => onOpen()}
-                className="inline-flex cursor-pointer items-center rounded-xl border border-input bg-background px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-              >
-                <PhoneIcon className="mr-2 h-5 w-5" />
-                {staticData
-                  ? staticData?.cancellationAndRefund?.sections?.[2]
-                      ?.contactLinks?.[1]?.text
-                  : "Call Support"}
-              </p>
+              {t
+                .raw("section3.contactLinks")
+                .map((link: any, linkIndex: any) => (
+                  <p
+                    key={linkIndex}
+                    onClick={() => onOpen()}
+                    className={`inline-flex cursor-pointer items-center rounded-xl ${
+                      link.icon === "MailOpenIcon"
+                        ? "bg-destructive"
+                        : "border border-input bg-background"
+                    } px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2`}
+                  >
+                    {link.icon === "MailOpenIcon" ? (
+                      <MailOpenIcon className="mr-2 h-5 w-5" />
+                    ) : (
+                      <PhoneIcon className="mr-2 h-5 w-5" />
+                    )}
+                    {link.text}
+                  </p>
+                ))}
             </div>
           </div>
         </div>
@@ -150,6 +76,8 @@ export default function Component() {
     </div>
   );
 }
+
+// Icons remain unchanged
 
 function MailOpenIcon(props: any) {
   return (

@@ -10,23 +10,19 @@ import {
 import { LucideChevronDown } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useUser } from "@clerk/nextjs";
 import { useProductsStore } from "@/stores/useProductStore";
-import { menuItems } from "@/lib/data";
-import { useStaticDataStore } from "@/stores/useStaticDataStore";
 import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
+import { useTranslations } from "next-intl";
 
 const MenuBarNew = () => {
-  const { user } = useUser();
   const router = useRouter();
   const { onOpen } = useCommonEnquiry();
   const { brands, categories } = useProductsStore();
-  const {
-    data: staticData,
-    isLoading: staticLoading,
-    error: staticError,
-  } = useStaticDataStore();
 
+  const t = useTranslations("menuBar");
+  const aboutSubmenu = t.raw("aboutSubmenu"); // Dynamically pulling submenu from translations
+
+  // Handlers for routing
   const handleClick = (url: string, category: string) => {
     router.push(`/product-details/${url}?type=all&category=${category}`);
   };
@@ -39,19 +35,15 @@ const MenuBarNew = () => {
       <Menubar>
         <div className="flex justify-between w-full">
           <div className="flex">
+            {/* Best Seller */}
             <MenubarMenu>
-              <MenubarTrigger>
-                {staticData
-                  ? staticData?.menuBar?.firstMenuTitle
-                  : "Best Seller"}
-              </MenubarTrigger>
+              <MenubarTrigger>{t("firstMenuTitle")}</MenubarTrigger>
             </MenubarMenu>
 
+            {/* Shop By Category */}
             <MenubarMenu>
               <MenubarTrigger>
-                {staticData
-                  ? staticData?.menuBar?.secondMenuTitle
-                  : "Shop by category"}
+                {t("secondMenuTitle")}
                 <LucideChevronDown size={15} className="ml-2 mt-1" />
               </MenubarTrigger>
               <MenubarContent className="grid grid-cols-6 gap-1 p-2">
@@ -67,11 +59,10 @@ const MenuBarNew = () => {
               </MenubarContent>
             </MenubarMenu>
 
+            {/* Shop By Brand */}
             <MenubarMenu>
               <MenubarTrigger>
-                {staticData
-                  ? staticData?.menuBar?.thirdMenuTitle
-                  : "Shop by Brand"}
+                {t("thirdMenuTitle")}
                 <LucideChevronDown size={15} className="ml-2 mt-1" />
               </MenubarTrigger>
               <MenubarContent>
@@ -86,46 +77,37 @@ const MenuBarNew = () => {
                 ))}
               </MenubarContent>
             </MenubarMenu>
+
+            {/* About Company */}
             <MenubarMenu>
               <MenubarTrigger>
-                {staticData
-                  ? staticData?.menuBar?.fourthMenuTitle
-                  : "About Company"}
+                {t("fourthMenuTitle")}
                 <LucideChevronDown size={15} className="ml-2 mt-1" />
               </MenubarTrigger>
               <MenubarContent>
-                {staticData &&
-                  staticData?.menuBar?.aboutSubmenu?.map(
-                    (submenu: any, index: number) => (
-                      <Link href={submenu.url} key={index}>
-                        <MenubarItem className="text-center p-2 hover:bg-gray-200">
-                          {submenu.title}
-                        </MenubarItem>
-                      </Link>
-                    )
-                  )}
+                {Array.isArray(aboutSubmenu) &&
+                  aboutSubmenu.map((submenu: any, index: number) => (
+                    <Link href={submenu.url} key={index}>
+                      <MenubarItem className="text-center p-2 hover:bg-gray-200">
+                        {submenu.title}
+                      </MenubarItem>
+                    </Link>
+                  ))}
               </MenubarContent>
             </MenubarMenu>
           </div>
+
+          {/* Service Quote, Entire Project Quote, Why 100s of customers trust us */}
           <div className="flex">
-            {/* Additional Menubar Items at the End */}
             <MenubarMenu>
               <MenubarTrigger onClick={() => onOpen("serviceQuote")}>
-                {staticData
-                  ? staticData?.menuBar?.fifthMenuTitle
-                  : "Service Quote"}
+                {t("fifthMenuTitle")}
               </MenubarTrigger>
               <MenubarTrigger onClick={() => onOpen("entireProjectQuote")}>
-                {staticData
-                  ? staticData?.menuBar?.sixthMenuTitle
-                  : "Entire Project Quote"}
+                {t("sixthMenuTitle")}
               </MenubarTrigger>
               <MenubarTrigger>
-                <Link href="/who-we-are">
-                  {staticData
-                    ? staticData?.menuBar?.seventhMenuTitle
-                    : "Why 100s of customers trust us"}
-                </Link>
+                <Link href="/who-we-are">{t("seventhMenuTitle")}</Link>
               </MenubarTrigger>
             </MenubarMenu>
           </div>

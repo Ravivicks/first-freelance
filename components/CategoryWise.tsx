@@ -2,19 +2,14 @@
 import React from "react";
 import GridView from "./GridView";
 import { useStaticDataStore } from "@/stores/useStaticDataStore";
+import { useTranslations } from "next-intl";
 
 const CategoryWise = () => {
-  const {
-    data: staticData,
-    isLoading: staticLoading,
-    error: staticError,
-  } = useStaticDataStore();
+  const t = useTranslations("industryAutomation");
   return (
     <div className="mb-8">
       <h1 className="text-4xl font-extrabold uppercase text-center mb-8">
-        {staticData
-          ? staticData?.industryAutomation?.title
-          : "Industry Automation"}
+        {t("title")}
       </h1>
       <GridView />
     </div>
