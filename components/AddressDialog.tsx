@@ -16,6 +16,7 @@ import { useGetAddress } from "@/features/address/use-get-address";
 import { Loader2 } from "lucide-react";
 import { useCreateAddress } from "@/features/address/use-create-address";
 import { useUser } from "@clerk/nextjs";
+import { useTranslations } from "next-intl";
 
 type FormValues = z.input<typeof formAddressSchema>;
 
@@ -23,7 +24,8 @@ const AddressDialog = () => {
   const { user } = useUser();
   const { isOpen, onClose, id } = useAddressOpen();
   const mutation = useCreateAddress();
-  const { data, isLoading } = useGetAddress(id ?? ""); // Ensure `id` is not undefined
+  const { data, isLoading } = useGetAddress(id ?? "");
+  const t = useTranslations("addressDialog");
 
   const onSubmit = async (values: FormValues) => {
     sessionStorage.setItem("email", values.email);
@@ -34,7 +36,6 @@ const AddressDialog = () => {
     });
   };
 
-  // Define default values, whether data is available or not
   const defaultValue = data
     ? {
         _id: data._id,
@@ -65,12 +66,9 @@ const AddressDialog = () => {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="overflow-auto max-w-full md:max-w-lg lg:max-w-2xl xl:max-w-3xl">
         <DialogHeader>
-          <DialogTitle>
-            {id ? "Edit Existing Address" : "Add New Delivery Address"}
-          </DialogTitle>
+          <DialogTitle>{id ? t("editTitle") : t("addTitle")}</DialogTitle>
           <DialogDescription>
-            Please fill in the form below to {id ? "update" : "add"} your
-            address details.
+            {t(id ? "editDescription" : "addDescription")}
           </DialogDescription>
         </DialogHeader>
 

@@ -11,6 +11,7 @@ import { useCreateReview } from "@/features/review/use-create-review";
 import StarRatings from "react-star-ratings";
 import { Separator } from "./ui/separator";
 import { Input } from "./ui/input"; // Import the input component
+import { useTranslations } from "next-intl"; // Import the translations hook
 
 type CommentFormValues = z.infer<typeof CommentSchema>;
 
@@ -18,18 +19,17 @@ const CommentForm = () => {
   const { user } = useUser();
   const { id } = useParams();
   const mutation = useCreateReview(id as string);
+  const t = useTranslations("commentForm"); // Use translations for commentForm
 
-  // Ensure id is treated as a string
   const productId = Array.isArray(id) ? id[0] : id || "";
 
-  // Default form values, including firstName and lastName when the user is logged in
   const defaultValues = {
     userId: user?.emailAddresses?.[0]?.emailAddress || "guestuser@gmail.com",
     productId,
     userAvatar: user?.imageUrl || "guest",
-    firstName: user?.firstName || "", // Set default firstName
-    lastName: user?.lastName || "", // Set default lastName
-    rating: 0, // Default rating
+    firstName: user?.firstName || "",
+    lastName: user?.lastName || "",
+    rating: 0,
     comment: "",
   };
 
@@ -42,30 +42,27 @@ const CommentForm = () => {
     formState: { errors },
   } = useForm<CommentFormValues>({
     resolver: zodResolver(CommentSchema),
-    defaultValues, // Use the defaultValues object here
+    defaultValues,
     mode: "onBlur",
   });
 
   const rating = watch("rating");
 
   const onSubmit = (data: CommentFormValues) => {
-    data.rating = rating || 0; // Ensure rating is set
+    data.rating = rating || 0;
 
     if (user) {
-      // If the user is logged in, use Clerk user details
       data.userId = user?.emailAddresses?.[0]?.emailAddress || "";
       data.firstName = user?.firstName as string;
       data.lastName = user?.lastName as string;
       data.userAvatar = user?.imageUrl as string;
     } else {
-      // If the user is not logged in, clear user details
       data.userId = "guestuser@gmail.com";
       data.userAvatar = "guest";
     }
 
     data.productId = productId;
 
-    // Call mutation and check if it triggers
     mutation.mutate(data, {
       onSuccess: () => {
         reset();
@@ -85,7 +82,7 @@ const CommentForm = () => {
       <div>
         <Separator className="my-3" />
         <Label htmlFor="rating" className="mr-2">
-          Rating:
+          {t("ratingLabel")}
         </Label>
         <StarRatings
           rating={rating || 0}
@@ -97,20 +94,19 @@ const CommentForm = () => {
           starSpacing="4px"
         />
         {errors.rating && (
-          <div className="text-red-500">{errors.rating.message}</div>
+          <div className="text-red-500">{t("error.rating")}</div>
         )}
       </div>
 
       {!user && (
         <>
-          {/* Name fields for non-logged-in users */}
           <div className="flex gap-2 flex-col md:flex-row">
             <div className="flex-grow">
-              <Label htmlFor="firstName">First Name:</Label>
+              <Label htmlFor="firstName">{t("firstNameLabel")}</Label>
               <Input
                 id="firstName"
                 {...register("firstName")}
-                placeholder="Enter your first name"
+                placeholder={t("firstNamePlaceholder")}
                 className="mt-1 w-full"
               />
               {errors.firstName && (
@@ -119,11 +115,11 @@ const CommentForm = () => {
             </div>
 
             <div className="flex-grow">
-              <Label htmlFor="lastName">Last Name:</Label>
+              <Label htmlFor="lastName">{t("lastNameLabel")}</Label>
               <Input
                 id="lastName"
                 {...register("lastName")}
-                placeholder="Enter your last name"
+                placeholder={t("lastNamePlaceholder")}
                 className="mt-1 w-full"
               />
               {errors.lastName && (
@@ -135,11 +131,11 @@ const CommentForm = () => {
       )}
 
       <div>
-        <Label htmlFor="comment">Comment:</Label>
+        <Label htmlFor="comment">{t("commentLabel")}</Label>
         <Textarea
           id="comment"
           {...register("comment")}
-          placeholder="Write your comment here"
+          placeholder={t("commentPlaceholder")}
           className="mt-1 w-full"
         />
         {errors.comment && (
@@ -147,7 +143,7 @@ const CommentForm = () => {
         )}
       </div>
 
-      <Button type="submit">Submit</Button>
+      <Button type="submit">{t("submitButton")}</Button>
     </form>
   );
 };

@@ -12,19 +12,19 @@ import { Separator } from "./ui/separator";
 import { useProductsStore } from "@/stores/useProductStore";
 import { useFilterOpen } from "@/hooks/use-filter-open";
 import { CheckBoxLists } from "./CheckBoxLists";
+import { useTranslations } from "next-intl";
 
 const FilterDialog = () => {
-  const { isLoading, brands, categories } = useProductsStore();
+  const { isLoading } = useProductsStore();
   const { isOpen, onClose } = useFilterOpen();
+  const t = useTranslations("filterDialog");
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="scrollable-form px-2 max-h-[80vh] overflow-auto">
         <DialogHeader>
-          <DialogTitle>Filters</DialogTitle>
-          <DialogDescription>
-            Filter your product by multiple filters
-          </DialogDescription>
+          <DialogTitle>{t("dialogTitle")}</DialogTitle>
+          <DialogDescription>{t("dialogDescription")}</DialogDescription>
         </DialogHeader>
 
         {isLoading ? (

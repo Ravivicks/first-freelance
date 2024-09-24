@@ -19,10 +19,11 @@ import { useProductsStore } from "@/stores/useProductStore";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useFilterOpen } from "@/hooks/use-filter-open";
+import { useTranslations } from "next-intl";
 
 const FormSchema = z.object({
-  brands: z.array(z.string()), // Remove validation for at least one brand
-  categories: z.array(z.string()), // Remove validation for at least one category
+  brands: z.array(z.string()),
+  categories: z.array(z.string()),
 });
 
 export function CheckBoxLists() {
@@ -33,6 +34,8 @@ export function CheckBoxLists() {
 
   const brand = searchParams.get("brand");
   const category = searchParams.get("category");
+
+  const t = useTranslations("checkBoxLists");
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -80,7 +83,7 @@ export function CheckBoxLists() {
             <FormItem>
               <div className="mb-4">
                 <FormLabel className="text-muted-foreground font-bold">
-                  Brands
+                  {t("formLabels.brands")}
                 </FormLabel>
               </div>
               {brands
@@ -119,7 +122,9 @@ export function CheckBoxLists() {
                   variant="link"
                   onClick={() => setShowMoreBrands(!showMoreBrands)}
                 >
-                  {showMoreBrands ? "Show Less" : "Show More"}
+                  {showMoreBrands
+                    ? t("buttonLabels.showLess")
+                    : t("buttonLabels.showMore")}
                   {!showMoreBrands ? (
                     <ChevronDown className="size-4 ml-1" />
                   ) : (
@@ -138,7 +143,7 @@ export function CheckBoxLists() {
             <FormItem>
               <div className="mb-4">
                 <FormLabel className="text-muted-foreground font-bold">
-                  Categories
+                  {t("formLabels.categories")}
                 </FormLabel>
               </div>
               {categories
@@ -177,7 +182,9 @@ export function CheckBoxLists() {
                   variant="link"
                   onClick={() => setShowMoreCategories(!showMoreCategories)}
                 >
-                  {showMoreCategories ? "Show Less" : "Show More"}
+                  {showMoreCategories
+                    ? t("buttonLabels.showLess")
+                    : t("buttonLabels.showMore")}
                   {!showMoreCategories ? (
                     <ChevronDown className="size-4 ml-1" />
                   ) : (
@@ -190,7 +197,7 @@ export function CheckBoxLists() {
           )}
         />
         <Button type="submit" variant="destructive" className="w-full">
-          Apply Filter
+          {t("buttonLabels.applyFilter")}
         </Button>
       </form>
     </Form>

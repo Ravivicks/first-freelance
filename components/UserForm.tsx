@@ -11,8 +11,8 @@ import {
   FormMessage, // Import FormMessage for error display
 } from "@/components/ui/form";
 import { userFormSchema } from "@/lib/zod-schema";
-
 import { z } from "zod";
+import { useTranslations } from "next-intl"; // Import the useTranslations hook
 
 type FormValues = z.input<typeof userFormSchema>;
 
@@ -33,6 +33,8 @@ export const UserForm = ({ onSubmit, defaultValues, disabled }: Props) => {
     onSubmit(values);
   };
 
+  const t = useTranslations("userForm"); // Specify the namespace
+
   return (
     <Form {...form}>
       <form
@@ -45,11 +47,11 @@ export const UserForm = ({ onSubmit, defaultValues, disabled }: Props) => {
             control={form.control}
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel>First Name</FormLabel>
+                <FormLabel>{t("firstName")}</FormLabel>
                 <FormControl>
                   <Input
                     disabled={disabled}
-                    placeholder="Please enter your first name"
+                    placeholder={t("placeholderFirstName")} // Use translation
                     {...field}
                   />
                 </FormControl>
@@ -62,11 +64,11 @@ export const UserForm = ({ onSubmit, defaultValues, disabled }: Props) => {
             control={form.control}
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel>Last Name</FormLabel>
+                <FormLabel>{t("lastName")}</FormLabel>
                 <FormControl>
                   <Input
                     disabled={disabled}
-                    placeholder="Please enter your last name"
+                    placeholder={t("placeholderLastName")} // Use translation
                     {...field}
                   />
                 </FormControl>
@@ -81,14 +83,13 @@ export const UserForm = ({ onSubmit, defaultValues, disabled }: Props) => {
             control={form.control}
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel>Mobile </FormLabel>
+                <FormLabel>{t("mobile")}</FormLabel>
                 <FormControl>
                   <Input
-                    // readOnly={!field.value}
                     className="[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                     type="number"
                     disabled={disabled}
-                    placeholder="Please enter your Mobile number"
+                    placeholder={t("placeholderMobile")} // Use translation
                     {...field}
                   />
                 </FormControl>
@@ -101,12 +102,12 @@ export const UserForm = ({ onSubmit, defaultValues, disabled }: Props) => {
             control={form.control}
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel>Email</FormLabel>
+                <FormLabel>{t("email")}</FormLabel>
                 <FormControl>
                   <Input
                     readOnly
                     disabled={disabled}
-                    placeholder="Please enter your email address"
+                    placeholder={t("placeholderEmail")} // Use translation
                     {...field}
                   />
                 </FormControl>
@@ -121,7 +122,8 @@ export const UserForm = ({ onSubmit, defaultValues, disabled }: Props) => {
           disabled={disabled}
           variant="destructive"
         >
-          {disabled ? "Saving..." : "Save Address"}
+          {disabled ? t("savingButton") : t("saveButton")}{" "}
+          {/* Use translation */}
         </Button>
       </form>
     </Form>

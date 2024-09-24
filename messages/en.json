@@ -1946,9 +1946,127 @@
       "message": "Your total savings amount on this order",
       "amountLabel": "₹"
     }
+  },
+  "confirmOrder": {
+    "orderConfirmation": "Order Confirmation",
+    "thankYouMessage": "Thank you for your purchase!",
+    "emailConfirmationMessage": "We'll email you an order confirmation with details and tracking info.",
+    "orderIdLabel": "Order-id: ",
+    "orderDate": "May 31, 2023 at 3:42 PM",
+    "shippingInformation": "Shipping Information",
+    "viewOrderButton": "View your order",
+    "orderSummary": "Order Summary",
+    "subtotalLabel": "Subtotal",
+    "shippingLabel": "Shipping",
+    "totalLabel": "Total",
+    "savedAmountMessage": "You saved ₹20.00 on this order!",
+    "similarProductsTitle": "Similar Products",
+    "feedbackText": "Feedback | See all"
+  },
+  "usrAccount": {
+    "personalInformationTitle": "Personal Information",
+    "personalInformationDescription": "Update your personal details here.",
+    "loadingText": "Loading...",
+    "profileTab": "Profile",
+    "ordersTab": "Orders",
+    "orderHistoryTitle": "Order History",
+    "orderHistoryDescription": "View your past orders and their status.",
+    "orderIdLabel": "Order-id",
+    "orderDateLabel": "Order Date",
+    "orderStatusLabel": "Order Status",
+    "orderTotalLabel": "Total Amount"
+  },
+"addressDialog": {
+    "editTitle": "Edit Existing Address",
+    "addTitle": "Add New Delivery Address",
+    "editDescription": "Please fill in the form below to update your address details.",
+    "addDescription": "Please fill in the form below to add your address details.",
+    "loadingText": "Loading..."
+  },
+  "cartSheet": {
+    "emptyCartMessage": "No items in your cart",
+    "continueShoppingButton": "Continue Shopping",
+    "itemAltText": "item - {index}"
+  },
+  "icons": {
+    "cartIconAlt": "Shopping Cart Icon"
+  },
+  "checkBoxLists":{
+    "formLabels": {
+      "brands": "Brands",
+      "categories": "Categories"
+    },
+    "buttonLabels": {
+      "showLess": "Show Less",
+      "showMore": "Show More",
+      "applyFilter": "Apply Filter"
+    }
+  },
+  "filterDialog": {
+    "dialogTitle": "Filters",
+    "dialogDescription": "Filter your product by multiple filters",
+    "loadingMessage": "Loading..."
+  },
+  "noReviews": {
+    "cardTitle": "No Reviews Yet",
+    "noReviewsMessage": "This product hasn't received any reviews yet. Be the first to share your thoughts!",
+    "ratingPrompt": "Your review helps other shoppers make informed decisions."
+  },
+  "paymentAndShippingCard":{
+    "paymentAndShipping": {
+      "title": "Payment and Shipping",
+      "payment": "PAYMENT",
+      "razorpay": {
+        "label": "Razorpay",
+        "imageAlt": "razorpay"
+      },
+      "paypal": {
+        "label": "PayPal / American Express",
+        "imageAlt": "paypal"
+      },
+      "discountCodePlaceholder": "Discount code",
+      "applyButton": "Apply",
+      "price": "Price",
+      "gst": "GST",
+      "deliveryCharges": "Delivery charges",
+      "discountPrice": "Discount price",
+      "totalAmount": "Total Amount",
+      "termsAndConditions": "I have read and accept the terms and conditions of sale. By proceeding with the order, I confirm that I have reviewed the Privacy Policy",
+      "confirmOrder": "Confirm your order"
+    }
+  },
+  "commentForm": {
+    "ratingLabel": "Rating:",
+    "firstNameLabel": "First Name:",
+    "lastNameLabel": "Last Name:",
+    "commentLabel": "Comment:",
+    "submitButton": "Submit",
+    "firstNamePlaceholder": "Enter your first name",
+    "lastNamePlaceholder": "Enter your last name",
+    "commentPlaceholder": "Write your comment here",
+    "error": {
+      "rating": "Rating is required",
+      "firstName": "First name is required",
+      "lastName": "Last name is required",
+      "comment": "Comment is required"
+    }
+  },
+  "searchDialog": {
+    "title": "Search Product Here",
+    "description": "Search product by Brand and title."
+  },
+  "userForm": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "mobile": "Mobile",
+    "email": "Email",
+    "placeholderFirstName": "Please enter your first name",
+    "placeholderLastName": "Please enter your last name",
+    "placeholderMobile": "Please enter your Mobile number",
+    "placeholderEmail": "Please enter your email address",
+    "saveButton": "Save Address",
+    "savingButton": "Saving..."
   }
-
-  
 }
 
 

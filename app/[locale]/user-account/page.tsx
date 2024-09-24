@@ -17,11 +17,14 @@ import { useUpdateUser } from "@/features/user/use-update-user";
 import { userFormSchema } from "@/lib/zod-schema";
 import { z } from "zod";
 import { useGetOrders } from "@/features/checkout/use-get-orders";
+import { useTranslations } from "next-intl";
 
 type FormValues = z.input<typeof userFormSchema>;
 
 export default function UserAccount() {
   const { user } = useUser();
+  const t = useTranslations("usrAccount");
+
   const emailId = user?.emailAddresses?.[0]?.emailAddress;
   const [activeTab, setActiveTab] = useState("profile");
   const { data, isLoading } = useGetUser(emailId as string);
@@ -38,6 +41,7 @@ export default function UserAccount() {
   const onSubmit = (values: FormValues) => {
     updateMution.mutate({ updates: values });
   };
+
   return (
     <div className="container mx-auto px-4 py-8 my-6 rounded-md bg-gradient-to-r from-slate-100 to-destructive/10">
       <div className="flex flex-col md:flex-row items-center md:items-center mb-8 gap-4 bg-white p-8 rounded-md ">
@@ -64,25 +68,25 @@ export default function UserAccount() {
         <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="profile" className="flex items-center gap-2">
             <UserCircle className="h-4 w-4" />
-            <span className="hidden sm:inline">Profile</span>
+            <span className="hidden sm:inline">{t("profileTab")}</span>
           </TabsTrigger>
           <TabsTrigger value="orders" className="flex items-center gap-2">
             <ShoppingBag className="h-4 w-4" />
-            <span className="hidden sm:inline">Orders</span>
+            <span className="hidden sm:inline">{t("ordersTab")}</span>
           </TabsTrigger>
         </TabsList>
 
         <TabsContent value="profile">
           <Card>
             <CardHeader>
-              <CardTitle>Personal Information</CardTitle>
+              <CardTitle>{t("personalInformationTitle")}</CardTitle>
               <CardDescription>
-                Update your personal details here.
+                {t("personalInformationDescription")}
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               {isLoading ? (
-                <div>Loading...</div>
+                <div>{t("loadingText")}</div>
               ) : (
                 <UserForm onSubmit={onSubmit} defaultValues={defaultValue} />
               )}
@@ -93,10 +97,8 @@ export default function UserAccount() {
         <TabsContent value="orders">
           <Card>
             <CardHeader>
-              <CardTitle>Order History</CardTitle>
-              <CardDescription>
-                View your past orders and their status.
-              </CardDescription>
+              <CardTitle>{t("orderHistoryTitle")}</CardTitle>
+              <CardDescription>{t("orderHistoryDescription")}</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -121,9 +123,6 @@ export default function UserAccount() {
                 ))}
               </div>
             </CardContent>
-            {/* <CardFooter>
-              <Button variant="outline">View All Orders</Button>
-            </CardFooter> */}
           </Card>
         </TabsContent>
       </Tabs>
