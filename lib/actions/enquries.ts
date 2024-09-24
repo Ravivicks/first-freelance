@@ -37,11 +37,7 @@ export async function createNewCommonEnquiry(enquiry: CommonEnquireProps) {
         undefined,
         enquiry
       );
-      await sendEmail(emailContent, [
-        enquiry.email,
-        "anuragivinneta@gmail.com",
-        // "rabbuips123@gmail.com",
-      ]);
+      await sendEmail(emailContent, [enquiry.email]);
     }
 
     return JSON.parse(JSON.stringify(result));
