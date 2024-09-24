@@ -17,7 +17,7 @@ export async function createNewEnquiry(enquiry: EnquireProps) {
       );
       await sendEmail(emailContent, [
         enquiry.email,
-        "anuragivinneta@gmail.com",
+        // "anuragivinneta@gmail.com",
         // "rabbuips123@gmail.com",
       ]);
     }
