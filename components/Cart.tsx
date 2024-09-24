@@ -25,6 +25,7 @@ const Cart = () => {
                     height={50}
                     width={50}
                     className="rounded-xl"
+                    unoptimized
                   />
                   <div className="flex flex-col gap-1">
                     <p className="font-semibold text-xs">{cartItem.title}</p>
