@@ -17,7 +17,7 @@ export async function createNewEnquiry(enquiry: EnquireProps) {
       );
       await sendEmail(emailContent, [
         enquiry.email,
-        // "anuragivinneta@gmail.com",
+        "anuragivinneta@gmail.com",
         // "rabbuips123@gmail.com",
       ]);
     }
@@ -31,18 +31,18 @@ export async function createNewCommonEnquiry(enquiry: CommonEnquireProps) {
   try {
     await connectToDB();
     const result = await CommonEnquiry.create(enquiry);
-    // if (result) {
-    //   const emailContent = await generateEmailBody(
-    //     "ENQUIRY",
-    //     undefined,
-    //     enquiry
-    //   );
-    //   await sendEmail(emailContent, [
-    //     enquiry.email,
-    //     // "anuragivinneta@gmail.com",
-    //     // "rabbuips123@gmail.com",
-    //   ]);
-    // }
+    if (result) {
+      const emailContent = await generateEmailBody(
+        "ENQUIRY",
+        undefined,
+        enquiry
+      );
+      await sendEmail(emailContent, [
+        enquiry.email,
+        "anuragivinneta@gmail.com",
+        // "rabbuips123@gmail.com",
+      ]);
+    }
 
     return JSON.parse(JSON.stringify(result));
   } catch (error) {

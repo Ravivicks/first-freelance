@@ -89,11 +89,12 @@ export async function generateEmailBody(
 
 const transporter = nodemailer.createTransport({
   pool: true,
-  service: "hotmail",
-  port: 2525,
+  host: "mail.automationecom.store", // Outlook SMTP server
+  port: 587, // Use port 587 for TLS (recommended)
+  secure: false, // Set to true for SSL on port 465
   auth: {
-    user: "anuragiravi85@gmail.com",
-    pass: process.env.EMAIL_PASSWORD,
+    user: "info@automationecom.store",
+    pass: "yv$HLG=pm{u#", // Use App Password if 2FA is enabled
   },
   maxConnections: 1,
 });
@@ -103,15 +104,16 @@ export const sendEmail = async (
   sendTo: string[]
 ) => {
   const mailOptions = {
-    from: "anuragiravi85@gmail.com",
-    to: sendTo,
-    html: emailContent.body,
+    from: "info@automationecom.store",
+    to: sendTo.join(","), // Join recipients with a comma
     subject: emailContent.subject,
+    html: emailContent.body,
   };
 
-  transporter.sendMail(mailOptions, (error: any, info: any) => {
-    if (error) return console.log(error);
-
-    console.log("Email sent: ");
-  });
+  try {
+    const info = await transporter.sendMail(mailOptions);
+    console.log("Email sent: ", info.response);
+  } catch (error) {
+    console.error("Error sending email: ", error);
+  }
 };

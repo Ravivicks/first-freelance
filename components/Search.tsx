@@ -167,10 +167,12 @@ export default function SearchComponent() {
                       <div className="text-sm text-muted-foreground">
                         {product.brand}
                       </div>
-                      <div className="text-sm font-semibold">
-                        {product.currency}
-                        {product.currentPrice}
-                      </div>
+                      {product.lowestPrice !== 0 && (
+                        <div className="text-sm font-semibold">
+                          {product.currency}
+                          {product.lowestPrice}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </li>
