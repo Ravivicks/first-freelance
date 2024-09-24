@@ -12,8 +12,14 @@ import { Toaster } from "@/components/ui/sonner";
 import TopNav from "@/components/TopNav";
 import Script from "next/script";
 import MobileTopNav from "@/components/MobileTopNav";
+import { Metadata } from "next";
 
 const inter = Poppins({ subsets: ["latin"], weight: ["100", "300"] });
+export const metadata: Metadata = {
+  title: "Automation Ecom Global",
+  description: "",
+};
+
 export default async function LocaleLayout({
   children,
   params: { locale },
