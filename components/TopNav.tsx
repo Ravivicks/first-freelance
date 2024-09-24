@@ -45,7 +45,6 @@ const TopNav = () => {
             onClick={() => onOpen("quickQuote")}
           >
             {t("quickQuote")}
-            {t ? t("quickQuote") : "Quick Quote"}
           </Button>
         </div>
 
