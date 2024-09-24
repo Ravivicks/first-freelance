@@ -107,18 +107,18 @@ const ProductDetailsById = () => {
       <ProductNew product={product as IProduct} />
       <Tabs defaultValue="review" className="mt-10">
         <TabsList className="bg-inherit">
-          <TabsTrigger value="product" className="text-lg md:text-xl font-bold">
+          {/* <TabsTrigger value="product" className="text-lg md:text-xl font-bold">
             {t("productDetails")}
-          </TabsTrigger>
+          </TabsTrigger> */}
           <TabsTrigger value="review" className="text-lg md:text-xl font-bold">
             {t("reviews")}
           </TabsTrigger>
-          <TabsTrigger
+          {/* <TabsTrigger
             value="discussion"
             className="text-lg md:text-xl font-bold"
           >
             {t("discussion")}
-          </TabsTrigger>
+          </TabsTrigger> */}
         </TabsList>
         <TabsContent value="product" className="w-full">
           <ProductDetails product={product as IProduct} />

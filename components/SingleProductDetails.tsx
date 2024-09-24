@@ -73,9 +73,11 @@ const SingleProductDetails = ({ product }: IProps) => {
           height={20}
           className="flex-shrink-0"
         />
-        <p className="text-muted-foreground font-semibold text-xs md:text-sm">
-          {product?.machineCode}
-        </p>
+        {product?.machineCode !== "abc123" && (
+          <p className="text-muted-foreground font-semibold text-xs md:text-sm">
+            {product?.machineCode}
+          </p>
+        )}
       </div>
       <h1 className="text-xl md:text-2xl my-2">{product?.title}</h1>
       <div className="my-2 flex gap-2 md:gap-4 text-muted-foreground text-xs md:text-sm items-center">

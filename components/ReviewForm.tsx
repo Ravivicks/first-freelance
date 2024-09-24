@@ -143,7 +143,9 @@ const CommentForm = () => {
         )}
       </div>
 
-      <Button type="submit">{t("submitButton")}</Button>
+      <Button type="submit" variant="destructive">
+        {t("submitButton")}
+      </Button>
     </form>
   );
 };

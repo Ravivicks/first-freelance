@@ -7,10 +7,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useMessages, useTranslations } from "next-intl";
 import { useCreateSubscriber } from "@/features/subscriber/use-add-subcriber";
+import { useParams } from "next/navigation";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
   const subscriberMutation = useCreateSubscriber();
+  const { locale } = useParams();
 
   const t = useTranslations("footer");
   const messages = useMessages() as Record<string, any>; // Type assertion here
@@ -70,21 +72,21 @@ const Footer = () => {
               {key === "company" &&
                 messages.footer.company.links.map(
                   (link: any, index: number) => (
-                    <Link href={link.url} key={index}>
+                    <Link href={`/${locale}${link.url}`} key={index}>
                       {link.text}
                     </Link>
                   )
                 )}
               {key === "trust" &&
                 messages.footer.trust.links.map((link: any, index: number) => (
-                  <Link href={link.url} key={index}>
+                  <Link href={`/${locale}${link.url}`} key={index}>
                     {link.text}
                   </Link>
                 ))}
               {key === "customerCare" &&
                 messages.footer.customerCare.navItems.map(
                   (link: any, index: number) => (
-                    <Link href={link.url} key={index}>
+                    <Link href={`/${locale}${link.url}`} key={index}>
                       {link.text}
                     </Link>
                   )
