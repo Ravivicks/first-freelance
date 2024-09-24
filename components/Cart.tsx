@@ -29,10 +29,12 @@ const Cart = () => {
                   />
                   <div className="flex flex-col gap-1">
                     <p className="font-semibold text-xs">{cartItem.title}</p>
-                    <p className="font-semibold text-xs text-muted-foreground">
-                      {cartItem.currency}
-                      {cartItem.lowestPrice}
-                    </p>
+                    {cartItem.lowestPrice !== 0 && (
+                      <p className="font-semibold text-xs text-muted-foreground">
+                        {cartItem.currency}
+                        {cartItem.lowestPrice}
+                      </p>
+                    )}
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
