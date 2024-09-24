@@ -9,15 +9,16 @@ import {
 } from "@/components/ui/menubar";
 import { LucideChevronDown } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useProductsStore } from "@/stores/useProductStore";
 import { useCommonEnquiry } from "@/hooks/use-common-enquiry-open";
 import { useTranslations } from "next-intl";
 
 const MenuBarNew = () => {
+  const { locale } = useParams();
   const router = useRouter();
   const { onOpen } = useCommonEnquiry();
-  const { brands, categories } = useProductsStore();
+  const { brands, categories, fetchData } = useProductsStore();
 
   const t = useTranslations("menuBar");
   const aboutSubmenu = t.raw("aboutSubmenu"); // Dynamically pulling submenu from translations
@@ -87,7 +88,7 @@ const MenuBarNew = () => {
               <MenubarContent>
                 {Array.isArray(aboutSubmenu) &&
                   aboutSubmenu.map((submenu: any, index: number) => (
-                    <Link href={submenu.url} key={index}>
+                    <Link href={`/${locale}${submenu.url}`} key={index}>
                       <MenubarItem className="text-center p-2 hover:bg-gray-200">
                         {submenu.title}
                       </MenubarItem>
