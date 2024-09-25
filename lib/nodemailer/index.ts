@@ -137,7 +137,7 @@ export async function generateEmailBody(
     <div class="footer">
         <p>Best regards, <br> Automation Ecom Global</p>
         <div class="social-links">
-            <img src="https://www.automationecom.store/icons-social.png" alt="socials" height="60px" width="100%" />
+            <img src="https://www.automationecom.store/icons-social.png" alt="socials" height="40px" width="230px" />
         </div>
         <p>
             © 2024 Automation Ecom Global, B-1/13, RAGHU NAGAR, PANKHA ROAD, Near JANAK CINEMA, New Delhi-110045 <br>
