@@ -44,7 +44,21 @@ export async function generateEmailBody(
       `,
     },
     [Notification.ENQUIRY]: {
-      subject: `Enquiry Received for ${productName}`,
+      subject: `${
+        user?.enquiryType === "serviceQuote"
+          ? "Service Quatations"
+          : user?.enquiryType === "priceRequest"
+          ? "Price Request"
+          : user?.enquiryType === "quickQuote"
+          ? "Quick Quotation"
+          : user?.enquiryType === "quoteRequest"
+          ? "Quotation"
+          : user?.enquiryType === "entireProjectQuote"
+          ? "Entire Project Quotation"
+          : user?.enquiryType === "cart"
+          ? "Cart"
+          : ""
+      } Enquiry Received`,
       body: `
         <!DOCTYPE html>
 <html lang="en">
