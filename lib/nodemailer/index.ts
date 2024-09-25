@@ -108,7 +108,6 @@ export async function generateEmailBody(
             text-decoration: none;
         }
         .social-links img {
-            width: 24px;
             margin: 0 10px;
         }
     </style>
@@ -118,8 +117,7 @@ export async function generateEmailBody(
 <div class="email-container">
     <!-- Header -->
     <div class="header">
-        <img src="https://www.automationecom.store/trans.png" alt="Company Logo">
-        <P>
+        <img src="https://www.automationecom.store/trans.png" alt="Company Logo" width="500px" >
     </div>
 
     <!-- Content -->
