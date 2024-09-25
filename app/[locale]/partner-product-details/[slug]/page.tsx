@@ -7,6 +7,8 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { useProductsStore } from "@/stores/useProductStore";
 import { useGetBanner } from "@/features/products/use-get-banner";
 import Loader from "@/components/Loader";
+import { useGetBanners } from "@/features/banner/use-get-banners";
+import NoProductFound from "@/components/NoProduct";
 
 const PartnerProductDetails = () => {
   const { slug } = useParams();
@@ -33,9 +35,18 @@ const PartnerProductDetails = () => {
     setPage(key, 1); // Reset page to 1 when slug changes
   }, [slug]);
 
-  const { data, isLoading: bannerLoading } = useGetBanner(
-    decodedBrand as string
-  );
+  const { data, isLoading: bannerLoading } = useGetBanners("partner-banner");
+  const result = data?.reduce((acc, item) => {
+    if (item.company) {
+      // Ensure category is defined
+      acc[item.company] = item.imageId;
+    }
+    return acc;
+  }, {} as Record<string, string>);
+
+  // const { data, isLoading: bannerLoading } = useGetBanner(
+  //   decodedBrand as string
+  // );
 
   const loadMore = async () => {
     const current = currentPage[key] ?? 1;
@@ -86,18 +97,36 @@ const PartnerProductDetails = () => {
         <Loader />
       ) : (
         <div className="h-[250px] relative mb-10">
-          <Image src={data?.image || "/images/b1.png"} alt="banner" fill />
+          <Image
+            src={
+              result?.[decodedBrand as string] !== undefined
+                ? `${process.env.NEXT_PUBLIC_APP_URL}/en/api/images/${
+                    result?.[decodedBrand as string]
+                  }`
+                : "/images/b1.png"
+            }
+            alt="banner"
+            fill
+          />
         </div>
       )}
       <div className="flex gap-3 flex-wrap mb-16">
-        {productList?.map((product, index) => (
-          <div
-            className="flex-none w-full sm:w-1/2 md:w-1/3 lg:w-1/6 flex-grow"
-            key={index}
-          >
-            <ProductCard product={product} />
-          </div>
-        ))}
+        {productList?.length > 0 ? (
+          productList.map((product, index) => (
+            <div
+              className="flex-none w-full sm:w-1/2 md:w-1/3 lg:w-1/6 flex-grow"
+              key={index}
+            >
+              <ProductCard product={product} />
+            </div>
+          ))
+        ) : (
+          <NoProductFound
+            type="product"
+            returnLink="/"
+            returnLinkText="Back To Homepage"
+          />
+        )}
       </div>
       {/* Sentinel Element */}
       <div ref={sentinelRef} style={{ height: "20px" }} />

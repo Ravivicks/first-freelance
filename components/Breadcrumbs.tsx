@@ -7,6 +7,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import Link from "next/link";
 
 interface IProps {
   slug?: string;
@@ -19,7 +20,9 @@ const Breadcrumbs = ({ slug, component, componentLink }: IProps) => {
     <Breadcrumb className="my-5">
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+          <Link href="/" passHref legacyBehavior>
+            <BreadcrumbLink>Home</BreadcrumbLink>
+          </Link>
         </BreadcrumbItem>
         {component && (
           <>

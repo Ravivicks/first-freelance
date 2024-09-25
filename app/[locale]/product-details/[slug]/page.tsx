@@ -22,6 +22,7 @@ import { Filter } from "lucide-react";
 import { useFilterOpen } from "@/hooks/use-filter-open";
 import { useProductsStore } from "@/stores/useProductStore";
 import { CheckBoxLists } from "@/components/CheckBoxLists";
+import NotFound from "@/components/NoProduct";
 
 const conditionList = [
   { value: "any-condition", label: "Any Condition" },
@@ -230,8 +231,12 @@ const PartnerProductDetails = () => {
                     </div>
                   ))}
                   {filteredProducts.length === 0 && (
-                    <div className="text-center font-semibold">
-                      No data available
+                    <div className="mt-[50px] max-w-2xl mx-auto">
+                      <NotFound
+                        type="product"
+                        returnLink="/"
+                        returnLinkText="Back To Homepage"
+                      />
                     </div>
                   )}
                 </div>
