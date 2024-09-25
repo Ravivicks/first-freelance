@@ -61,6 +61,7 @@ export async function createNewAddress(user: IAddress) {
           const userData = {
             username: user.email,
             password: password,
+            fullName: user.firstName + user.lastName,
           };
           const emailContent = await generateEmailBody("NEW_USER", userData);
           const emailRes = await sendEmail(emailContent, [user.email]);

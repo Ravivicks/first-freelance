@@ -23,7 +23,6 @@ export async function generateEmailBody(
 ) {
   // Use the full product name
   const productName = product?.productName ?? "Product";
-  console.log(product, user);
 
   // Define subjects and bodies for each notification type
   const subjectsAndBodies = {
