@@ -118,7 +118,7 @@ export async function generateEmailBody(
 <div class="email-container">
     <!-- Header -->
     <div class="header">
-        <img src="logo.svg" alt="Company Logo">
+        <img src="https://www.automationecom.store/en/logo.svg" alt="Company Logo">
     </div>
 
     <!-- Content -->
@@ -138,7 +138,7 @@ export async function generateEmailBody(
     <div class="footer">
         <p>Best regards, <br> Your Company Name</p>
         <div class="social-links">
-            <img src="icons-social.webp" alt="socials" height="50px" />
+            <img src="https://www.automationecom.store/en/icons-social.webp" alt="socials" height="50px" />
         </div>
         <p>
             © 2024 Automation Ecom Global, B-1/13, RAGHU NAGAR, PANKHA ROAD, Near JANAK CINEMA, New Delhi-110045 <br>
