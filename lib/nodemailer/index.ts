@@ -23,7 +23,6 @@ export async function generateEmailBody(
 ) {
   // Use the full product name
   const productName = product?.productName ?? "Product";
-  console.log(user);
 
   // Define subjects and bodies for each notification type
   const subjectsAndBodies = {
@@ -119,7 +118,7 @@ export async function generateEmailBody(
 <div class="email-container">
     <!-- Header -->
     <div class="header">
-        <img src="./logo.svg" alt="Company Logo">
+        <img src="logo.svg" alt="Company Logo">
     </div>
 
     <!-- Content -->
@@ -139,7 +138,7 @@ export async function generateEmailBody(
     <div class="footer">
         <p>Best regards, <br> Your Company Name</p>
         <div class="social-links">
-            <img src="./icons-social.webp" alt="socials" height="50px" />
+            <img src="icons-social.webp" alt="socials" height="50px" />
         </div>
         <p>
             © 2024 Automation Ecom Global, B-1/13, RAGHU NAGAR, PANKHA ROAD, Near JANAK CINEMA, New Delhi-110045 <br>
