@@ -118,7 +118,7 @@ export async function generateEmailBody(
 <div class="email-container">
     <!-- Header -->
     <div class="header">
-        <img src="https://www.automationecom.store/logo.svg" alt="Company Logo">
+        <img src="https://www.automationecom.store/logo.webp" alt="Company Logo">
     </div>
 
     <!-- Content -->
@@ -131,14 +131,14 @@ export async function generateEmailBody(
         <p>
             If you have any questions or require more information, feel free to contact us at info@automationecom.store or +91-9990010960.
         </p>
-        <a href="https://www.automationecom.store/en" class="cta-button" target="_blank">View Enquiry</a>
+        <a href="https://www.automationecom.store" class="cta-button" target="_blank">View Enquiry</a>
     </div>
 
     <!-- Footer -->
     <div class="footer">
-        <p>Best regards, <br> Your Company Name</p>
+        <p>Best regards, <br> Automation Ecom Global</p>
         <div class="social-links">
-            <img src="https://www.automationecom.store/icons-social.webp" alt="socials" height="50px" />
+            <img src="https://www.automationecom.store/icons-social.webp" alt="socials" height="80px" width="100%" />
         </div>
         <p>
             © 2024 Automation Ecom Global, B-1/13, RAGHU NAGAR, PANKHA ROAD, Near JANAK CINEMA, New Delhi-110045 <br>
