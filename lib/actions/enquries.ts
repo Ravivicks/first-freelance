@@ -32,11 +32,7 @@ export async function createNewCommonEnquiry(enquiry: CommonEnquireProps) {
     await connectToDB();
     const result = await CommonEnquiry.create(enquiry);
     if (result) {
-      const emailContent = await generateEmailBody(
-        "ENQUIRY",
-        enquiry.fullName,
-        enquiry
-      );
+      const emailContent = await generateEmailBody("ENQUIRY", enquiry, enquiry);
       await sendEmail(emailContent, [enquiry.email]);
     }
 
