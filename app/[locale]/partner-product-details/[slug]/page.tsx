@@ -107,6 +107,7 @@ const PartnerProductDetails = () => {
             }
             alt="banner"
             fill
+            unoptimized
           />
         </div>
       )}
