@@ -18,11 +18,12 @@ const Notification = {
 
 export async function generateEmailBody(
   type: NotificationType,
-  user?: { username: string; password: string },
+  user?: { username: string; password: string; fullName: string },
   product?: EnquireProps | PriceRequestProps
 ) {
   // Use the full product name
   const productName = product?.productName ?? "Product";
+  console.log(product, user);
 
   // Define subjects and bodies for each notification type
   const subjectsAndBodies = {
@@ -46,10 +47,109 @@ export async function generateEmailBody(
     [Notification.ENQUIRY]: {
       subject: `Enquiry Received for ${productName}`,
       body: `
-        <div>
-          <h4>Thank you for your enquiry about ${productName}.</h4>
-          <p>Our team at Automation Ecom Global will get back to you with more information soon.</p>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Inquiry Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .email-container {
+            background-color: #ffffff;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid #dddddd;
+        }
+        .header {
+            background-color: #00b0ac;
+            padding: 20px;
+            text-align: center;
+        }
+        .header img {
+            max-width: 150px;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        .content h1 {
+            color: #002244;
+            font-size: 24px;
+        }
+        .content p {
+            font-size: 16px;
+            color: #333333;
+            line-height: 1.6;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #00e0c6;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+        .footer {
+            background-color: #002244;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+        }
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+        .social-links img {
+            width: 24px;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="email-container">
+    <!-- Header -->
+    <div class="header">
+        <img src="/logo.webp" alt="Company Logo">
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <h1>Thank You for Your Inquiry!</h1>
+        <p>Dear ${user?.fullName},</p>
+        <p>
+            We have received your inquiry for the following products on our website. Our team is reviewing the details and will provide you with a quotation as soon as possible.
+        </p>
+        <p>
+            If you have any questions or require more information, feel free to contact us at info@automationecom.store or +91-9990010960.
+        </p>
+        <a href="https://www.automationecom.store/en" class="cta-button" target="_blank">View Enquiry</a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Best regards, <br> Your Company Name</p>
+        <div class="social-links">
+            <img src="/icons-social.webp" alt="socials" height="50px" />
         </div>
+        <p>
+            © 2024 Automation Ecom Global, B-1/13, RAGHU NAGAR, PANKHA ROAD, Near JANAK CINEMA, New Delhi-110045 <br>
+            If you no longer wish to receive emails, you can <a href="#">unsubscribe here</a>.
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
       `,
     },
     [Notification.REQUEST_FOR_PRICE]: {
