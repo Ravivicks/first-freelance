@@ -136,10 +136,10 @@ export async function generateEmailBody(
 
     <!-- Content -->
     <div class="content">
-        <h1>Thank You for Your Inquiry!</h1>
+        <h1>Thank You for Your Enquiry!</h1>
         <p>Dear ${user?.fullName},</p>
         <p>
-            We have received your inquiry for the following products on our website. Our team is reviewing the details and will provide you with a quotation as soon as possible.
+            We have received your enquiry for the following products on our website. Our team is reviewing the details and will provide you with a quotation as soon as possible.
         </p>
         <p>
             If you have any questions or require more information, feel free to contact us at info@automationecom.store or +91-9990010960.
