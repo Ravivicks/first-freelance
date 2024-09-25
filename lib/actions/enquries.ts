@@ -34,7 +34,7 @@ export async function createNewCommonEnquiry(enquiry: CommonEnquireProps) {
     if (result) {
       const emailContent = await generateEmailBody(
         "ENQUIRY",
-        undefined,
+        enquiry.fullName,
         enquiry
       );
       await sendEmail(emailContent, [enquiry.email]);
