@@ -36,6 +36,8 @@ const navItems = [
 
 const FeaturedCategory = () => {
   const { data, isLoading } = useGetBanners("Featured-category");
+  console.log(data);
+
   const t = useTranslations("featuredCategory");
   return (
     <Card className="mb-16">
@@ -76,7 +78,7 @@ const FeaturedCategory = () => {
                       ? "/featured/partner/siemens.png"
                       : item.company === "DEIF"
                       ? "/featured/partner/deif.png"
-                      : item.company === "Pro-face"
+                      : item.company === "Pro-Face"
                       ? "/featured/partner/proface.png"
                       : "/featured/partner/siemens.png"
                   }
