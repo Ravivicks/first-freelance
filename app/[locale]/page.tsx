@@ -34,6 +34,10 @@ export default async function Index() {
           name="description"
           content="Explore our range of automation products and services."
         />
+        <meta
+          name="google-site-verification"
+          content="m6c1eq57bs_6QPgCise34y22HIbz22L0ZWRMTDHkSjc"
+        />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://www.automationecom.store" />
       </Head>
