@@ -35,7 +35,7 @@ export default async function Index() {
     <>
       <Head>
         <title>
-          Automation Ecom Global - Your One Stop Shop for Automation Solutions
+          Automation Ecom Global - Your One Stop Shop for Automation Solution
         </title>
         <meta
           name="description"
