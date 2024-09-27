@@ -34,6 +34,7 @@ export default async function Index() {
           name="description"
           content="Explore our range of automation products and services."
         />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://www.automationecom.store" />
       </Head>
 
