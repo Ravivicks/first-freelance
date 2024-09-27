@@ -1,7 +1,2066 @@
 {
-    "PhotoViewer": {
-      "title": "Street photography",
-      "description": "La fotografía callejera capta momentos de la vida real e interacciones humanas en lugares públicos. Es una forma de contar historias visuales y congelar momentos fugaces del tiempo, convirtiendo lo ordinario en extraordinario."
-     
+  "page1": {
+    "warranty": "12 mesi di garanzia",
+    "quickQuote": "Preventivo veloce",
+    "customerSupport": "Assistenza clienti",
+    "email": "sales@prosafeautomation.com",
+    "phone": "Telefono"
+  },
+  "page2": {
+    "navItems": [
+      {
+        "title": "PLC Siemens",
+        "image": "/product-category/webp/1.webp",
+        "url": "/"
+      },
+      {
+        "title": "Unità Siemens",
+        "image": "/product-category//webp/2.webp",
+        "url": "/"
+      },
+      {
+        "title": "Siemens HMI",
+        "image": "/product-category/webp/3.webp",
+        "url": "/"
+      },
+      {
+        "title": "Alimentatore Siemens",
+        "image": "/product-category/webp/4.webp",
+        "url": "/"
+      },
+      {
+        "title": "Controller generazione diesel",
+        "image": "/product-category/webp/5.webp",
+        "url": "/"
+      },
+      {
+        "title": "Schneider Pro-Face Telemecanique",
+        "image": "/product-category/webp/6.webp",
+        "url": "/"
+      },
+      {
+        "title": "Certificazione e test prestazionali",
+        "image": "/product-category/webp/7.webp",
+        "url": "/"
+      },
+      {
+        "title": "Siemens fuori produzione: prodotti obsoleti e altro ancora",
+        "image": "/product-category/webp/8.webp",
+        "url": "/"
+      },
+      {
+        "title": "Altri prodotti di automazione",
+        "image": "/product-category/webp/9.webp",
+        "url": "/"
+      }
+    ]
+  },
+  "bestDeal": {
+    "title": "Prodotti più venduti",
+    "viewAllButtonText": "Visualizza tutto",
+    "viewAllButtonIcon": "ChevronDestra",
+    "mobileButtonIcon": "ChevronDestra",
+    "buttonLabels": {
+      "addToCart": "Aggiungi al carrello ",
+      "goToCart": "Vai al carrello",
+      "requestQuotation": "Richiedi preventivo",
+      "requestForPrice": "Richiesta di prezzo",
+      "productDetails": "Dettagli del prodotto"
     }
+  },
+  "productCarousel": {
+    "loadingText": "Caricamento...",
+    "badgeText": "La scelta migliore",
+    "cardAltText": "Immagine di {titolo}"
+  },
+  "featuredCategory": {
+    "title": "Categoria in primo piano",
+    "defaultCompanyImage": "/featured/partner/siemens.png",
+    "companyImages": {
+      "Siemens": "/featured/partner/siemens.png",
+      "DEIF": "/featured/partner/deif.png",
+      "Pro-face": "/featured/partner/proface.png"
+    }
+  },
+  "singleProductDetails": {
+    "charLimit": 250,
+    "errorMessages": {
+      "minQuantity": "La quantità minima dell'ordine è {minQuantity}"
+    },
+    "availabilityText": "Disponibile",
+    "getItByText": "Ricevilo entro venerdì 9 agosto.",
+    "descriptionTitle": "Descrizione del prodotto",
+    "buttonLabels": {
+      "addToCart": "Aggiungi al carrello",
+      "goToCart": "Vai al carrello",
+      "buyNow": "Acquista ora",
+      "requestQuotation": "Richiedi preventivo",
+      "requestForPrice": "Richiesta di prezzo"
+    }
+  },
+  "featuredPartner": {
+    "title": "Partner in primo piano"
+  },
+  "industryAutomation": {
+    "title": "Automazione industriale"
+  },
+  "featuredProduct": {
+    "title": "Prodotto in evidenza",
+    "buttonLabels": {
+      "addToCart": "Aggiungi al carrello",
+      "goToCart": "Aggiungi al carrello",
+      "requestQuotation": "Richiedi preventivo",
+      "requestForPrice": "Richiesta di prezzo",
+      "productDetails": "Dettagli del prodotto"
+    }
+  },
+  "search": {
+    "placeHolder": "Cerca prodotti...(Ad esempio: 6ES7288-1ST30-0AA0)"
+  },
+  "menuBar": {
+    "firstMenuTitle": "Best seller",
+    "secondMenuTitle": "Acquista per categoria",
+    "thirdMenuTitle": "Acquista per marca",
+    "fourthMenuTitle": "Informazioni sull'azienda",
+    "fifthMenuTitle": "Preventivo di servizio",
+    "sixthMenuTitle": "Preventivo dell'intero progetto",
+    "seventhMenuTitle": "Perché centinaia di clienti si fidano di noi",
+    "aboutSubmenu": [
+      {
+        "title": "Chi siamo",
+        "url": "/about-us"
+      },
+      {
+        "title": "Contattaci",
+        "url": "/contact-us"
+      },
+      {
+        "title": "Termini e condizioni",
+        "url": "/termandcondition"
+      },
+      {
+        "title": "politica sulla riservatezza",
+        "url": "/privacy-policy"
+      },
+      {
+        "title": "Politiche di cancellazione/rimborso",
+        "url": "/cancellationandrefund"
+      }
+    ]
+  },
+  "footer": {
+    "newsletter": {
+      "title": "Notiziario",
+      "placeholder": "Inserisci la tua email",
+      "subscribeButton": "Iscriviti",
+      "successMessage": "Grazie per esserti iscritto!"
+    },
+    "company": {
+      "title": "Azienda",
+      "links": [
+        {
+          "text": "Chi siamo",
+          "url": "/who-we-are"
+        },
+        {
+          "text": "I nostri impegni",
+          "url": "/our-commitments"
+        },
+        {
+          "text": "Ciò che rappresentiamo",
+          "url": "/what-we-stand-for"
+        },
+        {
+          "text": "Marchi partner",
+          "url": "/partner-brands"
+        },
+        {
+          "text": "Carriere e opportunità",
+          "url": "/career-and-opportunities"
+        }
+      ]
+    },
+    "customerCare": {
+      "title": "Assistenza clienti",
+      "navItems": [
+        {
+          "text": "Aiuto e supporto",
+          "url": "/help-and-support"
+        },
+        {
+          "text": "Stato dell'ordine",
+          "url": "/order-status"
+        },
+        {
+          "text": "Informazioni sulla consegna",
+          "url": "/delivery-info"
+        },
+        {
+          "text": "Resi e cambi",
+          "url": "/return-and-exchange"
+        },
+        {
+          "text": "Assistenza per l'installazione",
+          "url": "/installation-assistance"
+        }
+      ]
+    },
+    "trust": {
+      "title": "Fiducia",
+      "links": [
+        {
+          "text": "Garanzia del prodotto",
+          "url": "/product-guarantee"
+        },
+        {
+          "text": "Pagamenti sicuri e protetti",
+          "url": "/safe-and-secure-payments"
+        },
+        {
+          "text": "Opzioni di pagamento",
+          "url": "/payment-options"
+        },
+        {
+          "text": "Politiche di protezione dei dati",
+          "url": "/data-protection-policies"
+        },
+        {
+          "text": "Contratti utente",
+          "url": "/user-agreements"
+        },
+        {
+          "text": "Impostazioni sulla privacy e sui cookie",
+          "url": "/privacy-and-cookie-settings"
+        }
+      ]
+    },
+    "paymentMethod": {
+      "title": "Metodo di pagamento",
+      "methods": [
+        "Trasferimento online/bonifico bancario",
+        "RTGS/NEFT"
+      ],
+      "image": "/payment.jpg",
+      "alt": "Metodi di pagamento"
+    },
+    "shippingMethod": {
+      "title": "Metodo di spedizione",
+      "providers": [
+        {
+          "name": "UPS",
+          "logo": "/Versand_UPS.png"
+        },
+        {
+          "name": "DHL",
+          "logo": "/Versand_DHL.png"
+        }
+      ]
+    },
+    "bottomText": "2024 AUTOMAZIONE ECOM GLOBALE. Tutti i diritti riservati. Automation eCom Global non è un distributore o rappresentante autorizzato dei produttori presenti su questo sito web. SIEMENS, SIMATIC®, SITOP®, SIMADYN®, SINUMERIC®, SIMOVERT® e altri sono marchi registrati di Siemens Aktiengesellschaft, Berlino e Monaco. Tutti i marchi appartengono alle rispettive aziende. Soggetto a errori. Avviso di responsabilità: Nonostante un attento controllo del contenuto, non ci assumiamo alcuna responsabilità per il contenuto dei link esterni. I gestori delle pagine collegate sono gli unici responsabili del loro contenuto."
+  },
+  "productCard": {
+    "buttonLabels": {
+      "addToCart": "Aggiungi al carrello",
+      "goToCart": "Vai al carrello",
+      "requestQuotation": "Richiedi preventivo",
+      "requestForPrice": "Richiesta di prezzo",
+      "buyNow": "Acquista ora"
+    }
+  },
+  "productDetails": {
+    "backToResult": "Torniamo al risultato",
+    "similarProducts": "Prodotti simili",
+    "feedbackSeeAll": "Feedback | ",
+    "mostlyVisitedProducts": "Prodotti più visitati",
+    "productDetails": "Dettagli del prodotto",
+    "reviews": "Recensioni",
+    "discussion": "Discussione"
+  },
+  "cart": {
+    "yourCart": "Il tuo carrello",
+    "subtotal": "Totale parziale",
+    "checkout": "Guardare",
+    "requestForQuotation": "Richiesta di preventivo",
+    "item": "Articoli nel tuo carrello!",
+    "youHave": "Hai"
+  },
+  "enquiry": {
+    "fullNameLabel": "Nome e cognome",
+    "fullNamePlaceholder": "Per favore inserisci il tuo nome completo",
+    "emailLabel": "E-mail",
+    "emailPlaceholder": "Per favore inserisci la tua email",
+    "mobileLabel": "Mobile",
+    "quantityLabel": "Quantità",
+    "quantityPlaceholder": "Si prega di fornire la quantità",
+    "enquiryDescriptionLabel": "Descrizione della richiesta",
+    "enquiryDescriptionPlaceholder": "Inserisci la descrizione dettagliata della tua richiesta",
+    "submitButton": "Invia la tua richiesta",
+    "submittingButton": "Invio...",
+    "quickQuoteTitle": "Modulo per un preventivo rapido",
+    "confirmDetailsTitle": "Per favore conferma i tuoi dettagli"
+  },
+  "support": {
+    "titleLabel": "Titolo della richiesta",
+    "titlePlaceholder": "Inserisci il titolo della tua richiesta",
+    "emailLabel": "E-mail",
+    "emailPlaceholder": "Per favore inserisci la tua email",
+    "enquiryDescriptionLabel": "Descrizione della richiesta",
+    "enquiryDescriptionPlaceholder": "Inserisci la descrizione dettagliata della tua richiesta",
+    "submitButton": "Invia la tua richiesta",
+    "submittingButton": "Invio...",
+    "enterDetailsTitle": "Inserisci i tuoi dati"
+  },
+  "emptyCart": {
+    "title": "Il tuo carrello è vuoto",
+    "description": "Sembra che tu non abbia ancora aggiunto nulla al carrello.",
+    "action": "Continua a fare acquisti"
+  },
+  "about": {
+    "banner": {
+      "imageAlt": "banner-about",
+      "imageSrc": "/images/about.jpg"
+    },
+    "section1": {
+      "heading": "Potenziare l'automazione industriale",
+      "description": "Automazione eCom Global è un fornitore leader di soluzioni di automazione industriale all'avanguardia. ",
+      "subSection": {
+        "title": "Chi siamo",
+        "description": "Fondata nel 1985, Automation eCom Global è stata in prima linea nel settore dell'automazione industriale, fornendo soluzioni all'avanguardia alle aziende di un'ampia gamma di settori. "
+      },
+      "links": {
+        "exploreProducts": {
+          "label": "Esplora i prodotti",
+          "href": "#"
+        },
+        "contactUs": {
+          "label": "Contattaci",
+          "href": "#"
+        }
+      }
+    },
+    "section2": {
+      "title": "La nostra competenza",
+      "heading": "Padroneggiare l'automazione industriale",
+      "description": "Con oltre 35 anni di esperienza nel settore dell'automazione industriale, Automation eCom Global ha sviluppato una profonda comprensione delle sfide e delle opportunità che i nostri clienti devono affrontare. ",
+      "cards": [
+        {
+          "title": "Controllori logici programmabili (PLC)",
+          "description": "Le nostre soluzioni PLC sono progettate per fornire un'automazione affidabile, scalabile e facile da usare per un'ampia gamma di applicazioni industriali."
+        },
+        {
+          "title": "Interfacce uomo-macchina (HMI)",
+          "description": "Le nostre soluzioni HMI offrono interfacce intuitive e facili da usare che consentono agli operatori di monitorare e controllare facilmente i processi industriali."
+        },
+        {
+          "title": "Sensori e strumentazione industriale",
+          "description": "La nostra gamma completa di sensori industriali e soluzioni di strumentazione fornisce dati accurati e affidabili per le vostre esigenze di automazione."
+        },
+        {
+          "title": "Sistemi di controllo del movimento",
+          "description": "Le nostre soluzioni di controllo del movimento consentono un controllo preciso ed efficiente dei macchinari industriali, garantendo prestazioni e produttività ottimali."
+        },
+        {
+          "title": "Reti e comunicazioni industriali",
+          "description": "Le nostre soluzioni di rete e comunicazione industriale facilitano lo scambio e l'integrazione dei dati senza soluzione di continuità nel vostro ecosistema di automazione."
+        },
+        {
+          "title": "Sistemi di sicurezza industriale",
+          "description": "I nostri sistemi di sicurezza industriale sono progettati per proteggere i vostri lavoratori, attrezzature e processi, garantendo un ambiente di lavoro sicuro e protetto."
+        }
+      ]
+    },
+    "section3": {
+      "heading": "Contatta il team di Automation Ecom",
+      "description": "Il nostro team di esperti è dedicato a fornire ai nostri clienti le migliori soluzioni e supporto possibili.",
+      "requestQuoteButton": "Richiedi preventivo",
+      "teamMembers": [
+        {
+          "name": "John Do",
+          "role": "Amministratore delegato",
+          "imageSrc": "/segnaposto-utente.jpg"
+        },
+        {
+          "name": "Jane Lee",
+          "role": "CTO",
+          "imageSrc": "/segnaposto-utente.jpg"
+        },
+        {
+          "name": "Sara Miller",
+          "role": "Responsabile delle vendite",
+          "imageSrc": "/segnaposto-utente.jpg"
+        },
+        {
+          "name": "David Wang",
+          "role": "Ingegnere Capo",
+          "imageSrc": "/segnaposto-utente.jpg"
+        }
+      ]
+    },
+    "section4": {
+      "heading": "Esplora il nostro catalogo prodotti",
+      "description": "Automazione eCom Global offre un'ampia gamma di prodotti di automazione industriale all'avanguardia per soddisfare le diverse esigenze dei nostri clienti.",
+      "links": {
+        "viewProducts": {
+          "label": "Visualizza i prodotti",
+          "href": "#"
+        },
+        "contactUs": {
+          "label": "Contattaci",
+          "href": "#"
+        }
+      }
+    }
+  },
+  "cancellationAndRefund": {
+    "heading": "Politica di cancellazione e rimborso",
+    "introduction": "AUTOMAZIONE ECOM GLOBAL crede nell'aiutare i propri clienti il ​​più possibile e per questo adotta una politica di cancellazione liberale. ",
+    "section1": {
+      "title": "Cancellazioni e rimborsi",
+      "items": [
+        {
+          "strong": "Tempi:",
+          "text": "Le cancellazioni verranno prese in considerazione solo se la richiesta verrà effettuata entro lo stesso giorno dell'ordine. "
+        }
+      ]
+    },
+    "section2": {
+      "title": "Come richiedere una cancellazione o un rimborso",
+      "items": [
+        {
+          "strong": "Processo:",
+          "text": "In caso di ricezione di articoli danneggiati o difettosi, segnalalo al nostro Servizio Clienti. "
+        },
+        {
+          "strong": "Tempo di risposta:",
+          "text": "In caso di rimborsi approvati da AUTOMATION ECOM GLOBAL, saranno necessari 1-2 giorni affinché il rimborso venga elaborato al cliente finale."
+        }
+      ]
+    },
+    "section3": {
+      "title": "Assistenza clienti",
+      "paragraph": "Se hai domande o dubbi sulla nostra politica di cancellazione e rimborso, non esitare a contattare il nostro team di assistenza clienti. ",
+      "contactLinks": [
+        {
+          "href": "#",
+          "text": "Supporto via e-mail",
+          "icon": "MailOpenIcon"
+        },
+        {
+          "href": "#",
+          "text": "Chiama l'assistenza",
+          "icon": "PhoneIcon"
+        }
+      ]
+    }
+  },
+  "careersAndOpportunities": {
+    "heading": "Carriere e opportunità",
+    "intro": "Unisciti a Automation eCom Global ed entra a far parte di un team che guida l'innovazione nell'automazione industriale in tutto il mondo.",
+    "whyJoinUs": {
+      "title": "Perché unirsi a noi?",
+      "careerAspects": [
+        {
+          "id": "leader globale",
+          "title": "Entra a far parte di un leader globale",
+          "content": "Lavora con tecnologie all'avanguardia e marchi globali come Siemens, Schneider, DEIF e ComAp. ",
+          "icon": "Globe"
+        },
+        {
+          "id": "crescita",
+          "title": "Cresci con noi",
+          "content": "Accedi a una gamma di programmi di formazione, opportunità di tutoraggio ed esperienze di apprendimento sul posto di lavoro. ",
+          "icon": "TrendingUp"
+        },
+        {
+          "id": "ambiente di lavoro",
+          "title": "Ambiente di lavoro dinamico",
+          "content": "Unisciti a un ambiente di lavoro diversificato e inclusivo dove l'innovazione prospera e ogni voce viene ascoltata. ",
+          "icon": "Users"
+        },
+        {
+          "id": "ruoli",
+          "title": "Ruoli entusiasmanti",
+          "content": "Esplora opportunità in ingegneria, vendite, assistenza clienti, gestione del prodotto e catena di fornitura. ",
+          "icon": "Briefcase"
+        },
+        {
+          "id": "equilibrio tra lavoro e vita privata",
+          "title": "Equilibrio tra lavoro e vita privata",
+          "content": "Goditi accordi di lavoro flessibili, ferie retribuite e benefici sanitari. ",
+          "icon": "HeartHandshake"
+        },
+        {
+          "id": "sostenibilità",
+          "title": "Contribuire a un futuro sostenibile",
+          "content": "Partecipa a progetti che riducono il consumo energetico, ottimizzano l'uso delle risorse e riducono al minimo l'impatto ambientale. ",
+          "icon": "Leaf"
+        }
+      ]
+    },
+    "excitingRoles": {
+      "title": "Ruoli entusiasmanti in più funzioni",
+      "roles": [
+        "Ingegneria",
+        "Vendite e sviluppo aziendale",
+        "Assistenza clienti",
+        "Assistenza Tecnica",
+        "Gestione del prodotto",
+        "Marketing",
+        "Catena di fornitura",
+        "Operazioni"
+      ],
+      "description": "Che la tua passione risieda nell'innovazione tecnica, nella strategia di vendita o nel servizio clienti, offriamo ruoli che corrispondono alle tue capacità e aspirazioni."
+    },
+    "joinUs": {
+      "title": "Unisciti a noi nel nostro viaggio",
+      "content": "Noi di Automation eCom Global non ci occupiamo solo di soluzioni di automazione degli edifici; ",
+      "benefits": [
+        {
+          "icon": "Rocket",
+          "text": "Lavora con una tecnologia all'avanguardia"
+        },
+        {
+          "icon": "Globe2",
+          "text": "Contribuisci a progetti leader del settore"
+        },
+        {
+          "icon": "Users",
+          "text": "Cresci insieme a menti brillanti nell'automazione"
+        },
+        {
+          "icon": "Leaf",
+          "text": "Avere un impatto positivo sull'ambiente"
+        }
+      ],
+      "callToAction": {
+        "title": "Pronto per iniziare il tuo viaggio?",
+        "description": "Esplora le nostre attuali opportunità e fai il primo passo verso un'entusiasmante carriera nell'automazione industriale.",
+        "buttonText": "Visualizza le posizioni aperte",
+        "buttonVariant": "distruttivo",
+        "buttonSize": "lg"
+      }
+    }
+  },
+  "contact": {
+    "header": {
+      "title": "Mettiti in contatto",
+      "description": "Hai una domanda o hai bisogno di aiuto? "
+    },
+    "form": {
+      "title": "Contattaci",
+      "fields": {
+        "name": {
+          "label": "Nome",
+          "placeholder": "John Do"
+        },
+        "email": {
+          "label": "E-mail",
+          "placeholder": "esempio@acme.com"
+        },
+        "phone": {
+          "label": "Telefono",
+          "placeholder": "(123) 456-7890"
+        },
+        "message": {
+          "label": "Messaggio",
+          "placeholder": "Come possiamo aiutarti?"
+        }
+      },
+      "submitButton": "Invia messaggio"
+    },
+    "contactInformation": {
+      "title": "Informazioni sui contatti",
+      "company": "Il nome della tua azienda",
+      "address": "123 Main St, Città, Paese",
+      "phone": "1-800-123-4567",
+      "workingHours": "Lun-ven, 9:00-17:00",
+      "email": "contatto@azienda.com",
+      "emailNote": "Ti risponderemo il prima possibile."
+    }
+  },
+  "dataProtectionPolicies": {
+    "header": {
+      "title": "Protezione e politica dei dati",
+      "description": "In Automation eCom Global, diamo priorità alla sicurezza e alla privacy dei dati personali e aziendali dei nostri clienti. "
+    },
+    "policyPoints": [
+      {
+        "icon": "Lock",
+        "title": "Impegno per la privacy e la sicurezza dei dati",
+        "tab": "privacy",
+        "content": "Prendiamo sul serio la tua privacy e ci impegniamo a proteggere le tue informazioni personali e aziendali da accesso, utilizzo o divulgazione non autorizzati. ",
+        "list": [
+          "Crittografia: tutte le informazioni sensibili, inclusi i dettagli di pagamento e i dati personali, vengono crittografate utilizzando la tecnologia SSL (Secure Socket Layer), garantendo che i tuoi dati siano protetti durante la trasmissione.",
+          "Controlli di accesso: implementiamo severi controlli di accesso per garantire che solo il personale autorizzato abbia accesso ai tuoi dati.",
+          "Verifiche regolari: i nostri sistemi vengono regolarmente controllati e monitorati per individuare eventuali vulnerabilità della sicurezza e aggiorniamo continuamente i nostri processi per allinearli ai più recenti standard di protezione dei dati."
+        ]
+      },
+      {
+        "icon": "Globe",
+        "title": "Conformità al GDPR e alle leggi globali sulla privacy",
+        "tab": "conformità",
+        "content": "In quanto azienda globale al servizio di clienti in regioni come Europa, Stati Uniti, India, Cina, Dubai e Germania, Automation eCom Global aderisce a varie leggi internazionali sulla privacy, incluso il GDPR per i nostri clienti europei. ",
+        "list": [
+          "Trasparenza nella raccolta dei dati: ti informiamo chiaramente su quali dati raccogliamo, perché li raccogliamo e come li utilizziamo.",
+          "Diritto di accesso: hai il diritto di richiedere l'accesso ai dati personali che conserviamo su di te e ti forniremo una copia delle informazioni in modo tempestivo.",
+          "Diritto alla rettifica: se ritieni che uno qualsiasi dei dati che conserviamo su di te sia inaccurato, hai il diritto di richiederci di correggerlo.",
+          "Diritto alla cancellazione: puoi richiedere la cancellazione dei tuoi dati personali dai nostri sistemi se non sono più necessari per lo scopo per il quale sono stati raccolti o se revochi il tuo consenso."
+        ]
+      },
+      {
+        "icon": "Database",
+        "title": "Come raccogliamo e utilizziamo i dati",
+        "tab": "utilizzo dei dati",
+        "content": "Presso Automation eCom Global, raccogliamo e utilizziamo i dati per scopi aziendali specifici e legittimi. ",
+        "list": [
+          "Informazioni personali: quando crei un account, effettui un acquisto o ci contatti, raccogliamo informazioni personali come nome, indirizzo email, indirizzo di spedizione e dettagli di pagamento. ",
+          "Dati di utilizzo del sito web: raccogliamo dati non personali come indirizzo IP, tipo di browser e modelli di utilizzo del sito web per aiutarci a migliorare le prestazioni della nostra piattaforma e fornire una migliore esperienza utente. ",
+          "Cookie: Utilizziamo i cookie per migliorare la tua esperienza di navigazione ricordando le tue preferenze e i dettagli di accesso. "
+        ]
+      },
+      {
+        "icon": "UserCheck",
+        "title": "I tuoi diritti e le tue scelte",
+        "tab": "i tuoi diritti",
+        "content": "Noi di Automation eCom Global crediamo nel dare ai nostri clienti la possibilità di assumere il controllo dei propri dati personali. ",
+        "list": [
+          "Accesso ai tuoi dati: puoi richiedere una copia delle informazioni personali che conserviamo su di te in qualsiasi momento.",
+          "Correzione dei tuoi dati: se una qualsiasi delle tue informazioni personali è errata o incompleta, puoi richiederci di aggiornarla.",
+          "Cancellazione dei tuoi dati: puoi richiedere la cancellazione dei tuoi dati personali e noi rispetteremo finché non vi sarà alcun obbligo legale di conservarli.",
+          "Rinuncia alle comunicazioni: puoi disattivare le e-mail di marketing o altre comunicazioni in qualsiasi momento modificando le tue preferenze nelle impostazioni del tuo account o utilizzando il collegamento \"annulla iscrizione\" nelle nostre e-mail."
+        ]
+      }
+    ],
+    "chooseUsPoints": [
+      "Conformità alle leggi globali sulla privacy: aderiamo al GDPR e ad altri standard internazionali sulla protezione dei dati per garantire che i tuoi dati siano sempre gestiti in modo sicuro.",
+      "Utilizzo trasparente dei dati: forniamo informazioni chiare su come i tuoi dati vengono raccolti, utilizzati e archiviati, dandoti il ​​pieno controllo sulle tue informazioni personali.",
+      "Misure di sicurezza avanzate: i tuoi dati sono protetti con crittografia SSL, server sicuri e severi controlli di accesso.",
+      "Rispetto per la tua privacy: non vendiamo né condividiamo mai i tuoi dati senza il tuo consenso e collaboriamo con terze parti fidate per fornire servizi essenziali.",
+      "Diritti e controllo dell'utente: puoi accedere, correggere o eliminare i tuoi dati in qualsiasi momento e gestire facilmente le tue preferenze di comunicazione."
+    ],
+    "whyChooseUs": {
+      "title": "Perché scegliere Automation eCom Global per la protezione dei dati?",
+      "callToAction": "Contattaci per ulteriori informazioni"
+    }
+  },
+  "deliveryInfo": {
+    "aboutDeliveryServices": "Noi di Automation eCom Global riconosciamo che una consegna tempestiva e affidabile è fondamentale per le vostre operazioni aziendali. ",
+    "featuresTitle": "Caratteristiche di consegna",
+    "features": [
+      {
+        "id": "1",
+        "title": "Rete di consegna globale",
+        "description": "In qualità di leader globale nell'automazione industriale, Automation eCom Global fornisce servizi di consegna affidabili in un'ampia gamma di mercati internazionali, tra cui Dubai, Stati Uniti, Cina, India, Germania e altri. ",
+        "icon": "Globe"
+      },
+      {
+        "id": "2",
+        "title": "Opzioni di consegna",
+        "description": "Noi di Automation eCom Global offriamo una varietà di opzioni di spedizione per soddisfare le diverse esigenze dei nostri clienti. ",
+        "icon": "Truck"
+      },
+      {
+        "id": "3",
+        "title": "Tempi di consegna rapidi e affidabili",
+        "description": "Comprendiamo che il tempo è essenziale quando si parla di automazione industriale. ",
+        "icon": "Clock"
+      },
+      {
+        "id": "4",
+        "title": "Imballaggio e movimentazione sicuri",
+        "description": "Noi di Automation eCom Global prestiamo molta attenzione nel garantire che i vostri prodotti di automazione siano imballati e trasportati in modo sicuro. ",
+        "icon": "Package"
+      },
+      {
+        "id": "5",
+        "title": "Monitoraggio e notifiche della spedizione",
+        "description": "Dal momento in cui il tuo ordine viene spedito, avrai piena visibilità e controllo sulla spedizione. ",
+        "icon": "Bell"
+      },
+      {
+        "id": "6",
+        "title": "Supporto doganale e spedizioni internazionali",
+        "description": "In qualità di fornitore globale, Automation eCom Global comprende le complessità delle spedizioni internazionali, in particolare quando si tratta di normative doganali. ",
+        "icon": "FileText"
+      },
+      {
+        "id": "7",
+        "title": "Consegna in località remote",
+        "description": "Noi di Automation eCom Global comprendiamo che le operazioni industriali sono spesso situate in aree remote o difficili da raggiungere. ",
+        "icon": "MapPin"
+      },
+      {
+        "id": "8",
+        "title": "Resi e cambi facili",
+        "description": "Sebbene ci sforziamo di garantire che ogni ordine venga evaso perfettamente, comprendiamo che occasionalmente potrebbero essere necessari resi o cambi. ",
+        "icon": "RefreshCw"
+      }
+    ],
+    "whyChooseUs": [
+      {
+        "title": "Portata globale",
+        "description": "Consegniamo a clienti in tutto il mondo, con opzioni di spedizione veloci e affidabili."
+      },
+      {
+        "title": "Metodi di consegna flessibili",
+        "description": "Scegli tra la spedizione standard, espressa o cargo per soddisfare le tue esigenze."
+      },
+      {
+        "title": "Imballaggio sicuro",
+        "description": "Garantiamo che i tuoi prodotti siano imballati in modo sicuro e protetti durante il trasporto."
+      },
+      {
+        "title": "Monitoraggio in tempo reale",
+        "description": "Rimani informato con aggiornamenti e notifiche sulle spedizioni in tempo reale."
+      },
+      {
+        "title": "Supporto doganale",
+        "description": "Gestiamo tutte le normative e le pratiche burocratiche di spedizione internazionali per un'esperienza di consegna fluida."
+      },
+      {
+        "title": "Consegna affidabile in località remote",
+        "description": "Ci rivolgiamo anche ai siti industriali più remoti con servizi di consegna specializzati."
+      }
+    ],
+    "title": "Informazioni sui nostri servizi di consegna",
+    "whyChooseTitle": "Perché scegliere Automation eCom Global per le tue esigenze di consegna?"
+  },
+  "helpAndSupport": {
+    "title": "Aiuto e supporto",
+    "subtitle": "Assistenza completa per garantire il vostro successo con le nostre soluzioni di automazione industriale.",
+    "supportServicesTitle": "I nostri servizi di supporto",
+    "services": [
+      {
+        "id": "assistenza tecnica",
+        "icon": "Wrench",
+        "title": "Assistenza Tecnica",
+        "shortDesc": "Guida esperta su installazione, configurazione e risoluzione dei problemi",
+        "content": "Il nostro team di professionisti esperti fornisce una guida esperta sull'installazione, la configurazione e la risoluzione dei problemi per tutti i nostri prodotti di automazione. "
+      },
+      {
+        "id": "prevendite",
+        "icon": "PhoneCall",
+        "title": "Consultazione pre-vendita",
+        "shortDesc": "Consigli personalizzati per le tue esigenze di automazione",
+        "content": "Ottieni consigli e approfondimenti personalizzati per aiutarti a scegliere le soluzioni di automazione giuste per le tue esigenze specifiche. "
+      },
+      {
+        "id": "supporto globale",
+        "icon": "Globe",
+        "title": "Supporto globale 24 ore su 24, 7 giorni su 7",
+        "shortDesc": "Assistenza 24 ore su 24 in tutto il mondo",
+        "content": "Accedi all'assistenza 24 ore su 24 dai nostri team di supporto strategicamente posizionati, indipendentemente da dove ti trovi nel mondo. "
+      },
+      {
+        "id": "formazione sull'installazione",
+        "icon": "Settings",
+        "title": "Installazione e formazione",
+        "shortDesc": "Supporto completo per la configurazione e sviluppo delle competenze",
+        "content": "Ricevi supporto completo per l'installazione e programmi di formazione su misura per conferire al tuo team le competenze necessarie. "
+      },
+      {
+        "id": "documentazione",
+        "icon": "FileText",
+        "title": "Documentazione del prodotto",
+        "shortDesc": "Ampia libreria di guide e risorse",
+        "content": "Accedi alla nostra vasta libreria di manuali utente, guide tecniche e risorse aggiornate per tutti i nostri prodotti. "
+      },
+      {
+        "id": "pacchetti di supporto",
+        "icon": "Package",
+        "title": "Pacchetti di supporto su misura",
+        "shortDesc": "Piani flessibili per soddisfare le tue esigenze specifiche",
+        "content": "Scegli tra piani di supporto flessibili progettati per soddisfare le tue esigenze e priorità operative specifiche. "
+      },
+      {
+        "id": "post-vendita",
+        "icon": "ShieldCheck",
+        "title": "Post-vendita e garanzia",
+        "shortDesc": "Assistenza continua e garanzie sul prodotto",
+        "content": "Approfitta del supporto post-vendita completo e dei servizi di garanzia per garantire prestazioni del sistema a lungo termine. "
+      },
+      {
+        "id": "feedback",
+        "icon": "MessageSquare",
+        "title": "Feedback dei clienti",
+        "shortDesc": "Miglioramento continuo in base ai tuoi input",
+        "content": "Apprezziamo il tuo contributo e miglioriamo continuamente i nostri servizi in base al feedback dei clienti e alle valutazioni di soddisfazione. "
+      }
+    ],
+    "whyChooseTitle": "Perché scegliere il nostro supporto?",
+    "whyChooseItems": [
+      "Disponibilità 24 ore su 24, 7 giorni su 7",
+      "Assistenza tecnica esperta",
+      "Documentazione completa",
+      "Pacchetti di supporto su misura",
+      "Approccio incentrato sul cliente"
+    ],
+    "faqTitle": "Domande frequenti",
+    "faqs": [
+      {
+        "question": "Che tipi di supporto tecnico offrite?",
+        "answer": "Offriamo un supporto tecnico completo che include assistenza per l'installazione, aiuto per la configurazione, risoluzione dei problemi, supporto software e ottimizzazione del sistema per tutti i nostri prodotti di automazione di marchi come Siemens, DEIF, Schneider e ComAp."
+      },
+      {
+        "question": "Come posso accedere al supporto 24 ore su 24, 7 giorni su 7?",
+        "answer": "Il nostro supporto globale 24 ore su 24, 7 giorni su 7 è disponibile tramite telefono, e-mail e il nostro portale di supporto online. "
+      },
+      {
+        "question": "Offrite supporto in loco?",
+        "answer": "Sì, offriamo supporto in loco come parte dei nostri pacchetti di supporto su misura. "
+      },
+      {
+        "question": "Cosa copre la garanzia?",
+        "answer": "La nostra garanzia copre i difetti di fabbricazione e i malfunzionamenti in condizioni di utilizzo normale per un periodo specificato. "
+      },
+      {
+        "question": "Come posso programmare una sessione di allenamento per la mia squadra?",
+        "answer": "Puoi programmare una sessione di formazione contattando il nostro team di assistenza clienti. "
+      }
+    ],
+    "assistanceTitle": "Hai bisogno di assistenza?",
+    "assistanceDescription": "Il nostro team di supporto è pronto ad aiutarti per qualsiasi domanda o problema tu possa avere. ",
+    "contactSupportButton": "Contatta l'assistenza",
+    "viewKnowledgeBaseButton": "Visualizza la base di conoscenza"
+  },
+  "installationAssistance": {
+    "title": "Assistenza per l'installazione",
+    "intro": "Noi di Automation eCom Global comprendiamo che un'installazione corretta è fondamentale per le prestazioni e la longevità dei vostri sistemi di automazione industriale. ",
+    "tabs": {
+      "expert-guidance": {
+        "title": "1. Guida esperta da parte di tecnici certificati",
+        "content": "I nostri servizi di assistenza all'installazione sono guidati da un team di tecnici e ingegneri certificati con una vasta esperienza nei sistemi di automazione industriale. ",
+        "tab": "Guida esperta"
+      },
+      "support-options": {
+        "title": "2. Supporto per l'installazione in loco e remota",
+        "content": "Presso Automation eCom Global offriamo opzioni flessibili di supporto all'installazione per soddisfare le esigenze specifiche dei nostri clienti globali. ",
+        "tab": "Opzioni di supporto"
+      },
+      "resources": {
+        "title": "3. Manuali e risorse di installazione dettagliati",
+        "content": "Comprendiamo che disporre della documentazione corretta è la chiave per un'installazione di successo. ",
+        "tab": "Risorse"
+      },
+      "configuration": {
+        "title": "4. Assistenza per la configurazione e il test",
+        "content": "L'installazione è solo il primo passo: una configurazione e un test corretti sono essenziali per garantire che i sistemi funzionino correttamente e soddisfino le esigenze operative. ",
+        "tab": "Configurazione"
+      }
+    },
+    "subTitle": "Supporto esperto per l'installazione dei tuoi sistemi di automazione",
+    "additionalServices": {
+      "title": "Servizi aggiuntivi",
+      "items": [
+        "5. Supporto per la personalizzazione e l'integrazione: molti sistemi di automazione industriale richiedono configurazioni personalizzate o integrazione con apparecchiature esistenti. ",
+        "6. Formazione per il vostro team: Oltre all'assistenza per l'installazione, Automation eCom Global fornisce programmi di formazione per garantire che il vostro team sia completamente attrezzato per utilizzare e mantenere i vostri nuovi sistemi di automazione. ",
+        "7. Supporto continuo dopo l'installazione: il nostro impegno per il tuo successo non termina con l'installazione. "
+      ]
+    },
+    "whyChoose": {
+      "title": "Perché scegliere Automation eCom Global per l'assistenza all'installazione?",
+      "items": [
+        "Tecnici certificati: il nostro team di esperti garantisce che i vostri sistemi siano installati e configurati secondo i più alti standard del settore.",
+        "Supporto flessibile: offriamo assistenza per l'installazione sia in loco che remota per soddisfare le esigenze del vostro progetto.",
+        "Documentazione completa: i nostri manuali e risorse di installazione dettagliati ti guidano attraverso ogni fase del processo.",
+        "Supporto per la configurazione personalizzata: vi aiutiamo a personalizzare e integrare i vostri sistemi per un funzionamento senza interruzioni con le apparecchiature esistenti.",
+        "Formazione e supporto continui: forniamo programmi di formazione per dotare il vostro team delle competenze necessarie per il funzionamento e la manutenzione dei vostri sistemi.",
+        "Supporto post-installazione: offriamo assistenza tecnica continua per garantire prestazioni e affidabilità del sistema a lungo termine."
+      ]
+    }
+  },
+  "orderStatus": {
+    "aboutService": "Noi di Automation eCom Global comprendiamo che rimanere informati sullo stato di avanzamento del tuo ordine è fondamentale per mantenere le tue operazioni senza intoppi. ",
+    "features": {
+      "title": "Le nostre funzionalità sullo stato dell'ordine",
+      "tab": "Caratteristiche",
+      "realTimeTracking": {
+        "title": "1. Monitoraggio in tempo reale",
+        "description": "Dal momento in cui confermi il tuo acquisto con Automation eCom Global, il nostro sistema entra in azione per fornirti il ​​monitoraggio in tempo reale del tuo ordine. ",
+        "icon": "Package"
+      },
+      "automatedNotifications": {
+        "title": "2. Notifiche automatizzate",
+        "description": "Crediamo nel tenerti informato senza che tu debba compiere passaggi aggiuntivi. ",
+        "icon": "AlertCircle"
+      },
+      "accessViaPortal": {
+        "title": "3. Accesso tramite il Portale Account Cliente",
+        "description": "In qualità di stimato cliente di Automation eCom Global, hai accesso al nostro Portale Account Cliente, una piattaforma sicura e personalizzata dove puoi gestire e tenere traccia di tutti i tuoi ordini. ",
+        "icon": "ArrowRight"
+      },
+      "orderStatusSupport": {
+        "title": "4. Supporto sullo stato dell'ordine",
+        "description": "In caso di domande o dubbi sul tuo ordine, il nostro team di assistenza clienti dedicato è qui per aiutarti. ",
+        "icon": "MessageCircle"
+      },
+      "deliveryTimeframes": {
+        "title": "5. Tempi di consegna e portata globale",
+        "description": "Noi di Automation eCom Global siamo orgogliosi di fornire prodotti di automazione a clienti in tutto il mondo. ",
+        "icon": "Globe"
+      },
+      "multipleShippingMethods": {
+        "title": "6. Metodi di spedizione multipli",
+        "description": "Per soddisfare le esigenze specifiche della nostra clientela diversificata, Automation eCom Global offre una varietà di metodi di spedizione. ",
+        "icon": "Truck"
+      },
+      "seamlessCommunication": {
+        "title": "7. Comunicazione e aggiornamenti senza soluzione di continuità",
+        "description": "In caso di ritardi imprevisti o modifiche al programma di consegna del tuo ordine, Automation eCom Global si impegna a mantenere aperte le linee di comunicazione. ",
+        "icon": "Clock"
+      },
+      "historicalOrderData": {
+        "title": "8. Dati storici degli ordini e riordini",
+        "description": "Uno dei tanti vantaggi di tracciare i tuoi ordini attraverso il nostro sistema è la possibilità di accedere ai dati storici degli ordini in qualsiasi momento. ",
+        "icon": "HistoryIcon"
+      }
+    },
+    "whyChoose": {
+      "title": "Perché scegliere il monitoraggio degli ordini di Automation eCom Global?",
+      "tab": "Perché scegliere noi",
+      "items": [
+        "Monitoraggio in tempo reale: rimani aggiornato sullo stato di avanzamento del tuo ordine con un monitoraggio accurato e in tempo reale.",
+        "Notifiche automatizzate: ricevi avvisi via email o SMS per ogni fase importante del tuo ordine.",
+        "Portale clienti completo: gestisci i tuoi ordini, visualizza la cronologia e monitora le spedizioni da un'unica piattaforma.",
+        "Consegna globale: spediamo in tutto il mondo con tempi di consegna affidabili e rapidi.",
+        "Supporto personalizzato: il nostro team di assistenza clienti è sempre pronto ad assistere con il monitoraggio e gli aggiornamenti.",
+        "Metodi di spedizione flessibili: scegli l'opzione di consegna più adatta alle tue tempistiche e al tuo budget."
+      ]
+    },
+    "title": "Informazioni sul nostro servizio sullo stato degli ordini"
+  },
+  "ourCommitments": {
+    "sections": {
+      "introduction": {
+        "title": "I nostri impegni",
+        "paragraph": "In Automation eCom Global, i nostri impegni costituiscono la spina dorsale di tutto ciò che facciamo. "
+      },
+      "drivingSuccess": {
+        "title": "Guidare il successo attraverso l’impegno",
+        "paragraph": "La nostra costante attenzione alla fornitura dei più elevati standard di qualità, abbinati a prezzi competitivi e un servizio clienti di livello mondiale, è ciò che ci distingue nel mercato globale dell’automazione.",
+        "button": "Scopri le nostre soluzioni"
+      },
+      "commitments": {
+        "title": "I nostri impegni chiave",
+        "lists": [
+          {
+            "icon": "Award",
+            "title": "Qualità e Innovazione",
+            "description": "Offriamo prodotti della massima qualità di leader del settore come Siemens, Schneider, DEIF e ComAp, pur rimanendo all'avanguardia nelle tecnologie dell'Industria 4.0."
+          },
+          {
+            "icon": "DollarSign",
+            "title": "Efficacia in termini di costi",
+            "description": "Forniamo i migliori sconti di mercato su prodotti premium, offrendo precisione ingegneristica tedesca a prezzi competitivi."
+          },
+          {
+            "icon": "Users",
+            "title": "Soddisfazione del cliente",
+            "description": "Il nostro team dedicato fornisce un supporto completo, dalla consulenza pre-vendita all'assistenza post-vendita, garantendo soluzioni ottimali per ogni cliente."
+          },
+          {
+            "icon": "Globe",
+            "title": "Portata globale e supporto locale",
+            "description": "Con una forte presenza a Dubai, negli Stati Uniti, in Cina, India e Germania, offriamo consegna in tutto il mondo e supporto localizzato."
+          },
+          {
+            "icon": "Leaf",
+            "title": "Sostenibilità e responsabilità sociale",
+            "description": "Ci impegniamo a fornire soluzioni efficienti dal punto di vista energetico e a sostenere iniziative ambientali e sociali nelle nostre comunità."
+          }
+        ]
+      },
+      "detailedCommitments": {
+        "title": "Impegni dettagliati",
+        "lists": [
+          {
+            "title": "1. Impegno per la Qualità e l'Innovazione",
+            "paragraphs": [
+              "Siamo profondamente impegnati ad offrire prodotti della massima qualità, provenienti da alcuni dei nomi più rispettati del settore. ",
+              "Ampliamo costantemente la nostra offerta di prodotti per includere le più recenti tecnologie dell'Industria 4.0, comprese soluzioni basate sull'IoT, monitoraggio remoto, manutenzione predittiva e sistemi di automazione avanzati."
+            ]
+          },
+          {
+            "title": "2. Impegno per il rapporto costo-efficacia",
+            "paragraphs": [
+              "La nostra capacità di offrire i migliori sconti di mercato sui prodotti Siemens, come i PLC S7-1200, S7-1500 e S7-300, testimonia il nostro impegno a garantire prezzi accessibili senza compromettere la qualità.",
+              "Scegliendo Automation eCom Global, i clienti ottengono l'accesso alla precisione ingegneristica tedesca di Siemens a una frazione del prezzo di mercato, insieme alle soluzioni affidabili di DEIF e ComAp."
+            ]
+          },
+          {
+            "title": "3. Impegno per la soddisfazione del cliente",
+            "paragraphs": [
+              "Il nostro team di ingegneri esperti e specialisti di automazione lavora a stretto contatto con i clienti per comprendere le loro sfide specifiche e personalizzare le soluzioni che meglio soddisfano i loro obiettivi operativi.",
+              "Forniamo indicazioni su installazione, messa in servizio e manutenzione, garantendo che ogni soluzione che forniamo sia ottimizzata per un successo a lungo termine."
+            ]
+          },
+          {
+            "title": "4. Impegno per una portata globale e supporto locale",
+            "paragraphs": [
+              "La nostra portata internazionale ci consente di fornire una consegna rapida e affidabile di prodotti in tutto il mondo, garantendo che le aziende in varie aree geografiche possano beneficiare delle nostre soluzioni di automazione.",
+              "Offriamo supporto localizzato per garantire che i clienti ricevano l'assistenza di cui hanno bisogno nei loro mercati specifici, dai team di assistenza clienti localizzati ai consigli sui prodotti specifici per regione."
+            ]
+          },
+          {
+            "title": "5. Impegno per la Sostenibilità e Responsabilità Sociale",
+            "paragraphs": [
+              "Ci impegniamo a fornire soluzioni che aiutino le aziende a ridurre le emissioni di carbonio aumentando al contempo l'efficienza. ",
+              "Una parte dei nostri profitti è destinata a sostenere cause ambientali, iniziative sociali e progetti a beneficio delle comunità locali, come quelli incentrati sull'educazione e sul benessere degli animali."
+            ]
+          }
+        ]
+      },
+      "experienceCommitment": {
+        "title": "Sperimenta il nostro impegno",
+        "paragraph": "Noi di Automation eCom Global siamo più di un semplice fornitore. ",
+        "button": "Contattaci oggi"
+      }
+    }
+  },
+  "partnerBrands": {
+    "title": "I nostri marchi partner",
+    "intro": "In Automation eCom Global, la nostra forza risiede nelle nostre partnership strategiche con alcuni dei marchi più rinomati e innovativi nel mondo dell'automazione industriale.",
+    "partners": [
+      {
+        "id": "Siemens",
+        "icon": "Cpu",
+        "name": "Siemens",
+        "tagline": "Eccellenza ingegneristica tedesca",
+        "description": "Azienda leader a livello mondiale nell'automazione industriale nota per affidabilità, precisione e progresso tecnologico.",
+        "products": [
+          "PLC S7-1200",
+          "PLC S7-1500",
+          "LOGO! ",
+          "HMI",
+          "Unità",
+          "Alimentatori"
+        ],
+        "content": "Essendo una delle aziende leader nel mondo nell'automazione industriale, Siemens è sinonimo di affidabilità, precisione e progresso tecnologico. "
+      },
+      {
+        "id": "deif",
+        "icon": "Zap",
+        "name": "DEIF",
+        "tagline": "Competenza nel controllo del motore",
+        "description": "Produttore danese di soluzioni avanzate di controllo motore per motori diesel, a turbina e ibridi.",
+        "products": [
+          "Serie AGC-4",
+          "Controller avanzati per gruppi elettrogeni",
+          "Controllori marini",
+          "Sistemi di gestione dell'energia"
+        ],
+        "content": "Con sede in Danimarca, DEIF è un produttore leader di soluzioni avanzate di controllo del motore, particolarmente noto per la sua esperienza nei controller di motori diesel, a turbina e ibridi. "
+      },
+      {
+        "id": "schneider",
+        "icon": "CloudLightning",
+        "name": "Schneider",
+        "tagline": "Leader globali nel settore dell'energia e dell'automazione",
+        "description": "Rinomato per le soluzioni di gestione energetica e automazione che consentono operazioni industriali efficienti e sostenibili.",
+        "products": [
+          "PLC",
+          "HMI",
+          "Sistemi SCADA",
+          "Soluzioni per la gestione dell'energia",
+          "Piattaforme IoT industriali"
+        ],
+        "content": "Schneider Electric è un altro partner chiave di Automation eCom Global, noto per le sue soluzioni di gestione dell'energia e di automazione che consentono alle industrie di operare in modo più efficiente e sostenibile. "
+      },
+      {
+        "id": "comap",
+        "icon": "Power",
+        "name": "ComAp",
+        "tagline": "Precisione nel controllo del motore",
+        "description": "Leader industriale con sede nella Repubblica Ceca nei controllori motore per la produzione di energia e applicazioni industriali.",
+        "products": [
+          "Controller per generatori diesel",
+          "Controllori di turbine",
+          "Controller per sistemi di alimentazione ibridi",
+          "Soluzioni di monitoraggio remoto"
+        ],
+        "content": "Con sede nella Repubblica Ceca, ComAp è leader del settore nei controllori motore, noto per la fornitura di soluzioni ad alte prestazioni per un'ampia gamma di applicazioni industriali e di generazione di energia. "
+      }
+    ],
+    "advantage": {
+      "title": "Il vantaggio globale di Automation eCom",
+      "description": "Ciò che ci distingue è la nostra capacità di fornire soluzioni di automazione di livello mondiale supportate da forti rapporti con questi marchi leader. ",
+      "points": [
+        "Il miglior prezzo sul mercato",
+        "Gamma di prodotti completa",
+        "Soluzioni su misura",
+        "Assistenza clienti senza pari"
+      ]
+    },
+    "cta": {
+      "title": "Pronto a migliorare la tua automazione?",
+      "description": "Ottieni l'accesso alle tecnologie più recenti dei principali marchi di automazione del mondo, insieme a servizio e supporto personalizzati.",
+      "buttonText": "Contattaci oggi"
+    }
+  },
+  "paymentOptions": {
+    "header": {
+      "title": "Opzioni di pagamento",
+      "description": "Noi di Automation eCom Global ci impegniamo a rendere la tua esperienza di acquisto quanto più comoda e flessibile possibile. "
+    },
+    "paymentOptions": [
+      {
+        "icon": "CreditCard",
+        "title": "Carte di credito e debito",
+        "content": "Accettiamo tutte le principali carte di credito e debito, facilitando il completamento della transazione in modo rapido e sicuro. ",
+        "list": [
+          "Visa",
+          "MasterCard",
+          "American Express",
+          "Scoprire"
+        ]
+      },
+      {
+        "icon": "Building",
+        "title": "Bonifici bancari",
+        "content": "Per le aziende che gestiscono ordini più grandi o che preferiscono metodi di pagamento diretti, Automation eCom Global offre la possibilità di pagare tramite bonifici bancari. ",
+        "list": [
+          "Nessun limite di transazione: adatto per ordini di grandi dimensioni e di volume elevato.",
+          "Commissioni di transazione ridotte rispetto ai pagamenti con carta di credito per alcune regioni.",
+          "Sicurezza: i fondi vengono trasferiti direttamente tra la tua banca e la nostra, garantendo che i dati finanziari sensibili non vengano condivisi con processori di terze parti."
+        ]
+      },
+      {
+        "icon": "CreditCardIcon",
+        "title": "PayPal",
+        "content": "Comprendiamo che molti dei nostri clienti preferiscono utilizzare PayPal per le transazioni online, grazie alla sua facilità d'uso e alla piattaforma sicura. ",
+        "list": [
+          "Paga in modo rapido e sicuro senza inserire ogni volta i dati della tua carta.",
+          "Collega il tuo conto bancario o la tua carta di credito al tuo conto PayPal per pagamenti convenienti.",
+          "Approfitta della protezione acquirente di PayPal nel raro caso di controversia sulla transazione."
+        ]
+      },
+      {
+        "icon": "Smartphone",
+        "title": "Portafogli digitali (Apple Pay, Google Pay)",
+        "content": "Per i clienti che preferiscono utilizzare soluzioni di pagamento mobile, Automation eCom Global supporta Apple Pay e Google Pay, fornendo un'opzione di pagamento con un solo tocco veloce e sicura. ",
+        "list": [
+          "Pagamenti touchless per maggiore comodità e sicurezza.",
+          "Tecnologia di tokenizzazione che sostituisce i dati sensibili delle carte con un identificatore digitale univoco, riducendo il rischio di frode.",
+          "Tempi di pagamento più rapidi per i clienti abituali."
+        ]
+      },
+      {
+        "icon": "FileText",
+        "title": "Ordini di acquisto (PO) per clienti approvati",
+        "content": "Per i clienti consolidati o per coloro che effettuano regolarmente acquisti all'ingrosso, Automation eCom Global offre la possibilità di pagare tramite ordini di acquisto (PO). ",
+        "list": [
+          "Flessibilità nei termini di pagamento, che in genere vanno da 30 a 90 giorni, a seconda dell'accordo con noi.",
+          "Processi di approvvigionamento semplificati per le aziende che effettuano ordini frequenti o su larga scala.",
+          "Migliore gestione dei flussi di cassa, poiché il pagamento viene posticipato alla data concordata."
+        ]
+      },
+      {
+        "icon": "DollarSign",
+        "title": "Piani rateali per ordini di grandi dimensioni",
+        "content": "Noi di Automation eCom Global riconosciamo che i progetti di automazione su larga scala possono richiedere investimenti di capitale significativi. ",
+        "list": [
+          "Nessun costo nascosto: pagherai solo l'importo concordato in rate uguali durante il periodo stabilito.",
+          "Pianificazioni di pagamento flessibili: scegli il numero di rate più adatto alla tua situazione finanziaria.",
+          "Nessun impatto sull'evasione dell'ordine: il tuo ordine viene elaborato e consegnato una volta effettuato il pagamento iniziale, senza attendere il pagamento completo."
+        ]
+      },
+      {
+        "icon": "Globe",
+        "title": "Opzioni di pagamento internazionali",
+        "content": "Noi di Automation eCom Global serviamo clienti in tutto il mondo, da Dubai alla Germania, agli Stati Uniti, alla Cina, all'India e oltre. ",
+        "list": [
+          "Opzioni di conversione della valuta: accettiamo più valute e forniamo tassi di cambio in tempo reale per assicurarti di pagare l'importo corretto nella valuta locale.",
+          "Metodi di pagamento specifici per regione: oltre alle carte di credito globali e PayPal, accettiamo metodi di pagamento specifici per regione come Alipay in Cina e iDEAL in Europa.",
+          "Bonifici bancari internazionali: per transazioni internazionali di grandi dimensioni, offriamo opzioni di bonifico bancario con supporto completo per la conversione valutaria e i pagamenti transfrontalieri."
+        ]
+      },
+      {
+        "icon": "Briefcase",
+        "title": "Termini di pagamento flessibili per clienti B2B",
+        "content": "Comprendiamo che le aziende spesso necessitano di ulteriore flessibilità di pagamento, in particolare per progetti in corso o su larga scala. ",
+        "list": [
+          "Termini Net 30, Net 60 o Net 90 per i clienti consolidati, che consentono di differire il pagamento fino a dopo la consegna della merce.",
+          "Pianificazioni di pagamento personalizzate per progetti a lungo termine o clienti abituali.",
+          "Sconti per volume e piani di pagamento preferenziali per i clienti che effettuano acquisti all'ingrosso."
+        ]
+      }
+    ],
+    "chooseUsTitle": "Perché scegliere Automation eCom Global per pagamenti sicuri?",
+    "chooseUsPoints": [
+      "Diversi metodi di pagamento: dalle carte di credito e bonifici bancari ai portafogli digitali e agli ordini di acquisto, offriamo una varietà di opzioni di pagamento per soddisfare le tue esigenze.",
+      "Transazioni sicure: tutti i pagamenti sono protetti con crittografia avanzata e sistemi di rilevamento delle frodi.",
+      "Supporto globale: accettiamo pagamenti internazionali in più valute e forniamo opzioni specifiche per regione.",
+      "Termini flessibili: offriamo piani di rateizzazione, ordini d'acquisto e pianificazioni di pagamento personalizzate per aiutarti a gestire progetti di grandi dimensioni o in corso.",
+      "Elaborazione rapida: i pagamenti istantanei significano evasione e consegna degli ordini più rapidi."
+    ],
+    "shoppingButton": "Inizia a fare acquisti ora"
+  },
+  "privacyAndCookieSettings": {
+    "privacyPoints": [
+      {
+        "icon": "Lock",
+        "title": "Panoramica dell'informativa sulla privacy",
+        "tab": "privacy",
+        "content": "La nostra Informativa sulla privacy delinea il modo in cui raccogliamo, utilizziamo e salvaguardamo le tue informazioni personali quando interagisci con Automation eCom Global. ",
+        "list": [
+          "Raccolta dati: raccogliamo informazioni come nome, email, indirizzo e dettagli di pagamento quando crei un account o effettui un acquisto.",
+          "Utilizzo dei dati: i tuoi dati vengono utilizzati per evadere gli ordini, fornire assistenza clienti e migliorare la tua esperienza sul nostro sito.",
+          "Archiviazione dei dati: utilizziamo server sicuri per archiviare i tuoi dati e conservarli solo per il tempo necessario a fini legali e operativi.",
+          "Condivisione dei dati: non condividiamo i tuoi dati con terze parti per scopi di marketing senza il tuo consenso. "
+        ]
+      },
+      {
+        "icon": "Cookie",
+        "title": "Politica e impostazioni sui cookie",
+        "tab": "biscotti",
+        "content": "I cookie sono piccoli file di testo memorizzati sul tuo dispositivo che ci consentono di migliorare la tua esperienza sul nostro sito web. ",
+        "list": [
+          "Cookie essenziali: questi cookie sono necessari per le funzionalità principali del nostro sito Web, ad esempio consentirti di accedere, aggiungere articoli al carrello e completare transazioni. ",
+          "Cookie sulle prestazioni: utilizziamo i cookie sulle prestazioni per raccogliere dati anonimi su come i visitatori utilizzano il nostro sito. ",
+          "Cookie funzionali: questi cookie ci consentono di ricordare le tue preferenze, come le impostazioni della lingua, la regione e gli ordini precedenti, in modo da offrirti un'esperienza più personalizzata.",
+          "Cookie di targeting e pubblicitari: i cookie di targeting vengono utilizzati per fornire annunci pubblicitari pertinenti in base alle tue abitudini di navigazione. "
+        ]
+      },
+      {
+        "icon": "UserCheck",
+        "title": "Gestione delle preferenze sui cookie",
+        "tab": "preferenze",
+        "content": "Noi di Automation eCom Global ti diamo il pieno controllo su come i cookie vengono utilizzati sul nostro sito web. ",
+        "list": [
+          "Banner sui cookie: alla tua prima visita puoi scegliere quali tipi di cookie consentire. ",
+          "Impostazioni del browser: puoi gestire o bloccare i cookie tramite le impostazioni del browser. ",
+          "Cookie di terze parti: se preferisci non avere cookie di terze parti, come quelli utilizzati per la pubblicità mirata, puoi disattivarli nelle impostazioni dei cookie o modificando le impostazioni sulla privacy del tuo browser."
+        ]
+      },
+      {
+        "icon": "RefreshCw",
+        "title": "Aggiornamenti regolari alle politiche sulla privacy e sui cookie",
+        "tab": "aggiornamenti",
+        "content": "Man mano che le normative sulla privacy dei dati si evolvono, Automation eCom Global aggiorna regolarmente le nostre politiche sulla privacy e sui cookie per garantire la conformità ai più recenti requisiti legali e alle migliori pratiche del settore. "
+      }
+    ],
+    "cookieTypes": [
+      "Cookie essenziali",
+      "Cookie di prestazione",
+      "Cookie funzionali",
+      "Cookie di targeting e pubblicitari"
+    ],
+    "chooseUsPoints": [
+      "Piena trasparenza: le nostre impostazioni sulla privacy e sui cookie ti forniscono il controllo completo su come i tuoi dati vengono raccolti e utilizzati.",
+      "Archiviazione sicura dei dati: utilizziamo crittografia avanzata e misure di sicurezza per proteggere i tuoi dati personali.",
+      "Conformità GDPR: aderiamo alle leggi internazionali sulla privacy, garantendo che i tuoi diritti siano rispettati e che i tuoi dati siano gestiti in modo responsabile.",
+      "Gestione semplice dei cookie: personalizza le tue preferenze sui cookie in qualsiasi momento per soddisfare le tue esigenze di privacy.",
+      "Politiche sulla privacy chiare: forniamo informazioni chiare su come i tuoi dati vengono utilizzati e condivisi, garantendo un'esperienza sicura e affidabile."
+    ],
+    "description": "Noi di Automation eCom Global diamo priorità alla tua privacy e ci impegniamo a garantire che i tuoi dati personali siano gestiti in modo responsabile e sicuro. ",
+    "title": "Impostazioni sulla privacy e sui cookie",
+    "manageTitle": "Gestisci le tue preferenze sui cookie",
+    "whyChooseText": "Perché scegliere Automation eCom Global per la privacy dei dati?"
+  },
+  "privacyPolicy": {
+    "heading": "politica sulla riservatezza",
+    "sections": [
+      {
+        "title": "Informazioni che raccogliamo",
+        "paragraph": "Raccogliamo le informazioni personali che ci fornisci, come nome, indirizzo email, indirizzo di spedizione e informazioni di pagamento quando effettui un acquisto sul nostro sito web. "
+      },
+      {
+        "title": "Come utilizziamo le tue informazioni",
+        "paragraph": "Utilizziamo le tue informazioni personali per elaborare i tuoi ordini, inviarti conferme e aggiornamenti degli ordini e per fornire assistenza clienti. "
+      },
+      {
+        "title": "Come proteggiamo le tue informazioni",
+        "paragraph": "Prendiamo sul serio la sicurezza delle tue informazioni personali e abbiamo implementato varie misure di sicurezza per proteggerle, inclusa la crittografia delle informazioni di pagamento e limitando l'accesso ai tuoi dati solo ai dipendenti che ne hanno bisogno per svolgere le loro mansioni lavorative. "
+      },
+      {
+        "title": "I tuoi diritti",
+        "paragraph": "Hai il diritto di accedere, correggere o eliminare le informazioni personali che abbiamo su di te. "
+      }
+    ]
+  },
+  "productGaurantee": {
+    "header": {
+      "title": "Garanzia del prodotto",
+      "subtitle": "Noi di Automation eCom Global garantiamo la qualità e l'affidabilità di ogni prodotto che offriamo. "
+    },
+    "guaranteePoints": [
+      {
+        "title": "Garanzia di qualità leader del settore",
+        "content": [
+          "In qualità di fornitore globale affidabile di prodotti per l'automazione industriale, Automation eCom Global è orgogliosa di collaborare con produttori leader come Siemens, Schneider, DEIF e ComAp, noti per la loro ingegneria di alta qualità e rigorosi processi di controllo qualità. ",
+          "La nostra Garanzia sul prodotto riflette il nostro impegno a fornirti solo il meglio. "
+        ]
+      },
+      {
+        "title": "Garanzie del produttore",
+        "content": [
+          "La maggior parte dei prodotti che offriamo sono dotati di garanzie del produttore che coprono i difetti di materiali e lavorazione per un periodo specificato. ",
+          "In qualità di distributore autorizzato per questi marchi principali, Automation eCom Global lavora a stretto contatto con i produttori per facilitare eventuali richieste di garanzia e garantire che il prodotto venga riparato o sostituito senza inutili ritardi. "
+        ]
+      },
+      {
+        "title": "Opzioni di garanzia estesa",
+        "content": [
+          "Per garantire una tranquillità ancora maggiore, Automation eCom Global offre opzioni di garanzia estesa su molti dei prodotti che vendiamo. ",
+          "Le nostre garanzie estese coprono non solo i difetti nei materiali e nella lavorazione, ma forniscono anche una protezione aggiuntiva per componenti critici come PLC, unità e HMI soggetti a usura nel tempo. "
+        ]
+      },
+      {
+        "title": "Compatibilità e prestazioni garantite",
+        "content": [
+          "Noi di Automation eCom Global garantiamo che ogni prodotto che offriamo è pienamente compatibile con i sistemi e le applicazioni pertinenti per i quali è progettato. ",
+          "I nostri esperti tecnici sono disponibili per fornire guida e supporto durante tutto il processo di acquisto, aiutandoti a selezionare i componenti giusti per la tua applicazione specifica. "
+        ]
+      },
+      {
+        "title": "Garanzie di sostituzione e riparazione",
+        "content": [
+          "Se riscontri problemi con un prodotto durante il periodo di garanzia, Automation eCom Global si impegna a risolvere il problema nel modo più rapido ed efficiente possibile. ",
+          "In caso di difetto o malfunzionamento, contatta semplicemente il nostro team di assistenza clienti e lavoreremo con te per organizzare una riparazione o un prodotto sostitutivo. ",
+          "Per alcuni componenti ad alta priorità o mission-critical, offriamo anche servizi di sostituzione anticipata, in cui inviamo un'unità sostitutiva prima di ricevere quella difettosa, garantendo un'interruzione minima del flusso di lavoro."
+        ]
+      },
+      {
+        "title": "Garanzia di restituzione e cambio",
+        "content": [
+          "Come parte della nostra garanzia completa sul prodotto, Automation eCom Global offre una politica di restituzione e cambio per i prodotti che non soddisfano le vostre aspettative o che risultano incompatibili con i vostri sistemi. ",
+          "Forniamo un processo chiaro e facile da seguire per la restituzione dei prodotti e, se necessario, ti aiuteremo a trovare un sostituto adeguato. "
+        ]
+      },
+      {
+        "title": "Supporto completo durante il periodo di garanzia",
+        "content": [
+          "La tua esperienza con Automation eCom Global non termina dopo aver ricevuto il prodotto. ",
+          "Dalla risposta alle domande sugli aggiornamenti software all'assistenza nell'ottimizzazione del sistema, ci impegniamo a garantire che il tuo investimento nell'automazione industriale sia pienamente supportato e protetto."
+        ]
+      },
+      {
+        "title": "Impegno per la soddisfazione del cliente",
+        "content": [
+          "In Automation eCom Global, la soddisfazione del cliente è la nostra massima priorità. ",
+          "Cerchiamo regolarmente feedback dai nostri clienti per migliorare le nostre offerte e servizi, assicurandoci di continuare a soddisfare le vostre esigenze e superare le vostre aspettative. "
+        ]
+      }
+    ],
+    "chooseUsPoints": {
+      "title": "Perché scegliere la garanzia del prodotto di Automation eCom Global?",
+      "lists": [
+        "Garanzia di qualità leader del settore: tutti i prodotti sono testati e ispezionati per garantire prestazioni e affidabilità superiori.",
+        "Garanzie del produttore: goditi la tranquillità con le garanzie complete dei migliori marchi come Siemens, Schneider, DEIF e ComAp.",
+        "Opzioni di garanzia estesa: proteggi il tuo investimento più a lungo con piani di garanzia flessibili.",
+        "Compatibilità garantita: garantiamo che ogni prodotto si integri perfettamente con i sistemi esistenti.",
+        "Sostituzioni e riparazioni rapide: riduci al minimo i tempi di inattività grazie ai nostri tempi rapidi di riparazione e ai servizi di sostituzione anticipata.",
+        "Resi e cambi senza problemi: restituisci o scambia facilmente i prodotti che non soddisfano le tue aspettative.",
+        "Supporto continuo: accedi all'assistenza di esperti per tutto il periodo di garanzia per mantenere i tuoi sistemi funzionanti senza intoppi."
+      ]
+    },
+    "buttonText": "Contattaci per ulteriori informazioni"
+  },
+  "returnAndExchange": {
+    "header": "Resi e scambi",
+    "commitmentTitle": "Il nostro impegno per la vostra soddisfazione",
+    "commitmentText": "Noi di Automation eCom Global comprendiamo che la tua attività dipende dalla ricezione dei prodotti giusti in condizioni ottimali e ci impegniamo a fornire esattamente questo. ",
+    "policyTitle": "Politica di restituzione e cambio",
+    "policySections": [
+      {
+        "title": "Politica di reso semplice e trasparente",
+        "content": [
+          "La nostra politica di restituzione è progettata per essere il più semplice e trasparente possibile. ",
+          "I prodotti idonei includono la maggior parte degli articoli del nostro catalogo, come PLC Siemens, HMI Schneider, controller motore DEIF e altri componenti di automazione industriale. "
+        ]
+      },
+      {
+        "title": "Passaggi per avviare un reso o uno scambio",
+        "content": [
+          "Contatta l'assistenza clienti: contatta il nostro team di assistenza clienti tramite e-mail, telefono o tramite il portale clienti per avviare il processo di restituzione o cambio. ",
+          "Ricezione dell'autorizzazione: una volta esaminata la richiesta, emetteremo un numero di autorizzazione alla restituzione della merce (RMA), che dovrai includere con il prodotto restituito. ",
+          "Imballare il prodotto: assicurarsi che il prodotto sia imballato in modo sicuro, utilizzando se possibile l'imballaggio originale, per evitare danni durante la spedizione di restituzione. ",
+          "Spedire il prodotto: invia il pacco utilizzando l'etichetta di spedizione che forniamo. ",
+          "Ricevi rimborso o sostituzione: una volta ricevuto il prodotto restituito e confermata la sua condizione, elaboreremo il rimborso, la sostituzione o il cambio. "
+        ]
+      },
+      {
+        "title": "Condizioni per resi e cambi",
+        "content": [
+          "I prodotti devono essere restituiti nelle loro condizioni originali, con tutti gli accessori, i manuali e l'imballaggio inclusi.",
+          "Gli articoli personalizzati o appositamente configurati, come pannelli di controllo personalizzati o sistemi integrati, potrebbero non essere idonei per la restituzione a meno che non vi sia un difetto o un problema con il prodotto. ",
+          "I prodotti che sono stati installati o utilizzati sul campo potrebbero richiedere una valutazione prima di essere approvati per la restituzione o il cambio. ",
+          "Per i prodotti restituiti a causa di ordini errati o preferenze del cliente, potrebbe essere applicata una commissione di rifornimento. "
+        ]
+      },
+      {
+        "title": "Gestione di prodotti difettosi o danneggiati",
+        "content": [
+          "Se ricevi un prodotto difettoso o danneggiato al momento dell'arrivo, Automation eCom Global interviene immediatamente per risolvere il problema. ",
+          "Sostituzioni immediate per prodotti difettosi senza costi aggiuntivi. ",
+          "Per i prodotti che arrivano danneggiati durante la spedizione, gestiremo il reclamo di spedizione con i nostri partner logistici e ci assicureremo di ricevere una sostituzione senza indugio.",
+          "Tutti i prodotti difettosi o danneggiati devono essere segnalati entro 7 giorni dalla ricezione della spedizione. "
+        ]
+      },
+      {
+        "title": "Scambio con prodotti o configurazioni diversi",
+        "content": [
+          "Comprendiamo che le esigenze aziendali possono cambiare e talvolta potresti richiedere un prodotto o una configurazione diversa dopo aver effettuato un ordine. ",
+          "Contatta semplicemente il nostro team di supporto per avviare lo scambio e lavoreremo con te per garantire che il nuovo prodotto soddisfi i tuoi requisiti specifici. "
+        ]
+      },
+      {
+        "title": "Resi e cambi internazionali",
+        "content": [
+          "In qualità di fornitore globale, Automation eCom Global serve clienti a Dubai, negli Stati Uniti, in Cina, India, Germania e in molti altri paesi. ",
+          "Forniamo tutte le etichette di spedizione per la restituzione e i moduli doganali necessari per garantire che il reso o il cambio vengano elaborati senza ritardi. "
+        ]
+      },
+      {
+        "title": "Rimborsi e tempi di elaborazione",
+        "content": [
+          "Una volta ricevuto il prodotto restituito e verificata la sua condizione, Automation eCom Global elaborerà immediatamente il rimborso o il cambio. ",
+          "Se stai cambiando prodotto con un prodotto diverso, spediremo il prodotto sostitutivo non appena l'articolo originale sarà stato restituito e ispezionato. "
+        ]
+      },
+      {
+        "title": "Assistenza clienti dedicata durante tutto il processo",
+        "content": [
+          "Il nostro team di assistenza clienti è al tuo fianco in ogni fase del processo, assicurando che il tuo reso o cambio sia gestito in modo professionale ed efficiente. ",
+          "Diamo priorità alla tua soddisfazione e lavoriamo duramente per assicurarti un'esperienza positiva, anche se è necessario un reso o uno scambio. "
+        ]
+      }
+    ],
+    "initiateTitle": "Avvia un reso o uno scambio",
+    "initiateOrderNumberLabel": "Numero d'ordine",
+    "initiateOrderNumberPlaceholder": "Inserisci il numero del tuo ordine",
+    "initiateButtonText": "Avvia il processo di reso/cambio",
+    "benefitsTitle": "Perché scegliere Automation eCom Global per resi e cambi?",
+    "benefits": [
+      {
+        "icon": "ArrowLeftRight",
+        "text": "Processo senza problemi"
+      },
+      {
+        "icon": "Clock",
+        "text": "Rimborsi e sostituzioni rapidi"
+      },
+      {
+        "icon": "Truck",
+        "text": "Spedizione di reso prepagata"
+      },
+      {
+        "icon": "HelpCircle",
+        "text": "Supporto di esperti"
+      },
+      {
+        "icon": "Globe",
+        "text": "Assistenza al rimpatrio internazionale"
+      }
+    ],
+    "policyCardTitle": "Politica di restituzione e cambio"
+  },
+  "safeAndSecurePayments": {
+    "header": {
+      "title": "Pagamenti sicuri e protetti",
+      "description": "In Automation eCom Global, diamo priorità alla sicurezza e alla privacy di ogni transazione. "
+    },
+    "securityFeatures": [
+      {
+        "icon": "Lock",
+        "title": "Tecnologia di crittografia avanzata",
+        "description": "Utilizziamo la crittografia SSL per proteggere i tuoi dati di pagamento durante la trasmissione tra il tuo browser e i nostri server."
+      },
+      {
+        "icon": "FileText",
+        "title": "Conformità PCI DSS",
+        "description": "Aderiamo alle normative sugli standard di sicurezza dei dati del settore delle carte di pagamento per mantenere un ambiente sicuro per la gestione delle informazioni delle carte di credito."
+      },
+      {
+        "icon": "Shield",
+        "title": "Prevenzione e rilevamento delle frodi",
+        "description": "I nostri sofisticati sistemi di rilevamento delle frodi monitorano ogni transazione in tempo reale, identificando e segnalando qualsiasi attività sospetta."
+      },
+      {
+        "icon": "CreditCardIcon",
+        "title": "Gateway di pagamento sicuri",
+        "description": "Collaboriamo con gateway di pagamento affidabili che danno priorità alla sicurezza e forniscono transazioni fluide e sicure."
+      },
+      {
+        "icon": "FileText",
+        "title": "Processo di pagamento trasparente",
+        "description": "Garantiamo che il nostro processo di pagamento sia completamente trasparente, fornendoti tutte le informazioni necessarie per comprendere la tua transazione."
+      },
+      {
+        "icon": "UserCheck",
+        "title": "Protezione della privacy dei dati",
+        "description": "Seguiamo rigorose norme sulla privacy dei dati per garantire che le tue informazioni non vengano mai condivise o vendute a terzi senza il tuo consenso."
+      },
+      {
+        "icon": "Smartphone",
+        "title": "Autenticazione a due fattori (2FA)",
+        "description": "Supportiamo l'autenticazione a due fattori per le transazioni, aggiungendo un ulteriore livello di sicurezza per proteggere il tuo account."
+      },
+      {
+        "icon": "HelpCircle",
+        "title": "Risoluzione delle controversie e protezione dei rimborsi",
+        "description": "Forniamo servizi di risoluzione delle controversie e offriamo protezione completa per i rimborsi idonei per risolvere eventuali problemi in modo rapido ed equo."
+      }
+    ],
+    "paymentOptions": {
+      "title": "Molteplici opzioni di pagamento",
+      "description": "Per rendere la tua esperienza di acquisto comoda e fluida, Automation eCom Global offre un'ampia gamma di metodi di pagamento su misura per soddisfare le tue esigenze aziendali. ",
+      "options": [
+        {
+          "title": "Carte di credito e debito",
+          "description": "Accettiamo le principali carte di credito e debito, tra cui Visa, MasterCard e American Express, garantendo che le tue transazioni vengano elaborate in modo rapido e sicuro."
+        },
+        {
+          "title": "Bonifici bancari",
+          "description": "Per ordini di grandi dimensioni o clienti internazionali, offriamo opzioni di bonifico bancario, fornendo un modo affidabile e sicuro per completare transazioni di alto valore. "
+        },
+        {
+          "title": "PayPal",
+          "description": "Supportiamo i pagamenti PayPal, offrendo un modo veloce, facile e sicuro per pagare i tuoi ordini senza dover condividere direttamente le tue informazioni finanziarie."
+        },
+        {
+          "title": "Portafogli digitali",
+          "description": "Per i clienti che preferiscono soluzioni di pagamento mobile, offriamo la compatibilità con i principali portafogli digitali come Apple Pay e Google Pay, garantendo pagamenti sicuri con un solo tocco."
+        }
+      ],
+      "conclusion": "Le nostre molteplici opzioni di pagamento sono progettate per offrirti la flessibilità di scegliere il metodo più adatto alla tua attività, mantenendo i massimi livelli di sicurezza e conformità."
+    },
+    "chooseUsPoints": [
+      "Molteplici opzioni di pagamento sicure: scegli tra carte di credito, bonifici bancari, PayPal e portafogli digitali.",
+      "Crittografia avanzata: tutte le transazioni sono protette dalla crittografia SSL per la massima sicurezza.",
+      "Conformità PCI DSS: aderiamo ai più elevati standard di settore per la sicurezza dei pagamenti.",
+      "Sistemi di prevenzione delle frodi: sofisticati strumenti di monitoraggio proteggono le tue transazioni dalle frodi.",
+      "Costi trasparenti: nessun costo nascosto: scopri esattamente cosa stai pagando prima di completare l'acquisto.",
+      "Privacy dei dati: le tue informazioni personali sono sicure e non vengono mai condivise senza il tuo consenso."
+    ],
+    "chooseUsTitle": "Perché scegliere Automation eCom Global per pagamenti sicuri?"
+  },
+  "termAndConditions": {
+    "paragraphs": [
+      "Ai fini dei presenti Termini e condizioni, il termine \"noi\", \"nostro\" utilizzato in qualsiasi punto di questa pagina indica AUTOMATION ECOM GLOBAL, la cui sede legale/operativa è B-1/13, RAGHU NAGAR, PANKHA ROAD "
+    ],
+    "heading": "L'utilizzo del sito Web e/o l'acquisto da noi sono regolati dai seguenti Termini e condizioni:",
+    "list": [
+      "Il contenuto delle pagine di questo sito è soggetto a modifiche senza preavviso.",
+      "Né noi né terze parti forniamo alcuna garanzia circa l'accuratezza, la tempestività, le prestazioni, la completezza o l'idoneità delle informazioni e dei materiali trovati o offerti su questo sito Web per qualsiasi scopo particolare. ",
+      "L'utilizzo di qualsiasi informazione o materiale sul nostro sito Web e/o sulle pagine dei prodotti è interamente a tuo rischio e pericolo, per il quale non saremo responsabili. ",
+      "Il nostro sito web contiene materiale di nostra proprietà o concesso in licenza a noi. ",
+      "Tutti i marchi riprodotti nel nostro sito web che non sono di proprietà o concessi in licenza all'operatore sono riconosciuti sul sito web.",
+      "L'uso non autorizzato delle informazioni da noi fornite darà luogo a una richiesta di risarcimento danni e/o costituirà un reato penale.",
+      "Di tanto in tanto il nostro sito web può includere anche collegamenti ad altri siti web. ",
+      "Non è possibile creare un collegamento al nostro sito Web da un altro sito Web o documento senza il previo consenso scritto di AUTOMATION ECOM GLOBAL.",
+      "Qualsiasi controversia derivante dall'uso del nostro sito Web e/o dall'acquisto con noi e/o da qualsiasi impegno con noi è soggetto alle leggi dell'India.",
+      "Non saremo in alcun modo responsabili per eventuali perdite o danni derivanti direttamente o indirettamente dal rifiuto dell'autorizzazione per qualsiasi transazione, a causa del superamento da parte del titolare della carta del limite preimpostato concordato di volta in volta da noi con la nostra banca acquirente "
+    ]
+  },
+  "userAgreements": {
+    "agreementPoints": [
+      {
+        "title": "Accettazione dei Termini",
+        "content": "Accedendo e utilizzando il sito Web Automation eCom Global, l'utente accetta di essere vincolato dai termini e dalle condizioni delineati nei nostri Accordi per gli utenti. "
+      },
+      {
+        "title": "Creazione dell'account e responsabilità",
+        "content": "Per effettuare un acquisto su Automation eCom Global, potrebbe essere richiesto di creare un account utente. ",
+        "list": [
+          "Assicurati che le informazioni del tuo account siano aggiornate.",
+          "Utilizza il tuo account in conformità con i termini delineati nel presente accordo.",
+          "Avvisaci immediatamente di qualsiasi utilizzo non autorizzato del tuo account o violazione della sicurezza."
+        ]
+      },
+      {
+        "title": "Informazioni e precisione sul prodotto",
+        "content": "Ci impegniamo a fornire informazioni dettagliate e accurate sui prodotti disponibili su Automation eCom Global, comprese specifiche, prezzi, disponibilità e descrizioni. "
+      },
+      {
+        "title": "Prezzi e termini di pagamento",
+        "content": "Tutti i prezzi visualizzati su Automation eCom Global sono nella valuta applicabile per la tua regione e sono soggetti a modifiche senza preavviso. ",
+        "list": [
+          "Sei autorizzato a utilizzare il metodo di pagamento fornito.",
+          "I dettagli di pagamento inviati sono accurati e completi.",
+          "Accetti di pagare tutte le spese, comprese eventuali tasse, spese di spedizione e di gestione associate al tuo ordine."
+        ]
+      },
+      {
+        "title": "Termini di spedizione e consegna",
+        "content": "I nostri Accordi con l'utente includono i termini e le condizioni relativi alla spedizione e alla consegna dei prodotti acquistati da Automation eCom Global. "
+      },
+      {
+        "title": "Resi, cambi e richieste di garanzia",
+        "content": "Nell'ambito dei nostri Accordi per gli utenti, delineiamo chiaramente le condizioni per resi, cambi e richieste di garanzia. ",
+        "list": [
+          "Tutti i resi e gli scambi devono essere conformi alla Politica di restituzione e cambio.",
+          "Le richieste di garanzia sono soggette ai termini forniti dai produttori del prodotto.",
+          "Sarai responsabile delle spese di spedizione per la restituzione a meno che il prodotto non sia difettoso o danneggiato al momento della ricezione."
+        ]
+      },
+      {
+        "title": "Proprietà intellettuale e licenza d'uso",
+        "content": "Tutto il contenuto del sito Web Automation eCom Global, inclusi ma non limitati a testo, grafica, loghi, immagini e software, è proprietà intellettuale di Automation eCom Global o dei nostri fornitori ed è protetto dalle leggi internazionali sul copyright, sui marchi e sulla proprietà intellettuale. ",
+        "list": [
+          "Copiare, modificare, distribuire o riprodurre contenuti senza autorizzazione esplicita.",
+          "Utilizzare qualsiasi strumento di data mining, robot o strumenti simili di raccolta dati sul nostro sito web.",
+          "Utilizzare i nostri contenuti per scopi commerciali senza la dovuta autorizzazione."
+        ]
+      },
+      {
+        "title": "Limitazione di responsabilità",
+        "content": "Sebbene Automation eCom Global si impegni a fornire informazioni accurate e prodotti di alta qualità, non possiamo essere ritenuti responsabili per eventuali danni indiretti, incidentali o consequenziali derivanti dall'uso della nostra piattaforma, prodotti o servizi. ",
+        "list": [
+          "Perdita di entrate o profitti.",
+          "Interruzioni dell'attività.",
+          "Perdita o danneggiamento dei dati.",
+          "Indisponibilità di prodotti o servizi."
+        ]
+      },
+      {
+        "title": "Modifiche alle Condizioni d'uso",
+        "content": "Automation eCom Global si riserva il diritto di modificare o aggiornare i presenti Accordi per l'utente in qualsiasi momento senza preavviso. "
+      },
+      {
+        "title": "Legge applicabile e risoluzione delle controversie",
+        "content": "I presenti Accordi per l'utente sono regolati dalle leggi del paese in cui opera Automation eCom Global e qualsiasi controversia derivante dall'uso della nostra piattaforma o dei nostri prodotti sarà risolta sotto la giurisdizione dei tribunali di quella regione./n/nIn caso di "
+      }
+    ],
+    "chooseUsPoints": [
+      "Termini chiari e trasparenti: i nostri Accordi per gli utenti delineano i tuoi diritti e le tue responsabilità quando utilizzi la nostra piattaforma.",
+      "Copertura completa: dalla creazione dell'account alle garanzie, forniamo linee guida chiare per proteggere te e la nostra attività.",
+      "Risoluzione equa delle controversie: ci impegniamo a risolvere le controversie in modo amichevole e in conformità con le leggi vigenti.",
+      "Protezione della proprietà intellettuale: i nostri termini garantiscono che i nostri contenuti e servizi siano protetti dall'uso non autorizzato."
+    ],
+    "chooseUsTitle": "Perché scegliere Automation eCom Global?",
+    "header": {
+      "title": "Contratto d'uso",
+      "description": "Noi di Automation eCom Global ci impegniamo a garantire che la tua esperienza sulla nostra piattaforma sia sicura, trasparente e diretta. "
+    }
+  },
+  "whatWeStandFor": {
+    "title": "Ciò che rappresentiamo",
+    "introText": "In Automation eCom Global, i nostri valori fondamentali e i principi guida danno forma a tutto ciò che facciamo. ",
+    "coreValues": [
+      {
+        "id": "innovazione",
+        "icon": "Lightbulb",
+        "title": "L'innovazione al centro",
+        "description": "Promuovere i progressi nell’Industria 4.0, nell’IoT e nelle soluzioni basate sull’intelligenza artificiale.",
+        "content": "Nel mondo in rapida evoluzione dell'automazione industriale, l'innovazione non è solo un obiettivo: è una necessità. "
+      },
+      {
+        "id": "integrità",
+        "icon": "Shield",
+        "title": "Integrità e fiducia",
+        "description": "Condurre gli affari in modo etico e trasparente in tutte le nostre interazioni.",
+        "content": "Ci impegniamo a condurre gli affari in modo etico e trasparente, garantendo che ogni interazione sia fondata sulla fiducia reciproca. "
+      },
+      {
+        "id": "eccellenza",
+        "icon": "Award",
+        "title": "Eccellenza in ogni aspetto",
+        "description": "Puntare agli standard più elevati in termini di prodotti, servizi e supporto.",
+        "content": "L'eccellenza è più di un valore per Automation eCom Global: è uno standard secondo il quale viviamo. "
+      },
+      {
+        "id": "sostenibilità",
+        "icon": "Leaf",
+        "title": "Impegno per la sostenibilità",
+        "description": "Promozione di soluzioni di automazione responsabili dal punto di vista ambientale.",
+        "content": "Le nostre soluzioni sono progettate non solo per ottimizzare l’efficienza ma anche per ridurre al minimo l’impatto ambientale. "
+      },
+      {
+        "id": "cliente",
+        "icon": "Users",
+        "title": "Approccio incentrato sul cliente",
+        "description": "Mettere i nostri clienti al primo posto in tutto ciò che facciamo.",
+        "content": "In Automation eCom Global, tutto ciò che facciamo è finalizzato a fornire un'esperienza cliente eccezionale. "
+      },
+      {
+        "id": "globale",
+        "icon": "Globe",
+        "title": "Portata globale, competenza locale",
+        "description": "Combinare la presenza mondiale con la conoscenza localizzata.",
+        "content": "Serviamo clienti in tutta Dubai, negli Stati Uniti, in Cina, India e Germania, fornendo loro le migliori soluzioni di automazione provenienti da marchi leader a livello mondiale. "
+      }
+    ],
+    "detailsSection": {
+      "title": "I nostri valori in dettaglio",
+      "introText": "Sperimenta i nostri valori in azione",
+      "description": "Noi di Automation eCom Global non rappresentiamo solo prodotti di automazione: rappresentiamo l'eccellenza, l'integrità, l'innovazione, la sostenibilità e, soprattutto, i nostri clienti. ",
+      "contactButton": "Contattaci oggi"
+    }
+  },
+  "whoWeAre": {
+    "title": "Chi siamo",
+    "introText": "Automation eCom Global: il tuo leader lungimirante nell'automazione industriale, con una presenza globale che abbraccia Dubai, Stati Uniti, Cina, India e Germania.",
+    "globalPresence": {
+      "title": "La nostra presenza globale",
+      "description": "Ci rivolgiamo a diversi settori come quello manifatturiero, energetico, delle infrastrutture e dell'automazione dei processi nei mercati chiave di tutto il mondo. ",
+      "image": {
+        "src": "/footer/hiring.png?height=400&width=600",
+        "alt": "Mappa globale che mostra la presenza di Automation eCom Global",
+        "width": 600,
+        "height": 300
+      }
+    },
+    "expertise": {
+      "title": "La nostra competenza",
+      "items": [
+        {
+          "icon": "Globe",
+          "title": "Portata globale",
+          "description": "Serviamo i mercati chiave di Dubai, Stati Uniti, Cina, India e Germania"
+        },
+        {
+          "icon": "Cpu",
+          "title": "Prodotti premium",
+          "description": "Specializzato in soluzioni Siemens, DEIF, Schneider e ComAp"
+        },
+        {
+          "icon": "Users",
+          "title": "Conoscenza del settore",
+          "description": "Soluzioni su misura per il settore manifatturiero, energetico e altro ancora"
+        },
+        {
+          "icon": "Zap",
+          "title": "Tecnologia all'avanguardia",
+          "description": "Integrazione di soluzioni basate su Industria 4.0 e IoT"
+        }
+      ]
+    },
+    "productRange": {
+      "title": "La nostra gamma di prodotti",
+      "categories": [
+        {
+          "title": "Soluzioni di automazione",
+          "items": [
+            "Controllori logici programmabili (PLC)",
+            "Interfacce uomo-macchina (HMI)",
+            "Azionamenti e controller del motore",
+            "Alimentatori e componenti critici"
+          ]
+        },
+        {
+          "title": "Marchi in evidenza",
+          "items": [
+            "PLC e HMI Siemens di fabbricazione tedesca",
+            "Controller del motore DEIF",
+            "Soluzioni di automazione Schneider",
+            "Controller del motore ComAp"
+          ]
+        }
+      ]
+    },
+    "whyChooseUs": {
+      "title": "Perché scegliere noi",
+      "items": [
+        {
+          "title": "Competenza",
+          "description": "Anni di esperienza nell'automazione industriale in vari settori"
+        },
+        {
+          "title": "Qualità",
+          "description": "Partnership con marchi di fama mondiale che garantiscono soluzioni di alta qualità"
+        },
+        {
+          "title": "Supporto",
+          "description": "Servizio clienti completo e supporto tecnico in tutto il mondo"
+        },
+        {
+          "title": "Innovazione",
+          "description": "Integrazione continua delle tecnologie Industria 4.0 e delle soluzioni IoT"
+        },
+        {
+          "title": "Conveniente",
+          "description": "I migliori sconti sui prodotti premium senza compromettere la qualità"
+        },
+        {
+          "title": "Consegna globale",
+          "description": "Consegna rapida e sicura dei prodotti ai clienti in tutto il mondo"
+        }
+      ]
+    },
+    "callToAction": {
+      "title": "Collabora con Automation eCom Global",
+      "description": "Siamo più di un fornitore: siamo un partner fidato dedicato al tuo successo operativo. ",
+      "buttonText": "Contattaci oggi"
+    }
+  },
+  "productShipping": {
+    "intro": [
+      {
+        "icon": "Undo2",
+        "title": "Respira facilmente.",
+        "description": "Resi gratuiti."
+      },
+      {
+        "icon": "ZapIcon",
+        "title": "La gente lo vuole.",
+        "description": "31 persone lo stanno guardando."
+      }
+    ],
+    "shipping": {
+      "title": "Spedizione:",
+      "details": "US $ 1,00 Spedizione standard dall'India a tutto il mondo.",
+      "linkText": "Vedi i dettagli",
+      "additionalInfo": [
+        "Per gli acquirenti internazionali, gli ordini vengono spediti e consegnati solo tramite corrieri internazionali registrati e/o posta veloce internazionale.",
+        "Per gli acquirenti nazionali, gli ordini vengono spediti solo tramite corrieri nazionali registrati e/o posta veloce.",
+        "Gli ordini vengono spediti entro 1-2 giorni o secondo la data di consegna concordata al momento della conferma dell'ordine e la consegna della spedizione è soggetta alle norme del corriere/ufficio postale.",
+        "AUTOMATION ECOM GLOBAL non è responsabile per eventuali ritardi nella consegna da parte del corriere/autorità postali e garantisce solo di consegnare la spedizione al corriere o alle autorità postali entro 1-2 giorni dalla data dell'ordine e del pagamento o come da ",
+        "La consegna di tutti gli ordini avverrà all'indirizzo fornito dall'acquirente. "
+      ]
+    },
+    "delivery": {
+      "title": "Consegna:",
+      "estimatedDelivery": {
+        "text": "Data di consegna stimata",
+        "date": "Ottieni dalla funzione"
+      },
+      "details": [
+        "Tieni presente che la stima di consegna è superiore a 11 giorni lavorativi.",
+        "Si prega di consentire ulteriore tempo se la consegna internazionale è soggetta a procedure doganali."
+      ]
+    },
+    "returns": {
+      "title": "Spedizione:",
+      "details": "Resi entro 30 giorni. ",
+      "linkText": "Vedi i dettagli",
+      "linkUrl": "/cancellazioneerimborso"
+    },
+    "payments": {
+      "title": "Pagamenti:",
+      "image": {
+        "src": "/images/payment-mode.png",
+        "alt": "pagamento",
+        "width": 400,
+        "height": 100
+      }
+    },
+    "shopWithConfidence": {
+      "title": "Acquista con fiducia",
+      "guarantee": {
+        "icon": "Scudo",
+        "title": "Garanzia di rimborso aziendale",
+        "description": "Ottieni l'articolo che hai ordinato o rimborsati.",
+        "linkText": "Saperne di più",
+        "linkUrl": "/product-guarantee"
+      }
+    }
+  },
+  "checkout": {
+    "titles": {
+      "heading": "Ci sei quasi...!",
+      "deliveryAddress": "Indirizzo di consegna",
+      "orderSummary": "Riepilogo dell'ordine",
+      "paymentAndShippingDetails": "Dettagli di pagamento e spedizione"
+    },
+    "messages": {
+      "noSavedAddress": "Non hai alcun indirizzo di consegna salvato.",
+      "addAddressInfo": "Non preoccuparti, puoi aggiungere un nuovo indirizzo facendo clic sul pulsante Aggiungi indirizzo e continuare con il pagamento.",
+      "loginPrompt": "Se hai già un account effettua il login così possiamo recuperare il tuo indirizzo dal tuo profilo",
+      "totalSavings": "L'importo totale del tuo risparmio su questo ordine"
+    },
+    "labels": {
+      "addAddressButton": "Aggiungi indirizzo",
+      "price": "Prezzo",
+      "gst": "GST",
+      "deliveryCharges": "Spese di consegna",
+      "discountPrice": "Prezzo scontato",
+      "totalAmount": "Importo totale",
+      "inclOfAllTaxes": "(Incl. tutte le tasse)",
+      "checkoutButton": "Guardare"
+    },
+    "placeholders": {
+      "mobileNo": "N. cellulare:"
+    },
+    "icons": {
+      "deliveryAddressIcon": "MapPin",
+      "orderSummaryIcon": "ShoppingBag",
+      "addAddressIcon": "Plus",
+      "editAddressIcon": "Edit2",
+      "selectedAddressIcon": "Check"
+    }
+  },
+  "addressForm": {
+    "labels": {
+      "firstName": "Nome di battesimo",
+      "lastName": "Cognome",
+      "phone": "Mobile",
+      "email": "E-mail",
+      "address": "Indirizzo",
+      "country": "Paese",
+      "state": "Stato",
+      "city": "Città",
+      "zipcode": "Cap"
+    },
+    "placeholders": {
+      "firstName": "Per favore inserisci il tuo nome",
+      "lastName": "Per favore inserisci il tuo cognome",
+      "phone": "Inserisci il tuo numero di cellulare",
+      "email": "Inserisci il tuo indirizzo email",
+      "address": "Inserisci l'indirizzo completo",
+      "country": "Seleziona il paese",
+      "state": "Seleziona lo stato",
+      "noStatesAvailable": "Nessuno stato disponibile",
+      "city": "Inserisci il nome della città",
+      "zipcode": "Inserisci il codice postale"
+    },
+    "buttons": {
+      "saveAddress": "Salva indirizzo",
+      "saving": "Risparmio..."
+    },
+    "misc": {
+      "noStatesAvailable": "Nessuno stato disponibile"
+    }
+  },
+  "checkoutDialog": {
+    "title": "Guardare",
+    "description": "Ti preghiamo di confermare i tuoi dati prima di effettuare il pagamento del tuo ordine",
+    "paymentMethod": {
+      "header": "Metodo di pagamento",
+      "selectedMethod": "Metodo di pagamento selezionato:"
+    },
+    "itemDetails": {
+      "header": "Dettagli articolo"
+    },
+    "shippingDetails": {
+      "header": "Dettagli di spedizione",
+      "country": "Paese:",
+      "state": "Stato:",
+      "phone": "Telefono:",
+      "email": "ID e-mail:"
+    },
+    "orderDetails": {
+      "header": "Dettagli dell'ordine",
+      "price": "Prezzo",
+      "gst": "GST",
+      "deliveryCharges": "Spese di consegna",
+      "discountPrice": "Prezzo scontato",
+      "totalAmount": "Importo totale",
+      "inclOfTaxes": "(Incl. tutte le tasse)"
+    },
+    "savings": {
+      "message": "L'importo totale del tuo risparmio su questo ordine",
+      "amountLabel": "₹"
+    }
+  },
+  "confirmOrder": {
+    "orderConfirmation": "Conferma dell'ordine",
+    "thankYouMessage": "Grazie per il tuo acquisto!",
+    "emailConfirmationMessage": "Ti invieremo via email una conferma dell'ordine con i dettagli e le informazioni di tracciamento.",
+    "orderIdLabel": "ID ordine: ",
+    "orderDate": "31 maggio 2023 alle 15:42",
+    "shippingInformation": "Informazioni sulla spedizione",
+    "viewOrderButton": "Visualizza il tuo ordine",
+    "orderSummary": "Riepilogo dell'ordine",
+    "subtotalLabel": "Totale parziale",
+    "shippingLabel": "Spedizione",
+    "totalLabel": "Totale",
+    "savedAmountMessage": "Hai risparmiato ₹ 20,00 su questo ordine!",
+    "similarProductsTitle": "Prodotti simili",
+    "feedbackText": "Feedback | "
+  },
+  "usrAccount": {
+    "personalInformationTitle": "Informazioni personali",
+    "personalInformationDescription": "Aggiorna i tuoi dati personali qui.",
+    "loadingText": "Caricamento...",
+    "profileTab": "Profilo",
+    "ordersTab": "Ordini",
+    "orderHistoryTitle": "Cronologia degli ordini",
+    "orderHistoryDescription": "Visualizza i tuoi ordini passati e il loro stato.",
+    "orderIdLabel": "ID ordine",
+    "orderDateLabel": "Data dell'ordine",
+    "orderStatusLabel": "Stato dell'ordine",
+    "orderTotalLabel": "Importo totale"
+  },
+  "addressDialog": {
+    "editTitle": "Modifica indirizzo esistente",
+    "addTitle": "Aggiungi nuovo indirizzo di consegna",
+    "editDescription": "Compila il modulo sottostante per aggiornare i dettagli del tuo indirizzo.",
+    "addDescription": "Compila il modulo sottostante per aggiungere i dettagli del tuo indirizzo.",
+    "loadingText": "Caricamento..."
+  },
+  "cartSheet": {
+    "emptyCartMessage": "Nessun articolo nel carrello",
+    "continueShoppingButton": "Continua a fare acquisti",
+    "itemAltText": "elemento - {indice}"
+  },
+  "icons": {
+    "cartIconAlt": "Icona del carrello"
+  },
+  "checkBoxLists": {
+    "formLabels": {
+      "brands": "Marche",
+      "categories": "Categorie"
+    },
+    "buttonLabels": {
+      "showLess": "Mostra meno",
+      "showMore": "Mostra altro",
+      "applyFilter": "Applica filtro"
+    }
+  },
+  "filterDialog": {
+    "dialogTitle": "Filtri",
+    "dialogDescription": "Filtra il tuo prodotto con più filtri",
+    "loadingMessage": "Caricamento..."
+  },
+  "noReviews": {
+    "cardTitle": "Nessuna recensione ancora",
+    "noReviewsMessage": "Questo prodotto non ha ancora ricevuto alcuna recensione. ",
+    "ratingPrompt": "La tua recensione aiuta altri acquirenti a prendere decisioni informate."
+  },
+  "paymentAndShippingCard": {
+    "paymentAndShipping": {
+      "title": "Pagamento e spedizione",
+      "payment": "PAGAMENTO",
+      "razorpay": {
+        "label": "Razorpay",
+        "imageAlt": "razorpay"
+      },
+      "paypal": {
+        "label": "PayPal/American Express",
+        "imageAlt": "PayPal"
+      },
+      "discountCodePlaceholder": "Codice sconto",
+      "applyButton": "Fare domanda a",
+      "price": "Prezzo",
+      "gst": "GST",
+      "deliveryCharges": "Spese di consegna",
+      "discountPrice": "Prezzo scontato",
+      "totalAmount": "Importo totale",
+      "termsAndConditions": "Ho letto e accetto i termini e le condizioni di vendita. ",
+      "confirmOrder": "Conferma il tuo ordine"
+    }
+  },
+  "commentForm": {
+    "ratingLabel": "Valutazione:",
+    "firstNameLabel": "Nome di battesimo:",
+    "lastNameLabel": "Cognome:",
+    "commentLabel": "Commento:",
+    "submitButton": "Invia",
+    "firstNamePlaceholder": "Inserisci il tuo nome",
+    "lastNamePlaceholder": "Inserisci il tuo cognome",
+    "commentPlaceholder": "Scrivi il tuo commento qui",
+    "error": {
+      "rating": "La valutazione è obbligatoria",
+      "firstName": "Il nome è obbligatorio",
+      "lastName": "Il cognome è obbligatorio",
+      "comment": "Il commento è obbligatorio"
+    }
+  },
+  "searchDialog": {
+    "title": "Cerca prodotto qui",
+    "description": "Cerca prodotto per marca e titolo."
+  },
+  "userForm": {
+    "firstName": "Nome di battesimo",
+    "lastName": "Cognome",
+    "mobile": "Mobile",
+    "email": "E-mail",
+    "placeholderFirstName": "Per favore inserisci il tuo nome",
+    "placeholderLastName": "Per favore inserisci il tuo cognome",
+    "placeholderMobile": "Inserisci il tuo numero di cellulare",
+    "placeholderEmail": "Inserisci il tuo indirizzo email",
+    "saveButton": "Salva indirizzo",
+    "savingButton": "Risparmio..."
   }
+}

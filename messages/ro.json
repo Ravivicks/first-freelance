@@ -1,7 +1,2066 @@
 {
-    "PhotoViewer": {
-      "title": "Street photography",
-      "description": "La fotografía callejera capta momentos de la vida real e interacciones humanas en lugares públicos. Es una forma de contar historias visuales y congelar momentos fugaces del tiempo, convirtiendo lo ordinario en extraordinario."
-     
+  "page1": {
+    "warranty": "12 luni garantie",
+    "quickQuote": "Citat rapid",
+    "customerSupport": "Asistență pentru clienți",
+    "email": "sales@prosafeautomation.com",
+    "phone": "Telefon"
+  },
+  "page2": {
+    "navItems": [
+      {
+        "title": "PLC Siemens",
+        "image": "/product-category/webp/1.webp",
+        "url": "/"
+      },
+      {
+        "title": "Unitatea Siemens",
+        "image": "/product-category//webp/2.webp",
+        "url": "/"
+      },
+      {
+        "title": "HMI Siemens",
+        "image": "/product-category/webp/3.webp",
+        "url": "/"
+      },
+      {
+        "title": "Sursa de alimentare Siemens",
+        "image": "/product-category/webp/4.webp",
+        "url": "/"
+      },
+      {
+        "title": "Controler general diesel",
+        "image": "/product-category/webp/5.webp",
+        "url": "/"
+      },
+      {
+        "title": "Schneider Pro-Face Telemecanique",
+        "image": "/product-category/webp/6.webp",
+        "url": "/"
+      },
+      {
+        "title": "Teste de certificare și performanță",
+        "image": "/product-category/webp/7.webp",
+        "url": "/"
+      },
+      {
+        "title": "Siemens Discontinued- Produse învechite și multe altele",
+        "image": "/product-category/webp/8.webp",
+        "url": "/"
+      },
+      {
+        "title": "Alte produse de automatizare",
+        "image": "/product-category/webp/9.webp",
+        "url": "/"
+      }
+    ]
+  },
+  "bestDeal": {
+    "title": "Cele mai vândute produse",
+    "viewAllButtonText": "Vezi toate",
+    "viewAllButtonIcon": "ChevronDreapta",
+    "mobileButtonIcon": "ChevronDreapta",
+    "buttonLabels": {
+      "addToCart": "Adaugă in coş ",
+      "goToCart": "Du-te la coș",
+      "requestQuotation": "Solicitați cotație",
+      "requestForPrice": "Cerere Pret",
+      "productDetails": "Detalii despre produs"
     }
+  },
+  "productCarousel": {
+    "loadingText": "Încărcare...",
+    "badgeText": "Cea mai bună alegere",
+    "cardAltText": "Imagine cu {title}"
+  },
+  "featuredCategory": {
+    "title": "Categoria recomandată",
+    "defaultCompanyImage": "/featured/partner/siemens.png",
+    "companyImages": {
+      "Siemens": "/featured/partner/siemens.png",
+      "DEIF": "/featured/partner/deif.png",
+      "Pro-face": "/featured/partner/proface.png"
+    }
+  },
+  "singleProductDetails": {
+    "charLimit": 250,
+    "errorMessages": {
+      "minQuantity": "Cantitatea minimă de comandă este de {minQuantity}"
+    },
+    "availabilityText": "Disponibil",
+    "getItByText": "Primește-l până vineri, 9 august.",
+    "descriptionTitle": "Descriere produs",
+    "buttonLabels": {
+      "addToCart": "Adaugă in coş",
+      "goToCart": "Du-te la coș",
+      "buyNow": "Cumpărați acum",
+      "requestQuotation": "Solicitați cotație",
+      "requestForPrice": "Cerere Pret"
+    }
+  },
+  "featuredPartner": {
+    "title": "Parteneri prezentați"
+  },
+  "industryAutomation": {
+    "title": "Automatizare în industrie"
+  },
+  "featuredProduct": {
+    "title": "Produs recomandat",
+    "buttonLabels": {
+      "addToCart": "Adaugă in coş",
+      "goToCart": "Adaugă in coş",
+      "requestQuotation": "Solicitați cotație",
+      "requestForPrice": "Cerere Pret",
+      "productDetails": "Detalii despre produs"
+    }
+  },
+  "search": {
+    "placeHolder": "Căutați produse...(De exemplu: 6ES7288-1ST30-0AA0)"
+  },
+  "menuBar": {
+    "firstMenuTitle": "Cel mai vândut",
+    "secondMenuTitle": "Cumpărați după categorie",
+    "thirdMenuTitle": "Cumpărați după marcă",
+    "fourthMenuTitle": "Despre companie",
+    "fifthMenuTitle": "Ofertă de servicii",
+    "sixthMenuTitle": "Cotația întregului proiect",
+    "seventhMenuTitle": "De ce 100 de clienți au încredere în noi",
+    "aboutSubmenu": [
+      {
+        "title": "Despre noi",
+        "url": "/despre-noi"
+      },
+      {
+        "title": "Contactaţi-ne",
+        "url": "/contactaţi-ne"
+      },
+      {
+        "title": "Termeni și condiții",
+        "url": "/termandcondition"
+      },
+      {
+        "title": "Politica de confidențialitate",
+        "url": "/Politica de confidențialitate"
+      },
+      {
+        "title": "Politici de anulare/rambursare",
+        "url": "/anulare și rambursare"
+      }
+    ]
+  },
+  "footer": {
+    "newsletter": {
+      "title": "Buletin informativ",
+      "placeholder": "Introduceți adresa dvs. de e-mail",
+      "subscribeButton": "Abonați-vă",
+      "successMessage": "Vă mulțumim pentru abonare!"
+    },
+    "company": {
+      "title": "Companie",
+      "links": [
+        {
+          "text": "Cine suntem",
+          "url": "/cine-noi-suntem"
+        },
+        {
+          "text": "Angajamentele noastre",
+          "url": "/angajamentele-noastre"
+        },
+        {
+          "text": "Pentru ce susținem",
+          "url": "/ce-suptăm-noi"
+        },
+        {
+          "text": "Mărci partenere",
+          "url": "/partner-brands"
+        },
+        {
+          "text": "Cariere și Oportunități",
+          "url": "/cariera-si-oportunitati"
+        }
+      ]
+    },
+    "customerCare": {
+      "title": "Asistență pentru clienți",
+      "navItems": [
+        {
+          "text": "Ajutor și asistență",
+          "url": "/help-and-support"
+        },
+        {
+          "text": "Starea comenzii",
+          "url": "/starea-comandei"
+        },
+        {
+          "text": "Informații de livrare",
+          "url": "/informații-livrare"
+        },
+        {
+          "text": "Retur și schimburi",
+          "url": "/retur-și-schimb"
+        },
+        {
+          "text": "Asistență la instalare",
+          "url": "/instalare-asistență"
+        }
+      ]
+    },
+    "trust": {
+      "title": "Încredere",
+      "links": [
+        {
+          "text": "Garanția produsului",
+          "url": "/produs-garanție"
+        },
+        {
+          "text": "Plăți sigure și securizate",
+          "url": "/plăți-sigure-și-securizate"
+        },
+        {
+          "text": "Opțiuni de plată",
+          "url": "/opțiuni-plată"
+        },
+        {
+          "text": "Politici de protecție a datelor",
+          "url": "/politicile-de-protecția-datelor"
+        },
+        {
+          "text": "Acorduri cu utilizatorul",
+          "url": "/acorduri cu utilizatorul"
+        },
+        {
+          "text": "Setări de confidențialitate și cookie",
+          "url": "/setari-privacy-and-cookie"
+        }
+      ]
+    },
+    "paymentMethod": {
+      "title": "Modalitate de plată",
+      "methods": [
+        "Transfer online / transfer bancar",
+        "RTGS / NEFT"
+      ],
+      "image": "/payment.jpg",
+      "alt": "Modalitati de plata"
+    },
+    "shippingMethod": {
+      "title": "Metoda de livrare",
+      "providers": [
+        {
+          "name": "UPS",
+          "logo": "/Versand_UPS.png"
+        },
+        {
+          "name": "DHL",
+          "logo": "/Versand_DHL.png"
+        }
+      ]
+    },
+    "bottomText": "2024 AUTOMATIZARE ECOM GLOBAL. "
+  },
+  "productCard": {
+    "buttonLabels": {
+      "addToCart": "Adaugă in coş",
+      "goToCart": "Mergi la Coș",
+      "requestQuotation": "Solicitați cotație",
+      "requestForPrice": "Cerere Pret",
+      "buyNow": "Cumpărați acum"
+    }
+  },
+  "productDetails": {
+    "backToResult": "Înapoi la rezultat",
+    "similarProducts": "Produse similare",
+    "feedbackSeeAll": "Feedback | ",
+    "mostlyVisitedProducts": "Cele mai multe produse vizitate",
+    "productDetails": "Detalii despre produs",
+    "reviews": "Recenzii",
+    "discussion": "Discuţie"
+  },
+  "cart": {
+    "yourCart": "Coșul dvs",
+    "subtotal": "Subtotal",
+    "checkout": "Verifică",
+    "requestForQuotation": "Cerere De Cotatie",
+    "item": "Articole din coș!",
+    "youHave": "Aveți"
+  },
+  "enquiry": {
+    "fullNameLabel": "Numele complet",
+    "fullNamePlaceholder": "Vă rugăm să introduceți numele dvs. complet",
+    "emailLabel": "E-mail",
+    "emailPlaceholder": "Vă rugăm să introduceți adresa dvs. de e-mail",
+    "mobileLabel": "Mobil",
+    "quantityLabel": "Cantitate",
+    "quantityPlaceholder": "Vă rugăm să furnizați cantitatea",
+    "enquiryDescriptionLabel": "Descrierea cererii",
+    "enquiryDescriptionPlaceholder": "Vă rugăm să introduceți descrierea detaliată a solicitării dvs",
+    "submitButton": "Trimiteți cererea dvs",
+    "submittingButton": "Se trimite...",
+    "quickQuoteTitle": "Formular de cotație rapidă",
+    "confirmDetailsTitle": "Vă rugăm să confirmați detaliile dvs"
+  },
+  "support": {
+    "titleLabel": "Titlul anchetei",
+    "titlePlaceholder": "Vă rugăm să introduceți titlul întrebării dvs",
+    "emailLabel": "E-mail",
+    "emailPlaceholder": "Vă rugăm să introduceți adresa dvs. de e-mail",
+    "enquiryDescriptionLabel": "Descrierea cererii",
+    "enquiryDescriptionPlaceholder": "Vă rugăm să introduceți descrierea detaliată a solicitării dvs",
+    "submitButton": "Trimiteți cererea dvs",
+    "submittingButton": "Se trimite...",
+    "enterDetailsTitle": "Vă rugăm să introduceți detaliile dvs"
+  },
+  "emptyCart": {
+    "title": "Coșul tău este gol",
+    "description": "Se pare că încă nu ați adăugat nimic în coș.",
+    "action": "Continuați cumpărăturile"
+  },
+  "about": {
+    "banner": {
+      "imageAlt": "banner-despre",
+      "imageSrc": "/images/about.jpg"
+    },
+    "section1": {
+      "heading": "Alimentarea automatizării industriale",
+      "description": "Automatizare eCom Global este un furnizor de top de soluții de automatizare industrială de ultimă oră. ",
+      "subSection": {
+        "title": "Despre noi",
+        "description": "Fondată în 1985, Automation eCom Global a fost în fruntea industriei automatizării industriale, oferind soluții de ultimă oră întreprinderilor dintr-o gamă largă de sectoare. "
+      },
+      "links": {
+        "exploreProducts": {
+          "label": "Explorați produsele",
+          "href": "#"
+        },
+        "contactUs": {
+          "label": "Contactaţi-ne",
+          "href": "#"
+        }
+      }
+    },
+    "section2": {
+      "title": "Expertiza noastra",
+      "heading": "Stăpânirea automatizării industriale",
+      "description": "Cu peste 35 de ani de experiență în industria automatizării industriale, Automation eCom Global a dezvoltat o înțelegere profundă a provocărilor și oportunităților cu care se confruntă clienții noștri. ",
+      "cards": [
+        {
+          "title": "Controlere logice programabile (PLC-uri)",
+          "description": "Soluțiile noastre PLC sunt concepute pentru a oferi automatizare fiabilă, scalabilă și ușor de utilizat pentru o gamă largă de aplicații industriale."
+        },
+        {
+          "title": "Interfețe om-mașină (HMI)",
+          "description": "Soluțiile noastre HMI oferă interfețe intuitive și ușor de utilizat, care permit operatorilor să monitorizeze și să controleze procesele industriale cu ușurință."
+        },
+        {
+          "title": "Senzori industriali si instrumentatie",
+          "description": "Gama noastră cuprinzătoare de senzori industriali și soluții de instrumente oferă date precise și fiabile pentru nevoile dumneavoastră de automatizare."
+        },
+        {
+          "title": "Sisteme de control al mișcării",
+          "description": "Soluțiile noastre de control al mișcării permit controlul precis și eficient al utilajelor industriale, asigurând performanță și productivitate optime."
+        },
+        {
+          "title": "Rețele industriale și comunicații",
+          "description": "Soluțiile noastre de rețele industriale și de comunicare facilitează schimbul și integrarea fără întreruperi de date în ecosistemul dvs. de automatizare."
+        },
+        {
+          "title": "Sisteme de siguranță industrială",
+          "description": "Sistemele noastre de siguranță industrială sunt concepute pentru a vă proteja lucrătorii, echipamentele și procesele, asigurând un mediu de lucru sigur și securizat."
+        }
+      ]
+    },
+    "section3": {
+      "heading": "Contactați echipa Automation Ecom",
+      "description": "Echipa noastră de experți este dedicată să ofere clienților noștri cele mai bune soluții și suport posibil.",
+      "requestQuoteButton": "Solicitați cotație",
+      "teamMembers": [
+        {
+          "name": "John Doe",
+          "role": "CEO",
+          "imageSrc": "/placeholder-user.jpg"
+        },
+        {
+          "name": "Jane Lee",
+          "role": "CTO",
+          "imageSrc": "/placeholder-user.jpg"
+        },
+        {
+          "name": "Sarah Miller",
+          "role": "Șef de vânzări",
+          "imageSrc": "/placeholder-user.jpg"
+        },
+        {
+          "name": "David Wang",
+          "role": "Inginer principal",
+          "imageSrc": "/placeholder-user.jpg"
+        }
+      ]
+    },
+    "section4": {
+      "heading": "Explorați catalogul nostru de produse",
+      "description": "Automatizare eCom Global oferă o gamă largă de produse de automatizare industrială de ultimă generație pentru a satisface nevoile diverse ale clienților noștri.",
+      "links": {
+        "viewProducts": {
+          "label": "Vezi Produse",
+          "href": "#"
+        },
+        "contactUs": {
+          "label": "Contactaţi-ne",
+          "href": "#"
+        }
+      }
+    }
+  },
+  "cancellationAndRefund": {
+    "heading": "Politica de anulare și rambursare",
+    "introduction": "AUTOMATION ECOM GLOBAL crede în a-și ajuta clienții pe cât posibil și, prin urmare, are o politică de anulare liberală. ",
+    "section1": {
+      "title": "Anulări și rambursări",
+      "items": [
+        {
+          "strong": "Perioada de timp:",
+          "text": "Anulările vor fi luate în considerare numai dacă cererea este făcută în aceeași zi de la plasarea comenzii. "
+        }
+      ]
+    },
+    "section2": {
+      "title": "Cum să solicitați o anulare sau o rambursare",
+      "items": [
+        {
+          "strong": "Proces:",
+          "text": "În cazul în care primiți articole deteriorate sau defecte, vă rugăm să raportați același lucru echipei noastre de servicii pentru clienți. "
+        },
+        {
+          "strong": "Timp de răspuns:",
+          "text": "În cazul oricăror rambursări aprobate de AUTOMATION ECOM GLOBAL, va dura 1-2 zile pentru ca rambursarea să fie procesată către clientul final."
+        }
+      ]
+    },
+    "section3": {
+      "title": "Asistență pentru clienți",
+      "paragraph": "Dacă aveți întrebări sau nelămuriri cu privire la politica noastră de anulare și rambursare, vă rugăm să nu ezitați să contactați echipa noastră de asistență pentru clienți. ",
+      "contactLinks": [
+        {
+          "href": "#",
+          "text": "Asistență prin e-mail",
+          "icon": "MailOpenIcon"
+        },
+        {
+          "href": "#",
+          "text": "Apelați la asistență",
+          "icon": "Pictogramă Telefon"
+        }
+      ]
+    }
+  },
+  "careersAndOpportunities": {
+    "heading": "Cariere și Oportunități",
+    "intro": "Alăturați-vă Automation eCom Global și faceți parte dintr-o echipă care conduce inovația în automatizarea industrială din întreaga lume.",
+    "whyJoinUs": {
+      "title": "De ce să ni se alăture?",
+      "careerAspects": [
+        {
+          "id": "lider global",
+          "title": "Fiți parte dintr-un lider global",
+          "content": "Lucrați cu tehnologii de ultimă oră și mărci globale precum Siemens, Schneider, DEIF și ComAp. ",
+          "icon": "Glob"
+        },
+        {
+          "id": "creştere",
+          "title": "Creste cu noi",
+          "content": "Accesați o gamă largă de programe de formare, oportunități de mentorat și experiențe de învățare la locul de muncă. ",
+          "icon": "TrendingUp"
+        },
+        {
+          "id": "mediu de lucru",
+          "title": "Mediu de lucru dinamic",
+          "content": "Alăturați-vă unui loc de muncă divers și incluziv, unde inovația prosperă și fiecare voce este auzită. ",
+          "icon": "Utilizatori"
+        },
+        {
+          "id": "roluri",
+          "title": "Roluri interesante",
+          "content": "Explorați oportunități în inginerie, vânzări, asistență clienți, management de produs și lanț de aprovizionare. ",
+          "icon": "Servietă"
+        },
+        {
+          "id": "echilibrul muncă-viață-viață",
+          "title": "Echilibrul între muncă și viață",
+          "content": "Bucurați-vă de aranjamente flexibile de lucru, concediu plătit și beneficii pentru sănătate. ",
+          "icon": "Strângere de mână inimii"
+        },
+        {
+          "id": "durabilitate",
+          "title": "Contribuie la un viitor durabil",
+          "content": "Faceți parte din proiecte care reduc consumul de energie, optimizează utilizarea resurselor și minimizează impactul asupra mediului. ",
+          "icon": "Frunze"
+        }
+      ]
+    },
+    "excitingRoles": {
+      "title": "Roluri interesante în mai multe funcții",
+      "roles": [
+        "Inginerie",
+        "Vânzări și dezvoltare de afaceri",
+        "Asistență pentru clienți",
+        "Asistență tehnică",
+        "Managementul produsului",
+        "Marketing",
+        "Lanț de aprovizionare",
+        "Operațiuni"
+      ],
+      "description": "Fie că pasiunea ta constă în inovația tehnică, strategia de vânzări sau serviciul pentru clienți, noi oferim roluri care se potrivesc cu abilitățile și aspirațiile tale."
+    },
+    "joinUs": {
+      "title": "Alăturați-vă nouă în călătoria noastră",
+      "content": "La Automation eCom Global, nu construim doar soluții de automatizare; ",
+      "benefits": [
+        {
+          "icon": "Rachetă",
+          "text": "Lucrați cu tehnologie de ultimă oră"
+        },
+        {
+          "icon": "Globul 2",
+          "text": "Contribuiți la proiecte de vârf în industrie"
+        },
+        {
+          "icon": "Utilizatori",
+          "text": "Creșteți alături de minți strălucitoare în automatizare"
+        },
+        {
+          "icon": "Frunze",
+          "text": "Faceți un impact pozitiv asupra mediului"
+        }
+      ],
+      "callToAction": {
+        "title": "Ești gata să-ți începi călătoria?",
+        "description": "Explorați deschiderile noastre actuale și faceți primul pas către o carieră interesantă în automatizarea industrială.",
+        "buttonText": "Vizualizați pozițiile deschise",
+        "buttonVariant": "distructiv",
+        "buttonSize": "lg"
+      }
+    }
+  },
+  "contact": {
+    "header": {
+      "title": "Luați legătura",
+      "description": "Ai o întrebare sau ai nevoie de ajutor? "
+    },
+    "form": {
+      "title": "Contactaţi-ne",
+      "fields": {
+        "name": {
+          "label": "Nume",
+          "placeholder": "John Doe"
+        },
+        "email": {
+          "label": "E-mail",
+          "placeholder": "exemplu@acme.com"
+        },
+        "phone": {
+          "label": "Telefon",
+          "placeholder": "(123) 456-7890"
+        },
+        "message": {
+          "label": "Mesaj",
+          "placeholder": "Cum te putem ajuta?"
+        }
+      },
+      "submitButton": "Trimite mesaj"
+    },
+    "contactInformation": {
+      "title": "Informații de contact",
+      "company": "Numele companiei dvs",
+      "address": "123 Main St, Oraș, Țară",
+      "phone": "1-800-123-4567",
+      "workingHours": "Luni-Vineri, 9:00-17:00",
+      "email": "contact@company.com",
+      "emailNote": "Vă vom reveni cât mai curând posibil."
+    }
+  },
+  "dataProtectionPolicies": {
+    "header": {
+      "title": "Politica și protecția datelor",
+      "description": "La Automation eCom Global, acordăm prioritate securității și confidențialității datelor personale și de afaceri ale clienților noștri. "
+    },
+    "policyPoints": [
+      {
+        "icon": "Blocare",
+        "title": "Angajamentul față de confidențialitate și securitatea datelor",
+        "tab": "intimitate",
+        "content": "Vă luăm în serios confidențialitatea și ne angajăm să vă protejăm informațiile personale și de afaceri împotriva accesului, utilizării sau dezvăluirii neautorizate. ",
+        "list": [
+          "Criptare: Toate informațiile sensibile, inclusiv detaliile de plată și datele personale, sunt criptate folosind tehnologia SSL (Secure Socket Layer), asigurând că datele dumneavoastră sunt protejate în timpul transmiterii.",
+          "Controale de acces: implementăm controale stricte de acces pentru a ne asigura că numai personalul autorizat are acces la datele dumneavoastră.",
+          "Audituri regulate: sistemele noastre sunt auditate și monitorizate în mod regulat pentru vulnerabilități de securitate și ne actualizăm continuu procesele pentru a se alinia la cele mai recente standarde de protecție a datelor."
+        ]
+      },
+      {
+        "icon": "Glob",
+        "title": "Respectarea GDPR și a legilor globale privind confidențialitatea",
+        "tab": "conformitate",
+        "content": "Fiind o companie globală care deservește clienți din regiuni precum Europa, SUA, India, China, Dubai și Germania, Automation eCom Global aderă la diverse legi internaționale privind confidențialitatea, inclusiv GDPR pentru clienții noștri europeni. ",
+        "list": [
+          "Transparența colectării datelor: Vă informăm în mod clar despre ce date colectăm, de ce le colectăm și cum le folosim.",
+          "Dreptul de acces: aveți dreptul de a solicita acces la datele personale pe care le deținem despre dvs. și vă vom furniza o copie a informațiilor în timp util.",
+          "Dreptul la rectificare: Dacă considerați că oricare dintre datele pe care le deținem despre dumneavoastră este inexacte, aveți dreptul de a solicita să le corectăm.",
+          "Dreptul la ștergere: Puteți solicita să vă ștergem datele personale din sistemele noastre dacă nu mai sunt necesare pentru scopul pentru care au fost colectate sau dacă vă retrageți consimțământul."
+        ]
+      },
+      {
+        "icon": "Baza de date",
+        "title": "Cum colectăm și utilizăm datele",
+        "tab": "utilizarea datelor",
+        "content": "La Automation eCom Global, colectăm și folosim date în scopuri comerciale specifice, legitime. ",
+        "list": [
+          "Informații personale: Când creați un cont, faceți o achiziție sau ne contactați, colectăm informații personale precum numele, adresa de e-mail, adresa de expediere și detaliile de plată. ",
+          "Date de utilizare a site-ului web: Colectăm date non-personale, cum ar fi adresa dvs. IP, tipul de browser și tiparele de utilizare a site-ului web, pentru a ne ajuta să îmbunătățim performanța platformei noastre și să oferim o experiență mai bună pentru utilizator. ",
+          "Cookie-uri: Folosim cookie-uri pentru a vă îmbunătăți experiența de navigare, amintindu-vă preferințele și detaliile de conectare. "
+        ]
+      },
+      {
+        "icon": "Verificare utilizator",
+        "title": "Drepturile și alegerile tale",
+        "tab": "drepturile tale",
+        "content": "La Automation eCom Global, credem în împuternicirea clienților noștri să preia controlul asupra datelor lor personale. ",
+        "list": [
+          "Accesul la datele dumneavoastră: puteți solicita oricând o copie a informațiilor personale pe care le deținem despre dumneavoastră.",
+          "Corectarea datelor dumneavoastră: Dacă vreuna dintre informațiile dumneavoastră personale este incorectă sau incompletă, puteți solicita să le actualizăm.",
+          "Ștergerea datelor dumneavoastră: Puteți solicita ștergerea datelor dumneavoastră cu caracter personal, iar noi ne vom conforma atâta timp cât nu există nicio cerință legală de a le păstra.",
+          "Renunțarea la comunicări: Puteți renunța la e-mailuri de marketing sau alte comunicări în orice moment, ajustând preferințele în setările contului sau folosind linkul „dezabonare” din e-mailurile noastre."
+        ]
+      }
+    ],
+    "chooseUsPoints": [
+      "Respectarea legilor globale de confidențialitate: aderăm la GDPR și la alte standarde internaționale de protecție a datelor pentru a ne asigura că datele dumneavoastră sunt întotdeauna gestionate în siguranță.",
+      "Utilizarea transparentă a datelor: Oferim informații clare despre modul în care datele dumneavoastră sunt colectate, utilizate și stocate, oferindu-vă control deplin asupra informațiilor dumneavoastră personale.",
+      "Măsuri avansate de securitate: datele dumneavoastră sunt protejate cu criptare SSL, servere securizate și controale stricte de acces.",
+      "Respectul pentru confidențialitatea dvs.: Nu vindem sau distribuim niciodată datele dvs. fără consimțământul dvs. și colaborăm cu terțe părți de încredere pentru a vă oferi servicii esențiale.",
+      "Drepturile și controlul utilizatorului: puteți accesa, corecta sau șterge datele dvs. în orice moment și vă puteți gestiona cu ușurință preferințele de comunicare."
+    ],
+    "whyChooseUs": {
+      "title": "De ce să alegeți Automation eCom Global pentru protecția datelor?",
+      "callToAction": "Contactați-ne pentru mai multe informații"
+    }
+  },
+  "deliveryInfo": {
+    "aboutDeliveryServices": "La Automation eCom Global, recunoaștem că livrarea la timp și fiabilă este crucială pentru operațiunile dvs. de afaceri. ",
+    "featuresTitle": "Caracteristici de livrare",
+    "features": [
+      {
+        "id": "1",
+        "title": "Rețeaua globală de livrare",
+        "description": "În calitate de lider global în automatizarea industrială, Automation eCom Global oferă servicii de livrare fiabile pe o gamă largă de piețe internaționale, inclusiv Dubai, SUA, China, India, Germania și multe altele. ",
+        "icon": "Glob"
+      },
+      {
+        "id": "2",
+        "title": "Opțiuni de livrare",
+        "description": "La Automation eCom Global, oferim o varietate de opțiuni de expediere pentru a satisface nevoile diverse ale clienților noștri. ",
+        "icon": "Camion"
+      },
+      {
+        "id": "3",
+        "title": "Timp de livrare rapid și de încredere",
+        "description": "Înțelegem că timpul este esențial atunci când vine vorba de automatizarea industrială. ",
+        "icon": "Ceas"
+      },
+      {
+        "id": "4",
+        "title": "Ambalare și manipulare sigure",
+        "description": "La Automation eCom Global, avem mare grijă să ne asigurăm că produsele dumneavoastră de automatizare sunt ambalate în siguranță și transportate în siguranță. ",
+        "icon": "Pachet"
+      },
+      {
+        "id": "5",
+        "title": "Urmărirea expedierii și notificări",
+        "description": "Din momentul în care comanda dumneavoastră este expediată, veți avea vizibilitate deplină și control asupra transportului. ",
+        "icon": "Clopot"
+      },
+      {
+        "id": "6",
+        "title": "Asistență vamală și transport internațional",
+        "description": "În calitate de furnizor global, Automation eCom Global înțelege complexitatea transportului internațional, în special când vine vorba de reglementările vamale. ",
+        "icon": "FileText"
+      },
+      {
+        "id": "7",
+        "title": "Livrare în locații la distanță",
+        "description": "La Automation eCom Global, înțelegem că operațiunile industriale sunt adesea situate în zone îndepărtate sau greu accesibile. ",
+        "icon": "MapPin"
+      },
+      {
+        "id": "8",
+        "title": "Retururi și schimburi ușoare",
+        "description": "Deși ne străduim să ne asigurăm că fiecare comandă este îndeplinită perfect, înțelegem că ocazional pot fi necesare retururi sau schimburi. ",
+        "icon": "RefreshCw"
+      }
+    ],
+    "whyChooseUs": [
+      {
+        "title": "Acoperire globală",
+        "description": "Livrăm clienților din întreaga lume, cu opțiuni de expediere rapide și fiabile."
+      },
+      {
+        "title": "Metode de livrare flexibile",
+        "description": "Alegeți dintre standard, expres sau transport de marfă pentru a vă satisface nevoile."
+      },
+      {
+        "title": "Ambalare sigură",
+        "description": "Ne asigurăm că produsele dumneavoastră sunt ambalate în siguranță și protejate în timpul tranzitului."
+      },
+      {
+        "title": "Urmărire în timp real",
+        "description": "Rămâneți la curent cu actualizările și notificările privind expedierea în timp real."
+      },
+      {
+        "title": "Suport vamal",
+        "description": "Ne ocupăm de toate reglementările internaționale de expediere și documentele pentru o experiență de livrare fără probleme."
+      },
+      {
+        "title": "Livrare fiabilă în locații îndepărtate",
+        "description": "Oferim chiar și cele mai îndepărtate locații industriale cu servicii de livrare specializate."
+      }
+    ],
+    "title": "Despre serviciile noastre de livrare",
+    "whyChooseTitle": "De ce să alegeți Automation eCom Global pentru nevoile dvs. de livrare?"
+  },
+  "helpAndSupport": {
+    "title": "Ajutor și asistență",
+    "subtitle": "Asistență cuprinzătoare pentru a vă asigura succesul cu soluțiile noastre de automatizare industrială.",
+    "supportServicesTitle": "Serviciile noastre de asistență",
+    "services": [
+      {
+        "id": "asistență tehnică",
+        "icon": "Cheie",
+        "title": "Asistență tehnică",
+        "shortDesc": "Îndrumări de specialitate cu privire la instalare, configurare și depanare",
+        "content": "Echipa noastră de profesioniști experimentați oferă îndrumări de specialitate cu privire la instalare, configurare și depanare pentru toate produsele noastre de automatizare. "
+      },
+      {
+        "id": "pre-vânzare",
+        "icon": "Apel telefonic",
+        "title": "Consultație pre-vânzare",
+        "shortDesc": "Recomandări personalizate pentru nevoile dvs. de automatizare",
+        "content": "Obțineți recomandări și informații personalizate pentru a vă ajuta să alegeți soluțiile de automatizare potrivite pentru nevoile dvs. specifice. "
+      },
+      {
+        "id": "sprijin global",
+        "icon": "Glob",
+        "title": "Asistență globală 24/7",
+        "shortDesc": "Asistență non-stop în întreaga lume",
+        "content": "Accesați asistență non-stop de la echipele noastre de asistență situate strategic, indiferent unde vă aflați în lume. "
+      },
+      {
+        "id": "instalare-instruire",
+        "icon": "Setări",
+        "title": "Instalare și instruire",
+        "shortDesc": "Suport cuprinzător de configurare și dezvoltare a abilităților",
+        "content": "Primiți asistență cuprinzătoare pentru instalare și programe de instruire personalizate pentru a vă oferi echipei dumneavoastră abilitățile necesare. "
+      },
+      {
+        "id": "documentare",
+        "icon": "FileText",
+        "title": "Documentația produsului",
+        "shortDesc": "Bibliotecă extinsă de ghiduri și resurse",
+        "content": "Accesați biblioteca noastră extinsă de manuale de utilizare, ghiduri tehnice și resurse actualizate pentru toate produsele noastre. "
+      },
+      {
+        "id": "pachete de suport",
+        "icon": "Pachet",
+        "title": "Pachete de asistență personalizate",
+        "shortDesc": "Planuri flexibile pentru a răspunde nevoilor dumneavoastră specifice",
+        "content": "Alegeți dintre planurile de asistență flexibile concepute pentru a satisface cerințele și prioritățile dumneavoastră operaționale specifice. "
+      },
+      {
+        "id": "post-vânzare",
+        "icon": "ShieldCheck",
+        "title": "Post-vânzare și garanție",
+        "shortDesc": "Asistență continuă și garanții pentru produse",
+        "content": "Bucurați-vă de asistență post-vânzare cuprinzătoare și de servicii de garanție pentru a asigura performanța sistemului pe termen lung. "
+      },
+      {
+        "id": "feedback",
+        "icon": "MessageSquare",
+        "title": "Feedback-ul clienților",
+        "shortDesc": "Îmbunătățirea continuă bazată pe contribuția dvs",
+        "content": "Apreciem contribuția dumneavoastră și ne îmbunătățim continuu serviciile pe baza feedback-ului clienților și a evaluărilor satisfacției. "
+      }
+    ],
+    "whyChooseTitle": "De ce să alegeți suportul nostru?",
+    "whyChooseItems": [
+      "Disponibilitate 24/7",
+      "Asistenta tehnica de specialitate",
+      "Documentație cuprinzătoare",
+      "Pachete de suport personalizate",
+      "Abordare centrată pe client"
+    ],
+    "faqTitle": "Întrebări frecvente",
+    "faqs": [
+      {
+        "question": "Ce tipuri de suport tehnic oferiți?",
+        "answer": "Oferim asistență tehnică cuprinzătoare, inclusiv asistență la instalare, ajutor pentru configurare, depanare, asistență software și optimizare a sistemului pentru toate produsele noastre de automatizare de la mărci precum Siemens, DEIF, Schneider și ComAp."
+      },
+      {
+        "question": "Cum pot accesa asistență 24/7?",
+        "answer": "Asistența noastră globală 24/7 este disponibilă prin telefon, e-mail și portalul nostru de asistență online. "
+      },
+      {
+        "question": "Oferiți asistență la fața locului?",
+        "answer": "Da, oferim asistență la fața locului ca parte a pachetelor noastre de asistență personalizate. "
+      },
+      {
+        "question": "Ce acoperă garanția?",
+        "answer": "Garanția noastră acoperă defecte de fabricație și defecțiuni în condiții normale de utilizare pentru o perioadă specificată. "
+      },
+      {
+        "question": "Cum pot programa o sesiune de antrenament pentru echipa mea?",
+        "answer": "Puteți programa o sesiune de instruire contactând echipa noastră de asistență pentru clienți. "
+      }
+    ],
+    "assistanceTitle": "Aveți nevoie de asistență?",
+    "assistanceDescription": "Echipa noastră de asistență este pregătită să vă ajute cu orice întrebări sau probleme pe care le puteți avea. ",
+    "contactSupportButton": "Contactați asistența",
+    "viewKnowledgeBaseButton": "Vedeți baza de cunoștințe"
+  },
+  "installationAssistance": {
+    "title": "Asistență la instalare",
+    "intro": "La Automation eCom Global, înțelegem că instalarea cu succes este esențială pentru performanța și longevitatea sistemelor dumneavoastră de automatizare industrială. ",
+    "tabs": {
+      "expert-guidance": {
+        "title": "1. Îndrumări de experți de la tehnicieni autorizați",
+        "content": "Serviciile noastre de asistență la instalare sunt conduse de o echipă de tehnicieni și ingineri certificați cu o vastă experiență în sisteme de automatizare industrială. ",
+        "tab": "Îndrumarea expertului"
+      },
+      "support-options": {
+        "title": "2. Asistență pentru instalare la fața locului și la distanță",
+        "content": "La Automation eCom Global, oferim opțiuni flexibile de asistență la instalare pentru a satisface nevoile unice ale clienților noștri globali. ",
+        "tab": "Opțiuni de asistență"
+      },
+      "resources": {
+        "title": "3. Manuale de instalare și resurse detaliate",
+        "content": "Înțelegem că a avea documentația corectă este cheia unei instalări de succes. ",
+        "tab": "Resurse"
+      },
+      "configuration": {
+        "title": "4. Asistență pentru configurare și testare",
+        "content": "Instalarea este doar primul pas – configurarea și testarea corespunzătoare sunt esențiale pentru a vă asigura că sistemele dumneavoastră funcționează corect și vă satisfac nevoile operaționale. ",
+        "tab": "Configurare"
+      }
+    },
+    "subTitle": "Suport de instalare expert pentru sistemele dvs. de automatizare",
+    "additionalServices": {
+      "title": "Servicii suplimentare",
+      "items": [
+        "5. Suport pentru personalizare și integrare: Multe sisteme de automatizare industrială necesită configurații personalizate sau integrare cu echipamentele existente. ",
+        "6. Instruire pentru echipa dvs.: Pe lângă asistența la instalare, Automation eCom Global oferă programe de instruire pentru a se asigura că echipa dumneavoastră este complet echipată pentru a opera și întreține noile dumneavoastră sisteme de automatizare. ",
+        "7. Asistență continuă după instalare: Angajamentul nostru pentru succesul dumneavoastră nu se termină cu instalarea. "
+      ]
+    },
+    "whyChoose": {
+      "title": "De ce să alegeți Automation eCom Global pentru asistență la instalare?",
+      "items": [
+        "Tehnicieni certificați: Echipa noastră de experți se asigură că sistemele dumneavoastră sunt instalate și configurate conform celor mai înalte standarde din industrie.",
+        "Asistență flexibilă: Oferim asistență la instalare atât la fața locului, cât și la distanță pentru a satisface nevoile proiectului dumneavoastră.",
+        "Documentație cuprinzătoare: manualele și resursele noastre detaliate de instalare vă ghidează prin fiecare pas al procesului.",
+        "Suport de configurare personalizată: Vă ajutăm să personalizați și să vă integrați sistemele pentru o funcționare perfectă cu echipamentele existente.",
+        "Instruire și asistență continuă: Oferim programe de formare pentru a vă echipa echipa cu abilitățile necesare pentru a vă opera și întreține sistemele.",
+        "Suport post-instalare: Oferim asistență tehnică continuă pentru a asigura performanța și fiabilitatea sistemului pe termen lung."
+      ]
+    }
+  },
+  "orderStatus": {
+    "aboutService": "La Automation eCom Global, înțelegem că a rămâne informat cu privire la progresul comenzii dvs. este esențial pentru a vă menține funcționarea fără probleme. ",
+    "features": {
+      "title": "Caracteristicile noastre privind starea comenzii",
+      "tab": "Caracteristici",
+      "realTimeTracking": {
+        "title": "1. Urmărire în timp real",
+        "description": "Din momentul în care confirmați achiziția cu Automation eCom Global, sistemul nostru intră în acțiune pentru a vă oferi urmărirea în timp real a comenzii dvs. ",
+        "icon": "Pachet"
+      },
+      "automatedNotifications": {
+        "title": "2. Notificări automate",
+        "description": "Credem că vă ținem informat fără a fi nevoie să faceți pași suplimentari. ",
+        "icon": "AlertCircle"
+      },
+      "accessViaPortal": {
+        "title": "3. Acces prin portalul contului clientului",
+        "description": "În calitate de client valoros al Automation eCom Global, aveți acces la Portalul nostru de conturi pentru clienți, o platformă securizată, personalizată, unde puteți gestiona și urmări toate comenzile. ",
+        "icon": "SăgeatăDreapta"
+      },
+      "orderStatusSupport": {
+        "title": "4. Asistență pentru starea comenzii",
+        "description": "Dacă aveți întrebări sau nelămuriri legate de comanda dvs., echipa noastră dedicată de asistență pentru clienți este aici pentru a vă ajuta. ",
+        "icon": "MessageCircle"
+      },
+      "deliveryTimeframes": {
+        "title": "5. Termene de livrare și acoperire globală",
+        "description": "La Automation eCom Global, ne mândrim cu livrarea de produse de automatizare clienților din întreaga lume. ",
+        "icon": "Glob"
+      },
+      "multipleShippingMethods": {
+        "title": "6. Mai multe metode de expediere",
+        "description": "Pentru a satisface nevoile unice ale clientelei noastre diverse, Automation eCom Global oferă o varietate de metode de expediere. ",
+        "icon": "Camion"
+      },
+      "seamlessCommunication": {
+        "title": "7. Comunicare fără întreruperi și actualizări",
+        "description": "În cazul unor întârzieri neașteptate sau modificări ale programului de livrare al comenzii dvs., Automation eCom Global se angajează să mențină deschise liniile de comunicare. ",
+        "icon": "Ceas"
+      },
+      "historicalOrderData": {
+        "title": "8. Date istorice despre comenzi și recomenzi",
+        "description": "Unul dintre numeroasele beneficii ale urmăririi comenzilor dvs. prin intermediul sistemului nostru este posibilitatea de a accesa datele istorice ale comenzilor în orice moment. ",
+        "icon": "Pictogramă Istorie"
+      }
+    },
+    "whyChoose": {
+      "title": "De ce să alegeți Urmărirea comenzilor de la Automation eCom Global?",
+      "tab": "De ce să ne alegeți",
+      "items": [
+        "Urmărire în timp real: fiți la curent cu progresul comenzii dvs. cu urmărire precisă și în direct.",
+        "Notificări automate: Primiți alerte prin e-mail sau SMS pentru fiecare etapă importantă a comenzii dvs.",
+        "Portal cuprinzător pentru clienți: gestionați-vă comenzile, vizualizați istoricul și urmăriți expedierile de pe o singură platformă.",
+        "Livrare globală: livrăm în toată lumea cu termene de livrare fiabile și rapide.",
+        "Asistență personalizată: echipa noastră de servicii pentru clienți este întotdeauna gata să vă ajute cu urmărirea și actualizările.",
+        "Metode de livrare flexibile: alegeți opțiunea de livrare care se potrivește cel mai bine calendarului și bugetului dvs."
+      ]
+    },
+    "title": "Despre serviciul nostru pentru starea comenzii"
+  },
+  "ourCommitments": {
+    "sections": {
+      "introduction": {
+        "title": "Angajamentele noastre",
+        "paragraph": "La Automation eCom Global, angajamentele noastre formează coloana vertebrală a tot ceea ce facem. "
+      },
+      "drivingSuccess": {
+        "title": "Conducerea succesului prin angajament",
+        "paragraph": "Concentrarea noastră neclintită pe furnizarea celor mai înalte standarde de calitate, împreună cu prețuri competitive și servicii pentru clienți de clasă mondială, este ceea ce ne diferențiază pe piața globală de automatizare.",
+        "button": "Descoperiți soluțiile noastre"
+      },
+      "commitments": {
+        "title": "Angajamentele noastre cheie",
+        "lists": [
+          {
+            "icon": "Premiul",
+            "title": "Calitate și inovație",
+            "description": "Oferim produse de cea mai înaltă calitate de la lideri din industrie precum Siemens, Schneider, DEIF și ComAp, rămânând în același timp în fruntea tehnologiilor Industry 4.0."
+          },
+          {
+            "icon": "DollarSign",
+            "title": "Cost-eficiență",
+            "description": "Oferim cele mai bune reduceri de piață la produse premium, oferind precizie de inginerie germană la prețuri competitive."
+          },
+          {
+            "icon": "Utilizatori",
+            "title": "Satisfacția clientului",
+            "description": "Echipa noastră dedicată oferă suport cuprinzător, de la consultanță pre-vânzare până la asistență post-vânzare, asigurând soluții optime pentru fiecare client."
+          },
+          {
+            "icon": "Glob",
+            "title": "Acoperire globală și asistență locală",
+            "description": "Cu o prezență puternică în Dubai, SUA, China, India și Germania, oferim livrare în întreaga lume și asistență localizată."
+          },
+          {
+            "icon": "Frunze",
+            "title": "Sustenabilitate și Responsabilitate Socială",
+            "description": "Ne angajăm să oferim soluții eficiente din punct de vedere energetic și să sprijinim inițiativele sociale și de mediu în comunitățile noastre."
+          }
+        ]
+      },
+      "detailedCommitments": {
+        "title": "Angajamente detaliate",
+        "lists": [
+          {
+            "title": "1. Angajamentul față de calitate și inovație",
+            "paragraphs": [
+              "Ne angajăm profund să oferim produse de cea mai înaltă calitate, provenite de la unele dintre cele mai respectate nume din industrie. ",
+              "Ne extindem în mod constant ofertele de produse pentru a include cele mai recente tehnologii Industry 4.0, inclusiv soluții bazate pe IoT, monitorizare de la distanță, întreținere predictivă și sisteme avansate de automatizare."
+            ]
+          },
+          {
+            "title": "2. Angajamentul față de cost-eficiență",
+            "paragraphs": [
+              "Capacitatea noastră de a oferi cele mai bune reduceri de pe piață la produsele Siemens, cum ar fi PLC-urile S7-1200, S7-1500 și S7-300, este o dovadă a angajamentului nostru față de accesibilitate fără a compromite calitatea.",
+              "Alegând Automation eCom Global, clienții obțin acces la precizia inginerească germană a Siemens la o fracțiune din prețul pieței, împreună cu soluții fiabile de la DEIF și ComAp."
+            ]
+          },
+          {
+            "title": "3. Angajamentul față de satisfacția clienților",
+            "paragraphs": [
+              "Echipa noastră de ingineri cu experiență și specialiști în automatizare lucrează îndeaproape cu clienții pentru a înțelege provocările lor unice și pentru a personaliza soluțiile care le îndeplinesc cel mai bine obiectivele operaționale.",
+              "Oferim îndrumări privind instalarea, punerea în funcțiune și întreținerea, asigurându-ne că fiecare soluție pe care o livrăm este optimizată pentru succes pe termen lung."
+            ]
+          },
+          {
+            "title": "4. Angajamentul față de acoperirea globală și sprijinul local",
+            "paragraphs": [
+              "Aria noastră internațională ne permite să oferim livrare rapidă și fiabilă a produselor în întreaga lume, asigurându-ne că companiile din diferite zone geografice pot beneficia de soluțiile noastre de automatizare.",
+              "Oferim asistență localizată pentru a ne asigura că clienții primesc asistența de care au nevoie pe piețele lor specifice, de la echipe localizate de servicii pentru clienți până la recomandări de produse specifice regiunii."
+            ]
+          },
+          {
+            "title": "5. Angajamentul față de durabilitate și responsabilitate socială",
+            "paragraphs": [
+              "Ne angajăm să oferim soluții care să ajute companiile să își reducă amprenta de carbon, sporind în același timp eficiența. ",
+              "O parte din profiturile noastre este destinată sprijinirii cauzelor de mediu, inițiativelor sociale și proiectelor care beneficiază comunitățile locale, cum ar fi cele care se concentrează pe educație și bunăstarea animalelor."
+            ]
+          }
+        ]
+      },
+      "experienceCommitment": {
+        "title": "Experimentați angajamentul nostru",
+        "paragraph": "La Automation eCom Global, suntem mai mult decât un simplu furnizor. ",
+        "button": "Contactați-ne astăzi"
+      }
+    }
+  },
+  "partnerBrands": {
+    "title": "Brandurile noastre partenere",
+    "intro": "La Automation eCom Global, puterea noastră constă în parteneriatele noastre strategice cu unele dintre cele mai renumite și inovatoare mărci din lumea automatizării industriale.",
+    "partners": [
+      {
+        "id": "siemens",
+        "icon": "CPU",
+        "name": "Siemens",
+        "tagline": "Excelența în inginerie germană",
+        "description": "Companie lider mondial de automatizare industrială, cunoscută pentru fiabilitate, precizie și progres tehnologic.",
+        "products": [
+          "PLC-uri S7-1200",
+          "PLC-uri S7-1500",
+          "LOGO! ",
+          "HMI-uri",
+          "Unități",
+          "Surse de alimentare"
+        ],
+        "content": "Fiind una dintre cele mai importante companii de automatizare industrială din lume, Siemens este sinonim cu fiabilitate, precizie și progres tehnologic. "
+      },
+      {
+        "id": "deif",
+        "icon": "Zap",
+        "name": "DEIF",
+        "tagline": "Expertiza in controlul motorului",
+        "description": "Producător danez de soluții avansate de control al motoarelor pentru motoare diesel, turbină și hibride.",
+        "products": [
+          "Seria AGC-4",
+          "Controlere avansate ale grupului electrogen",
+          "Controlori marini",
+          "Sisteme de management al energiei"
+        ],
+        "content": "Cu sediul în Danemarca, DEIF este un producător de top de soluții avansate de control al motoarelor, cunoscut în special pentru expertiza sa în controlerele motoarelor diesel, turbinelor și hibride. "
+      },
+      {
+        "id": "schneider",
+        "icon": "CloudFulgere",
+        "name": "Schneider",
+        "tagline": "Lideri globali în energie și automatizare",
+        "description": "Renumit pentru gestionarea energiei și soluțiile de automatizare care permit operațiuni industriale eficiente și durabile.",
+        "products": [
+          "PLC-uri",
+          "HMI-uri",
+          "Sisteme SCADA",
+          "Soluții de management al energiei",
+          "Platforme industriale IoT"
+        ],
+        "content": "Schneider Electric este un alt partener cheie al Automation eCom Global, cunoscut pentru soluțiile sale de automatizare și management al energiei care permit industriilor să funcționeze mai eficient și mai durabil. "
+      },
+      {
+        "id": "comap",
+        "icon": "Putere",
+        "name": "ComAp",
+        "tagline": "Precizie în controlul motorului",
+        "description": "Lider în industrie din Republica Cehă în controlere de motoare pentru generarea de energie și aplicații industriale.",
+        "products": [
+          "Controlere pentru generatoare diesel",
+          "Controlere pentru turbine",
+          "Controlere de sistem hibrid de putere",
+          "Soluții de monitorizare la distanță"
+        ],
+        "content": "Cu sediul în Republica Cehă, ComAp este lider în industrie în controlere de motoare, cunoscut pentru furnizarea de soluții de înaltă performanță pentru o gamă largă de aplicații industriale și de generare a energiei electrice. "
+      }
+    ],
+    "advantage": {
+      "title": "Avantajul global al automatizării eCom",
+      "description": "Ceea ce ne diferențiază este capacitatea noastră de a oferi soluții de automatizare de clasă mondială susținute de relații puternice cu aceste mărci de top. ",
+      "points": [
+        "Cel mai bun preț de pe piață",
+        "Gamă cuprinzătoare de produse",
+        "Soluții personalizate",
+        "Asistență clienți de neegalat"
+      ]
+    },
+    "cta": {
+      "title": "Sunteți gata să vă creșteți automatizarea?",
+      "description": "Obțineți acces la cele mai noi tehnologii de la mărcile de automatizare de top din lume, împreună cu servicii și asistență personalizate.",
+      "buttonText": "Contactați-ne astăzi"
+    }
+  },
+  "paymentOptions": {
+    "header": {
+      "title": "Opțiuni de plată",
+      "description": "La Automation eCom Global, ne angajăm să vă facem experiența de cumpărare cât mai convenabilă și flexibilă posibil. "
+    },
+    "paymentOptions": [
+      {
+        "icon": "Card de credit",
+        "title": "Carduri de credit și debit",
+        "content": "Acceptăm toate cardurile de credit și de debit majore, ceea ce vă permite să finalizați tranzacția rapid și în siguranță. ",
+        "list": [
+          "Visa",
+          "MasterCard",
+          "American Express",
+          "Descoperi"
+        ]
+      },
+      {
+        "icon": "Clădire",
+        "title": "Transferuri bancare",
+        "content": "Pentru companiile care gestionează comenzi mai mari sau pentru cei care preferă metode de plată directă, Automation eCom Global oferă opțiunea de a plăti prin transfer bancar. ",
+        "list": [
+          "Fără limite de tranzacție: potrivit pentru comenzi mari, de volum mare.",
+          "Taxe de tranzacție reduse în comparație cu plățile cu cardul de credit pentru unele regiuni.",
+          "Securitate: fondurile sunt transferate direct între banca dvs. și banca noastră, asigurându-se că detaliile financiare sensibile nu sunt partajate unor procesatori terți."
+        ]
+      },
+      {
+        "icon": "Credit CardIcon",
+        "title": "PayPal",
+        "content": "Înțelegem că mulți dintre clienții noștri preferă să folosească PayPal pentru tranzacții online, datorită ușurinței sale de utilizare și platformei securizate. ",
+        "list": [
+          "Plătiți rapid și în siguranță, fără a introduce detaliile cardului dvs. de fiecare dată.",
+          "Conectați-vă contul bancar sau cardul de credit la contul dvs. PayPal pentru plăți convenabile.",
+          "Beneficiați de protecția cumpărătorului PayPal în cazul rar al unei dispute privind tranzacția."
+        ]
+      },
+      {
+        "icon": "Smartphone",
+        "title": "Portofele digitale (Apple Pay, Google Pay)",
+        "content": "Pentru clienții care preferă să folosească soluții de plată mobilă, Automation eCom Global acceptă Apple Pay și Google Pay, oferind o opțiune de plată cu o singură atingere, rapidă și sigură. ",
+        "list": [
+          "Plăți fără atingere pentru confort și siguranță sporite.",
+          "Tehnologie de tokenizare care înlocuiește datele sensibile ale cardului cu un identificator digital unic, reducând riscul de fraudă.",
+          "Timpi mai rapidi de plată pentru clienții repetenți."
+        ]
+      },
+      {
+        "icon": "FileText",
+        "title": "Comenzi de achiziție (PO) pentru clienții aprobați",
+        "content": "Pentru clienții consacrați sau cei care fac achiziții în vrac obișnuite, Automation eCom Global oferă opțiunea de a plăti prin comenzi de achiziție (PO). ",
+        "list": [
+          "Flexibilitate în termeni de plată, de obicei variind de la 30 la 90 de zile, în funcție de acordul dvs. cu noi.",
+          "Procese de achiziții simplificate pentru companiile care fac comenzi frecvente sau la scară largă.",
+          "Gestionare îmbunătățită a fluxului de numerar, deoarece plata este amânată până la data convenită."
+        ]
+      },
+      {
+        "icon": "DollarSign",
+        "title": "Planuri de rate pentru comenzi mari",
+        "content": "La Automation eCom Global, recunoaștem că proiectele de automatizare la scară largă pot necesita investiții de capital semnificative. ",
+        "list": [
+          "Fără taxe ascunse: plătiți doar suma convenită în rate egale în perioada desemnată.",
+          "Programe de plată flexibile: alegeți numărul de rate care funcționează cel mai bine pentru situația dvs. financiară.",
+          "Niciun impact asupra onorării comenzii: Comanda dvs. este procesată și livrată odată ce plata inițială este efectuată, fără a aștepta plata integrală."
+        ]
+      },
+      {
+        "icon": "Glob",
+        "title": "Opțiuni de plată internațională",
+        "content": "La Automation eCom Global, deservim clienți din întreaga lume, din Dubai până în Germania, SUA, China, India și nu numai. ",
+        "list": [
+          "Opțiuni de conversie valutară: acceptăm mai multe valute și oferim cursuri de schimb în timp real pentru a ne asigura că plătiți suma corectă în moneda locală.",
+          "Metode de plată specifice regiunii: pe lângă cardurile de credit globale și PayPal, acceptăm metode de plată specifice regiunii, cum ar fi Alipay în China și iDEAL în Europa.",
+          "Transferuri bancare internaționale: pentru tranzacții internaționale mari, oferim opțiuni de transfer bancar cu suport complet pentru conversia valutară și plăți transfrontaliere."
+        ]
+      },
+      {
+        "icon": "Servietă",
+        "title": "Termeni flexibili de plată pentru clienții B2B",
+        "content": "Înțelegem că companiile au adesea nevoie de flexibilitate suplimentară de plată, în special pentru proiectele în derulare sau la scară largă. ",
+        "list": [
+          "Termeni Net 30, Net 60 sau Net 90 pentru clienții stabiliți, permițându-vă să amânați plata până după livrarea mărfurilor.",
+          "Programe de plată personalizate pentru proiecte pe termen lung sau clienți repetați.",
+          "Reduceri de volum și planuri de plată preferate pentru clienții care fac achiziții în bloc."
+        ]
+      }
+    ],
+    "chooseUsTitle": "De ce să alegeți Automation eCom Global pentru plăți sigure?",
+    "chooseUsPoints": [
+      "Metode multiple de plată: de la carduri de credit și transferuri bancare la portofele digitale și comenzi de cumpărare, oferim o varietate de opțiuni de plată pentru a se potrivi nevoilor dumneavoastră.",
+      "Tranzacții securizate: Toate plățile sunt protejate cu sisteme avansate de criptare și de detectare a fraudelor.",
+      "Asistență globală: acceptăm plăți internaționale în mai multe valute și oferim opțiuni specifice regiunii.",
+      "Termeni flexibili: oferim planuri de rate, OP-uri și programe personalizate de plată pentru a vă ajuta să gestionați proiecte mari sau în derulare.",
+      "Procesare rapidă: plățile instantanee înseamnă onorarea și livrarea mai rapidă a comenzii."
+    ],
+    "shoppingButton": "Începeți acum cumpărăturile"
+  },
+  "privacyAndCookieSettings": {
+    "privacyPoints": [
+      {
+        "icon": "Blocare",
+        "title": "Prezentare generală a politicii de confidențialitate",
+        "tab": "intimitate",
+        "content": "Politica noastră de confidențialitate prezintă modul în care colectăm, utilizăm și protejăm informațiile dumneavoastră personale atunci când interacționați cu Automation eCom Global. ",
+        "list": [
+          "Colectarea datelor: Colectăm informații precum numele, e-mailul, adresa și detaliile de plată atunci când creați un cont sau faceți o achiziție.",
+          "Utilizarea datelor: Datele dumneavoastră sunt folosite pentru a onora comenzile, pentru a oferi asistență clienților și pentru a vă îmbunătăți experiența pe site-ul nostru.",
+          "Stocarea datelor: Folosim servere securizate pentru a stoca datele dumneavoastră și pentru a le păstra doar atât timp cât este necesar în scopuri legale și operaționale.",
+          "Partajarea datelor: Nu împărtășim datele dumneavoastră cu terțe părți în scopuri de marketing fără consimțământul dumneavoastră. "
+        ]
+      },
+      {
+        "icon": "Cookie",
+        "title": "Politica și setările cookie-urilor",
+        "tab": "cookie-uri",
+        "content": "Cookie-urile sunt fișiere text mici stocate pe dispozitivul dvs. care ne permit să vă îmbunătățim experiența pe site-ul nostru web. ",
+        "list": [
+          "Cookie-uri esențiale: Aceste module cookie sunt necesare pentru funcționalitatea de bază a site-ului nostru web, cum ar fi să vă permită să vă conectați, să adăugați articole în coș și să finalizați tranzacțiile. ",
+          "Cookie-uri de performanță: folosim module cookie de performanță pentru a colecta date anonime despre modul în care vizitatorii folosesc site-ul nostru. ",
+          "Cookie-uri funcționale: Aceste module cookie ne permit să ne amintim preferințele dvs., cum ar fi setările de limbă, regiunea și comenzile anterioare, astfel încât să aveți o experiență mai personalizată.",
+          "Cookie-uri de direcționare și publicitate: cookie-urile de direcționare sunt utilizate pentru a furniza reclame relevante pe baza obiceiurilor dumneavoastră de navigare. "
+        ]
+      },
+      {
+        "icon": "Verificare utilizator",
+        "title": "Gestionarea preferințelor cookie",
+        "tab": "preferințe",
+        "content": "La Automation eCom Global, vă oferim control deplin asupra modului în care cookie-urile sunt utilizate pe site-ul nostru web. ",
+        "list": [
+          "Banner cookie: La prima vizită, puteți alege ce tipuri de cookie-uri permiteți. ",
+          "Setări browser: puteți gestiona sau bloca cookie-urile prin setările browserului. ",
+          "Cookie-uri de la terți: dacă preferați să nu aveți module cookie de la terți, cum ar fi cele utilizate pentru publicitate direcționată, puteți renunța la acestea în setările cookie-urilor sau ajustând setările de confidențialitate ale browserului."
+        ]
+      },
+      {
+        "icon": "RefreshCw",
+        "title": "Actualizări regulate ale politicilor de confidențialitate și cookie-uri",
+        "tab": "actualizări",
+        "content": "Pe măsură ce reglementările privind confidențialitatea datelor evoluează, Automation eCom Global actualizează în mod regulat Politicile noastre de confidențialitate și cookie-uri pentru a asigura conformitatea cu cele mai recente cerințe legale și cele mai bune practici din industrie. "
+      }
+    ],
+    "cookieTypes": [
+      "Cookie-uri esențiale",
+      "Cookie-uri de performanță",
+      "Cookie-uri funcționale",
+      "Cookie-uri de direcționare și publicitate"
+    ],
+    "chooseUsPoints": [
+      "Transparență totală: Setările noastre de confidențialitate și cookie-uri vă oferă control complet asupra modului în care sunt colectate și utilizate datele dvs.",
+      "Stocare securizată a datelor: folosim măsuri avansate de criptare și securitate pentru a vă proteja datele personale.",
+      "Conformitatea GDPR: aderăm la legile internaționale privind confidențialitatea, asigurându-ne că drepturile dumneavoastră sunt respectate și că datele dumneavoastră sunt gestionate în mod responsabil.",
+      "Gestionare simplă a cookie-urilor: personalizați-vă preferințele pentru cookie-uri în orice moment, pentru a se potrivi nevoilor dvs. de confidențialitate.",
+      "Politici clare de confidențialitate: oferim informații clare despre modul în care datele dvs. sunt utilizate și partajate, asigurând o experiență sigură și de încredere."
+    ],
+    "description": "La Automation eCom Global, acordăm prioritate confidențialității dumneavoastră și ne angajăm să ne asigurăm că datele dumneavoastră cu caracter personal sunt gestionate în mod responsabil și în siguranță. ",
+    "title": "Setări de confidențialitate și cookie",
+    "manageTitle": "Gestionați-vă preferințele cookie",
+    "whyChooseText": "De ce să alegeți Automation eCom Global pentru confidențialitatea datelor?"
+  },
+  "privacyPolicy": {
+    "heading": "Politica de confidențialitate",
+    "sections": [
+      {
+        "title": "Informații pe care le colectăm",
+        "paragraph": "Colectăm informații personale pe care ni le furnizați, cum ar fi numele, adresa de e-mail, adresa de expediere și informațiile de plată atunci când faceți o achiziție pe site-ul nostru. "
+      },
+      {
+        "title": "Cum folosim informațiile dvs",
+        "paragraph": "Folosim informațiile dumneavoastră personale pentru a vă procesa comenzile, pentru a vă trimite confirmări și actualizări ale comenzilor și pentru a oferi asistență clienților. "
+      },
+      {
+        "title": "Cum vă protejăm informațiile",
+        "paragraph": "Luăm în serios securitatea informațiilor dvs. personale și am implementat diverse măsuri de securitate pentru a le proteja, inclusiv criptarea informațiilor dvs. de plată și limitarea accesului la datele dvs. numai la acelor angajați care au nevoie de ele pentru a-și îndeplini sarcinile de serviciu. "
+      },
+      {
+        "title": "Drepturile tale",
+        "paragraph": "Aveți dreptul de a accesa, corecta sau șterge informațiile personale pe care le avem despre dumneavoastră. "
+      }
+    ]
+  },
+  "productGaurantee": {
+    "header": {
+      "title": "Garanția produsului",
+      "subtitle": "La Automation eCom Global, suntem în spatele calității și fiabilității fiecărui produs pe care îl oferim. "
+    },
+    "guaranteePoints": [
+      {
+        "title": "Asigurarea calității lider în industrie",
+        "content": [
+          "În calitate de furnizor global de încredere de produse de automatizare industrială, Automation eCom Global se mândrește să colaboreze cu producători de top precum Siemens, Schneider, DEIF și ComAp, cunoscuți pentru inginerie de înaltă calitate și procese riguroase de control al calității. ",
+          "Garanția noastră pentru produse reflectă angajamentul nostru de a vă oferi numai ce este mai bun. "
+        ]
+      },
+      {
+        "title": "Garantiile producatorului",
+        "content": [
+          "Majoritatea produselor pe care le oferim vin cu garanții ale producătorului care acoperă defecte de materiale și de manoperă pentru o perioadă specificată. ",
+          "În calitate de distribuitor autorizat pentru aceste mărci de top, Automation eCom Global lucrează îndeaproape cu producătorii pentru a facilita orice revendicări de garanție și pentru a se asigura că produsul dumneavoastră este reparat sau înlocuit fără întârzieri inutile. "
+        ]
+      },
+      {
+        "title": "Opțiuni de garanție extinsă",
+        "content": [
+          "Pentru a oferi și mai multă liniște, Automation eCom Global oferă opțiuni de garanție extinsă pentru multe dintre produsele pe care le vindem. ",
+          "Garanțiile noastre extinse acoperă nu numai defecte ale materialelor și de manoperă, dar oferă și protecție suplimentară pentru componentele critice, cum ar fi PLC-urile, unitățile și HMI-urile care sunt supuse uzurii în timp. "
+        ]
+      },
+      {
+        "title": "Compatibilitate și performanță garantate",
+        "content": [
+          "La Automation eCom Global, vă garantăm că fiecare produs pe care îl oferim este pe deplin compatibil cu sistemele și aplicațiile relevante pentru care este proiectat. ",
+          "Experții noștri tehnici sunt disponibili pentru a vă oferi îndrumări și asistență pe tot parcursul procesului de achiziție, ajutându-vă să selectați componentele potrivite pentru aplicația dumneavoastră specifică. "
+        ]
+      },
+      {
+        "title": "Garanții de înlocuire și reparații",
+        "content": [
+          "Dacă întâmpinați probleme cu un produs în perioada de garanție, Automation eCom Global se angajează să rezolve problema cât mai rapid și eficient posibil. ",
+          "În cazul unui defect sau defecțiune, pur și simplu contactați echipa noastră de asistență pentru clienți și vom colabora cu dvs. pentru a aranja o reparație sau un produs de înlocuire. ",
+          "Pentru anumite componente cu prioritate ridicată sau esențiale, oferim și servicii de înlocuire în avans, în care trimitem o unitate de înlocuire înainte de a primi cea defectă, asigurând o întrerupere minimă a fluxului dumneavoastră de lucru."
+        ]
+      },
+      {
+        "title": "Garanție de retur și schimb",
+        "content": [
+          "Ca parte a garanției noastre cuprinzătoare pentru produse, Automation eCom Global oferă o politică de returnare și schimb pentru produsele care nu corespund așteptărilor dumneavoastră sau care sunt considerate incompatibile cu sistemele dumneavoastră. ",
+          "Oferim un proces clar, ușor de urmat pentru returnarea produselor și vă vom ajuta să găsiți un înlocuitor potrivit dacă este necesar. "
+        ]
+      },
+      {
+        "title": "Asistență cuprinzătoare în perioada de garanție",
+        "content": [
+          "Experiența dvs. cu Automation eCom Global nu se termină după ce primiți produsul. ",
+          "De la răspunsul la întrebări despre actualizările software până la asistența la optimizarea sistemului, ne angajăm să ne asigurăm că investiția dumneavoastră în automatizarea industrială este pe deplin susținută și protejată."
+        ]
+      },
+      {
+        "title": "Angajamentul față de satisfacția clientului",
+        "content": [
+          "La Automation eCom Global, satisfacția clienților este prioritatea noastră principală. ",
+          "Căutăm în mod regulat feedback de la clienții noștri pentru a ne îmbunătăți ofertele și serviciile, asigurându-ne că continuăm să vă satisfacem nevoile și să vă depășim așteptările. "
+        ]
+      }
+    ],
+    "chooseUsPoints": {
+      "title": "De ce să alegeți garanția de produs Automation eCom Global?",
+      "lists": [
+        "Asigurarea calității lider în industrie: Toate produsele sunt testate și inspectate pentru performanță și fiabilitate superioare.",
+        "Garanțiile producătorului: Bucurați-vă de liniște cu garanțiile complete de la mărci de top precum Siemens, Schneider, DEIF și ComAp.",
+        "Opțiuni de garanție extinsă: Protejați-vă investiția pentru mai mult timp cu planuri flexibile de garanție.",
+        "Compatibilitate garantată: ne asigurăm că fiecare produs se integrează perfect cu sistemele dvs. existente.",
+        "Înlocuire și reparații rapide: minimizați timpul de nefuncționare cu operațiunile noastre rapide de reparații și servicii de înlocuire în avans.",
+        "Retururi și schimburi fără probleme: returnați sau schimbați cu ușurință produse care nu corespund așteptărilor dvs.",
+        "Asistență continuă: accesați asistență de specialitate pe toată perioada de garanție pentru a vă menține sistemele să funcționeze fără probleme."
+      ]
+    },
+    "buttonText": "Contactați-ne pentru mai multe informații"
+  },
+  "returnAndExchange": {
+    "header": "Retururi și Schimburi",
+    "commitmentTitle": "Angajamentul nostru față de satisfacția dvs",
+    "commitmentText": "La Automation eCom Global, înțelegem că afacerea dvs. depinde de primirea produselor potrivite în condiții optime și ne străduim să oferim exact asta. ",
+    "policyTitle": "Politica de retur și schimb",
+    "policySections": [
+      {
+        "title": "Politică de retur simplă și transparentă",
+        "content": [
+          "Politica noastră de returnare este concepută pentru a fi cât mai simplă și transparentă posibil. ",
+          "Produsele eligibile includ majoritatea articolelor din catalogul nostru, cum ar fi PLC-uri Siemens, HMI-uri Schneider, controlere de motor DEIF și alte componente de automatizare industrială. "
+        ]
+      },
+      {
+        "title": "Pași pentru a iniția o retur sau un schimb",
+        "content": [
+          "Contactați asistența pentru clienți: contactați echipa noastră de asistență pentru clienți prin e-mail, telefon sau prin portalul dvs. pentru clienți pentru a începe procesul de returnare sau schimb. ",
+          "Autorizație de primire: Odată ce solicitarea dvs. este examinată, vom emite un număr de autorizare pentru returnarea mărfurilor (RMA), pe care va trebui să îl includeți împreună cu produsul returnat. ",
+          "Ambalarea produsului: Asigurați-vă că produsul este ambalat în siguranță, folosind ambalajul original dacă este posibil, pentru a evita orice deteriorare în timpul transportului de retur. ",
+          "Expediați produsul: trimiteți coletul folosind eticheta de expediere pe care o oferim. ",
+          "Primiți rambursare sau înlocuire: Odată ce primim produsul returnat și confirmăm starea acestuia, vom procesa rambursarea, înlocuirea sau schimbul dvs. "
+        ]
+      },
+      {
+        "title": "Conditii pentru retururi si schimburi",
+        "content": [
+          "Produsele trebuie returnate în starea lor originală, cu toate accesoriile, manualele și ambalajul incluse.",
+          "Este posibil ca articolele personalizate sau configurate special, cum ar fi panourile de control personalizate sau sistemele integrate, să nu fie eligibile pentru returnări decât dacă există un defect sau o problemă cu produsul. ",
+          "Produsele care au fost instalate sau utilizate pe teren pot necesita o evaluare înainte de a fi aprobate pentru returnare sau schimb. ",
+          "Pentru produsele care sunt returnate din cauza comenzilor incorecte sau a preferinței clientului, se poate aplica o taxă de reaprovizionare. "
+        ]
+      },
+      {
+        "title": "Manipularea produselor defecte sau deteriorate",
+        "content": [
+          "Dacă primiți un produs care este defect sau deteriorat la sosire, Automation eCom Global ia măsuri imediate pentru a rezolva problema. ",
+          "Schimb imediat pentru produse defecte, fără costuri suplimentare. ",
+          "Pentru produsele care sosesc deteriorate în timpul transportului, ne vom ocupa de reclamația de expediere cu partenerii noștri logistici și ne vom asigura că primiți o înlocuire fără întârziere.",
+          "Toate produsele defecte sau deteriorate trebuie raportate în termen de 7 zile de la primirea expedierii. "
+        ]
+      },
+      {
+        "title": "Schimb pentru diferite produse sau configurații",
+        "content": [
+          "Înțelegem că nevoile afacerii se pot schimba și, uneori, este posibil să aveți nevoie de un alt produs sau configurație după plasarea unei comenzi. ",
+          "Pur și simplu contactați echipa noastră de asistență pentru a iniția schimbul și vom colabora cu dvs. pentru a ne asigura că noul produs îndeplinește cerințele dumneavoastră specifice. "
+        ]
+      },
+      {
+        "title": "Retururi și schimburi internaționale",
+        "content": [
+          "În calitate de furnizor global, Automation eCom Global deservește clienții din Dubai, SUA, China, India, Germania și multe alte țări. ",
+          "Oferim toate etichetele de retur și formularele vamale necesare pentru a ne asigura că returul sau schimbul dvs. sunt procesate fără întârzieri. "
+        ]
+      },
+      {
+        "title": "Rambursări și timpi de procesare",
+        "content": [
+          "Odată ce primim produsul returnat și verificăm starea acestuia, Automation eCom Global va procesa imediat rambursarea sau schimbul. ",
+          "Dacă faceți schimb pentru un alt produs, vom expedia produsul de înlocuire imediat ce articolul original a fost returnat și inspectat. "
+        ]
+      },
+      {
+        "title": "Asistență dedicată clienților pe tot parcursul procesului",
+        "content": [
+          "Echipa noastră de asistență pentru clienți vă este alături la fiecare pas, asigurându-vă că returul sau schimbul dvs. este gestionat profesional și eficient. ",
+          "Prioritizăm satisfacția dumneavoastră și muncim din greu pentru a ne asigura că aveți o experiență pozitivă, chiar dacă este necesară o retur sau un schimb. "
+        ]
+      }
+    ],
+    "initiateTitle": "Inițiați o retur sau un schimb",
+    "initiateOrderNumberLabel": "Număr de ordine",
+    "initiateOrderNumberPlaceholder": "Introduceți numărul comenzii dvs",
+    "initiateButtonText": "Începeți procesul de returnare/schimb",
+    "benefitsTitle": "De ce să alegeți Automation eCom Global pentru retururi și schimburi?",
+    "benefits": [
+      {
+        "icon": "SăgeatăStângaDreapta",
+        "text": "Proces fără probleme"
+      },
+      {
+        "icon": "Ceas",
+        "text": "Rambursări și înlocuiri rapide"
+      },
+      {
+        "icon": "Camion",
+        "text": "Livrare retur plătită în avans"
+      },
+      {
+        "icon": "HelpCircle",
+        "text": "Suport expert"
+      },
+      {
+        "icon": "Glob",
+        "text": "Asistență internațională pentru returnare"
+      }
+    ],
+    "policyCardTitle": "Politica de retur și schimb"
+  },
+  "safeAndSecurePayments": {
+    "header": {
+      "title": "Plăți sigure și securizate",
+      "description": "La Automation eCom Global, acordăm prioritate securității și confidențialității fiecărei tranzacții. "
+    },
+    "securityFeatures": [
+      {
+        "icon": "Blocare",
+        "title": "Tehnologie avansată de criptare",
+        "description": "Folosim criptarea SSL pentru a vă proteja detaliile de plată în timpul transmiterii dintre browserul dumneavoastră și serverele noastre."
+      },
+      {
+        "icon": "FileText",
+        "title": "Conformitate PCI DSS",
+        "description": "Respectăm reglementările Standardului de securitate a datelor din industria cardurilor de plată pentru a menține un mediu sigur pentru gestionarea informațiilor despre cardul de credit."
+      },
+      {
+        "icon": "Scut",
+        "title": "Prevenirea și detectarea fraudei",
+        "description": "Sistemele noastre sofisticate de detectare a fraudei monitorizează fiecare tranzacție în timp real, identificând și semnalând orice activitate suspectă."
+      },
+      {
+        "icon": "Credit CardIcon",
+        "title": "Gateway-uri de plată securizate",
+        "description": "Colaboram cu gateway-uri de plată de încredere care prioritizează securitatea și oferă tranzacții fluide și sigure."
+      },
+      {
+        "icon": "FileText",
+        "title": "Proces de plată transparent",
+        "description": "Ne asigurăm că procesul nostru de plată este complet transparent, oferindu-vă toate informațiile de care aveți nevoie pentru a înțelege tranzacția dvs."
+      },
+      {
+        "icon": "Verificare utilizator",
+        "title": "Protecția confidențialității datelor",
+        "description": "Respectăm reglementări stricte privind confidențialitatea datelor pentru a ne asigura că informațiile dumneavoastră nu sunt niciodată partajate sau vândute către terți fără consimțământul dumneavoastră."
+      },
+      {
+        "icon": "Smartphone",
+        "title": "Autentificare în doi factori (2FA)",
+        "description": "Acceptăm autentificarea cu doi factori pentru tranzacții, adăugând un nivel suplimentar de securitate pentru a vă proteja contul."
+      },
+      {
+        "icon": "HelpCircle",
+        "title": "Soluționarea litigiilor și protecția rambursărilor",
+        "description": "Oferim servicii de soluționare a litigiilor și oferim protecție completă pentru rambursările eligibile pentru a rezolva orice probleme rapid și echitabil."
+      }
+    ],
+    "paymentOptions": {
+      "title": "Opțiuni de plată multiple",
+      "description": "Pentru a vă face experiența de cumpărături convenabilă și fără probleme, Automation eCom Global oferă o gamă largă de metode de plată adaptate nevoilor dvs. de afaceri. ",
+      "options": [
+        {
+          "title": "Carduri de credit și debit",
+          "description": "Acceptăm carduri de credit și de debit majore, inclusiv Visa, MasterCard și American Express, asigurându-ne că tranzacțiile dumneavoastră sunt procesate rapid și în siguranță."
+        },
+        {
+          "title": "Transferuri bancare",
+          "description": "Pentru comenzi mari sau clienți internaționali, oferim opțiuni de transfer bancar, oferind o modalitate fiabilă și sigură de a finaliza tranzacțiile de mare valoare. "
+        },
+        {
+          "title": "PayPal",
+          "description": "Acceptăm plățile PayPal, oferind o modalitate rapidă, ușoară și sigură de a plăti comenzile dvs. fără a fi nevoie să vă împărtășiți direct informațiile financiare."
+        },
+        {
+          "title": "Portofele digitale",
+          "description": "Pentru clienții care preferă soluții de plată mobilă, oferim compatibilitate cu portofelele digitale de top, cum ar fi Apple Pay și Google Pay, asigurând plăți sigure, cu o singură atingere."
+        }
+      ],
+      "conclusion": "Opțiunile noastre multiple de plată sunt concepute pentru a vă oferi flexibilitatea de a alege metoda care funcționează cel mai bine pentru afacerea dvs., menținând în același timp cele mai înalte niveluri de securitate și conformitate."
+    },
+    "chooseUsPoints": [
+      "Opțiuni multiple de plată sigură: alegeți dintre carduri de credit, transferuri bancare, PayPal și portofele digitale.",
+      "Criptare avansată: Toate tranzacțiile sunt protejate prin criptare SSL pentru securitate maximă.",
+      "Conform PCI DSS: respectăm cele mai înalte standarde din industrie pentru securitatea plăților.",
+      "Sisteme de prevenire a fraudei: instrumentele sofisticate de monitorizare vă protejează tranzacțiile de fraudă.",
+      "Taxe transparente: fără taxe ascunse - știți exact pentru ce plătiți înainte de a finaliza achiziția.",
+      "Confidențialitatea datelor: informațiile dumneavoastră personale sunt în siguranță și nu sunt niciodată partajate fără consimțământul dumneavoastră."
+    ],
+    "chooseUsTitle": "De ce să alegeți Automation eCom Global pentru plăți sigure?"
+  },
+  "termAndConditions": {
+    "paragraphs": [
+      "În sensul acestor Termeni și Condiții, termenul „noi”, „noi”, „nostru” folosit oriunde pe această pagină va însemna AUTOMATION ECOM GLOBAL, al cărui sediu social/operațional este B-1/13, RAGHU NAGAR, PANKHA ROAD "
+    ],
+    "heading": "Utilizarea de către dvs. a site-ului web și/sau achiziția de la noi sunt guvernate de următorii Termeni și condiții:",
+    "list": [
+      "Conținutul paginilor acestui site poate fi modificat fără notificare.",
+      "Nici noi, nici terți nu oferim nicio garanție cu privire la acuratețea, promptitudinea, performanța, completitudinea sau adecvarea informațiilor și materialelor găsite sau oferite pe acest site pentru un anumit scop. ",
+      "Utilizarea de către dumneavoastră a oricăror informații sau materiale de pe site-ul nostru web și/sau paginile de produse este în întregime pe propriul risc, pentru care nu vom fi răspunzători. ",
+      "Site-ul nostru web conține material care este deținut de noi sau care ne este licențiat. ",
+      "Toate mărcile înregistrate reproduse pe site-ul nostru web care nu sunt proprietatea sau licențiate operatorului sunt recunoscute pe site.",
+      "Utilizarea neautorizată a informațiilor furnizate de noi va da naștere la o cerere de despăgubire și/sau constituie o infracțiune.",
+      "Din când în când, site-ul nostru web poate include și link-uri către alte site-uri web. ",
+      "Nu puteți crea un link către site-ul nostru de pe un alt site sau document fără acordul prealabil scris al AUTOMATION ECOM GLOBAL.",
+      "Orice dispută care decurge din utilizarea site-ului nostru web și/sau achiziția cu noi și/sau orice angajament cu noi este supusă legilor din India.",
+      "Nu ne asumăm nicio răspundere pentru orice pierdere sau daune care decurg direct sau indirect din refuzul autorizației pentru orice tranzacție, din cauza faptului că deținătorul cardului a depășit din când în când limita prestabilită convenită de comun acord de noi cu banca noastră achizitoare. "
+    ]
+  },
+  "userAgreements": {
+    "agreementPoints": [
+      {
+        "title": "Acceptarea Termenilor",
+        "content": "Prin accesarea și utilizarea site-ului web Automation eCom Global, sunteți de acord să respectați termenii și condițiile descrise în Acordurile noastre de utilizare. "
+      },
+      {
+        "title": "Crearea contului și responsabilități",
+        "content": "Pentru a face o achiziție pe Automation eCom Global, vi se poate solicita să creați un cont de utilizator. ",
+        "list": [
+          "Asigurați-vă că informațiile contului dvs. sunt actualizate.",
+          "Utilizați contul dvs. în conformitate cu termenii enunțați în acest acord.",
+          "Notificați-ne imediat cu privire la orice utilizare neautorizată a contului dvs. sau încălcarea securității."
+        ]
+      },
+      {
+        "title": "Informații despre produs și acuratețe",
+        "content": "Ne străduim să oferim informații detaliate și precise cu privire la produsele disponibile pe Automation eCom Global, inclusiv specificații, prețuri, disponibilitate și descrieri. "
+      },
+      {
+        "title": "Prețuri și condiții de plată",
+        "content": "Toate prețurile afișate pe Automation eCom Global sunt în moneda aplicabilă pentru regiunea dvs. și pot fi modificate fără notificare. ",
+        "list": [
+          "Sunteți autorizat să utilizați metoda de plată furnizată.",
+          "Detaliile de plată pe care le trimiteți sunt exacte și complete.",
+          "Sunteți de acord să plătiți toate taxele, inclusiv orice taxe, taxe de transport și de manipulare asociate comenzii dvs."
+        ]
+      },
+      {
+        "title": "Termeni de livrare și livrare",
+        "content": "Acordurile noastre de utilizare includ termenii și condițiile legate de expedierea și livrarea produselor achiziționate de la Automation eCom Global. "
+      },
+      {
+        "title": "Retururi, schimburi și revendicări în garanție",
+        "content": "Ca parte a acordurilor noastre de utilizare, descriem în mod clar condițiile pentru returnări, schimburi și revendicări în garanție. ",
+        "list": [
+          "Toate returnările și schimburile trebuie să respecte Politica de retur și schimb.",
+          "Revendicările de garanție sunt supuse termenilor furnizați de producătorii produsului.",
+          "Veți fi responsabil pentru costurile de retur, cu excepția cazului în care produsul este defect sau deteriorat la primire."
+        ]
+      },
+      {
+        "title": "Proprietatea intelectuală și licența de utilizare",
+        "content": "Tot conținutul de pe site-ul web Automation eCom Global, inclusiv, dar fără a se limita la, text, grafică, logo-uri, imagini și software, este proprietatea intelectuală a Automation eCom Global sau a furnizorilor noștri și este protejat de legile internaționale privind drepturile de autor, mărcile comerciale și proprietatea intelectuală. ",
+        "list": [
+          "Copiați, modificați, distribuiți sau reproduceți conținut fără permisiunea explicită.",
+          "Utilizați orice instrumente de extragere a datelor, roboți sau instrumente similare de colectare a datelor de pe site-ul nostru.",
+          "Utilizați conținutul nostru în orice scop comercial fără autorizarea corespunzătoare."
+        ]
+      },
+      {
+        "title": "Limitarea răspunderii",
+        "content": "În timp ce Automation eCom Global se străduiește să furnizeze informații corecte și produse de înaltă calitate, nu putem fi trași la răspundere pentru nicio daune indirecte, incidentale sau consecutive care rezultă din utilizarea platformei, produselor sau serviciilor noastre. ",
+        "list": [
+          "Pierderea veniturilor sau a profiturilor.",
+          "Întreruperi în afaceri.",
+          "Pierderea sau coruperea datelor.",
+          "Indisponibilitatea produselor sau serviciilor."
+        ]
+      },
+      {
+        "title": "Modificări ale acordurilor de utilizare",
+        "content": "Automation eCom Global își rezervă dreptul de a modifica sau actualiza aceste Acorduri de utilizare în orice moment, fără notificare prealabilă. "
+      },
+      {
+        "title": "Legea aplicabilă și soluționarea litigiilor",
+        "content": "Aceste acorduri cu utilizatorul sunt guvernate de legile țării în care operează Automation eCom Global, iar orice dispută care decurge din utilizarea platformei sau produselor noastre va fi soluționată sub jurisdicția instanțelor din regiunea respectivă./n/nÎn caz de "
+      }
+    ],
+    "chooseUsPoints": [
+      "Termeni clari și transparenți: Acordurile noastre de utilizare subliniază drepturile și responsabilitățile dumneavoastră atunci când utilizați platforma noastră.",
+      "Acoperire cuprinzătoare: de la crearea contului până la garanții, oferim linii directoare clare pentru a vă proteja atât pe dvs., cât și pe afacerea noastră.",
+      "Soluționarea echitabilă a litigiilor: ne angajăm să soluționăm litigiile pe cale amiabilă și în conformitate cu legile în vigoare.",
+      "Protecția proprietății intelectuale: Termenii noștri asigură că conținutul și serviciile noastre sunt protejate împotriva utilizării neautorizate."
+    ],
+    "chooseUsTitle": "De ce să alegeți Automation eCom Global?",
+    "header": {
+      "title": "Acordul utilizatorului",
+      "description": "La Automation eCom Global, ne angajăm să ne asigurăm că experiența dumneavoastră pe platforma noastră este sigură, transparentă și simplă. "
+    }
+  },
+  "whatWeStandFor": {
+    "title": "Pentru ce susținem",
+    "introText": "La Automation eCom Global, valorile noastre de bază și principiile directoare modelează tot ceea ce facem. ",
+    "coreValues": [
+      {
+        "id": "inovaţie",
+        "icon": "Bec",
+        "title": "Inovația la bază",
+        "description": "Stimularea progreselor în industria 4.0, IoT și soluții bazate pe inteligență artificială.",
+        "content": "În lumea cu evoluție rapidă a automatizării industriale, inovația nu este doar un scop, ci este o necesitate. "
+      },
+      {
+        "id": "integritate",
+        "icon": "Scut",
+        "title": "Integritate și încredere",
+        "description": "Desfășurarea afacerilor în mod etic și transparent în toate interacțiunile noastre.",
+        "content": "Suntem dedicați conducerii afacerilor în mod etic și transparent, asigurându-ne că fiecare interacțiune se bazează pe încrederea reciprocă. "
+      },
+      {
+        "id": "excelenţă",
+        "icon": "Premiul",
+        "title": "Excelență în fiecare aspect",
+        "description": "Luptă pentru cele mai înalte standarde în produse, servicii și asistență.",
+        "content": "Excelența este mai mult decât o valoare la Automation eCom Global – este un standard după care trăim. "
+      },
+      {
+        "id": "durabilitate",
+        "icon": "Frunze",
+        "title": "Angajamentul față de durabilitate",
+        "description": "Promovarea soluțiilor de automatizare responsabile cu mediul înconjurător.",
+        "content": "Soluțiile noastre sunt concepute nu numai pentru a optimiza eficiența, ci și pentru a minimiza impactul asupra mediului. "
+      },
+      {
+        "id": "client",
+        "icon": "Utilizatori",
+        "title": "Abordare centrată pe client",
+        "description": "Punem clienții noștri pe primul loc în tot ceea ce facem.",
+        "content": "La Automation eCom Global, tot ceea ce facem este orientat spre oferirea unei experiențe excepționale pentru clienți. "
+      },
+      {
+        "id": "globală",
+        "icon": "Glob",
+        "title": "Acoperire globală, expertiză locală",
+        "description": "Combinând prezența la nivel mondial cu cunoștințele localizate.",
+        "content": "Servim clienții din Dubai, SUA, China, India și Germania, oferindu-le cele mai bune soluții de automatizare provenite de la branduri de top la nivel mondial. "
+      }
+    ],
+    "detailsSection": {
+      "title": "Valorile noastre în detaliu",
+      "introText": "Experimentați valorile noastre în acțiune",
+      "description": "La Automation eCom Global, reprezintă mai mult decât produse de automatizare - reprezintă excelență, integritate, inovație, durabilitate și, mai presus de toate, clienții noștri. ",
+      "contactButton": "Contactați-ne astăzi"
+    }
+  },
+  "whoWeAre": {
+    "title": "Cine suntem",
+    "introText": "Automation eCom Global: Liderul dumneavoastră cu gândire de viitor în automatizarea industrială, cu o amprentă globală care cuprinde Dubai, SUA, China, India și Germania.",
+    "globalPresence": {
+      "title": "Prezența noastră globală",
+      "description": "Ne ocupăm de diverse industrii, cum ar fi producția, energia, infrastructura și automatizarea proceselor pe piețele cheie din întreaga lume. ",
+      "image": {
+        "src": "/footer/hiring.png?height=400&width=600",
+        "alt": "Harta globală care arată prezența Automation eCom Global",
+        "width": 600,
+        "height": 300
+      }
+    },
+    "expertise": {
+      "title": "Expertiza noastra",
+      "items": [
+        {
+          "icon": "Glob",
+          "title": "Acoperire globală",
+          "description": "Deservește piețele cheie din Dubai, SUA, China, India și Germania"
+        },
+        {
+          "icon": "CPU",
+          "title": "Produse Premium",
+          "description": "Specializată în soluții Siemens, DEIF, Schneider și ComAp"
+        },
+        {
+          "icon": "Utilizatori",
+          "title": "Cunoașterea industriei",
+          "description": "Soluții personalizate pentru producție, energie și multe altele"
+        },
+        {
+          "icon": "Zap",
+          "title": "Tehnologie de ultimă oră",
+          "description": "Integrarea soluțiilor bazate pe industria 4.0 și IoT"
+        }
+      ]
+    },
+    "productRange": {
+      "title": "Gama noastră de produse",
+      "categories": [
+        {
+          "title": "Soluții de automatizare",
+          "items": [
+            "Controlere logice programabile (PLC-uri)",
+            "Interfețe om-mașină (HMI)",
+            "Unități și controlere de motor",
+            "Surse de alimentare și componente critice"
+          ]
+        },
+        {
+          "title": "Mărci recomandate",
+          "items": [
+            "PLC-uri și HMI-uri de fabricație germană Siemens",
+            "Controlere de motor DEIF",
+            "Soluții de automatizare Schneider",
+            "Controlere de motor ComAp"
+          ]
+        }
+      ]
+    },
+    "whyChooseUs": {
+      "title": "De ce să ne alegeți",
+      "items": [
+        {
+          "title": "Expertiza",
+          "description": "Ani de experiență în automatizări industriale în diverse sectoare"
+        },
+        {
+          "title": "Calitate",
+          "description": "Parteneriate cu mărci de renume mondial care asigură soluții de înaltă calitate"
+        },
+        {
+          "title": "Sprijin",
+          "description": "Serviciu cuprinzător pentru clienți și asistență tehnică la nivel mondial"
+        },
+        {
+          "title": "Inovaţie",
+          "description": "Integrarea continuă a tehnologiilor Industry 4.0 și a soluțiilor IoT"
+        },
+        {
+          "title": "Cost-Eficient",
+          "description": "Cele mai bune reduceri la produse premium fără a face compromisuri la calitate"
+        },
+        {
+          "title": "Livrare globală",
+          "description": "Livrare rapidă și sigură a produselor către clienți din întreaga lume"
+        }
+      ]
+    },
+    "callToAction": {
+      "title": "Partener cu Automation eCom Global",
+      "description": "Suntem mai mult decât un furnizor – suntem un partener de încredere dedicat succesului dumneavoastră operațional. ",
+      "buttonText": "Contactați-ne astăzi"
+    }
+  },
+  "productShipping": {
+    "intro": [
+      {
+        "icon": "Anulează2",
+        "title": "Respira usor.",
+        "description": "Retururi gratuite."
+      },
+      {
+        "icon": "ZapIcon",
+        "title": "Oamenii vor asta.",
+        "description": "31 de persoane urmăresc asta."
+      }
+    ],
+    "shipping": {
+      "title": "Transport:",
+      "details": "Livrare standard de 1,00 USD din India în întreaga lume.",
+      "linkText": "Vezi detalii",
+      "additionalInfo": [
+        "Pentru cumpărătorii internaționali, comenzile sunt expediate și livrate numai prin intermediul companiilor internaționale de curierat înregistrate și/sau prin poșta internațională rapidă.",
+        "Pentru cumpărătorii autohtoni, comenzile sunt expediate numai prin intermediul companiilor de curierat naționale înregistrate și/sau prin poștă rapidă.",
+        "Comenzile sunt expediate în termen de 1-2 zile sau conform datei de livrare convenite la momentul confirmării comenzii și livrării expedierii sub rezerva normelor Companiei de Curierat / oficiului poștal.",
+        "AUTOMATION ECOM GLOBAL nu este răspunzătoare pentru nicio întârziere a livrării de către compania de curierat/autoritățile poștale și garantează doar predarea transportului către compania de curierat sau autoritățile poștale în termen de 1-2 zile de la data comenzii și plății sau conform ",
+        "Livrarea tuturor comenzilor se va face la adresa furnizata de cumparator. "
+      ]
+    },
+    "delivery": {
+      "title": "Livrare:",
+      "estimatedDelivery": {
+        "text": "Data estimată de livrare",
+        "date": "Ia din funcție"
+      },
+      "details": [
+        "Vă rugăm să rețineți că livrarea estimată este mai mare de 11 zile lucrătoare.",
+        "Vă rugăm să acordați timp suplimentar dacă livrarea internațională este supusă procesării vamale."
+      ]
+    },
+    "returns": {
+      "title": "Transport:",
+      "details": "30 de zile retur. ",
+      "linkText": "Vezi detalii",
+      "linkUrl": "/anulare și rambursare"
+    },
+    "payments": {
+      "title": "Plăți:",
+      "image": {
+        "src": "/images/payment-mode.png",
+        "alt": "plată",
+        "width": 400,
+        "height": 100
+      }
+    },
+    "shopWithConfidence": {
+      "title": "Cumpărați cu încredere",
+      "guarantee": {
+        "icon": "Scut",
+        "title": "Garanția de returnare a banilor companiei",
+        "description": "Obțineți articolul comandat sau banii înapoi.",
+        "linkText": "Află mai multe",
+        "linkUrl": "/produs-garanție"
+      }
+    }
+  },
+  "checkout": {
+    "titles": {
+      "heading": "Aproape ai ajuns...!",
+      "deliveryAddress": "Adresa de livrare",
+      "orderSummary": "Rezumatul comenzii",
+      "paymentAndShippingDetails": "Detalii de plată și livrare"
+    },
+    "messages": {
+      "noSavedAddress": "Nu aveți nicio adresă de livrare salvată.",
+      "addAddressInfo": "Nu vă faceți griji, puteți adăuga o nouă adresă făcând clic pe butonul Adăugare adresă și continuați să plătiți.",
+      "loginPrompt": "Dacă aveți deja un cont, vă rugăm să vă autentificați pentru a vă putea prelua adresa din profilul dvs",
+      "totalSavings": "Suma totală de economii la această comandă"
+    },
+    "labels": {
+      "addAddressButton": "Adăugați adresa",
+      "price": "Preţ",
+      "gst": "GST",
+      "deliveryCharges": "Taxe de livrare",
+      "discountPrice": "Pret cu reducere",
+      "totalAmount": "Valoare totală",
+      "inclOfAllTaxes": "(inclusiv toate taxele)",
+      "checkoutButton": "Verifică"
+    },
+    "placeholders": {
+      "mobileNo": "Nr. mobil:"
+    },
+    "icons": {
+      "deliveryAddressIcon": "MapPin",
+      "orderSummaryIcon": "Sac de cumpărături",
+      "addAddressIcon": "Plus",
+      "editAddressIcon": "Editare 2",
+      "selectedAddressIcon": "Verifica"
+    }
+  },
+  "addressForm": {
+    "labels": {
+      "firstName": "Prenume",
+      "lastName": "Nume",
+      "phone": "Mobil",
+      "email": "E-mail",
+      "address": "Adresa",
+      "country": "Ţară",
+      "state": "Stat",
+      "city": "Oraş",
+      "zipcode": "Cod poștal"
+    },
+    "placeholders": {
+      "firstName": "Vă rugăm să introduceți prenumele",
+      "lastName": "Vă rugăm să introduceți numele de familie",
+      "phone": "Vă rugăm să introduceți numărul dvs. de mobil",
+      "email": "Vă rugăm să introduceți adresa dvs. de e-mail",
+      "address": "Vă rugăm să introduceți adresa completă",
+      "country": "Selectați țara",
+      "state": "Selectați starea",
+      "noStatesAvailable": "Nu există state disponibile",
+      "city": "Vă rugăm să introduceți numele orașului",
+      "zipcode": "Vă rugăm să introduceți codul poștal"
+    },
+    "buttons": {
+      "saveAddress": "Salvați adresa",
+      "saving": "Economisire..."
+    },
+    "misc": {
+      "noStatesAvailable": "Nu există state disponibile"
+    }
+  },
+  "checkoutDialog": {
+    "title": "Verifică",
+    "description": "Vă rugăm să vă confirmați detaliile înainte de a efectua plata comenzii",
+    "paymentMethod": {
+      "header": "Modalitate de plată",
+      "selectedMethod": "Metoda de plată selectată:"
+    },
+    "itemDetails": {
+      "header": "Detalii articol"
+    },
+    "shippingDetails": {
+      "header": "Detalii de livrare",
+      "country": "Ţară:",
+      "state": "Stat:",
+      "phone": "Telefon:",
+      "email": "ID-ul de e-mail:"
+    },
+    "orderDetails": {
+      "header": "Detalii de comandă",
+      "price": "Preţ",
+      "gst": "GST",
+      "deliveryCharges": "Taxe de livrare",
+      "discountPrice": "Pret cu reducere",
+      "totalAmount": "Valoare totală",
+      "inclOfTaxes": "(inclusiv toate taxele)"
+    },
+    "savings": {
+      "message": "Suma totală a economiilor dvs. la această comandă",
+      "amountLabel": "₹"
+    }
+  },
+  "confirmOrder": {
+    "orderConfirmation": "Confirmarea comenzii",
+    "thankYouMessage": "Vă mulțumim pentru achiziție!",
+    "emailConfirmationMessage": "Vă vom trimite prin e-mail o confirmare a comenzii cu detalii și informații de urmărire.",
+    "orderIdLabel": "ID-ul comenzii: ",
+    "orderDate": "31 mai 2023 la 15:42",
+    "shippingInformation": "Informații de livrare",
+    "viewOrderButton": "Vizualizați comanda dvs",
+    "orderSummary": "Rezumatul comenzii",
+    "subtotalLabel": "Subtotal",
+    "shippingLabel": "Transport",
+    "totalLabel": "Total",
+    "savedAmountMessage": "Ai economisit 20,00 INR la această comandă!",
+    "similarProductsTitle": "Produse similare",
+    "feedbackText": "Feedback | "
+  },
+  "usrAccount": {
+    "personalInformationTitle": "Informații personale",
+    "personalInformationDescription": "Actualizați-vă detaliile personale aici.",
+    "loadingText": "Încărcare...",
+    "profileTab": "Profil",
+    "ordersTab": "Comenzi",
+    "orderHistoryTitle": "Istoricul comenzilor",
+    "orderHistoryDescription": "Vedeți comenzile dvs. anterioare și starea acestora.",
+    "orderIdLabel": "ID-ul comenzii",
+    "orderDateLabel": "Data comenzii",
+    "orderStatusLabel": "Starea comenzii",
+    "orderTotalLabel": "Valoare totală"
+  },
+  "addressDialog": {
+    "editTitle": "Editați adresa existentă",
+    "addTitle": "Adăugați o nouă adresă de livrare",
+    "editDescription": "Vă rugăm să completați formularul de mai jos pentru a vă actualiza detaliile adresei.",
+    "addDescription": "Vă rugăm să completați formularul de mai jos pentru a adăuga detaliile adresei dvs.",
+    "loadingText": "Încărcare..."
+  },
+  "cartSheet": {
+    "emptyCartMessage": "Nu există articole în coș",
+    "continueShoppingButton": "Continuați cumpărăturile",
+    "itemAltText": "articol - {index}"
+  },
+  "icons": {
+    "cartIconAlt": "Pictograma Coș de cumpărături"
+  },
+  "checkBoxLists": {
+    "formLabels": {
+      "brands": "Mărci",
+      "categories": "Categorii"
+    },
+    "buttonLabels": {
+      "showLess": "Arată mai puțin",
+      "showMore": "Arată mai mult",
+      "applyFilter": "Aplicați filtrul"
+    }
+  },
+  "filterDialog": {
+    "dialogTitle": "Filtre",
+    "dialogDescription": "Filtrați produsul după mai multe filtre",
+    "loadingMessage": "Încărcare..."
+  },
+  "noReviews": {
+    "cardTitle": "Nicio recenzie încă",
+    "noReviewsMessage": "Acest produs nu a primit încă recenzii. ",
+    "ratingPrompt": "Recenzia dvs. îi ajută pe alți cumpărători să ia decizii informate."
+  },
+  "paymentAndShippingCard": {
+    "paymentAndShipping": {
+      "title": "Plata si Livrare",
+      "payment": "PLATĂ",
+      "razorpay": {
+        "label": "Razorpay",
+        "imageAlt": "razorpay"
+      },
+      "paypal": {
+        "label": "PayPal / American Express",
+        "imageAlt": "paypal"
+      },
+      "discountCodePlaceholder": "Cod de reducere",
+      "applyButton": "Aplicați",
+      "price": "Preţ",
+      "gst": "GST",
+      "deliveryCharges": "Taxe de livrare",
+      "discountPrice": "Pret cu reducere",
+      "totalAmount": "Valoare totală",
+      "termsAndConditions": "Am citit și accept termenii și condițiile de vânzare. ",
+      "confirmOrder": "Confirmați comanda"
+    }
+  },
+  "commentForm": {
+    "ratingLabel": "Evaluare:",
+    "firstNameLabel": "Prenume:",
+    "lastNameLabel": "Nume:",
+    "commentLabel": "Comentariu:",
+    "submitButton": "Trimiteți",
+    "firstNamePlaceholder": "Introduceți prenumele dvs",
+    "lastNamePlaceholder": "Introduceți numele dvs. de familie",
+    "commentPlaceholder": "Scrie comentariul tău aici",
+    "error": {
+      "rating": "Evaluarea este necesară",
+      "firstName": "Prenumele este obligatoriu",
+      "lastName": "Numele de familie este obligatoriu",
+      "comment": "Comentariul este obligatoriu"
+    }
+  },
+  "searchDialog": {
+    "title": "Caută produsul aici",
+    "description": "Căutați produsul după marcă și titlu."
+  },
+  "userForm": {
+    "firstName": "Prenume",
+    "lastName": "Nume",
+    "mobile": "Mobil",
+    "email": "E-mail",
+    "placeholderFirstName": "Vă rugăm să introduceți prenumele dvs",
+    "placeholderLastName": "Vă rugăm să introduceți numele dvs. de familie",
+    "placeholderMobile": "Vă rugăm să introduceți numărul dvs. de mobil",
+    "placeholderEmail": "Vă rugăm să introduceți adresa dvs. de e-mail",
+    "saveButton": "Salvați adresa",
+    "savingButton": "Economisire..."
   }
+}

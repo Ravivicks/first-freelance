@@ -1,7 +1,2066 @@
 {
-    "PhotoViewer": {
-      "title": "Street photography",
-      "description": "La fotografía callejera capta momentos de la vida real e interacciones humanas en lugares públicos. Es una forma de contar historias visuales y congelar momentos fugaces del tiempo, convirtiendo lo ordinario en extraordinario."
-     
+  "page1": {
+    "warranty": "12 mesos de garantia",
+    "quickQuote": "Cotització ràpida",
+    "customerSupport": "Atenció al client",
+    "email": "sales@prosafeautomation.com",
+    "phone": "Telèfon"
+  },
+  "page2": {
+    "navItems": [
+      {
+        "title": "PLC Siemens",
+        "image": "/product-category/webp/1.webp",
+        "url": "/"
+      },
+      {
+        "title": "Unitat Siemens",
+        "image": "/product-category//webp/2.webp",
+        "url": "/"
+      },
+      {
+        "title": "HMI de Siemens",
+        "image": "/product-category/webp/3.webp",
+        "url": "/"
+      },
+      {
+        "title": "Font d'alimentació Siemens",
+        "image": "/product-category/webp/4.webp",
+        "url": "/"
+      },
+      {
+        "title": "Controlador general dièsel",
+        "image": "/product-category/webp/5.webp",
+        "url": "/"
+      },
+      {
+        "title": "Schneider Pro-Face Telemecanique",
+        "image": "/product-category/webp/6.webp",
+        "url": "/"
+      },
+      {
+        "title": "Certificació i proves de rendiment",
+        "image": "/product-category/webp/7.webp",
+        "url": "/"
+      },
+      {
+        "title": "Siemens descatalogat: productes obsolets i més",
+        "image": "/product-category/webp/8.webp",
+        "url": "/"
+      },
+      {
+        "title": "Altres productes d'automatització",
+        "image": "/product-category/webp/9.webp",
+        "url": "/"
+      }
+    ]
+  },
+  "bestDeal": {
+    "title": "Productes més venuts",
+    "viewAllButtonText": "Veure-ho tot",
+    "viewAllButtonIcon": "ChevronDreta",
+    "mobileButtonIcon": "ChevronDreta",
+    "buttonLabels": {
+      "addToCart": "Afegeix a la cistella ",
+      "goToCart": "Anar al carro",
+      "requestQuotation": "Sol·licitar pressupost",
+      "requestForPrice": "Sol·licitud de preu",
+      "productDetails": "Detalls del producte"
     }
+  },
+  "productCarousel": {
+    "loadingText": "Carregant...",
+    "badgeText": "Millor elecció",
+    "cardAltText": "Imatge de {title}"
+  },
+  "featuredCategory": {
+    "title": "Categoria destacada",
+    "defaultCompanyImage": "/featured/partner/siemens.png",
+    "companyImages": {
+      "Siemens": "/featured/partner/siemens.png",
+      "DEIF": "/featured/partner/deif.png",
+      "Pro-face": "/featured/partner/proface.png"
+    }
+  },
+  "singleProductDetails": {
+    "charLimit": 250,
+    "errorMessages": {
+      "minQuantity": "La quantitat mínima de comanda és {minQuantity}"
+    },
+    "availabilityText": "Disponible",
+    "getItByText": "Rebeu-lo abans del divendres 9 d'agost.",
+    "descriptionTitle": "Descripció del producte",
+    "buttonLabels": {
+      "addToCart": "Afegeix a la cistella",
+      "goToCart": "Anar al carro",
+      "buyNow": "Compra ara",
+      "requestQuotation": "Sol·licitar pressupost",
+      "requestForPrice": "Sol·licitud de preu"
+    }
+  },
+  "featuredPartner": {
+    "title": "Socis destacats"
+  },
+  "industryAutomation": {
+    "title": "Automatització de la indústria"
+  },
+  "featuredProduct": {
+    "title": "Producte destacat",
+    "buttonLabels": {
+      "addToCart": "Afegeix a la cistella",
+      "goToCart": "Afegeix a la cistella",
+      "requestQuotation": "Sol·licitar pressupost",
+      "requestForPrice": "Sol·licitud de preu",
+      "productDetails": "Detalls del producte"
+    }
+  },
+  "search": {
+    "placeHolder": "Cerca productes... (Per exemple: 6ES7288-1ST30-0AA0)"
+  },
+  "menuBar": {
+    "firstMenuTitle": "El més venut",
+    "secondMenuTitle": "Compreu per categoria",
+    "thirdMenuTitle": "Compreu per marca",
+    "fourthMenuTitle": "Sobre l'empresa",
+    "fifthMenuTitle": "Cotització del servei",
+    "sixthMenuTitle": "Cotització del projecte sencer",
+    "seventhMenuTitle": "Per què centenars de clients confien en nosaltres",
+    "aboutSubmenu": [
+      {
+        "title": "Sobre Nosaltres",
+        "url": "/about-us"
+      },
+      {
+        "title": "Contacta amb nosaltres",
+        "url": "/contact-us"
+      },
+      {
+        "title": "Termes i condicions",
+        "url": "/termandcondition"
+      },
+      {
+        "title": "Política de privadesa",
+        "url": "/privacy-policy"
+      },
+      {
+        "title": "Polítiques de cancel·lació/devolució",
+        "url": "/cancellationandrefund"
+      }
+    ]
+  },
+  "footer": {
+    "newsletter": {
+      "title": "Butlletí informatiu",
+      "placeholder": "Introdueix el teu correu electrònic",
+      "subscribeButton": "Subscriu-te",
+      "successMessage": "Gràcies per subscriure't!"
+    },
+    "company": {
+      "title": "Companyia",
+      "links": [
+        {
+          "text": "Qui Som",
+          "url": "/who-we-are"
+        },
+        {
+          "text": "Els nostres compromisos",
+          "url": "/our-commitments"
+        },
+        {
+          "text": "Què Defensem",
+          "url": "/what-we-stand-for"
+        },
+        {
+          "text": "Marques col·laboradores",
+          "url": "/partner-brands"
+        },
+        {
+          "text": "Carreres i oportunitats",
+          "url": "/career-and-opportunities"
+        }
+      ]
+    },
+    "customerCare": {
+      "title": "Atenció al client",
+      "navItems": [
+        {
+          "text": "Ajuda i Suport",
+          "url": "/help-and-support"
+        },
+        {
+          "text": "Estat de la comanda",
+          "url": "/order-status"
+        },
+        {
+          "text": "Informació de lliurament",
+          "url": "/delivery-info"
+        },
+        {
+          "text": "Devolució i canvis",
+          "url": "/return-and-exchange"
+        },
+        {
+          "text": "Assistència a la instal·lació",
+          "url": "/installation-assistance"
+        }
+      ]
+    },
+    "trust": {
+      "title": "Confia",
+      "links": [
+        {
+          "text": "Garantia del producte",
+          "url": "/product-guarantee"
+        },
+        {
+          "text": "Pagaments segurs i segurs",
+          "url": "/safe-and-secure-payments"
+        },
+        {
+          "text": "Opcions de pagament",
+          "url": "/payment-options"
+        },
+        {
+          "text": "Polítiques de Protecció de Dades",
+          "url": "/data-protection-policies"
+        },
+        {
+          "text": "Acords d'usuari",
+          "url": "/user-agreements"
+        },
+        {
+          "text": "Configuració de privadesa i galetes",
+          "url": "/privacy-and-cookie-settings"
+        }
+      ]
+    },
+    "paymentMethod": {
+      "title": "Forma de pagament",
+      "methods": [
+        "Transferència en línia / transferència bancària",
+        "RTGS / NEFT"
+      ],
+      "image": "/payment.jpg",
+      "alt": "Mètodes de pagament"
+    },
+    "shippingMethod": {
+      "title": "Mètode d'enviament",
+      "providers": [
+        {
+          "name": "UPS",
+          "logo": "/Versand_UPS.png"
+        },
+        {
+          "name": "DHL",
+          "logo": "/Versand_DHL.png"
+        }
+      ]
+    },
+    "bottomText": "2024 AUTOMATION ECOM GLOBAL. Tots els drets reservats. Automation eCom Global no és un distribuïdor ni un representant autoritzat dels fabricants presentats en aquest lloc web. SIEMENS, SIMATIC®, SITOP®, SIMADYN®, SINUMERIC®, SIMOVERT® i altres són marques registrades de Siemens Aktiengesellschaft, Berlín i Munic. Totes les marques són propietat de les seves respectives empreses. Subjecte a errors. Avís de responsabilitat: Malgrat un control minuciós del contingut, no assumim cap responsabilitat pel contingut dels enllaços externs. Els operadors de les pàgines enllaçades són els únics responsables del seu contingut."
+  },
+  "productCard": {
+    "buttonLabels": {
+      "addToCart": "Afegeix a la cistella",
+      "goToCart": "Vés a la cistella",
+      "requestQuotation": "Sol·licitar pressupost",
+      "requestForPrice": "Sol·licitud de preu",
+      "buyNow": "Compra ara"
+    }
+  },
+  "productDetails": {
+    "backToResult": "Tornar al resultat",
+    "similarProducts": "Productes similars",
+    "feedbackSeeAll": "Comentaris | ",
+    "mostlyVisitedProducts": "Productes més visitats",
+    "productDetails": "Detalls del producte",
+    "reviews": "Ressenyes",
+    "discussion": "Discussió"
+  },
+  "cart": {
+    "yourCart": "El teu carretó",
+    "subtotal": "Subtotal",
+    "checkout": "Pagament",
+    "requestForQuotation": "Sol·licitud de cotització",
+    "item": "Articles al teu carretó!",
+    "youHave": "Tu tens"
+  },
+  "enquiry": {
+    "fullNameLabel": "Nom complet",
+    "fullNamePlaceholder": "Introduïu el vostre nom complet",
+    "emailLabel": "Correu electrònic",
+    "emailPlaceholder": "Introduïu el vostre correu electrònic",
+    "mobileLabel": "Mòbil",
+    "quantityLabel": "Quantitat",
+    "quantityPlaceholder": "Si us plau, proporcioneu la quantitat",
+    "enquiryDescriptionLabel": "Descripció de la consulta",
+    "enquiryDescriptionPlaceholder": "Introduïu la descripció detallada de la vostra consulta",
+    "submitButton": "Envieu la vostra sol·licitud",
+    "submittingButton": "S'està enviant...",
+    "quickQuoteTitle": "Formulari de pressupost ràpid",
+    "confirmDetailsTitle": "Si us plau, confirmeu les vostres dades"
+  },
+  "support": {
+    "titleLabel": "Títol de consulta",
+    "titlePlaceholder": "Introduïu el títol de la vostra consulta",
+    "emailLabel": "Correu electrònic",
+    "emailPlaceholder": "Introduïu el vostre correu electrònic",
+    "enquiryDescriptionLabel": "Descripció de la consulta",
+    "enquiryDescriptionPlaceholder": "Introduïu la descripció detallada de la vostra consulta",
+    "submitButton": "Envieu la vostra sol·licitud",
+    "submittingButton": "S'està enviant...",
+    "enterDetailsTitle": "Introduïu les vostres dades"
+  },
+  "emptyCart": {
+    "title": "El teu carretó està buit",
+    "description": "Sembla que encara no has afegit res al teu carretó.",
+    "action": "Continuar comprant"
+  },
+  "about": {
+    "banner": {
+      "imageAlt": "pancarta-sobre",
+      "imageSrc": "/images/about.jpg"
+    },
+    "section1": {
+      "heading": "Alimentació de l'automatització industrial",
+      "description": "Automatització eCom Global és un proveïdor líder de solucions d'automatització industrial d'avantguarda. ",
+      "subSection": {
+        "title": "Sobre Nosaltres",
+        "description": "Fundada el 1985, Automation eCom Global ha estat a l'avantguarda de la indústria de l'automatització industrial, proporcionant solucions d'avantguarda a empreses d'una àmplia gamma de sectors. "
+      },
+      "links": {
+        "exploreProducts": {
+          "label": "Exploreu Productes",
+          "href": "#"
+        },
+        "contactUs": {
+          "label": "Contacta amb nosaltres",
+          "href": "#"
+        }
+      }
+    },
+    "section2": {
+      "title": "La nostra experiència",
+      "heading": "Dominar l'automatització industrial",
+      "description": "Amb més de 35 anys d'experiència en la indústria de l'automatització industrial, Automation eCom Global ha desenvolupat una profunda comprensió dels reptes i oportunitats als quals s'enfronten els nostres clients. ",
+      "cards": [
+        {
+          "title": "Controladors lògics programables (PLC)",
+          "description": "Les nostres solucions PLC estan dissenyades per oferir una automatització fiable, escalable i fàcil d'utilitzar per a una àmplia gamma d'aplicacions industrials."
+        },
+        {
+          "title": "Interfícies home-màquina (HMI)",
+          "description": "Les nostres solucions HMI ofereixen interfícies intuïtives i fàcils d'utilitzar que permeten als operadors supervisar i controlar els processos industrials amb facilitat."
+        },
+        {
+          "title": "Sensors i instrumentació industrials",
+          "description": "La nostra àmplia gamma de solucions d'instrumentació i sensors industrials ofereix dades precises i fiables per a les vostres necessitats d'automatització."
+        },
+        {
+          "title": "Sistemes de control de moviment",
+          "description": "Les nostres solucions de control de moviment permeten un control precís i eficient de la maquinària industrial, garantint un rendiment i una productivitat òptims."
+        },
+        {
+          "title": "Xarxes industrials i comunicació",
+          "description": "Les nostres solucions de comunicació i xarxes industrials faciliten l'intercanvi i la integració de dades sense problemes al vostre ecosistema d'automatització."
+        },
+        {
+          "title": "Sistemes de seguretat industrial",
+          "description": "Els nostres sistemes de seguretat industrial estan dissenyats per protegir els vostres treballadors, equips i processos, garantint un entorn de treball segur i segur."
+        }
+      ]
+    },
+    "section3": {
+      "heading": "Contacteu amb l'equip Automation Ecom",
+      "description": "El nostre equip d'experts es dedica a oferir als nostres clients les millors solucions i suport possibles.",
+      "requestQuoteButton": "Sol·licitar pressupost",
+      "teamMembers": [
+        {
+          "name": "John Doe",
+          "role": "CEO",
+          "imageSrc": "/placeholder-user.jpg"
+        },
+        {
+          "name": "Jane Lee",
+          "role": "CTO",
+          "imageSrc": "/placeholder-user.jpg"
+        },
+        {
+          "name": "Sarah Miller",
+          "role": "Cap de vendes",
+          "imageSrc": "/placeholder-user.jpg"
+        },
+        {
+          "name": "David Wang",
+          "role": "Enginyer principal",
+          "imageSrc": "/placeholder-user.jpg"
+        }
+      ]
+    },
+    "section4": {
+      "heading": "Exploreu el nostre catàleg de productes",
+      "description": "Automatització eCom Global ofereix una àmplia gamma de productes d'automatització industrial d'avantguarda per satisfer les diverses necessitats dels nostres clients.",
+      "links": {
+        "viewProducts": {
+          "label": "Veure Productes",
+          "href": "#"
+        },
+        "contactUs": {
+          "label": "Contacta amb nosaltres",
+          "href": "#"
+        }
+      }
+    }
+  },
+  "cancellationAndRefund": {
+    "heading": "Política de cancel·lació i reemborsament",
+    "introduction": "AUTOMATION ECOM GLOBAL creu en ajudar els seus clients en la mesura del possible i, per tant, té una política de cancel·lació liberal. ",
+    "section1": {
+      "title": "Cancel·lacions i devolucions",
+      "items": [
+        {
+          "strong": "Temps:",
+          "text": "Només es tindran en compte les cancel·lacions si la sol·licitud es fa dins del mateix dia de la realització de la comanda. "
+        }
+      ]
+    },
+    "section2": {
+      "title": "Com sol·licitar una cancel·lació o un reemborsament",
+      "items": [
+        {
+          "strong": "Procés:",
+          "text": "En cas de rebre articles danyats o defectuosos, si us plau, comuniqueu-ho al nostre equip d'atenció al client. "
+        },
+        {
+          "strong": "Temps de resposta:",
+          "text": "En cas de reemborsaments aprovats per AUTOMATION ECOM GLOBAL, el reemborsament trigarà entre 1 i 2 dies a processar-se al client final."
+        }
+      ]
+    },
+    "section3": {
+      "title": "Atenció al client",
+      "paragraph": "Si teniu cap pregunta o dubte sobre la nostra política de cancel·lació i reemborsament, no dubteu a posar-vos en contacte amb el nostre equip d'atenció al client. ",
+      "contactLinks": [
+        {
+          "href": "#",
+          "text": "Suport per correu electrònic",
+          "icon": "MailOpenIcon"
+        },
+        {
+          "href": "#",
+          "text": "Truqueu al suport",
+          "icon": "PhoneIcon"
+        }
+      ]
+    }
+  },
+  "careersAndOpportunities": {
+    "heading": "Carreres i Oportunitats",
+    "intro": "Uneix-te a Automation eCom Global i forma part d'un equip que impulsa la innovació en automatització industrial a tot el món.",
+    "whyJoinUs": {
+      "title": "Per què unir-se a nosaltres?",
+      "careerAspects": [
+        {
+          "id": "líder mundial",
+          "title": "Forma part d'un líder global",
+          "content": "Treballeu amb tecnologies d'avantguarda i marques globals com Siemens, Schneider, DEIF i ComAp. ",
+          "icon": "Globe"
+        },
+        {
+          "id": "creixement",
+          "title": "Creixeu amb nosaltres",
+          "content": "Accediu a una varietat de programes de formació, oportunitats de tutoria i experiències d'aprenentatge en el lloc de treball. ",
+          "icon": "TrendingUp"
+        },
+        {
+          "id": "entorn laboral",
+          "title": "Entorn de treball dinàmic",
+          "content": "Uneix-te a un lloc de treball divers i inclusiu on la innovació prospera i cada veu s'escolta. ",
+          "icon": "Users"
+        },
+        {
+          "id": "rols",
+          "title": "Rols apassionants",
+          "content": "Exploreu oportunitats en enginyeria, vendes, assistència al client, gestió de productes i cadena de subministrament. ",
+          "icon": "Briefcase"
+        },
+        {
+          "id": "conciliació laboral-vida familiar",
+          "title": "Conciliació de la vida laboral i familiar",
+          "content": "Gaudeix d'acords laborals flexibles, temps lliure remunerat i beneficis per a la salut. ",
+          "icon": "HeartHandshake"
+        },
+        {
+          "id": "sostenibilitat",
+          "title": "Contribuir a un futur sostenible",
+          "content": "Formar part de projectes que redueixin el consum d'energia, optimitzin l'ús dels recursos i minimitzin l'impacte ambiental. ",
+          "icon": "Leaf"
+        }
+      ]
+    },
+    "excitingRoles": {
+      "title": "Rols apassionants en múltiples funcions",
+      "roles": [
+        "Enginyeria",
+        "Desenvolupament comercial i comercial",
+        "Atenció al client",
+        "Assistència tècnica",
+        "Gestió de productes",
+        "Màrqueting",
+        "Cadena de subministrament",
+        "Operacions"
+      ],
+      "description": "Tant si la vostra passió rau en la innovació tècnica, l'estratègia de vendes o el servei al client, oferim funcions que coincideixen amb les vostres habilitats i aspiracions."
+    },
+    "joinUs": {
+      "title": "Uneix-te a nosaltres en el nostre viatge",
+      "content": "A Automation eCom Global, no només estem construint solucions d'automatització; ",
+      "benefits": [
+        {
+          "icon": "Rocket",
+          "text": "Treballa amb tecnologia d'avantguarda"
+        },
+        {
+          "icon": "Globe",
+          "text": "Contribuir a projectes líders en el sector"
+        },
+        {
+          "icon": "Users",
+          "text": "Creixeu al costat de ments brillants en l'automatització"
+        },
+        {
+          "icon": "Leaf",
+          "text": "Tenir un impacte positiu en el medi ambient"
+        }
+      ],
+      "callToAction": {
+        "title": "Preparat per començar el teu viatge?",
+        "description": "Exploreu les nostres obertures actuals i feu el primer pas cap a una carrera emocionant en automatització industrial.",
+        "buttonText": "Visualitza les posicions obertes",
+        "buttonVariant": "destructiu",
+        "buttonSize": "lg"
+      }
+    }
+  },
+  "contact": {
+    "header": {
+      "title": "Posa't en contacte",
+      "description": "Tens alguna pregunta o necessites ajuda? "
+    },
+    "form": {
+      "title": "Contacta amb nosaltres",
+      "fields": {
+        "name": {
+          "label": "Nom",
+          "placeholder": "John Doe"
+        },
+        "email": {
+          "label": "Correu electrònic",
+          "placeholder": "exemple@acme.com"
+        },
+        "phone": {
+          "label": "Telèfon",
+          "placeholder": "(123) 456-7890"
+        },
+        "message": {
+          "label": "Missatge",
+          "placeholder": "Com et podem ajudar?"
+        }
+      },
+      "submitButton": "Enviar missatge"
+    },
+    "contactInformation": {
+      "title": "Informació de contacte",
+      "company": "Nom de la vostra empresa",
+      "address": "123 Main St, Ciutat, País",
+      "phone": "1-800-123-4567",
+      "workingHours": "De dilluns a divendres, de 9 a 17 h",
+      "email": "contact@company.com",
+      "emailNote": "Ens posarem en contacte amb tu el més aviat possible."
+    }
+  },
+  "dataProtectionPolicies": {
+    "header": {
+      "title": "Política i Protecció de Dades",
+      "description": "A Automation eCom Global, prioritzem la seguretat i la privadesa de les dades personals i empresarials dels nostres clients. "
+    },
+    "policyPoints": [
+      {
+        "icon": "Lock",
+        "title": "Compromís amb la privadesa i la seguretat de les dades",
+        "tab": "privadesa",
+        "content": "Ens prenem seriosament la vostra privadesa i ens comprometem a protegir la vostra informació personal i empresarial de l'accés, l'ús o la divulgació no autoritzats. ",
+        "list": [
+          "Xifratge: tota la informació sensible, incloses les dades de pagament i les dades personals, s'encripta mitjançant la tecnologia SSL (Secure Socket Layer), que garanteix que les vostres dades estiguin protegides durant la transmissió.",
+          "Controls d'accés: implementem controls d'accés estrictes per garantir que només el personal autoritzat tingui accés a les vostres dades.",
+          "Auditories periòdiques: els nostres sistemes són auditats i supervisats periòdicament per detectar vulnerabilitats de seguretat, i actualitzem contínuament els nostres processos per alinear-nos amb els estàndards de protecció de dades més recents."
+        ]
+      },
+      {
+        "icon": "Globe",
+        "title": "Compliment del GDPR i les lleis globals de privadesa",
+        "tab": "compliment",
+        "content": "Com a empresa global que dóna servei a clients a regions com Europa, EUA, Índia, Xina, Dubai i Alemanya, Automation eCom Global s'adhereix a diverses lleis internacionals de privadesa, inclòs el GDPR per als nostres clients europeus. ",
+        "list": [
+          "Transparència en la recollida de dades: us informem clarament sobre quines dades recollim, per què les recollim i com les fem servir.",
+          "Dret d'accés: teniu dret a sol·licitar l'accés a les dades personals que tenim sobre vosaltres, i us proporcionarem una còpia de la informació de manera oportuna.",
+          "Dret de rectificació: si creus que alguna de les dades que tenim sobre tu és inexacte, tens dret a sol·licitar que la corregim.",
+          "Dret d'esborrat: pot sol·licitar que eliminem les seves dades personals dels nostres sistemes si ja no són necessaris per a la finalitat per a la qual es van recollir, o si retira el seu consentiment."
+        ]
+      },
+      {
+        "icon": "Database",
+        "title": "Com recopilem i utilitzem les dades",
+        "tab": "ús de dades",
+        "content": "A Automation eCom Global, recollim i utilitzem dades per a finalitats comercials específiques i legítimes. ",
+        "list": [
+          "Informació personal: quan creeu un compte, feu una compra o contacteu amb nosaltres, recollim informació personal com ara el vostre nom, adreça de correu electrònic, adreça d'enviament i dades de pagament. ",
+          "Dades d'ús del lloc web: recopilem dades no personals com la vostra adreça IP, el tipus de navegador i els patrons d'ús del lloc web per ajudar-nos a millorar el rendiment de la nostra plataforma i oferir una millor experiència d'usuari. ",
+          "Cookies: fem servir cookies per millorar la vostra experiència de navegació recordant les vostres preferències i les dades d'inici de sessió. "
+        ]
+      },
+      {
+        "icon": "UserCheck",
+        "title": "Els teus drets i eleccions",
+        "tab": "els teus-drets",
+        "content": "A Automation eCom Global, creiem en l'habilitació dels nostres clients perquè prenguin el control de les seves dades personals. ",
+        "list": [
+          "Accés a les teves dades: pots sol·licitar una còpia de la informació personal que tenim sobre tu en qualsevol moment.",
+          "Correcció de les seves dades: Si alguna de les seves dades personals és incorrecta o incompleta, pot sol·licitar que l'actualitzem.",
+          "Supressió de les teves dades: pots sol·licitar la supressió de les teves dades personals, i ho complirem sempre que no hi hagi cap requisit legal per conservar-les.",
+          "Desactivació de les comunicacions: podeu desactivar els correus electrònics de màrqueting o altres comunicacions en qualsevol moment ajustant les vostres preferències a la configuració del vostre compte o utilitzant l'enllaç \"cancel·lar la subscripció\" als nostres correus electrònics."
+        ]
+      }
+    ],
+    "chooseUsPoints": [
+      "Compliment de les lleis globals de privadesa: ens adherim al GDPR i altres estàndards internacionals de protecció de dades per garantir que les vostres dades es gestionen sempre de manera segura.",
+      "Ús de dades transparent: proporcionem informació clara sobre com es recullen, s'utilitzen i s'emmagatzemen les vostres dades, donant-vos un control total sobre la vostra informació personal.",
+      "Mesures de seguretat avançades: les vostres dades estan protegides amb xifratge SSL, servidors segurs i controls d'accés estrictes.",
+      "Respecte a la vostra privadesa: mai venem ni compartim les vostres dades sense el vostre consentiment, i treballem amb tercers de confiança per oferir serveis essencials.",
+      "Drets i control de l'usuari: pots accedir, corregir o eliminar les teves dades en qualsevol moment i gestionar les teves preferències de comunicació amb facilitat."
+    ],
+    "whyChooseUs": {
+      "title": "Per què escollir Automation eCom Global per a la protecció de dades?",
+      "callToAction": "Contacta amb nosaltres per a més informació"
+    }
+  },
+  "deliveryInfo": {
+    "aboutDeliveryServices": "A Automation eCom Global, reconeixem que el lliurament puntual i fiable és crucial per a les vostres operacions empresarials. ",
+    "featuresTitle": "Característiques de lliurament",
+    "features": [
+      {
+        "id": "1",
+        "title": "Xarxa de lliurament global",
+        "description": "Com a líder mundial en automatització industrial, Automation eCom Global ofereix serveis de lliurament fiables a una àmplia gamma de mercats internacionals, com ara Dubai, EUA, Xina, Índia, Alemanya i més. ",
+        "icon": "Globe"
+      },
+      {
+        "id": "2",
+        "title": "Opcions de lliurament",
+        "description": "A Automation eCom Global, oferim una varietat d'opcions d'enviament per satisfer les diverses necessitats dels nostres clients. ",
+        "icon": "Truck"
+      },
+      {
+        "id": "3",
+        "title": "Terminis de lliurament ràpids i fiables",
+        "description": "Entenem que el temps és essencial quan es tracta d'automatització industrial. ",
+        "icon": "Clock"
+      },
+      {
+        "id": "4",
+        "title": "Embalatge i manipulació segurs",
+        "description": "A Automation eCom Global, tenim molta cura per garantir que els vostres productes d'automatització s'embalen i es transportin de manera segura. ",
+        "icon": "Package"
+      },
+      {
+        "id": "5",
+        "title": "Seguiment d'enviaments i notificacions",
+        "description": "Des del moment en què s'enviï la seva comanda, tindreu total visibilitat i control sobre l'enviament. ",
+        "icon": "Bell"
+      },
+      {
+        "id": "6",
+        "title": "Suport duaner i enviament internacional",
+        "description": "Com a proveïdor global, Automation eCom Global entén les complexitats de l'enviament internacional, especialment pel que fa a les regulacions duaneres. ",
+        "icon": "FileText"
+      },
+      {
+        "id": "7",
+        "title": "Lliurament a ubicacions remotes",
+        "description": "A Automation eCom Global, entenem que les operacions industrials sovint es troben en zones remotes o de difícil accés. ",
+        "icon": "MapPin"
+      },
+      {
+        "id": "8",
+        "title": "Devolucions i canvis fàcils",
+        "description": "Tot i que ens esforcem per garantir que totes les comandes es compleixin perfectament, entenem que de vegades poden ser necessaris devolucions o canvis. ",
+        "icon": "RefreshCw"
+      }
+    ],
+    "whyChooseUs": [
+      {
+        "title": "Abast global",
+        "description": "Entreguem a clients de tot el món, amb opcions d'enviament ràpides i fiables."
+      },
+      {
+        "title": "Mètodes de lliurament flexibles",
+        "description": "Trieu entre l'enviament estàndard, exprés o de càrrega per satisfer les vostres necessitats."
+      },
+      {
+        "title": "Embalatge segur",
+        "description": "Ens assegurem que els vostres productes estiguin emPackageats i protegits de manera segura durant el trànsit."
+      },
+      {
+        "title": "Seguiment en temps real",
+        "description": "Manteniu-vos informat amb actualitzacions i notificacions d'enviaments en temps real."
+      },
+      {
+        "title": "Suport duaner",
+        "description": "Ens encarreguem de totes les regulacions d'enviament internacional i de la documentació per a una experiència de lliurament fluida."
+      },
+      {
+        "title": "Lliurament fiable a llocs remots",
+        "description": "Atenem fins i tot als llocs industrials més allunyats amb serveis de lliurament especialitzats."
+      }
+    ],
+    "title": "Sobre els nostres serveis de lliurament",
+    "whyChooseTitle": "Per què triar Automation eCom Global per a les vostres necessitats de lliurament?"
+  },
+  "helpAndSupport": {
+    "title": "Ajuda i Suport",
+    "subtitle": "Assistència integral per garantir el vostre èxit amb les nostres solucions d'automatització industrial.",
+    "supportServicesTitle": "Els nostres serveis de suport",
+    "services": [
+      {
+        "id": "assistència tècnica",
+        "icon": "Wrench",
+        "title": "Assistència tècnica",
+        "shortDesc": "Orientació experta sobre instal·lació, configuració i resolució de problemes",
+        "content": "El nostre equip de professionals experimentats ofereix orientació experta sobre instal·lació, configuració i resolució de problemes per a tots els nostres productes d'automatització. "
+      },
+      {
+        "id": "prevenda",
+        "icon": "PhoneCall",
+        "title": "Consulta Prevenda",
+        "shortDesc": "Recomanacions personalitzades per a les vostres necessitats d'automatització",
+        "content": "Obteniu recomanacions i estadístiques personalitzades per ajudar-vos a triar les solucions d'automatització adequades per a les vostres necessitats específiques. "
+      },
+      {
+        "id": "suport global",
+        "icon": "Globe",
+        "title": "Suport global 24/7",
+        "shortDesc": "Assistència les 24 hores del dia a tot el món",
+        "content": "Accediu a l'assistència les 24 hores del dia dels nostres equips d'assistència estratègicament situats, independentment d'on us trobeu al món. "
+      },
+      {
+        "id": "formació-instal·lació",
+        "icon": "Settings",
+        "title": "Instal·lació i formació",
+        "shortDesc": "Suport integral a la configuració i desenvolupament d'habilitats",
+        "content": "Rebeu suport integral per a la instal·lació i programes de formació a mida per dotar el vostre equip de les habilitats necessàries. "
+      },
+      {
+        "id": "documentació",
+        "icon": "FileText",
+        "title": "Documentació del producte",
+        "shortDesc": "Àmplia biblioteca de guies i recursos",
+        "content": "Accediu a la nostra àmplia biblioteca de manuals d'usuari, guies tècniques i recursos actualitzats per a tots els nostres productes. "
+      },
+      {
+        "id": "Packages de suport",
+        "icon": "Package",
+        "title": "Packages de suport a mida",
+        "shortDesc": "Plans flexibles per satisfer les vostres necessitats específiques",
+        "content": "Trieu entre plans de suport flexibles dissenyats per satisfer els vostres requisits i prioritats operatives específiques. "
+      },
+      {
+        "id": "postvenda",
+        "icon": "ShieldCheck",
+        "title": "Postvenda i garantia",
+        "shortDesc": "Suport permanent i garanties de producte",
+        "content": "Gaudeix de serveis complets d'assistència postvenda i de garantia per garantir el rendiment del sistema a llarg termini. "
+      },
+      {
+        "id": "comentaris",
+        "icon": "MessageSquare",
+        "title": "Feedback del client",
+        "shortDesc": "Millora contínua basada en les vostres aportacions",
+        "content": "Valorem les vostres aportacions i millorem contínuament els nostres serveis basant-nos en els comentaris dels clients i les avaluacions de satisfacció. "
+      }
+    ],
+    "whyChooseTitle": "Per què triar el nostre suport?",
+    "whyChooseItems": [
+      "Disponibilitat 24/7",
+      "Assistència tècnica experta",
+      "Documentació exhaustiva",
+      "Packages de suport a mida",
+      "Enfocament centrat en el client"
+    ],
+    "faqTitle": "Preguntes freqüents",
+    "faqs": [
+      {
+        "question": "Quins tipus de suport tècnic ofereix?",
+        "answer": "Oferim assistència tècnica integral que inclou assistència per a la instal·lació, ajuda de configuració, resolució de problemes, suport de programari i optimització del sistema per a tots els nostres productes d'automatització de marques com Siemens, DEIF, Schneider i ComAp."
+      },
+      {
+        "question": "Com puc accedir a l'assistència 24/7?",
+        "answer": "El nostre suport global 24/7 està disponible per telèfon, correu electrònic i el nostre portal d'assistència en línia. "
+      },
+      {
+        "question": "Ofereix suport in situ?",
+        "answer": "Sí, oferim assistència in situ com a part dels nostres Packages d'assistència personalitzats. "
+      },
+      {
+        "question": "Què cobreix la garantia?",
+        "answer": "La nostra garantia cobreix els defectes de fabricació i el mal funcionament en ús normal durant un període determinat. "
+      },
+      {
+        "question": "Com puc programar una sessió d'entrenament per al meu equip?",
+        "answer": "Pots programar una sessió de formació posant-te en contacte amb el nostre equip d'atenció al client. "
+      }
+    ],
+    "assistanceTitle": "Necessites ajuda?",
+    "assistanceDescription": "El nostre equip d'assistència està preparat per ajudar-te amb qualsevol pregunta o problema que puguis tenir. ",
+    "contactSupportButton": "Contacta amb l'assistència",
+    "viewKnowledgeBaseButton": "Veure la base de coneixement"
+  },
+  "installationAssistance": {
+    "title": "Assistència a la instal·lació",
+    "intro": "A Automation eCom Global, entenem que la instal·lació reeixida és fonamental per al rendiment i la longevitat dels vostres sistemes d'automatització industrial. ",
+    "tabs": {
+      "expert-guidance": {
+        "title": "1. Orientació experta de Tècnics Certificats",
+        "content": "Els nostres serveis d'assistència a la instal·lació estan liderats per un equip de tècnics i enginyers certificats amb una àmplia experiència en sistemes d'automatització industrial. ",
+        "tab": "Orientació experta"
+      },
+      "support-options": {
+        "title": "2. Suport a la instal·lació in situ i remota",
+        "content": "A Automation eCom Global, oferim opcions de suport d'instal·lació flexibles per satisfer les necessitats úniques dels nostres clients globals. ",
+        "tab": "Opcions de suport"
+      },
+      "resources": {
+        "title": "3. Manuals i recursos detallats d'instal·lació",
+        "content": "Entenem que tenir la documentació adequada és clau per a una instal·lació exitosa. ",
+        "tab": "Recursos"
+      },
+      "configuration": {
+        "title": "4. Assistència a la configuració i proves",
+        "content": "La instal·lació és només el primer pas: la configuració i les proves adequades són essencials per garantir que els vostres sistemes funcionin correctament i compleixin les vostres necessitats operatives. ",
+        "tab": "Configuració"
+      }
+    },
+    "subTitle": "Suport expert en instal·lació per als vostres sistemes d'automatització",
+    "additionalServices": {
+      "title": "Serveis addicionals",
+      "items": [
+        "5. Suport de personalització i integració: molts sistemes d'automatització industrial requereixen configuracions personalitzades o integració amb equips existents. ",
+        "6. Formació per al vostre equip: a més de l'assistència a la instal·lació, Automation eCom Global ofereix programes de formació per assegurar-vos que el vostre equip estigui totalment equipat per operar i mantenir els vostres nous sistemes d'automatització. ",
+        "7. Suport continu després de la instal·lació: el nostre compromís amb el vostre èxit no acaba amb la instal·lació. "
+      ]
+    },
+    "whyChoose": {
+      "title": "Per què escollir Automation eCom Global per a l'assistència a la instal·lació?",
+      "items": [
+        "Tècnics certificats: el nostre equip d'experts assegura que els vostres sistemes s'instal·lin i configuren d'acord amb els més alts estàndards de la indústria.",
+        "Suport flexible: oferim assistència d'instal·lació in situ i remota per satisfer les necessitats del vostre projecte.",
+        "Documentació completa: els nostres manuals i recursos detallats d'instal·lació us guien en cada pas del procés.",
+        "Suport de configuració personalitzada: us ajudem a personalitzar i integrar els vostres sistemes per a un funcionament perfecte amb els equips existents.",
+        "Formació i suport continu: oferim programes de formació per equipar el vostre equip amb les habilitats necessàries per operar i mantenir els vostres sistemes.",
+        "Suport posterior a la instal·lació: oferim assistència tècnica contínua per garantir el rendiment i la fiabilitat del sistema a llarg termini."
+      ]
+    }
+  },
+  "orderStatus": {
+    "aboutService": "A Automation eCom Global, entenem que mantenir-se informat sobre el progrés de la vostra comanda és fonamental per mantenir les vostres operacions en bon funcionament. ",
+    "features": {
+      "title": "Les nostres funcions d'estat de la comanda",
+      "tab": "Característiques",
+      "realTimeTracking": {
+        "title": "1. Seguiment en temps real",
+        "description": "Des del moment en què confirmeu la vostra compra amb Automation eCom Global, el nostre sistema entra en acció per oferir-vos un seguiment en temps real de la vostra comanda. ",
+        "icon": "Package"
+      },
+      "automatedNotifications": {
+        "title": "2. Notificacions automatitzades",
+        "description": "Creiem en mantenir-te informat sense que hagis de fer passos addicionals. ",
+        "icon": "AlertCircle"
+      },
+      "accessViaPortal": {
+        "title": "3. Accés a través del Portal del compte de client",
+        "description": "Com a client valuós d'Automation eCom Global, teniu accés al nostre Portal de comptes de clients, una plataforma segura i personalitzada on podeu gestionar i fer un seguiment de totes les vostres comandes. ",
+        "icon": "ArrowRight"
+      },
+      "orderStatusSupport": {
+        "title": "4. Suport a l'estat de la comanda",
+        "description": "Si teniu cap pregunta o dubte sobre la vostra comanda, el nostre equip d'atenció al client està aquí per ajudar-vos. ",
+        "icon": "MessageCircle"
+      },
+      "deliveryTimeframes": {
+        "title": "5. Terminis de lliurament i abast global",
+        "description": "A Automation eCom Global, ens enorgulleix oferir productes d'automatització a clients d'arreu del món. ",
+        "icon": "Globe"
+      },
+      "multipleShippingMethods": {
+        "title": "6. Múltiples mètodes d'enviament",
+        "description": "Per satisfer les necessitats úniques de la nostra clientela diversa, Automation eCom Global ofereix una varietat de mètodes d'enviament. ",
+        "icon": "Truck"
+      },
+      "seamlessCommunication": {
+        "title": "7. Comunicació perfecta i actualitzacions",
+        "description": "En cas de retards inesperats o canvis en el calendari de lliurament de la vostra comanda, Automation eCom Global es compromet a mantenir obertes les línies de comunicació. ",
+        "icon": "Clock"
+      },
+      "historicalOrderData": {
+        "title": "8. Dades històriques de comandes i reordres",
+        "description": "Un dels molts avantatges del seguiment de les vostres comandes a través del nostre sistema és la possibilitat d'accedir a les dades històriques de les comandes en qualsevol moment. ",
+        "icon": "HistoryIcon"
+      }
+    },
+    "whyChoose": {
+      "title": "Per què triar el seguiment de comandes d'Automation eCom Global?",
+      "tab": "Per què escollir-nos",
+      "items": [
+        "Seguiment en temps real: estigueu al dia del progrés de la vostra comanda amb un seguiment precís i en directe.",
+        "Notificacions automàtiques: rebeu alertes per correu electrònic o SMS per a cada etapa important de la vostra comanda.",
+        "Portal de clients complet: gestioneu les vostres comandes, visualitzeu l'historial i feu el seguiment dels enviaments des d'una única plataforma.",
+        "Lliurament global: enviem a tot el món amb terminis de lliurament ràpids i fiables.",
+        "Suport personalitzat: el nostre equip d'atenció al client està sempre preparat per ajudar-vos amb el seguiment i les actualitzacions.",
+        "Mètodes d'enviament flexibles: trieu l'opció de lliurament que millor s'adapti al vostre calendari i pressupost."
+      ]
+    },
+    "title": "Sobre el nostre servei d'estat de comandes"
+  },
+  "ourCommitments": {
+    "sections": {
+      "introduction": {
+        "title": "Els nostres compromisos",
+        "paragraph": "A Automation eCom Global, els nostres compromisos són la columna vertebral de tot el que fem. "
+      },
+      "drivingSuccess": {
+        "title": "Impulsar l'èxit a través del compromís",
+        "paragraph": "El nostre enfocament inquebrantable a oferir els més alts estàndards de qualitat, combinat amb preus competitius i servei al client de classe mundial, és el que ens diferencia en el mercat global de l'automatització.",
+        "button": "Descobriu les nostres solucions"
+      },
+      "commitments": {
+        "title": "Els nostres compromisos clau",
+        "lists": [
+          {
+            "icon": "Award",
+            "title": "Qualitat i Innovació",
+            "description": "Oferim productes de la més alta qualitat de líders del sector com Siemens, Schneider, DEIF i ComAp, mantenint-nos a l'avantguarda de les tecnologies de la indústria 4.0."
+          },
+          {
+            "icon": "DollarSign",
+            "title": "Cost-efectivitat",
+            "description": "Oferim els millors descomptes del mercat en productes premium, oferint precisió d'enginyeria alemanya a preus competitius."
+          },
+          {
+            "icon": "Users",
+            "title": "Satisfacció del client",
+            "description": "El nostre equip dedicat ofereix un suport integral, des de la consulta prevenda fins a l'assistència postvenda, assegurant solucions òptimes per a cada client."
+          },
+          {
+            "icon": "Globe",
+            "title": "Abast global i suport local",
+            "description": "Amb una forta presència a Dubai, EUA, Xina, Índia i Alemanya, oferim lliurament a tot el món i assistència localitzada."
+          },
+          {
+            "icon": "Leaf",
+            "title": "Sostenibilitat i Responsabilitat Social",
+            "description": "Estem compromesos a oferir solucions eficients energèticament i donar suport a iniciatives ambientals i socials a les nostres comunitats."
+          }
+        ]
+      },
+      "detailedCommitments": {
+        "title": "Compromisos detallats",
+        "lists": [
+          {
+            "title": "1. Compromís amb la Qualitat i la Innovació",
+            "paragraphs": [
+              "Estem profundament compromesos a oferir productes de la més alta qualitat, procedents d'alguns dels noms més respectats de la indústria. ",
+              "Estem ampliant constantment la nostra oferta de productes per incloure les últimes tecnologies de la indústria 4.0, incloses solucions basades en IoT, monitorització remota, manteniment predictiu i sistemes d'automatització avançats."
+            ]
+          },
+          {
+            "title": "2. Compromís amb la rendibilitat",
+            "paragraphs": [
+              "La nostra capacitat d'oferir els millors descomptes del mercat en productes Siemens, com ara els PLC S7-1200, S7-1500 i S7-300, és un testimoni del nostre compromís amb l'assequibilitat sense comprometre la qualitat.",
+              "En triar Automation eCom Global, els clients tenen accés a la precisió d'enginyeria alemanya de Siemens a una fracció del preu de mercat, juntament amb solucions fiables de DEIF i ComAp."
+            ]
+          },
+          {
+            "title": "3. Compromís amb la Satisfacció del Client",
+            "paragraphs": [
+              "El nostre equip d'enginyers experimentats i especialistes en automatització treballen estretament amb els clients per entendre els seus reptes únics i adaptar les solucions que millor compleixin els seus objectius operatius.",
+              "Oferim orientació sobre la instal·lació, la posada en marxa i el manteniment, garantint-nos que totes les solucions que oferim estiguin optimitzades per tenir èxit a llarg termini."
+            ]
+          },
+          {
+            "title": "4. Compromís amb l'abast global i el suport local",
+            "paragraphs": [
+              "El nostre abast internacional ens permet oferir un lliurament ràpid i fiable de productes a tot el món, assegurant que les empreses de diferents geografies es puguin beneficiar de les nostres solucions d'automatització.",
+              "Oferim assistència localitzada per garantir que els clients rebin l'assistència que necessiten en els seus mercats específics, des d'equips d'atenció al client localitzats fins a recomanacions de productes específiques de la regió."
+            ]
+          },
+          {
+            "title": "5. Compromís amb la Sostenibilitat i la Responsabilitat Social",
+            "paragraphs": [
+              "Ens comprometem a oferir solucions que ajudin les empreses a reduir la seva petjada de carboni alhora que augmenten l'eficiència. ",
+              "Una part dels nostres beneficis es destinen a donar suport a causes mediambientals, iniciatives socials i projectes que beneficien les comunitats locals, com els que se centren en l'educació i el benestar animal."
+            ]
+          }
+        ]
+      },
+      "experienceCommitment": {
+        "title": "Experimenta el nostre compromís",
+        "paragraph": "A Automation eCom Global, som més que un proveïdor. ",
+        "button": "Contacta amb nosaltres avui"
+      }
+    }
+  },
+  "partnerBrands": {
+    "title": "Les nostres marques associades",
+    "intro": "A Automation eCom Global, la nostra força rau en les nostres associacions estratègiques amb algunes de les marques més reconegudes i innovadores del món de l'automatització industrial.",
+    "partners": [
+      {
+        "id": "siemens",
+        "icon": "Cpu",
+        "name": "Siemens",
+        "tagline": "Excel·lència en enginyeria alemanya",
+        "description": "Empresa d'automatització industrial líder mundial coneguda per la fiabilitat, la precisió i l'avenç tecnològic.",
+        "products": [
+          "PLC S7-1200",
+          "PLC S7-1500",
+          "LOGO! ",
+          "HMI",
+          "Unitats",
+          "Fonts d'alimentació"
+        ],
+        "content": "Com a una de les companyies d'automatització industrial líders del món, Siemens és sinònim de fiabilitat, precisió i avenç tecnològic. "
+      },
+      {
+        "id": "deif",
+        "icon": "Zap",
+        "name": "DEIF",
+        "tagline": "Experiència en control de motors",
+        "description": "Fabricant danès de solucions avançades de control de motors per a motors dièsel, turbines i híbrids.",
+        "products": [
+          "Sèrie AGC-4",
+          "Controladors avançats de grups electrògens",
+          "Controladors marítims",
+          "Sistemes de gestió d'energia"
+        ],
+        "content": "Amb seu a Dinamarca, DEIF és un fabricant líder de solucions avançades de control de motors, especialment conegut per la seva experiència en controladors de motors dièsel, turbines i híbrids. "
+      },
+      {
+        "id": "schneider",
+        "icon": "CloudLightning",
+        "name": "Schneider",
+        "tagline": "Líders globals en energia i automatització",
+        "description": "Conegut per les solucions d'automatització i gestió de l'energia que permeten operacions industrials eficients i sostenibles.",
+        "products": [
+          "PLCs",
+          "HMI",
+          "Sistemes SCADA",
+          "Solucions de gestió energètica",
+          "Plataformes IoT industrials"
+        ],
+        "content": "Schneider Electric és un altre soci clau d'Automation eCom Global, conegut per les seves solucions d'automatització i gestió de l'energia que permeten que les indústries funcionin de manera més eficient i sostenible. "
+      },
+      {
+        "id": "comap",
+        "icon": "Power",
+        "name": "ComAp",
+        "tagline": "Precisió en el control del motor",
+        "description": "Líder de la indústria amb seu a la República Txeca en controladors de motor per a la generació d'energia i aplicacions industrials.",
+        "products": [
+          "Controladors de generadors dièsel",
+          "Controladors de turbina",
+          "Controladors de sistemes d'energia híbrid",
+          "Solucions de monitorització remota"
+        ],
+        "content": "Amb seu a la República Txeca, ComAp és un líder de la indústria en controladors de motor, conegut per oferir solucions d'alt rendiment per a una àmplia gamma d'aplicacions industrials i de generació d'energia. "
+      }
+    ],
+    "advantage": {
+      "title": "L'avantatge global d'Automation eCom",
+      "description": "El que ens diferencia és la nostra capacitat per oferir solucions d'automatització de classe mundial recolzades per sòlides relacions amb aquestes marques líders. ",
+      "points": [
+        "Els millors preus del mercat",
+        "Gamma completa de productes",
+        "Solucions a mida",
+        "Atenció al client inigualable"
+      ]
+    },
+    "cta": {
+      "title": "Preparat per augmentar la vostra automatització?",
+      "description": "Aconsegueix accés a les últimes tecnologies de les principals marques d'automatització del món, juntament amb un servei i suport personalitzats.",
+      "buttonText": "Contacta amb nosaltres avui"
+    }
+  },
+  "paymentOptions": {
+    "header": {
+      "title": "Opcions de pagament",
+      "description": "A Automation eCom Global, ens comprometem a fer que la vostra experiència de compra sigui el més còmoda i flexible possible. "
+    },
+    "paymentOptions": [
+      {
+        "icon": "CreditCard",
+        "title": "Targetes de crèdit i dèbit",
+        "content": "Acceptem totes les targetes de crèdit i dèbit principals, de manera que us serà fàcil completar la vostra transacció de manera ràpida i segura. ",
+        "list": [
+          "Visa",
+          "MasterCard",
+          "American Express",
+          "Descobreix"
+        ]
+      },
+      {
+        "icon": "Building",
+        "title": "Transferències bancàries",
+        "content": "Per a les empreses que gestionen comandes més grans o aquelles que prefereixen mètodes de pagament directe, Automation eCom Global ofereix l'opció de pagar mitjançant transferències bancàries. ",
+        "list": [
+          "Sense límits de transaccions: adequat per a comandes grans i de gran volum.",
+          "Comissions de transacció reduïdes en comparació amb els pagaments amb targeta de crèdit per a algunes regions.",
+          "Seguretat: els fons es transfereixen directament entre el vostre banc i el nostre, assegurant que les dades financeres sensibles no es comparteixen amb processadors de tercers."
+        ]
+      },
+      {
+        "icon": "CreditCardIcon",
+        "title": "PayPal",
+        "content": "Entenem que molts dels nostres clients prefereixen utilitzar PayPal per a transaccions en línia, gràcies a la seva facilitat d'ús i plataforma segura. ",
+        "list": [
+          "Paga de manera ràpida i segura sense introduir les dades de la targeta cada vegada.",
+          "Enllaceu el vostre compte bancari o targeta de crèdit al vostre compte de PayPal per fer pagaments còmodes.",
+          "Beneficieu-vos de la protecció del comprador de PayPal en el rar cas d'una disputa de transacció."
+        ]
+      },
+      {
+        "icon": "Smartphone",
+        "title": "Carteres digitals (Apple Pay, Google Pay)",
+        "content": "Per als clients que prefereixen utilitzar solucions de pagament mòbil, Automation eCom Global admet Apple Pay i Google Pay, oferint una opció de pagament d'un sol toc que és alhora ràpida i segura. ",
+        "list": [
+          "Pagaments sense contacte per a una major comoditat i seguretat.",
+          "Tecnologia de tokenització que substitueix les dades sensibles de la targeta per un identificador digital únic, reduint el risc de frau.",
+          "Temps de compra més ràpids per als clients habituals."
+        ]
+      },
+      {
+        "icon": "FileText",
+        "title": "Comandes de compra (PO) per a clients aprovats",
+        "content": "Per als clients establerts o els que fan compres regulars a granel, Automation eCom Global ofereix l'opció de pagar mitjançant ordres de compra (PO). ",
+        "list": [
+          "Flexibilitat en els termes de pagament, que normalment oscil·len entre 30 i 90 dies, depenent del seu acord amb nosaltres.",
+          "Processos de compra simplificats per a empreses que fan comandes freqüents o a gran escala.",
+          "Millora de la gestió del flux d'efectiu, ja que el pagament s'ajorna fins a la data pactada."
+        ]
+      },
+      {
+        "icon": "DollarSign",
+        "title": "Plans a terminis per a comandes grans",
+        "content": "A Automation eCom Global, reconeixem que els projectes d'automatització a gran escala poden requerir una inversió de capital important. ",
+        "list": [
+          "Sense comissions ocultes: només pagueu l'import acordat en quotes iguals durant el període designat.",
+          "Calendari de pagament flexible: trieu el nombre de quotes que millor s'adapti a la vostra situació financera.",
+          "Sense impacte en el compliment de la comanda: la vostra comanda es processa i es lliura un cop realitzat el pagament inicial, sense esperar el pagament complet."
+        ]
+      },
+      {
+        "icon": "Globe",
+        "title": "Opcions de pagament internacional",
+        "content": "A Automation eCom Global, donem servei a clients de tot el món, des de Dubai fins a Alemanya, EUA, Xina, Índia i més enllà. ",
+        "list": [
+          "Opcions de conversió de divises: acceptem diverses monedes i proporcionem tipus de canvi en temps real per garantir que pagueu l'import correcte en la vostra moneda local.",
+          "Mètodes de pagament específics de la regió: a més de les targetes de crèdit global i PayPal, acceptem mètodes de pagament específics de la regió, com ara Alipay a la Xina i iDEAL a Europa.",
+          "Transferències bancàries internacionals: per a grans transaccions internacionals, oferim opcions de transferència bancària amb un suport integral per a la conversió de divises i els pagaments transfronterers."
+        ]
+      },
+      {
+        "icon": "Briefcase",
+        "title": "Condicions de pagament flexibles per a clients B2B",
+        "content": "Entenem que les empreses sovint requereixen flexibilitat de pagament addicional, especialment per a projectes en curs o a gran escala. ",
+        "list": [
+          "Termes Net 30, Net 60 o Net 90 per a clients establerts, que us permeten ajornar el pagament fins després del lliurament de la mercaderia.",
+          "Programes de pagament personalitzats per a projectes a llarg termini o clients recurrents.",
+          "Descomptes per volum i plans de pagament preferits per als clients que fan compres a granel."
+        ]
+      }
+    ],
+    "chooseUsTitle": "Per què triar Automation eCom Global per a pagaments segurs?",
+    "chooseUsPoints": [
+      "Múltiples mètodes de pagament: des de targetes de crèdit i transferències bancàries fins a carteres digitals i ordres de compra, oferim una varietat d'opcions de pagament per satisfer les vostres necessitats.",
+      "Transaccions segures: tots els pagaments estan protegits amb sistemes avançats d'encriptació i detecció de fraus.",
+      "Suport global: acceptem pagaments internacionals en diverses monedes i oferim opcions específiques de la regió.",
+      "Condicions flexibles: oferim plans de pagament a terminis, ordres de comanda i programes de pagament personalitzats per ajudar-vos a gestionar projectes grans o en curs.",
+      "Processament ràpid: els pagaments instantanis signifiquen un compliment i un lliurament més ràpids de les comandes."
+    ],
+    "shoppingButton": "Comença a comprar ara"
+  },
+  "privacyAndCookieSettings": {
+    "privacyPoints": [
+      {
+        "icon": "Lock",
+        "title": "Visió general de la política de privadesa",
+        "tab": "privadesa",
+        "content": "La nostra Política de privadesa descriu com recopilem, utilitzem i protegim la vostra informació personal quan interactueu amb Automation eCom Global. ",
+        "list": [
+          "Recollida de dades: recopilem informació com ara el vostre nom, correu electrònic, adreça i dades de pagament quan creeu un compte o feu una compra.",
+          "Ús de dades: les vostres dades s'utilitzen per complir comandes, oferir atenció al client i millorar la vostra experiència al nostre lloc.",
+          "Emmagatzematge de dades: fem servir servidors segurs per emmagatzemar les vostres dades i conservar-les només durant el temps necessari per a finalitats legals i operatives.",
+          "Compartir dades: no compartim les vostres dades amb tercers amb finalitats de màrqueting sense el vostre consentiment. "
+        ]
+      },
+      {
+        "icon": "Cookie",
+        "title": "Política de cookies i configuració",
+        "tab": "galetes",
+        "content": "Les cookies són petits fitxers de text emmagatzemats al vostre dispositiu que ens permeten millorar la vostra experiència al nostre lloc web. ",
+        "list": [
+          "Galetes essencials: aquestes galetes són necessàries per a la funcionalitat bàsica del nostre lloc web, com ara permetre't iniciar sessió, afegir articles al teu carretó i completar transaccions. ",
+          "Galetes de rendiment: fem servir galetes de rendiment per recopilar dades anònimes sobre com els visitants utilitzen el nostre lloc. ",
+          "Galetes funcionals: aquestes galetes ens permeten recordar les vostres preferències, com ara la configuració d'idioma, la regió i les comandes anteriors, de manera que tingueu una experiència més personalitzada.",
+          "Galetes d'orientació i publicitat: les galetes d'orientació s'utilitzen per oferir anuncis rellevants basats en els vostres hàbits de navegació. "
+        ]
+      },
+      {
+        "icon": "UserCheck",
+        "title": "Gestió de les preferències de galetes",
+        "tab": "preferències",
+        "content": "A Automation eCom Global, us oferim un control total sobre com s'utilitzen les galetes al nostre lloc web. ",
+        "list": [
+          "Banner de galetes: en la vostra primera visita, podeu triar quins tipus de galetes permeteu. ",
+          "Configuració del navegador: podeu gestionar o bloquejar les galetes mitjançant la configuració del vostre navegador. ",
+          "Galetes de tercers: si preferiu no tenir galetes de tercers, com les que s'utilitzen per a la publicitat dirigida, podeu desactivar-les a la configuració de les galetes o ajustant la configuració de privadesa del vostre navegador."
+        ]
+      },
+      {
+        "icon": "RefreshCw",
+        "title": "Actualitzacions periòdiques de les polítiques de privadesa i galetes",
+        "tab": "actualitzacions",
+        "content": "A mesura que evolucionen les normatives de privadesa de dades, Automation eCom Global actualitza regularment les nostres polítiques de privadesa i galetes per garantir el compliment dels darrers requisits legals i les millors pràctiques del sector. "
+      }
+    ],
+    "cookieTypes": [
+      "Galetes essencials",
+      "Cookies de rendiment",
+      "Cookies funcionals",
+      "Cookies d'orientació i publicitat"
+    ],
+    "chooseUsPoints": [
+      "Transparència total: la nostra configuració de privadesa i galetes us ofereix un control complet sobre com es recullen i s'utilitzen les vostres dades.",
+      "Emmagatzematge de dades segur: fem servir mesures de seguretat i xifratge avançades per protegir les vostres dades personals.",
+      "Compliment del GDPR: ens adherim a les lleis internacionals de privadesa, garantint que es respectin els vostres drets i que les vostres dades es tracten de manera responsable.",
+      "Fàcil gestió de galetes: personalitzeu les vostres preferències de galetes en qualsevol moment per adaptar-les a les vostres necessitats de privadesa.",
+      "Polítiques de privadesa clares: proporcionem informació clara sobre com s'utilitzen i es comparteixen les vostres dades, garantint una experiència segura i fiable."
+    ],
+    "description": "A Automation eCom Global, prioritzem la vostra privadesa i ens comprometem a garantir que les vostres dades personals es tracten de manera responsable i segura. ",
+    "title": "Configuració de privadesa i galetes",
+    "manageTitle": "Gestioneu les vostres preferències de galetes",
+    "whyChooseText": "Per què escollir Automation eCom Global per a la privadesa de dades?"
+  },
+  "privacyPolicy": {
+    "heading": "Política de privadesa",
+    "sections": [
+      {
+        "title": "Informació que recollim",
+        "paragraph": "Recopilem la informació personal que ens proporcioneu, com ara el vostre nom, adreça de correu electrònic, adreça d'enviament i informació de pagament quan feu una compra al nostre lloc web. "
+      },
+      {
+        "title": "Com fem servir la vostra informació",
+        "paragraph": "Utilitzem la vostra informació personal per processar les vostres comandes, enviar-vos confirmacions i actualitzacions de comandes i per oferir assistència al client. "
+      },
+      {
+        "title": "Com protegim la vostra informació",
+        "paragraph": "Ens prenem seriosament la seguretat de la vostra informació personal i hem implementat diverses mesures de seguretat per protegir-la, inclòs l'encriptació de la vostra informació de pagament i la limitació de l'accés a les vostres dades només als empleats que la necessiten per dur a terme les seves tasques laborals. "
+      },
+      {
+        "title": "Els teus drets",
+        "paragraph": "Teniu dret a accedir, corregir o eliminar la informació personal que tenim sobre vosaltres. "
+      }
+    ]
+  },
+  "productGaurantee": {
+    "header": {
+      "title": "Garantia del producte",
+      "subtitle": "A Automation eCom Global, estem darrere de la qualitat i fiabilitat de tots els productes que oferim. "
+    },
+    "guaranteePoints": [
+      {
+        "title": "Garantia de qualitat líder en el sector",
+        "content": [
+          "Com a proveïdor global de confiança de productes d'automatització industrial, Automation eCom Global s'enorgulleix d'associar-se amb fabricants líders com Siemens, Schneider, DEIF i ComAp, coneguts per la seva enginyeria d'alta qualitat i els seus processos de control de qualitat rigorosos. ",
+          "La nostra garantia de producte reflecteix el nostre compromís d'oferir-vos només el millor. "
+        ]
+      },
+      {
+        "title": "Garanties del fabricant",
+        "content": [
+          "La majoria dels productes que oferim inclouen garanties del fabricant que cobreixen defectes de materials i mà d'obra durant un període determinat. ",
+          "Com a distribuïdor autoritzat d'aquestes principals marques, Automation eCom Global treballa estretament amb els fabricants per facilitar qualsevol reclamació de garantia i assegurar-se que el vostre producte es repara o substitueix sense retards innecessaris. "
+        ]
+      },
+      {
+        "title": "Opcions de garantia ampliada",
+        "content": [
+          "Per oferir una tranquil·litat encara més gran, Automation eCom Global ofereix opcions de garantia ampliada en molts dels productes que venem. ",
+          "Les nostres garanties ampliades no només cobreixen defectes de materials i mà d'obra, sinó que també proporcionen protecció addicional per a components crítics com ara PLC, unitats i HMI que estan subjectes a desgast amb el pas del temps. "
+        ]
+      },
+      {
+        "title": "Compatibilitat i rendiment garantits",
+        "content": [
+          "A Automation eCom Global, garantim que cada producte que oferim és totalment compatible amb els sistemes i aplicacions pertinents per als quals està dissenyat. ",
+          "Els nostres experts tècnics estan disponibles per oferir-te orientació i suport durant tot el procés de compra, ajudant-te a seleccionar els components adequats per a la teva aplicació específica. "
+        ]
+      },
+      {
+        "title": "Garanties de substitució i reparació",
+        "content": [
+          "Si teniu problemes amb un producte durant el període de garantia, Automation eCom Global es compromet a resoldre el problema de la manera més ràpida i eficient possible. ",
+          "En cas d'un defecte o mal funcionament, només cal que poseu-vos en contacte amb el nostre equip d'atenció al client i treballarem amb vosaltres per organitzar una reparació o un producte de substitució. ",
+          "Per a determinats components d'alta prioritat o crítics, també oferim serveis de substitució anticipada, on enviem una unitat de substitució abans de rebre la defectuosa, garantint una interrupció mínima del vostre flux de treball."
+        ]
+      },
+      {
+        "title": "Garantia de devolució i canvi",
+        "content": [
+          "Com a part de la nostra garantia integral de producte, Automation eCom Global ofereix una política de devolució i canvi de productes que no compleixen les vostres expectatives o que es consideren incompatibles amb els vostres sistemes. ",
+          "Oferim un procés clar i fàcil de seguir per a la devolució dels productes i us ajudarem a trobar un substitut adequat si cal. "
+        ]
+      },
+      {
+        "title": "Suport integral durant el període de garantia",
+        "content": [
+          "La vostra experiència amb Automation eCom Global no s'acaba després de rebre el vostre producte. ",
+          "Des de respondre preguntes sobre actualitzacions de programari fins a ajudar amb l'optimització del sistema, ens comprometem a garantir que la vostra inversió en automatització industrial estigui totalment recolzada i protegida."
+        ]
+      },
+      {
+        "title": "Compromís amb la satisfacció del client",
+        "content": [
+          "A Automation eCom Global, la satisfacció del client és la nostra màxima prioritat. ",
+          "Periòdicament busquem els comentaris dels nostres clients per millorar les nostres ofertes i serveis, assegurant-nos que continuem satisfent les vostres necessitats i superant les vostres expectatives. "
+        ]
+      }
+    ],
+    "chooseUsPoints": {
+      "title": "Per què triar la garantia de producte d'Automation eCom Global?",
+      "lists": [
+        "Garantia de qualitat líder en la indústria: tots els productes són provats i inspeccionats per obtenir un rendiment i una fiabilitat superiors.",
+        "Garanties del fabricant: gaudiu de la tranquil·litat amb les garanties completes de les millors marques com Siemens, Schneider, DEIF i ComAp.",
+        "Opcions de garantia ampliada: protegiu la vostra inversió durant més temps amb plans de garantia flexibles.",
+        "Compatibilitat garantida: ens assegurem que cada producte s'integra perfectament amb els vostres sistemes existents.",
+        "Reparacions i substitucions ràpides: minimitzeu el temps d'inactivitat amb el nostre servei ràpid de reparacions i de substitució avançada.",
+        "Devolució i intercanvi sense problemes: devolució o canvi de productes que no compleixen les vostres expectatives amb facilitat.",
+        "Suport permanent: accediu a l'assistència d'experts durant tot el període de garantia per mantenir els vostres sistemes funcionant sense problemes."
+      ]
+    },
+    "buttonText": "Contacta'ns per a més informació"
+  },
+  "returnAndExchange": {
+    "header": "Devolucions i canvis",
+    "commitmentTitle": "El nostre compromís amb la vostra satisfacció",
+    "commitmentText": "A Automation eCom Global, entenem que el vostre negoci depèn de rebre els productes adequats en condicions òptimes, i ens esforcem per oferir-ho exactament. ",
+    "policyTitle": "Política de devolució i canvi",
+    "policySections": [
+      {
+        "title": "Política de devolució senzilla i transparent",
+        "content": [
+          "La nostra política de devolució està dissenyada per ser el més senzilla i transparent possible. ",
+          "Els productes elegibles inclouen la majoria d'articles del nostre catàleg, com ara PLC de Siemens, HMI Schneider, controladors de motor DEIF i altres components d'automatització industrial. "
+        ]
+      },
+      {
+        "title": "Passos per iniciar una devolució o canvi",
+        "content": [
+          "Contacteu amb el servei d'atenció al client: poseu-vos en contacte amb el nostre equip d'atenció al client per correu electrònic, telèfon o a través del vostre portal de clients per iniciar el procés de devolució o canvi. ",
+          "Autorització de recepció: un cop revisada la vostra sol·licitud, emetrem un número d'autorització de devolució de mercaderies (RMA), que haureu d'incloure amb el producte retornat. ",
+          "EmPackagear el producte: Assegureu-vos que el producte estigui ben embalat, utilitzant l'embalatge original si és possible, per evitar qualsevol dany durant l'enviament de devolució. ",
+          "Envia el producte: envia el Package utilitzant l'etiqueta d'enviament que proporcionem. ",
+          "Rebeu un reemborsament o substitució: un cop rebem el producte retornat i confirmem el seu estat, processarem el vostre reemborsament, substitució o canvi. "
+        ]
+      },
+      {
+        "title": "Condicions per a devolucions i canvis",
+        "content": [
+          "Els productes s'han de retornar en el seu estat original, amb tots els accessoris, manuals i embalatge inclosos.",
+          "És possible que els articles fets a mida o configurats especialment, com ara panells de control personalitzats o sistemes integrats, no siguin aptes per a les devolucions tret que hi hagi un defecte o problema amb el producte. ",
+          "Els productes que s'han instal·lat o utilitzat al camp poden requerir una avaluació abans de ser aprovats per a una devolució o canvi. ",
+          "Per als productes que es tornen a causa de comandes incorrectes o preferències del client, es pot aplicar una tarifa de reposició. "
+        ]
+      },
+      {
+        "title": "Manipulació de productes defectuosos o danyats",
+        "content": [
+          "Si rebeu un producte defectuós o danyat en arribar, Automation eCom Global pren mesures immediates per resoldre el problema. ",
+          "Canvis immediats per productes defectuosos sense cap cost addicional. ",
+          "Per als productes que arriben malmesos durant l'enviament, gestionarem la reclamació d'enviament amb els nostres socis logístics i ens assegurarem que rebeu un reemplaçament sense demora.",
+          "Tots els productes defectuosos o danyats s'han de notificar dins dels 7 dies següents a la recepció de l'enviament. "
+        ]
+      },
+      {
+        "title": "Canvi per diferents productes o configuracions",
+        "content": [
+          "Entenem que les necessitats empresarials poden canviar i, de vegades, és possible que necessiteu un producte o una configuració diferents després de fer una comanda. ",
+          "Només cal que poseu-vos en contacte amb el nostre equip d'assistència per iniciar l'intercanvi i treballarem amb vosaltres per garantir que el nou producte compleixi els vostres requisits específics. "
+        ]
+      },
+      {
+        "title": "Devolucions i canvis internacionals",
+        "content": [
+          "Com a proveïdor global, Automation eCom Global dóna servei a clients a Dubai, EUA, Xina, Índia, Alemanya i molts altres països. ",
+          "Proporcionem totes les etiquetes d'enviament de devolució i formularis duaners necessaris per garantir que la devolució o el canvi es processi sense demora. "
+        ]
+      },
+      {
+        "title": "Temps de processament i devolucions",
+        "content": [
+          "Un cop rebem el vostre producte retornat i comprovem el seu estat, Automation eCom Global processarà el vostre reemborsament o canvi immediatament. ",
+          "Si està canviant per un producte diferent, enviarem el producte de substitució tan bon punt l'article original hagi estat retornat i inspeccionat. "
+        ]
+      },
+      {
+        "title": "Atenció al client dedicada durant tot el procés",
+        "content": [
+          "El nostre equip d'atenció al client està amb vostè en cada pas del camí, assegurant-se que la seva devolució o canvi es gestiona de manera professional i eficient. ",
+          "Prioritzem la vostra satisfacció i treballem dur per garantir que tingueu una experiència positiva, encara que sigui necessari una devolució o un intercanvi. "
+        ]
+      }
+    ],
+    "initiateTitle": "Inicieu una devolució o canvi",
+    "initiateOrderNumberLabel": "Número de comanda",
+    "initiateOrderNumberPlaceholder": "Introduïu el vostre número de comanda",
+    "initiateButtonText": "Inicia el procés de devolució/canvi",
+    "benefitsTitle": "Per què escollir Automation eCom Global per a devolucions i canvis?",
+    "benefits": [
+      {
+        "icon": "ArrowLeftRight",
+        "text": "Procés sense problemes"
+      },
+      {
+        "icon": "Clock",
+        "text": "Reemborsaments i substitucions ràpides"
+      },
+      {
+        "icon": "Truck",
+        "text": "Enviament de devolució prepagat"
+      },
+      {
+        "icon": "HelpCircle",
+        "text": "Suport expert"
+      },
+      {
+        "icon": "Globe",
+        "text": "Assistència internacional al retorn"
+      }
+    ],
+    "policyCardTitle": "Política de devolució i canvi"
+  },
+  "safeAndSecurePayments": {
+    "header": {
+      "title": "Pagaments segurs i segurs",
+      "description": "A Automation eCom Global, prioritzem la seguretat i la privadesa de cada transacció. "
+    },
+    "securityFeatures": [
+      {
+        "icon": "Lock",
+        "title": "Tecnologia d'encriptació avançada",
+        "description": "Utilitzem l'encriptació SSL per protegir les vostres dades de pagament durant la transmissió entre el vostre navegador i els nostres servidors."
+      },
+      {
+        "icon": "FileText",
+        "title": "Conformitat a PCI DSS",
+        "description": "Ens adherim a les normes de seguretat de dades de la indústria de les targetes de pagament per mantenir un entorn segur per gestionar la informació de la targeta de crèdit."
+      },
+      {
+        "icon": "Shield",
+        "title": "Prevenció i detecció de frau",
+        "description": "Els nostres sofisticats sistemes de detecció de fraus supervisen cada transacció en temps real, identificant i senyalitzant qualsevol activitat sospitosa."
+      },
+      {
+        "icon": "CreditCardIcon",
+        "title": "Passarel·les de pagament segures",
+        "description": "Ens associem amb passarel·les de pagament de confiança que prioritzen la seguretat i proporcionen transaccions fluides i segures."
+      },
+      {
+        "icon": "FileText",
+        "title": "Procés de pagament transparent",
+        "description": "Ens assegurem que el nostre procés de pagament sigui totalment transparent i us proporcionem tota la informació que necessiteu per entendre la vostra transacció."
+      },
+      {
+        "icon": "UserCheck",
+        "title": "Protecció de privadesa de dades",
+        "description": "Seguim estrictes normes de privadesa de dades per garantir que la vostra informació mai es comparteixi o es vengui a tercers sense el vostre consentiment."
+      },
+      {
+        "icon": "Smartphone",
+        "title": "Autenticació de dos factors (2FA)",
+        "description": "Admetem l'autenticació de dos factors per a les transaccions, afegint una capa addicional de seguretat per protegir el vostre compte."
+      },
+      {
+        "icon": "HelpCircle",
+        "title": "Resolució de disputes i protecció de devolució",
+        "description": "Oferim serveis de resolució de disputes i oferim una protecció total per als reemborsaments elegibles per resoldre qualsevol problema de manera ràpida i justa."
+      }
+    ],
+    "paymentOptions": {
+      "title": "Múltiples opcions de pagament",
+      "description": "Per fer que la vostra experiència de compra sigui còmoda i perfecta, Automation eCom Global ofereix una àmplia gamma de mètodes de pagament adaptats a les vostres necessitats empresarials. ",
+      "options": [
+        {
+          "title": "Targetes de crèdit i dèbit",
+          "description": "Acceptem les principals targetes de crèdit i dèbit, incloses Visa, MasterCard i American Express, per garantir que les vostres transaccions es processin de manera ràpida i segura."
+        },
+        {
+          "title": "Transferències bancàries",
+          "description": "Per a comandes grans o clients internacionals, oferim opcions de transferència bancària, proporcionant una manera fiable i segura de realitzar transaccions de gran valor. "
+        },
+        {
+          "title": "PayPal",
+          "description": "Admetem els pagaments de PayPal, oferint una manera ràpida, senzilla i segura de pagar les vostres comandes sense haver de compartir la vostra informació financera directament."
+        },
+        {
+          "title": "Carteres digitals",
+          "description": "Per als clients que prefereixen solucions de pagament mòbil, oferim compatibilitat amb carteres digitals líders com Apple Pay i Google Pay, garantint pagaments segurs amb un sol toc."
+        }
+      ],
+      "conclusion": "Les nostres múltiples opcions de pagament estan dissenyades per oferir-te la flexibilitat per triar el mètode que millor funcioni per a la teva empresa, mantenint els nivells més alts de seguretat i compliment."
+    },
+    "chooseUsPoints": [
+      "Múltiples opcions de pagament segur: trieu entre targetes de crèdit, transferències bancàries, PayPal i carteres digitals.",
+      "Xifratge avançat: totes les transaccions estan protegides per xifratge SSL per a la màxima seguretat.",
+      "Compatibilitat amb PCI DSS: ens adherim als estàndards més alts de la indústria per a la seguretat dels pagaments.",
+      "Sistemes de prevenció del frau: les eines de control sofisticades protegeixen les vostres transaccions del frau.",
+      "Càrrecs transparents: sense comissions ocultes; sàpiga exactament per què pagueu abans de completar la compra.",
+      "Privadesa de les dades: la vostra informació personal està segura i mai es comparteix sense el vostre consentiment."
+    ],
+    "chooseUsTitle": "Per què triar Automation eCom Global per a pagaments segurs?"
+  },
+  "termAndConditions": {
+    "paragraphs": [
+      "Als efectes d'aquests Termes i Condicions, el terme \"nosaltres\", \"nosaltres\", \"nostre\" utilitzat en qualsevol part d'aquesta pàgina significa AUTOMATION ECOM GLOBAL, l'oficina social/operativa de la qual és B-1/13, RAGHU NAGAR, PANKHA ROAD. "
+    ],
+    "heading": "El vostre ús del lloc web i/o la vostra compra amb nosaltres es regeixen pels següents Termes i Condicions:",
+    "list": [
+      "El contingut de les pàgines d'aquest lloc web està subjecte a canvis sense previ avís.",
+      "Ni nosaltres ni cap tercer oferim cap garantia o garantia quant a l'exactitud, oportunitat, rendiment, exhaustivitat o adequació de la informació i els materials que es troben o s'ofereixen en aquest lloc web per a cap propòsit particular. ",
+      "El vostre ús de qualsevol informació o material del nostre lloc web i/o pàgines de productes és totalment sota el vostre propi risc, del qual no serem responsables. ",
+      "El nostre lloc web conté material que ens pertany o ens té llicència. ",
+      "Totes les marques registrades reproduïdes al nostre lloc web que no són propietat de l'operador o que no tenen llicència d'aquest són reconegudes al lloc web.",
+      "L'ús no autoritzat de la informació proporcionada per nosaltres donarà lloc a una reclamació per danys i/o ser un delicte penal.",
+      "De tant en tant, el nostre lloc web també pot incloure enllaços a altres llocs web. ",
+      "No podeu crear un enllaç al nostre lloc web des d'un altre lloc web o document sense el consentiment previ per escrit d'AUTOMATION ECOM GLOBAL.",
+      "Qualsevol conflicte que sorgeixi per l'ús del nostre lloc web i/o la compra amb nosaltres i/o qualsevol compromís amb nosaltres està subjecte a les lleis de l'Índia.",
+      "No tindrem cap responsabilitat pel que fa a cap pèrdua o dany derivat directa o indirectament de la denegació de l'autorització per a qualsevol transacció, a causa del fet que el titular de la targeta ha superat el límit preestablert acordat mútuament per nosaltres amb el nostre banc adquirent de tant en tant. "
+    ]
+  },
+  "userAgreements": {
+    "agreementPoints": [
+      {
+        "title": "Acceptació de les condicions",
+        "content": "En accedir i utilitzar el lloc web d'Automation eCom Global, accepteu estar subjecte als termes i condicions descrits als nostres Acords d'usuari. "
+      },
+      {
+        "title": "Creació de comptes i responsabilitats",
+        "content": "Per fer una compra a Automation eCom Global, és possible que se us demani que creeu un compte d'usuari. ",
+        "list": [
+          "Assegureu-vos que la informació del vostre compte estigui actualitzada.",
+          "Utilitzeu el vostre compte d'acord amb els termes indicats en aquest acord.",
+          "Notifiqueu-nos immediatament de qualsevol ús no autoritzat del vostre compte o violació de la seguretat."
+        ]
+      },
+      {
+        "title": "Informació i precisió del producte",
+        "content": "Ens esforcem per proporcionar informació detallada i precisa sobre els productes disponibles a Automation eCom Global, incloses les especificacions, els preus, la disponibilitat i les descripcions. "
+      },
+      {
+        "title": "Preus i condicions de pagament",
+        "content": "Tots els preus que es mostren a Automation eCom Global estan en la moneda aplicable a la vostra regió i estan subjectes a canvis sense previ avís. ",
+        "list": [
+          "Esteu autoritzat a utilitzar la forma de pagament proporcionada.",
+          "Les dades de pagament que envieu són exactes i completes.",
+          "Accepteu pagar tots els càrrecs, inclosos els impostos, les despeses d'enviament i de gestió associades a la vostra comanda."
+        ]
+      },
+      {
+        "title": "Condicions d'enviament i lliurament",
+        "content": "Els nostres acords d'usuari inclouen els termes i condicions relacionats amb l'enviament i el lliurament dels productes adquirits a Automation eCom Global. "
+      },
+      {
+        "title": "Devolucions, canvis i reclamacions de garantia",
+        "content": "Com a part dels nostres Acords d'usuari, descrivim clarament les condicions per a devolucions, intercanvis i reclamacions de garantia. ",
+        "list": [
+          "Totes les devolucions i canvis han de complir amb la Política de devolució i canvi.",
+          "Les reclamacions de garantia estan subjectes als termes proporcionats pels fabricants del producte.",
+          "Seràs responsable dels costos d'enviament de devolució, tret que el producte sigui defectuós o malmès en rebre'l."
+        ]
+      },
+      {
+        "title": "Propietat intel·lectual i llicència d'ús",
+        "content": "Tot el contingut del lloc web d'Automation eCom Global, inclosos, entre d'altres, text, gràfics, logotips, imatges i programari, és propietat intel·lectual d'Automation eCom Global o dels nostres proveïdors i està protegit per les lleis internacionals sobre drets d'autor, marques comercials i propietat intel·lectual. ",
+        "list": [
+          "Copiar, modificar, distribuir o reproduir contingut sense permís explícit.",
+          "Utilitzeu qualsevol extracció de dades, robots o eines similars de recollida de dades al nostre lloc web.",
+          "Utilitzeu el nostre contingut per a qualsevol finalitat comercial sense l'autorització adequada."
+        ]
+      },
+      {
+        "title": "Limitació de responsabilitat",
+        "content": "Tot i que Automation eCom Global s'esforça per proporcionar informació precisa i productes d'alta qualitat, no ens podem fer responsables de cap dany indirecte, incidental o conseqüent que resulti de l'ús de la nostra plataforma, productes o serveis. ",
+        "list": [
+          "Pèrdua d'ingressos o beneficis.",
+          "Interrupcions comercials.",
+          "Pèrdua o corrupció de dades.",
+          "Indisponibilitat de productes o serveis."
+        ]
+      },
+      {
+        "title": "Canvis en els acords d'usuari",
+        "content": "Automation eCom Global es reserva el dret de modificar o actualitzar aquests Acords d'usuari en qualsevol moment sense previ avís. "
+      },
+      {
+        "title": "Llei aplicable i resolució de conflictes",
+        "content": "Aquests Acords d'usuari es regeixen per les lleis del país en què opera Automation eCom Global, i qualsevol controvèrsia que sorgeixi de l'ús de la nostra plataforma o productes es resoldrà sota la jurisdicció dels tribunals d'aquesta regió./n/nEn cas de "
+      }
+    ],
+    "chooseUsPoints": [
+      "Termes clars i transparents: els nostres acords d'usuari descriuen els vostres drets i responsabilitats quan feu servir la nostra plataforma.",
+      "Cobertura integral: des de la creació del compte fins a les garanties, oferim directrius clares per protegir-vos tant a vosaltres com al nostre negoci.",
+      "Resolució justa de disputes: ens comprometem a resoldre els disputes de manera amistosa i d'acord amb les lleis vigents.",
+      "Protecció de la propietat intel·lectual: les nostres condicions garanteixen que el nostre contingut i serveis estiguin protegits de l'ús no autoritzat."
+    ],
+    "chooseUsTitle": "Per què escollir Automation eCom Global?",
+    "header": {
+      "title": "Acord d'usuari",
+      "description": "A Automation eCom Global, ens comprometem a garantir que la vostra experiència a la nostra plataforma sigui segura, transparent i senzilla. "
+    }
+  },
+  "whatWeStandFor": {
+    "title": "Què Defensem",
+    "introText": "A Automation eCom Global, els nostres valors fonamentals i principis rectors configuren tot el que fem. ",
+    "coreValues": [
+      {
+        "id": "innovació",
+        "icon": "Lightbulb",
+        "title": "La innovació al nucli",
+        "description": "Impulsar avenços en la indústria 4.0, IoT i solucions impulsades per IA.",
+        "content": "En el món en ràpida evolució de l'automatització industrial, la innovació no és només un objectiu, sinó que és una necessitat. "
+      },
+      {
+        "id": "integritat",
+        "icon": "Shield",
+        "title": "Integritat i confiança",
+        "description": "Fer negocis de manera ètica i transparent en totes les nostres interaccions.",
+        "content": "Ens dediquem a fer negocis de manera ètica i transparent, garantint que cada interacció es fonamenta en la confiança mútua. "
+      },
+      {
+        "id": "excel·lència",
+        "icon": "Award",
+        "title": "Excel·lència en tots els aspectes",
+        "description": "Buscant els estàndards més alts en productes, serveis i suport.",
+        "content": "L'excel·lència és més que un valor a Automation eCom Global: és un estàndard pel qual vivim. "
+      },
+      {
+        "id": "sostenibilitat",
+        "icon": "Leaf",
+        "title": "Compromís amb la sostenibilitat",
+        "description": "Promoció de solucions d'automatització ambientalment responsables.",
+        "content": "Les nostres solucions estan dissenyades no només per optimitzar l'eficiència sinó també per minimitzar l'impacte ambiental. "
+      },
+      {
+        "id": "client",
+        "icon": "Users",
+        "title": "Enfocament centrat en el client",
+        "description": "Posar els nostres clients primer en tot el que fem.",
+        "content": "A Automation eCom Global, tot el que fem està orientat a oferir una experiència al client excepcional. "
+      },
+      {
+        "id": "global",
+        "icon": "Globe",
+        "title": "Abast global, experiència local",
+        "description": "Combinant presència mundial amb coneixement localitzat.",
+        "content": "Donem servei als clients de Dubai, EUA, Xina, Índia i Alemanya, oferint-los les millors solucions d'automatització procedents de marques líders mundials. "
+      }
+    ],
+    "detailsSection": {
+      "title": "Els nostres valors al detall",
+      "introText": "Experimenta els nostres valors en acció",
+      "description": "A Automation eCom Global, representem més que només productes d'automatització: representem l'excel·lència, la integritat, la innovació, la sostenibilitat i, sobretot, els nostres clients. ",
+      "contactButton": "Contacta amb nosaltres avui"
+    }
+  },
+  "whoWeAre": {
+    "title": "Qui Som",
+    "introText": "Automation eCom Global: el vostre líder avançat en automatització industrial, amb una implantació global que abasta Dubai, EUA, Xina, Índia i Alemanya.",
+    "globalPresence": {
+      "title": "La nostra presència global",
+      "description": "Ens atenem a diverses indústries, com ara la fabricació, l'energia, la infraestructura i l'automatització de processos en mercats clau d'arreu del món. ",
+      "image": {
+        "src": "/footer/hiring.png?height=400&width=600",
+        "alt": "Mapa global que mostra la presència d'Automation eCom Global",
+        "width": 600,
+        "height": 300
+      }
+    },
+    "expertise": {
+      "title": "La nostra experiència",
+      "items": [
+        {
+          "icon": "Globe",
+          "title": "Abast global",
+          "description": "Serveix a mercats clau a Dubai, EUA, Xina, Índia i Alemanya"
+        },
+        {
+          "icon": "Cpu",
+          "title": "Productes Premium",
+          "description": "Especialitzat en solucions Siemens, DEIF, Schneider i ComAp"
+        },
+        {
+          "icon": "Users",
+          "title": "Coneixement de la indústria",
+          "description": "Solucions a mida per a la fabricació, l'energia i molt més"
+        },
+        {
+          "icon": "Zap",
+          "title": "Tecnologia d'avantguarda",
+          "description": "Integració de solucions basades en la indústria 4.0 i IoT"
+        }
+      ]
+    },
+    "productRange": {
+      "title": "La nostra gamma de productes",
+      "categories": [
+        {
+          "title": "Solucions d'automatització",
+          "items": [
+            "Controladors lògics programables (PLC)",
+            "Interfícies home-màquina (HMI)",
+            "Accionaments i controladors de motor",
+            "Fonts d'alimentació i components crítics"
+          ]
+        },
+        {
+          "title": "Marques destacades",
+          "items": [
+            "PLC i HMI de Siemens fabricats a Alemanya",
+            "Controladors de motor DEIF",
+            "Solucions d'automatització de Schneider",
+            "Controladors del motor ComAp"
+          ]
+        }
+      ]
+    },
+    "whyChooseUs": {
+      "title": "Per què escollir-nos",
+      "items": [
+        {
+          "title": "Perícia",
+          "description": "Anys d'experiència en automatització industrial en diferents sectors"
+        },
+        {
+          "title": "Qualitat",
+          "description": "Col·laboracions amb marques de renom mundial que garanteixen solucions d'alta qualitat"
+        },
+        {
+          "title": "Suport",
+          "description": "Atenció al client integral i assistència tècnica a tot el món"
+        },
+        {
+          "title": "Innovació",
+          "description": "Integració contínua de tecnologies de la indústria 4.0 i solucions IoT"
+        },
+        {
+          "title": "Rentable",
+          "description": "Els millors descomptes en productes premium sense comprometre la qualitat"
+        },
+        {
+          "title": "Lliurament global",
+          "description": "Lliurament de productes ràpid i segur a clients de tot el món"
+        }
+      ]
+    },
+    "callToAction": {
+      "title": "Col·labora amb Automation eCom Global",
+      "description": "Som més que un proveïdor: som un soci de confiança dedicat al vostre èxit operatiu. ",
+      "buttonText": "Contacta amb nosaltres avui"
+    }
+  },
+  "productShipping": {
+    "intro": [
+      {
+        "icon": "Undo2",
+        "title": "Respira tranquil·la.",
+        "description": "Devolucions gratuïtes."
+      },
+      {
+        "icon": "ZapIcon",
+        "title": "La gent vol això.",
+        "description": "31 persones estan mirant això."
+      }
+    ],
+    "shipping": {
+      "title": "Enviament:",
+      "details": "US $ 1,00 Enviament estàndard des de l'Índia a tot el món.",
+      "linkText": "Veure detalls",
+      "additionalInfo": [
+        "Per als compradors internacionals, les comandes s'envien i s'entreguen només a través d'empreses de missatgeria internacional registrades i/o correu postal internacional.",
+        "Per als compradors nacionals, les comandes s'envien només mitjançant empreses de missatgeria nacionals registrades i/o correu ràpid.",
+        "Les comandes s'envien en 1-2 dies o segons la data de lliurament acordada en el moment de la confirmació de la comanda i el lliurament de l'enviament subjecte a les normes de l'empresa de missatgeria/oficina de correus.",
+        "AUTOMATION ECOM GLOBAL no es fa responsable de cap retard en el lliurament per part de l'empresa de missatgeria / autoritats postals i només garanteix lliurar l'enviament a l'empresa de missatgeria o autoritats postals en un termini d'1-2 dies a partir de la data de la comanda i el pagament o segons el ",
+        "El lliurament de totes les comandes es farà a l'adreça facilitada pel comprador. "
+      ]
+    },
+    "delivery": {
+      "title": "Lliurament:",
+      "estimatedDelivery": {
+        "text": "Data estimada de lliurament",
+        "date": "Sortir de la funció"
+      },
+      "details": [
+        "Tingueu en compte que l'estimació de lliurament és superior a 11 dies laborables.",
+        "Si us plau, permeteu un temps addicional si el lliurament internacional està subjecte al processament duaner."
+      ]
+    },
+    "returns": {
+      "title": "Enviament:",
+      "details": "Devolució de 30 dies. ",
+      "linkText": "Veure detalls",
+      "linkUrl": "/cancel·lació i devolució"
+    },
+    "payments": {
+      "title": "Pagaments:",
+      "image": {
+        "src": "/images/payment-mode.png",
+        "alt": "pagament",
+        "width": 400,
+        "height": 100
+      }
+    },
+    "shopWithConfidence": {
+      "title": "Compreu amb confiança",
+      "guarantee": {
+        "icon": "Shield",
+        "title": "Garantia de devolució de diners de l'empresa",
+        "description": "Obteniu l'article que vau demanar o us torneu els diners.",
+        "linkText": "Més informació",
+        "linkUrl": "/product-guarantee"
+      }
+    }
+  },
+  "checkout": {
+    "titles": {
+      "heading": "Gairebé hi ets...!",
+      "deliveryAddress": "Adreça de lliurament",
+      "orderSummary": "Resum de comanda",
+      "paymentAndShippingDetails": "Detalls de pagament i enviament"
+    },
+    "messages": {
+      "noSavedAddress": "No teniu cap adreça de lliurament desada.",
+      "addAddressInfo": "No us preocupeu, podeu afegir una adreça nova fent clic al botó Afegeix una adreça i continuar amb la compra.",
+      "loginPrompt": "Si ja teniu un compte, si us plau, inicieu sessió perquè puguem obtenir la vostra adreça del vostre perfil",
+      "totalSavings": "L'import total dels estalvis en aquesta comanda"
+    },
+    "labels": {
+      "addAddressButton": "Afegeix una adreça",
+      "price": "Preu",
+      "gst": "GST",
+      "deliveryCharges": "Despeses d'enviament",
+      "discountPrice": "Preu de descompte",
+      "totalAmount": "Import total",
+      "inclOfAllTaxes": "(Inclòs tots els impostos)",
+      "checkoutButton": "Checkout"
+    },
+    "placeholders": {
+      "mobileNo": "Núm. de mòbil:"
+    },
+    "icons": {
+      "deliveryAddressIcon": "MapPin",
+      "orderSummaryIcon": "Bossa de la compra",
+      "addAddressIcon": "A més",
+      "editAddressIcon": "Edita 2",
+      "selectedAddressIcon": "Comproveu"
+    }
+  },
+  "addressForm": {
+    "labels": {
+      "firstName": "Nom",
+      "lastName": "Cognoms",
+      "phone": "Mòbil",
+      "email": "Correu electrònic",
+      "address": "Adreça",
+      "country": "País",
+      "state": "Estat",
+      "city": "Ciutat",
+      "zipcode": "Codi postal"
+    },
+    "placeholders": {
+      "firstName": "Introduïu el vostre nom",
+      "lastName": "Introduïu el vostre cognom",
+      "phone": "Introduïu el vostre número de mòbil",
+      "email": "Introduïu la vostra adreça de correu electrònic",
+      "address": "Introduïu l'adreça completa",
+      "country": "Seleccioneu el país",
+      "state": "Seleccioneu l'estat",
+      "noStatesAvailable": "No hi ha estats disponibles",
+      "city": "Introduïu el nom de la ciutat",
+      "zipcode": "Introduïu el codi postal"
+    },
+    "buttons": {
+      "saveAddress": "Desa l'adreça",
+      "saving": "S'està desant..."
+    },
+    "misc": {
+      "noStatesAvailable": "No hi ha estats disponibles"
+    }
+  },
+  "checkoutDialog": {
+    "title": "Pagament",
+    "description": "Si us plau, confirmeu les vostres dades abans de fer el pagament de la vostra comanda",
+    "paymentMethod": {
+      "header": "Forma de pagament",
+      "selectedMethod": "Mètode de pagament seleccionat:"
+    },
+    "itemDetails": {
+      "header": "Detalls de l'article"
+    },
+    "shippingDetails": {
+      "header": "Detalls d'enviament",
+      "country": "País:",
+      "state": "Estat:",
+      "phone": "Telèfon:",
+      "email": "Identificador de correu electrònic:"
+    },
+    "orderDetails": {
+      "header": "Detalls de la comanda",
+      "price": "Preu",
+      "gst": "GST",
+      "deliveryCharges": "Despeses d'enviament",
+      "discountPrice": "Preu de descompte",
+      "totalAmount": "Import total",
+      "inclOfTaxes": "(Inclòs tots els impostos)"
+    },
+    "savings": {
+      "message": "L'import total dels estalvis en aquesta comanda",
+      "amountLabel": "₹"
+    }
+  },
+  "confirmOrder": {
+    "orderConfirmation": "Confirmació de comanda",
+    "thankYouMessage": "Gràcies per la teva compra!",
+    "emailConfirmationMessage": "T'enviarem per correu electrònic una confirmació de la comanda amb detalls i informació de seguiment.",
+    "orderIdLabel": "Identificador de comanda: ",
+    "orderDate": "31 de maig de 2023 a les 15:42",
+    "shippingInformation": "Informació d'enviament",
+    "viewOrderButton": "Consulta la teva comanda",
+    "orderSummary": "Resum de comanda",
+    "subtotalLabel": "Subtotal",
+    "shippingLabel": "Enviament",
+    "totalLabel": "Total",
+    "savedAmountMessage": "Has estalviat 20,00 ₹ en aquesta comanda!",
+    "similarProductsTitle": "Productes similars",
+    "feedbackText": "Comentaris | "
+  },
+  "usrAccount": {
+    "personalInformationTitle": "Informació personal",
+    "personalInformationDescription": "Actualitza les teves dades personals aquí.",
+    "loadingText": "Carregant...",
+    "profileTab": "Perfil",
+    "ordersTab": "Comandes",
+    "orderHistoryTitle": "Historial de comandes",
+    "orderHistoryDescription": "Consulta les teves comandes anteriors i el seu estat.",
+    "orderIdLabel": "Identificador de comanda",
+    "orderDateLabel": "Data de la comanda",
+    "orderStatusLabel": "Estat de la comanda",
+    "orderTotalLabel": "Import total"
+  },
+  "addressDialog": {
+    "editTitle": "Edita l'adreça existent",
+    "addTitle": "Afegeix una adreça de lliurament nova",
+    "editDescription": "Si us plau, omple el formulari següent per actualitzar les dades de la teva adreça.",
+    "addDescription": "Si us plau, ompliu el formulari següent per afegir les dades de la vostra adreça.",
+    "loadingText": "Carregant..."
+  },
+  "cartSheet": {
+    "emptyCartMessage": "No hi ha articles al carret",
+    "continueShoppingButton": "Continuar comprant",
+    "itemAltText": "element - {índex}"
+  },
+  "icons": {
+    "cartIconAlt": "Icona del carretó de la compra"
+  },
+  "checkBoxLists": {
+    "formLabels": {
+      "brands": "Marques",
+      "categories": "Categories"
+    },
+    "buttonLabels": {
+      "showLess": "Mostra menys",
+      "showMore": "Mostra'n més",
+      "applyFilter": "Aplica el filtre"
+    }
+  },
+  "filterDialog": {
+    "dialogTitle": "Filtres",
+    "dialogDescription": "Filtreu el vostre producte amb diversos filtres",
+    "loadingMessage": "Carregant..."
+  },
+  "noReviews": {
+    "cardTitle": "Encara no hi ha ressenyes",
+    "noReviewsMessage": "Aquest producte encara no ha rebut cap crítica. ",
+    "ratingPrompt": "La teva ressenya ajuda a altres compradors a prendre decisions informades."
+  },
+  "paymentAndShippingCard": {
+    "paymentAndShipping": {
+      "title": "Pagament i enviament",
+      "payment": "PAGAMENT",
+      "razorpay": {
+        "label": "Razorpay",
+        "imageAlt": "razorpay"
+      },
+      "paypal": {
+        "label": "PayPal / American Express",
+        "imageAlt": "paypal"
+      },
+      "discountCodePlaceholder": "Codi de descompte",
+      "applyButton": "Aplicar",
+      "price": "Preu",
+      "gst": "GST",
+      "deliveryCharges": "Despeses d'enviament",
+      "discountPrice": "Preu de descompte",
+      "totalAmount": "Import total",
+      "termsAndConditions": "He llegit i accepto els termes i condicions de venda. ",
+      "confirmOrder": "Confirmeu la vostra comanda"
+    }
+  },
+  "commentForm": {
+    "ratingLabel": "Valoració:",
+    "firstNameLabel": "Nom:",
+    "lastNameLabel": "Cognoms:",
+    "commentLabel": "Comentari:",
+    "submitButton": "Envia",
+    "firstNamePlaceholder": "Introduïu el vostre nom",
+    "lastNamePlaceholder": "Introduïu el vostre cognom",
+    "commentPlaceholder": "Escriu el teu comentari aquí",
+    "error": {
+      "rating": "Cal qualificació",
+      "firstName": "El nom és obligatori",
+      "lastName": "El cognom és obligatori",
+      "comment": "El comentari és obligatori"
+    }
+  },
+  "searchDialog": {
+    "title": "Cerca el producte aquí",
+    "description": "Cerca producte per marca i títol."
+  },
+  "userForm": {
+    "firstName": "Nom",
+    "lastName": "Cognoms",
+    "mobile": "Mòbil",
+    "email": "Correu electrònic",
+    "placeholderFirstName": "Introduïu el vostre nom",
+    "placeholderLastName": "Introduïu el vostre cognom",
+    "placeholderMobile": "Introduïu el vostre número de mòbil",
+    "placeholderEmail": "Introduïu la vostra adreça de correu electrònic",
+    "saveButton": "Desa l'adreça",
+    "savingButton": "S'està desant..."
   }
+}

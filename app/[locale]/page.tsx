@@ -9,6 +9,7 @@ import FeaturedProduct from "@/components/FeaturedProduct";
 import Hero from "@/components/Hero";
 import ProductCarousal from "@/components/ProductCarousal";
 import SingleProductView from "@/components/SingleProductView";
+import Head from "next/head";
 
 export default async function Index() {
   // const amount = 1000; // USD
@@ -24,16 +25,29 @@ export default async function Index() {
   //   const formattedAmount = formatCurrency(convertedAmount, toCurrency, locale);
 
   return (
-    <div>
-      <CircularNavbar />
-      <Hero />
-      <BestDeal />
-      <ProductCarousal />
-      <FeaturedCategory />
-      <SingleProductView />
-      <FeaturedPartner />
-      <CategoryWise />
-      <FeaturedProduct />
-    </div>
+    <>
+      <Head>
+        <title>
+          Automation Ecom Global - Your One Stop Shop for Automation Solutions
+        </title>
+        <meta
+          name="description"
+          content="Explore our range of automation products and services."
+        />
+        <link rel="canonical" href="https://www.automationecom.store" />
+      </Head>
+
+      <div>
+        <CircularNavbar />
+        <Hero />
+        <BestDeal />
+        <ProductCarousal />
+        <FeaturedCategory />
+        <SingleProductView />
+        <FeaturedPartner />
+        <CategoryWise />
+        <FeaturedProduct />
+      </div>
+    </>
   );
 }

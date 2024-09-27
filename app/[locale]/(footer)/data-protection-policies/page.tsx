@@ -36,7 +36,7 @@ export default function DataProtectionPolicyPage() {
         </header>
 
         <Tabs defaultValue="privacy" className="mb-12">
-          <TabsList className="grid w-full grid-cols-1 lg:grid-cols-4 mb-8">
+          <TabsList className="grid w-full grid-cols-1 lg:grid-cols-2 mb-8">
             {t.raw("policyPoints").map((point: any, index: number) => {
               const IconComponent = iconMapping[point.icon];
               return (
