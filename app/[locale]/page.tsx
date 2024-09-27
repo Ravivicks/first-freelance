@@ -12,6 +12,13 @@ import SingleProductView from "@/components/SingleProductView";
 import Head from "next/head";
 
 export default async function Index() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Automation Ecom Global",
+    description: "A brief description of the page",
+    url: "https://www.automationecom.store",
+  };
   // const amount = 1000; // USD
   // const fromCurrency = "USD";
   // const toCurrency = "INR";
@@ -40,6 +47,7 @@ export default async function Index() {
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://www.automationecom.store" />
+        <script type="application/ld+json">{JSON.stringify(schema)}</script>
       </Head>
 
       <div>
