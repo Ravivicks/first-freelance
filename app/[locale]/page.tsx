@@ -42,10 +42,16 @@ export default async function Index() {
           content="Explore our range of automation products and services."
         />
         <meta
+          property="og:title"
+          content="Automation Ecom Global"
+          key="title"
+        />
+        <meta
           name="google-site-verification"
-          content="Explore our range of automation products and services."
+          content="m6c1eq57bs_6QPgCise34y22HIbz22L0ZWRMTDHkSjc"
         />
         <meta name="robots" content="index, follow" />
+        <link rel="icon" type="image/svg+xml" href="../public/logo.svg" />
         <link rel="canonical" href="https://www.automationecom.store" />
         <script type="application/ld+json">{JSON.stringify(schema)}</script>
       </Head>
