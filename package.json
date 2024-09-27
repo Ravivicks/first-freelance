@@ -49,6 +49,7 @@
     "mongoose": "^8.5.2",
     "next": "14.2.5",
     "next-intl": "^3.17.2",
+    "next-sitemap": "^4.2.3",
     "next-themes": "^0.3.0",
     "nodemailer": "^6.9.14",
     "razorpay": "^2.9.4",
