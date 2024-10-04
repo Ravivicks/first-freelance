@@ -30,7 +30,7 @@ const FeaturedPartner = () => {
 
   return (
     <Card className="mb-8">
-      <h1 className="text-2xl text-white md:text-3xl font-bold mb-5 bg-gradient-to-l from-slate-100 to-destructive py-4 px-4">
+      <h1 className="text-2xl md:text-3xl font-bold mb-5 bg-gradient-to-l from-slate-100 to-green-100 py-4 px-4">
         {t("title")}
       </h1>
       <div className="flex gap-3 flex-wrap justify-center p-3">

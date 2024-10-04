@@ -57,6 +57,7 @@ const FeaturedProductCard = ({ product, isBestDeal }: Props) => {
             fill
             className="object-contain p-3"
             unoptimized
+            loading="eager"
           />
         </div>
 

@@ -51,6 +51,7 @@ const ProductCard = ({ product, isButton }: Props) => {
             fill
             className="object-contain rounded-lg"
             unoptimized
+            loading="eager"
           />
         </div>
 

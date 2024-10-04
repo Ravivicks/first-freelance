@@ -22,8 +22,8 @@ const BestDeal = () => {
 
   return (
     <Card className="mb-8">
-      <div className="flex justify-between w-full items-center bg-gradient-to-l from-slate-100 to-destructive py-4 px-4 mb-5">
-        <h1 className="text-3xl font-bold text-white">{t("title")}</h1>
+      <div className="flex justify-between w-full items-center bg-gradient-to-l from-slate-100 to-green-100 py-4 px-4 mb-5">
+        <h1 className="text-3xl font-bold">{t("title")}</h1>
         <Button
           variant="destructive"
           className="sm:mt-0 hidden md:flex rounded-full"
