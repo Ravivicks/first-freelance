@@ -46,7 +46,7 @@ const ProductCard = ({ product, isButton }: Props) => {
           )}
         >
           <Image
-            src={product?.image || ""}
+            src={product?.image || "/images/no-product.jpg"}
             alt={product?.title || "Product image"}
             fill
             className="object-cover rounded-lg"

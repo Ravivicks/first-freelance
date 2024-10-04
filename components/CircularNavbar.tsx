@@ -1,5 +1,4 @@
 "use client";
-import { PercentIcon } from "lucide-react";
 import React from "react";
 import Image from "next/image";
 import {
@@ -7,20 +6,33 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import { useRouter } from "next/navigation";
 
 const navItems = [
-  { title: "Siemens PLC", image: "/product-category/webp/1.webp", url: "/" },
-  { title: "Siemens Drive", image: "/product-category/webp/2.webp", url: "/" },
-  { title: "Siemens HMI", image: "/product-category/webp/3.webp", url: "/" },
+  {
+    title: "Siemens PLC",
+    image: "/product-category/webp/1.webp",
+    url: "/categorywise-product-details/Siemens PLC",
+  },
+  {
+    title: "Siemens Drive",
+    image: "/product-category/webp/2.webp",
+    url: "/categorywise-product-details/Siemens Drive",
+  },
+  {
+    title: "Siemens HMI",
+    image: "/product-category/webp/3.webp",
+    url: "/categorywise-product-details/Siemens HMI",
+  },
   {
     title: "Siemens Power Supply",
     image: "/product-category/webp/4.webp",
-    url: "/",
+    url: "/categorywise-product-details/Siemens Power Supply",
   },
   {
     title: "Diesel Gen. Controller",
     image: "/product-category/webp/5.webp",
-    url: "/",
+    url: "/categorywise-product-details/ Diesel Gen. Controller",
   },
   {
     title: "Schneider Pro-Face Telemecanique",
@@ -50,11 +62,15 @@ const navItems = [
 ];
 
 const CircularNavbar = () => {
+  const router = useRouter();
   return (
     <div className="flex flex-wrap justify-center gap-4 md:gap-8 items-center my-5 rounded-md py-5 bg-gradient-to-r from-slate-100 to-destructive/10 shadow-sm border">
       {navItems.map((item: any, index: any) => (
         <HoverCard key={index}>
-          <HoverCardTrigger>
+          <HoverCardTrigger
+            onClick={() => router.push(item.url)}
+            className="cursor-pointer"
+          >
             <div className="flex flex-col items-center gap-2 justify-center">
               <div className="bg-white p-2 rounded-md border-2 shadow-xl">
                 <Image

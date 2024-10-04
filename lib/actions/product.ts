@@ -36,7 +36,7 @@ export async function getAllProducts(
   page: number,
   pageSize: number,
   filters: Record<string, any> = {},
-  locale: string = "en" // Add locale as a parameter
+  locale: string = "en"
 ): Promise<{
   products: IProduct[];
   totalCount: number;
@@ -49,7 +49,7 @@ export async function getAllProducts(
 
     const filter: any = {};
 
-    // Construct filters for querying
+    // Construct query for search
     if (filters.query) {
       filter.$or = [
         { title: { $regex: filters.query, $options: "i" } },
@@ -57,10 +57,13 @@ export async function getAllProducts(
       ];
     }
 
+    // Handle filters like brand, subCategory, etc.
     Object.keys(filters).forEach((key) => {
       if (filters[key]) {
         if (key === "brand" && typeof filters[key] === "string") {
           filter[key] = { $in: filters[key].split(",") };
+        } else if (key === "subCategory" && typeof filters[key] === "string") {
+          filter[key] = filters[key]; // Ensure subCategory is used
         } else {
           filter[key] = filters[key];
         }
@@ -69,13 +72,13 @@ export async function getAllProducts(
 
     const skip = (page - 1) * pageSize;
 
-    // Fetch total count and products in a single query
+    // Fetch total count and products
     const [totalCount, products] = await Promise.all([
       Product.countDocuments(filter),
       Product.find(filter).skip(skip).limit(pageSize).lean(),
     ]);
 
-    // Fetch distinct brands, types, and categories in parallel
+    // Fetch distinct brands, types, and categories
     const [brands, types, categories] = await Promise.all([
       Product.distinct("brand"),
       Product.distinct("type"),

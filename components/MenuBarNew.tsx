@@ -47,7 +47,7 @@ const MenuBarNew = () => {
                 {t("secondMenuTitle")}
                 <LucideChevronDown size={15} className="ml-2 mt-1" />
               </MenubarTrigger>
-              <MenubarContent className="grid grid-cols-6 gap-1 p-2">
+              <MenubarContent className="grid grid-cols-5 gap-1 p-2">
                 {categories.map((subMenu, index) => (
                   <MenubarItem
                     key={index}

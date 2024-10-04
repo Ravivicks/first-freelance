@@ -65,11 +65,16 @@ const FeaturedCategory = () => {
             <div className="flex flex-col items-center justify-between text-center gap-4 relative">
               <div
                 className={cn(
-                  "relative mb-4 sm:mb-0 w-[150px]",
-                  item.title === "HMI" ||
-                    item.title === "Generator Turbine Solar Hybrid Controller"
-                    ? "h-[50px]"
-                    : "h-[30px]"
+                  "relative mb-4 sm:mb-0",
+                  // item.title === "HMI" ||
+                  //   item.title === "Generator Turbine Solar Hybrid Controller"
+                  //   ? "h-[50px]"
+                  //   : "h-[30px]",
+                  item.company === "DEIF"
+                    ? "w-[100px] h-[50px]"
+                    : item.company === "Pro-Face"
+                    ? "h-[70px] w-[70px]"
+                    : "w-[150px] h-[30px]"
                 )}
               >
                 <Image

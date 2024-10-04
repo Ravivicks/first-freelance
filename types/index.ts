@@ -30,6 +30,7 @@ export type IProduct = {
   discountRate: number;
   description: string;
   machineCode: string;
+  subCategory: string;
   type: string;
   productDescription: string;
   category: string;

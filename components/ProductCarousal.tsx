@@ -37,7 +37,7 @@ const ProductCarousel = () => {
   const t = useTranslations("productCarousel");
 
   useEffect(() => {
-    fetchData(key, 1, 20, { brand: "Telemecanique" }, locale as string);
+    fetchData(key, 1, 20, { brand: "Siemens" }, locale as string);
   }, [fetchData, key]);
 
   // Access products array using the key
@@ -63,18 +63,21 @@ const ProductCarousel = () => {
     >
       {productList.slice(0, 10).map((product) => (
         <Link href={`/products/${product._id}`} key={product._id}>
-          <Card className="border-none hover:shadow-lg transition-shadow duration-300">
-            <CardContent className="relative">
+          <Card className="border-none hover:shadow-lg transition-shadow duration-300 my-2">
+            <CardContent className="relative p-0">
               <div className="flex flex-col md:flex-row justify-center gap-2 items-center">
-                <Image
-                  src={product.image}
-                  height={200}
-                  width={150}
-                  alt={`Image of ${product.title}`}
-                  className="object-cover"
-                  unoptimized
-                  loading="lazy"
-                />
+                <div className="relative w-full h-[150px]">
+                  <Image
+                    src={product.image}
+                    // height={200}
+                    // width={150}
+                    fill
+                    alt={`Image of ${product.title}`}
+                    className="object-fit"
+                    unoptimized
+                    loading="lazy"
+                  />
+                </div>
                 <div>
                   <Badge variant="destructive">{t("badgeText")}</Badge>
                   <p className="font-bold text-xs line-clamp-2 overflow-hidden my-1">
