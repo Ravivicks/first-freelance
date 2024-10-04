@@ -199,7 +199,9 @@ const PartnerProductDetails = () => {
                       {filteredProducts.map((product, index) => (
                         <div
                           className={cn(
-                            filteredProducts.length >= 6 ? "w-[24%]" : "w-fit"
+                            filteredProducts.length >= 6
+                              ? "md:w-[24%] w-full"
+                              : "w-fit"
                           )}
                           key={index}
                         >
