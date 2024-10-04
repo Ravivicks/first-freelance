@@ -93,7 +93,7 @@ const CategoryProductDetails = () => {
       <Breadcrumbs slug={decodedSubCategory} />
 
       {/* Displaying the list of filtered products */}
-      {isLoading ? (
+      {isLoading && !isLoadingMore ? (
         <Loader />
       ) : (
         <div className="flex gap-3 flex-wrap mb-16">

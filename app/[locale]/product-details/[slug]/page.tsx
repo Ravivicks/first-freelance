@@ -41,7 +41,6 @@ const PartnerProductDetails = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  // Function to create a query string with new parameters
   const createQueryString = useCallback(
     (name: string, value: string) => {
       const params = new URLSearchParams(searchParams.toString());
@@ -94,7 +93,7 @@ const PartnerProductDetails = () => {
   }, [type, brand, category, fetchData, key]);
 
   const loadMore = async () => {
-    const current = currentPage[key] ?? 1; // Access the page number correctly
+    const current = currentPage[key] ?? 1;
 
     if (isLoadingMore || current >= totalPages) return;
 
@@ -102,7 +101,7 @@ const PartnerProductDetails = () => {
 
     try {
       await fetchData(key, current + 1, 20, { type, brand, category });
-      setPage(key, current + 1); // Pass both key and page number
+      setPage(key, current + 1);
     } catch (err) {
       console.error("Failed to load more products:", err);
     } finally {
@@ -113,7 +112,6 @@ const PartnerProductDetails = () => {
   useEffect(() => {
     if (!initialFetchCompleted) return;
 
-    // Check if the productList has more than 20 items
     if (productList.length <= 18) return;
 
     const observer = new IntersectionObserver(
@@ -144,114 +142,91 @@ const PartnerProductDetails = () => {
 
   return (
     <div>
-      <Breadcrumbs slug={decodedBrand} />
-      <div className="h-[250px] relative mb-10">
-        <Image src={"/images/b1.png"} alt="banner" fill />
-      </div>
-      <div className="flex flex-col md:flex-row gap-4">
-        <div className="pr-5 hidden md:block">
-          <h1 className="font-bold text-lg">Filter By</h1>
-          <Separator className="my-2" />
-          <CheckBoxLists />
+      {/* Show initial loading spinner */}
+      {isLoading && !isLoadingMore && !initialFetchCompleted ? (
+        <div className="text-center py-10 font-semibold">
+          Loading products...
         </div>
-        <div className="flex-1">
-          <div className="my-3">
-            <p className="font-semibold text-xs ml-1">{totalCount} Results</p>
+      ) : (
+        <>
+          <Breadcrumbs slug={decodedBrand} />
+          <div className="h-[250px] relative mb-10">
+            <Image src={"/images/b1.png"} alt="banner" fill />
           </div>
-          <Tabs value={activeTab} className="w-full">
-            <div className="flex justify-between mb-5">
-              <div className="flex gap-2">
-                <TabsList>
-                  {types.map((type) => (
-                    <TabsTrigger
-                      key={type.value}
-                      value={type.value}
-                      onClick={() => {
-                        setActiveTab(type.value);
-                        router.push(
-                          pathname + "?" + createQueryString("type", type.value)
-                        );
-                      }}
-                    >
-                      {type.label}
-                    </TabsTrigger>
-                  ))}
-                </TabsList>
-                {/* <div className="hidden md:block">
-                  <MultiSelect
-                    options={conditionList}
-                    onValueChange={setSelectedCondition}
-                    defaultValue={selectedConditions}
-                    placeholder="Conditions"
-                    animation={2}
-                    maxCount={3}
-                  />
-                </div>
-                <div className="hidden md:block">
-                  <MultiSelect
-                    options={deliveryOptionsList}
-                    onValueChange={setSelectedDeliveryOption}
-                    defaultValue={selectedDeliveryOption}
-                    placeholder="Delivery Options"
-                    animation={2}
-                    maxCount={3}
-                  />
-                </div> */}
+          <div className="flex flex-col md:flex-row gap-4">
+            <div className="pr-5 hidden md:block">
+              <h1 className="font-bold text-lg">Filter By</h1>
+              <Separator className="my-2" />
+              <CheckBoxLists />
+            </div>
+            <div className="flex-1">
+              <div className="my-3">
+                <p className="font-semibold text-xs ml-1">
+                  {totalCount} Results
+                </p>
               </div>
-              <Button onClick={onOpen} className="block md:hidden">
-                <Filter />
-              </Button>
-              {/* <div className="hidden md:block">
-                <Select>
-                  <SelectTrigger className="w-[180px]">
-                    <SelectValue placeholder="Sort by" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="best-match">Best Match</SelectItem>
-                    <SelectItem value="ending-soon">
-                      Time: Ending soon
-                    </SelectItem>
-                    <SelectItem value="newly-listed">
-                      Time: Newly Listed
-                    </SelectItem>
-                  </SelectContent>
-                </Select>
-              </div> */}
-            </div>
-
-            {types.map((type) => (
-              <TabsContent key={type.value} value={type.value}>
-                <div className="flex gap-3 flex-wrap mb-16">
-                  {filteredProducts.map((product, index) => (
-                    <div
-                      className="flex-none w-full sm:w-1/2 md:w-1/3 lg:w-1/5 flex-grow h-auto"
-                      key={index}
-                    >
-                      <ProductCard product={product} />
-                    </div>
-                  ))}
-                  {filteredProducts.length === 0 && (
-                    <div className="mt-[50px] max-w-2xl mx-auto">
-                      <NotFound
-                        type="product"
-                        returnLink="/"
-                        returnLinkText="Back To Homepage"
-                      />
-                    </div>
-                  )}
+              <Tabs value={activeTab} className="w-full">
+                <div className="flex justify-between mb-5">
+                  <div className="flex gap-2">
+                    <TabsList>
+                      {types.map((type) => (
+                        <TabsTrigger
+                          key={type.value}
+                          value={type.value}
+                          onClick={() => {
+                            setActiveTab(type.value);
+                            router.push(
+                              pathname +
+                                "?" +
+                                createQueryString("type", type.value)
+                            );
+                          }}
+                        >
+                          {type.label}
+                        </TabsTrigger>
+                      ))}
+                    </TabsList>
+                  </div>
+                  <Button onClick={onOpen} className="block md:hidden">
+                    <Filter />
+                  </Button>
                 </div>
-              </TabsContent>
-            ))}
-          </Tabs>
-          {/* Sentinel Element */}
-          <div ref={sentinelRef} style={{ height: "20px" }} />
-          {isLoadingMore && (
-            <div className="text-center font-semibold">
-              Loading more products...
+
+                {types.map((type) => (
+                  <TabsContent key={type.value} value={type.value}>
+                    <div className="flex gap-3 flex-wrap mb-16">
+                      {filteredProducts.map((product, index) => (
+                        <div
+                          className="flex-none w-full sm:w-1/2 md:w-1/3 lg:w-1/5 flex-grow h-auto"
+                          key={index}
+                        >
+                          <ProductCard product={product} />
+                        </div>
+                      ))}
+                      {filteredProducts.length === 0 && (
+                        <div className="mt-[50px] max-w-2xl mx-auto">
+                          <NotFound
+                            type="product"
+                            returnLink="/"
+                            returnLinkText="Back To Homepage"
+                          />
+                        </div>
+                      )}
+                    </div>
+                  </TabsContent>
+                ))}
+              </Tabs>
+              {/* Sentinel Element */}
+              <div ref={sentinelRef} style={{ height: "20px" }} />
+              {isLoadingMore && (
+                <div className="text-center font-semibold">
+                  Loading more products...
+                </div>
+              )}
             </div>
-          )}
-        </div>
-      </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
