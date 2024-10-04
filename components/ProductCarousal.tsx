@@ -37,7 +37,7 @@ const ProductCarousel = () => {
   const t = useTranslations("productCarousel");
 
   useEffect(() => {
-    fetchData(key, 1, 20, { brand: "Siemens" }, locale as string);
+    fetchData(key, 1, 20, { type: "best-choice" }, locale as string);
   }, [fetchData, key]);
 
   // Access products array using the key
@@ -61,7 +61,7 @@ const ProductCarousel = () => {
       centerMode
       className="mb-8 p-1 shadow-lg rounded-md border"
     >
-      {productList.slice(0, 10).map((product) => (
+      {productList?.map((product) => (
         <Link href={`/products/${product._id}`} key={product._id}>
           <Card className="border-none hover:shadow-lg transition-shadow duration-300 my-2">
             <CardContent className="relative p-0">

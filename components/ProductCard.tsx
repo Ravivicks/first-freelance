@@ -42,14 +42,14 @@ const ProductCard = ({ product, isButton }: Props) => {
         <div
           className={cn(
             "group relative mb-5  w-full",
-            isButton ? "h-[150px]" : "h-[220px]"
+            isButton ? "h-[150px]" : "h-[110px]"
           )}
         >
           <Image
             src={product?.image || "/images/no-product.jpg"}
             alt={product?.title || "Product image"}
             fill
-            className="object-cover rounded-lg"
+            className="object-contain rounded-lg"
             unoptimized
           />
         </div>

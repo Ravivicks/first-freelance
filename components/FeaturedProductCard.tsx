@@ -40,7 +40,7 @@ const FeaturedProductCard = ({ product, isBestDeal }: Props) => {
     <Card
       className={cn(
         "group relative w-full sm:w-[45%] md:w-[30%] border rounded-xl p-3 overflow-hidden transition-shadow duration-300 hover:shadow-lg flex-grow",
-        isBestDeal ? "lg:w-[10%]" : "lg:w-[18%]"
+        isBestDeal ? "lg:w-[10%]" : "lg:w-[15%]"
       )}
       onClick={handleCardClick}
     >
@@ -48,14 +48,14 @@ const FeaturedProductCard = ({ product, isBestDeal }: Props) => {
         <div
           className={cn(
             "relative mb-3",
-            isBestDeal ? "h-[130px]" : "h-[220px]"
+            isBestDeal ? "h-[130px]" : "h-[130px]"
           )}
         >
           <Image
             src={product?.image}
             alt={product?.title}
             fill
-            className="object-fill p-3"
+            className="object-contain p-3"
             unoptimized
           />
         </div>

@@ -68,10 +68,10 @@ export default function Component() {
         <div className="md:col-span-2 space-y-6">
           {/* Delivery Address */}
           <Card>
-            <CardHeader className="bg-gradient-to-r from-slate-100 to-destructive/10 py-4">
+            <CardHeader className="bg-gradient-to-l from-slate-100 to-destructive py-4">
               <div className="flex items-center gap-2">
-                <MapPin className="text-destructive" />
-                <h2 className="text-lg font-semibold ">
+                <MapPin className="text-white" />
+                <h2 className="text-lg font-semibold text-white">
                   {t("titles.deliveryAddress")}
                 </h2>
               </div>
@@ -150,10 +150,10 @@ export default function Component() {
 
           {/* Order Summary */}
           <Card>
-            <CardHeader className="bg-gradient-to-r from-slate-100 to-destructive/10 py-4">
+            <CardHeader className="bg-gradient-to-l from-slate-100 to-destructive py-4">
               <div className="flex items-center gap-2">
-                <ShoppingBag className="text-destructive" />
-                <h2 className="text-lg font-semibold">
+                <ShoppingBag className="text-white" />
+                <h2 className="text-lg font-semibold text-white">
                   {t("titles.orderSummary")}
                 </h2>
               </div>

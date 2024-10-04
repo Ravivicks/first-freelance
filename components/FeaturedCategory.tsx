@@ -41,7 +41,7 @@ const FeaturedCategory = () => {
   const t = useTranslations("featuredCategory");
   return (
     <Card className="mb-16">
-      <h1 className="text-3xl font-bold mb-5 bg-gradient-to-r from-slate-100 to-destructive/10 py-4 px-4">
+      <h1 className="text-3xl text-white font-bold mb-5 bg-gradient-to-l from-slate-100 to-destructive py-4 px-4">
         {t("title")}
       </h1>
       {/* {isLoading ? (

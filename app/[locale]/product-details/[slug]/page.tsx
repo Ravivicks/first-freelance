@@ -23,6 +23,7 @@ import { useFilterOpen } from "@/hooks/use-filter-open";
 import { useProductsStore } from "@/stores/useProductStore";
 import { CheckBoxLists } from "@/components/CheckBoxLists";
 import NotFound from "@/components/NoProduct";
+import { cn } from "@/lib/utils";
 
 const conditionList = [
   { value: "any-condition", label: "Any Condition" },
@@ -194,10 +195,12 @@ const PartnerProductDetails = () => {
 
                 {types.map((type) => (
                   <TabsContent key={type.value} value={type.value}>
-                    <div className="flex gap-3 flex-wrap mb-16">
+                    <div className="flex gap-3 justify-start items-start mb-16 flex-wrap">
                       {filteredProducts.map((product, index) => (
                         <div
-                          className="flex-none w-full sm:w-1/2 md:w-1/3 lg:w-1/5 flex-grow h-auto"
+                          className={cn(
+                            filteredProducts.length >= 6 ? "w-[24%]" : "w-fit"
+                          )}
                           key={index}
                         >
                           <ProductCard product={product} />

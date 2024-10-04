@@ -42,10 +42,10 @@ export default function PaymentAndShipping({
 
   return (
     <Card className="w-full max-w-md">
-      <CardHeader className="bg-gradient-to-r from-slate-100 to-destructive/10 py-4">
+      <CardHeader className="bg-gradient-to-l from-slate-100 to-destructive py-4">
         <div className="flex items-center gap-2">
-          <IndianRupee className="text-destructive" />
-          <h2 className="text-lg font-semibold">
+          <IndianRupee className="text-white" />
+          <h2 className="text-lg font-semibold text-white">
             {t("paymentAndShipping.title")}
           </h2>
         </div>
