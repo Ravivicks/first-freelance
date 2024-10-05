@@ -36,7 +36,6 @@ const navItems = [
 
 const FeaturedCategory = () => {
   const { data, isLoading } = useGetBanners("Featured-category");
-  console.log(data);
 
   const t = useTranslations("featuredCategory");
   return (

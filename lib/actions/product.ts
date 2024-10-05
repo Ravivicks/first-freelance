@@ -1,11 +1,14 @@
 "use server";
 
-import { EnquireProps, IPartnerBanner, IProduct } from "@/types";
+import { IPartnerBanner, IProduct } from "@/types";
 import Product from "../models/product.model";
 import { connectToDB } from "../mongoose";
-import Enquiry from "../models/enquiry.model";
 import PartnerBanner from "../models/banner.model";
-import axios from "axios";
+import Esproduct from "../models/esproduct.model";
+import Frproduct from "../models/frproduct.model";
+import Itproduct from "../models/itproduct.model";
+import Koproduct from "../models/koproduct.model";
+import Ptproduct from "../models/ptproduct.model";
 
 const CHUNK_SIZE = 500; // Adjust based on performance testing
 
@@ -47,6 +50,20 @@ export async function getAllProducts(
   try {
     await connectToDB();
 
+    // Choose the model based on the locale
+    const ProductModel =
+      locale === "es"
+        ? Esproduct
+        : locale === "fr"
+        ? Frproduct
+        : locale === "it"
+        ? Itproduct
+        : locale === "ko"
+        ? Koproduct
+        : locale === "pt"
+        ? Ptproduct
+        : Product;
+
     const filter: any = {};
 
     // Construct query for search
@@ -74,15 +91,15 @@ export async function getAllProducts(
 
     // Fetch total count and products
     const [totalCount, products] = await Promise.all([
-      Product.countDocuments(filter),
-      Product.find(filter).skip(skip).limit(pageSize).lean(),
+      ProductModel.countDocuments(filter),
+      ProductModel.find(filter).skip(skip).limit(pageSize).lean(),
     ]);
 
     // Fetch distinct brands, types, and categories
     const [brands, types, categories] = await Promise.all([
-      Product.distinct("brand"),
-      Product.distinct("type"),
-      Product.distinct("category"),
+      ProductModel.distinct("brand"),
+      ProductModel.distinct("type"),
+      ProductModel.distinct("category"),
     ]).then(([brands, types, categories]) => [
       brands.map((brand) => ({ label: brand, value: brand })),
       types.map((type) => ({ label: type, value: type })),
@@ -121,8 +138,21 @@ export async function getProductById(
   try {
     await connectToDB();
 
+    const ProductModel =
+      locale === "es"
+        ? Esproduct
+        : locale === "fr"
+        ? Frproduct
+        : locale === "it"
+        ? Itproduct
+        : locale === "ko"
+        ? Koproduct
+        : locale === "pt"
+        ? Ptproduct
+        : Product;
+
     // Fetch the product
-    const product = await Product.findOne({ _id: productId }).lean();
+    const product = await ProductModel.findOne({ _id: productId }).lean();
     if (!product) return null;
 
     return JSON.parse(JSON.stringify(product));

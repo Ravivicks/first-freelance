@@ -37,7 +37,7 @@ const deliveryOptionsList = [
 ];
 
 const PartnerProductDetails = () => {
-  const { slug } = useParams();
+  const { slug, locale } = useParams();
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -84,14 +84,20 @@ const PartnerProductDetails = () => {
   useEffect(() => {
     const initializeTabsAndFetchData = async () => {
       try {
-        await fetchData(key, 1, 20, { type, brand, category });
+        await fetchData(
+          key,
+          1,
+          20,
+          { type, brand, category },
+          locale as string
+        );
         setInitialFetchCompleted(true);
       } catch (error) {
         console.error("Error fetching data and initializing tabs:", error);
       }
     };
     initializeTabsAndFetchData();
-  }, [type, brand, category, fetchData, key]);
+  }, [type, brand, category, fetchData, key, locale]);
 
   const loadMore = async () => {
     const current = currentPage[key] ?? 1;
@@ -101,7 +107,13 @@ const PartnerProductDetails = () => {
     setIsLoadingMore(true);
 
     try {
-      await fetchData(key, current + 1, 20, { type, brand, category });
+      await fetchData(
+        key,
+        current + 1,
+        20,
+        { type, brand, category },
+        locale as string
+      );
       setPage(key, current + 1);
     } catch (err) {
       console.error("Failed to load more products:", err);

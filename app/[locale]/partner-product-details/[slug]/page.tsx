@@ -10,7 +10,7 @@ import NoProductFound from "@/components/NoProduct";
 import { useGetBanners } from "@/features/banner/use-get-banners";
 
 const PartnerProductDetails = () => {
-  const { slug } = useParams();
+  const { slug, locale } = useParams();
   const decodedBrand = slug ? decodeURIComponent(slug as string) : undefined;
 
   const {
@@ -28,9 +28,9 @@ const PartnerProductDetails = () => {
 
   useEffect(() => {
     // Fetch initial products when brand slug changes or on first render
-    fetchData(key, 1, 20, { brand: decodedBrand });
+    fetchData(key, 1, 20, { brand: decodedBrand }, locale as string);
     setPage(key, 1); // Reset page to 1 on slug change
-  }, [slug]);
+  }, [slug, locale]);
 
   // Fetching banner data based on brand
   const { data, isLoading: bannerLoading } = useGetBanners("partner-banner");
@@ -47,7 +47,13 @@ const PartnerProductDetails = () => {
 
     setIsLoadingMore(true);
     try {
-      await fetchData(key, current + 1, 20, { brand: decodedBrand });
+      await fetchData(
+        key,
+        current + 1,
+        20,
+        { brand: decodedBrand },
+        locale as string
+      );
       setPage(key, current + 1);
     } catch (err) {
       console.error("Failed to load more products:", err);

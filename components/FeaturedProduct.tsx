@@ -15,7 +15,7 @@ const FeaturedProduct = () => {
 
   useEffect(() => {
     fetchData(key, 1, 24, { brand: "Schneider Electric" }, locale as string);
-  }, [fetchData, key]);
+  }, [fetchData, key, locale]);
 
   if (isLoading) {
     return <div>Loading...</div>;

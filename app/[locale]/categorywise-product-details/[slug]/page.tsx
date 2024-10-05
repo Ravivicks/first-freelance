@@ -10,7 +10,7 @@ import Loader from "@/components/Loader";
 import NoProductFound from "@/components/NoProduct";
 
 const CategoryProductDetails = () => {
-  const { slug } = useParams();
+  const { slug, locale } = useParams();
 
   // Decoding the slug to get subcategory for filtering
   const decodedSubCategory = slug
@@ -37,10 +37,16 @@ const CategoryProductDetails = () => {
   // Fetch data when the subcategory changes or on initial render
   useEffect(() => {
     if (decodedSubCategory) {
-      fetchData(key, 1, 20, { subCategory: decodedSubCategory }); // Fetching by subcategory
+      fetchData(
+        key,
+        1,
+        20,
+        { subCategory: decodedSubCategory },
+        locale as string
+      ); // Fetching by subcategory
       setPage(key, 1); // Reset page to 1 for new subcategory
     }
-  }, [slug]);
+  }, [slug, locale]);
 
   // Infinite scroll - Load more products as user scrolls
   const loadMore = async () => {
@@ -50,9 +56,15 @@ const CategoryProductDetails = () => {
     setIsLoadingMore(true);
 
     try {
-      await fetchData(key, current + 1, 20, {
-        subCategory: decodedSubCategory,
-      }); // Load more based on subcategory
+      await fetchData(
+        key,
+        current + 1,
+        20,
+        {
+          subCategory: decodedSubCategory,
+        },
+        locale as string
+      ); // Load more based on subcategory
       setPage(key, current + 1);
     } catch (err) {
       console.error("Failed to load more products:", err);

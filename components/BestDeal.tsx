@@ -16,7 +16,7 @@ const BestDeal = () => {
   const t = useTranslations("bestDeal");
   useEffect(() => {
     fetchData(key, 1, 20, { type: "top-selling" }, locale as string);
-  }, [fetchData, key]);
+  }, [fetchData, key, locale]);
 
   const productList = products[key] || [];
 

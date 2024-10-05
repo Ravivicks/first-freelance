@@ -21,7 +21,7 @@ export default function SingleProductView() {
 
   React.useEffect(() => {
     fetchData(key, 1, 1, { type: "best-deal" }, locale as string);
-  }, [fetchData, key]);
+  }, [fetchData, key, locale]);
 
   const product = products[key]?.[0];
   const sliderImages = product?.sliderImages || [];

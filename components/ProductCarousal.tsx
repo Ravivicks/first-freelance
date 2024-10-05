@@ -38,7 +38,7 @@ const ProductCarousel = () => {
 
   useEffect(() => {
     fetchData(key, 1, 20, { type: "best-choice" }, locale as string);
-  }, [fetchData, key]);
+  }, [fetchData, key, locale]);
 
   // Access products array using the key
   const productList = products[key] || [];
