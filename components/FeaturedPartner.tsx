@@ -48,7 +48,7 @@ const FeaturedPartner = () => {
                   src={item.image}
                   alt={item.title}
                   fill
-                  className="object-fill"
+                  className="object-contain"
                   unoptimized
                 />
               </div>

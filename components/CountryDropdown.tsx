@@ -6,7 +6,7 @@ import ReactCountryFlag from "react-country-flag";
 
 const localeOptions = [
   { value: "es", label: "Spanish", flag: "ES" }, // "es" for Spanish (flag is Spain)
-  { value: "ca", label: "Catalan", flag: "ES" }, // "ca" for Catalan (flag is Spain)
+  { value: "ca", label: "Catalan", flag: "CA" }, // "ca" for Catalan (flag is Spain)
   { value: "fr", label: "French", flag: "FR" }, // "fr" for French
   { value: "it", label: "Italian", flag: "IT" }, // "it" for Italian
   { value: "ko", label: "Korean", flag: "KR" }, // "ko" for Korean

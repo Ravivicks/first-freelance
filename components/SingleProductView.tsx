@@ -13,6 +13,7 @@ import SingleProductDetails from "./SingleProductDetails";
 import { IProduct } from "@/types";
 import { useProductsStore } from "@/stores/useProductStore";
 import { useParams } from "next/navigation";
+import Loader from "./Loader";
 
 export default function SingleProductView() {
   const { locale } = useParams();
@@ -80,7 +81,11 @@ export default function SingleProductView() {
           </div>
         )}
         <div className="ml-10 w-full md:w-1/2 pr-6">
-          <SingleProductDetails product={product as IProduct} />
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <SingleProductDetails product={product as IProduct} />
+          )}
         </div>
       </div>
     </>

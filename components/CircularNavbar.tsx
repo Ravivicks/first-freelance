@@ -37,7 +37,7 @@ const navItems = [
   {
     title: "Schneider Pro-Face Telemecanique",
     image: "/product-category/webp/6.webp",
-    url: "/",
+    url: "/product-details/Multiple Brand?type=all&brand=Proface%2CSiemens%2CTelemecanique",
   },
   {
     title: "Certification and Performance Tests",
@@ -52,7 +52,7 @@ const navItems = [
   {
     title: "Other Automation Products",
     image: "/product-category/webp/9.webp",
-    url: "/",
+    url: "/categorywise-product-details/Other",
   },
   // {
   //   title: "Automation Consultancy",
