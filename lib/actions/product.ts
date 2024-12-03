@@ -79,6 +79,8 @@ export async function getAllProducts(
       if (filters[key]) {
         if (key === "brand" && typeof filters[key] === "string") {
           filter[key] = { $in: filters[key].split(",") };
+        } else if (key === "category" && typeof filters[key] === "string") {
+          filter[key] = { $in: filters[key].split(",") };
         } else if (key === "subCategory" && typeof filters[key] === "string") {
           filter[key] = filters[key]; // Ensure subCategory is used
         } else {

@@ -9,7 +9,6 @@ import { Checkbox } from "@/components/ui/checkbox";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -46,16 +45,11 @@ export function CheckBoxLists() {
   });
 
   useEffect(() => {
-    if (brand) {
-      form.setValue("brands", Array.isArray(brand) ? brand : [brand]);
-    }
+    const brandValues = brand ? brand.split(",") : [];
+    const categoryValues = category ? category.split(",") : [];
 
-    if (category) {
-      form.setValue(
-        "categories",
-        Array.isArray(category) ? category : [category]
-      );
-    }
+    form.setValue("brands", brandValues);
+    form.setValue("categories", categoryValues);
   }, [brand, category, form]);
 
   const [showMoreBrands, setShowMoreBrands] = useState(false);
@@ -73,22 +67,34 @@ export function CheckBoxLists() {
     onClose();
   }
 
+  function clearFilters() {
+    form.reset(); // Reset form values
+    router.push("/en/product-details/Siemens?type=all"); // Update query params to remove filters
+    onClose();
+  }
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 mb-16">
+        {/* Brands */}
         <FormField
           control={form.control}
           name="brands"
           render={() => (
             <FormItem>
-              <div className="mb-4">
-                <FormLabel className="text-muted-foreground font-bold">
-                  {t("formLabels.brands")}
-                </FormLabel>
-              </div>
-              {brands
+              <FormLabel className="text-muted-foreground font-bold">
+                {t("formLabels.brands")}
+              </FormLabel>
+              {[
+                ...brands.filter((item) =>
+                  form.getValues("brands").includes(item.value)
+                ),
+                ...brands.filter(
+                  (item) => !form.getValues("brands").includes(item.value)
+                ),
+              ]
                 .slice(0, showMoreBrands ? brands.length : 10)
-                .map((item, index: number) => (
+                .map((item, index) => (
                   <FormField
                     key={index}
                     control={form.control}
@@ -118,37 +124,39 @@ export function CheckBoxLists() {
               {brands.length > 10 && (
                 <Button
                   type="button"
-                  className="p-0 text-destructive"
                   variant="link"
+                  className="p-0 text-destructive"
                   onClick={() => setShowMoreBrands(!showMoreBrands)}
                 >
                   {showMoreBrands
                     ? t("buttonLabels.showLess")
                     : t("buttonLabels.showMore")}
-                  {!showMoreBrands ? (
-                    <ChevronDown className="size-4 ml-1" />
-                  ) : (
-                    <ChevronUp className="size-4 ml-1" />
-                  )}
+                  {showMoreBrands ? <ChevronUp /> : <ChevronDown />}
                 </Button>
               )}
-              <FormMessage />
             </FormItem>
           )}
         />
+
+        {/* Categories */}
         <FormField
           control={form.control}
           name="categories"
           render={() => (
             <FormItem>
-              <div className="mb-4">
-                <FormLabel className="text-muted-foreground font-bold">
-                  {t("formLabels.categories")}
-                </FormLabel>
-              </div>
-              {categories
+              <FormLabel className="text-muted-foreground font-bold">
+                {t("formLabels.categories")}
+              </FormLabel>
+              {[
+                ...categories.filter((item) =>
+                  form.getValues("categories").includes(item.value)
+                ),
+                ...categories.filter(
+                  (item) => !form.getValues("categories").includes(item.value)
+                ),
+              ]
                 .slice(0, showMoreCategories ? categories.length : 10)
-                .map((item, index: number) => (
+                .map((item, index) => (
                   <FormField
                     key={index}
                     control={form.control}
@@ -178,27 +186,33 @@ export function CheckBoxLists() {
               {categories.length > 10 && (
                 <Button
                   type="button"
-                  className="p-0 text-destructive"
                   variant="link"
+                  className="p-0 text-destructive"
                   onClick={() => setShowMoreCategories(!showMoreCategories)}
                 >
                   {showMoreCategories
                     ? t("buttonLabels.showLess")
                     : t("buttonLabels.showMore")}
-                  {!showMoreCategories ? (
-                    <ChevronDown className="size-4 ml-1" />
-                  ) : (
-                    <ChevronUp className="size-4 ml-1" />
-                  )}
+                  {showMoreCategories ? <ChevronUp /> : <ChevronDown />}
                 </Button>
               )}
-              <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit" variant="destructive" className="w-full">
-          {t("buttonLabels.applyFilter")}
-        </Button>
+
+        <div className="flex space-x-4">
+          <Button type="submit" variant="destructive" className="w-full">
+            {t("buttonLabels.applyFilter")}
+          </Button>
+          <Button
+            type="button"
+            variant="secondary"
+            className="w-full"
+            onClick={clearFilters}
+          >
+            Clear
+          </Button>
+        </div>
       </form>
     </Form>
   );
